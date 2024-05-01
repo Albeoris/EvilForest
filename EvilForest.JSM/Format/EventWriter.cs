@@ -61,9 +61,8 @@ namespace FF8.JSM.Format
             _eventVariables.Clear();
         }
 
-        public void RememberObject(EVObject evObject, String typeName, String fileName, String result)
+        public void RememberObject(EVObject evObject, String typeName, String fileName, String text)
         {
-            throw new NotImplementedException();
         }
     }
 }
