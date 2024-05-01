@@ -1,0 +1,1586 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Letter 00\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Rally-Kupo!\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0046",
+    text: "{W190H4}{UpperRight}{Widths 0,0,6,0,-1,0,190,6,1,-1,0,167,6,1,-1}{Text 0,0}\n“Thanks for delivering mail from {Text 0,1}!\n {Text 0,1} just moved to a new village!\n I was worried about him!  Kupo!”"
+  },
+  {
+    id: "0047",
+    text: "{W197H13}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nIt’s been six months since I started\nliving in Conde Petie...\nThe food here is great, and the\npeople are very nice.  Kupo.\n\nBut... But... The only thing I can’t\nget used to is the “Rally-ho!”\n\nI keep saying “Rally-kupo!”"
+  },
+  {
+    id: "0048",
+    text: "{W188H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Village life sounds hard.  Kupo.”"
+  },
+  {
+    id: "0049",
+    text: "{W100H3}Stiltzkin\n“Conde Petie is a\n beautiful place!”"
+  },
+  {
+    id: "0050",
+    text: "{W146H6}{PreChoose 2,1}{Widths 0,146,14,1,-1,0,58,14,2,14,3,-1}{Instantly}Stiltzkin\n“You wanna buy a set of {Item 1},\n {Item 2}, and {Item 3} for\n {Yellow}{Variable 0} Gil{White}?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0051",
+    text: "{W170H4}{Widths 0,48,14,1,14,2,14,3,-1}{Instantly}Stiltzkin\n“I thought I’d sell you a set of\n {Item 1}, {Item 2}, and {Item 3},\n but you already have them.”"
+  },
+  {
+    id: "0052",
+    text: "{W210H2}{Instantly}Stiltzkin\n“Are you trying to shortchange me?”"
+  },
+  {
+    id: "0053",
+    text: "{W188H3}Stiltzkin\n“Thanks, buddy.  With this money,\n I can continue my journey.”"
+  },
+  {
+    id: "0054",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0055",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0056",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0057",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0058",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0059",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0060",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0061",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0062",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0063",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0064",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0065",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0066",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0067",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0068",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0069",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0070",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0071",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0072",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0073",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0074",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0075",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0076",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0077",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0078",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0079",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0080",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0081",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0082",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0083",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0084",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0085",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0086",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,106,17,-1,2,71,21,-1,3,127,21,-1,4,84,18,-1,5,99,-1}{Instantly}Select event\n{Choice}{Vivi} and the Couple\n{Tab}{Quina} Accused\n{Tab}{Quina} Can’t Communicate\n{Tab}{Dagger} and William\n{Tab}Hungry Bryan\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}dummy\n{Tab}Cancel"
+  },
+  {
+    id: "0087",
+    text: "{W87H1}{Widths 0,87,17,-1}{Instantly}{Center 87,17}{Vivi} and the Couple"
+  },
+  {
+    id: "0088",
+    text: "{W51H1}{Widths 0,51,21,-1}{Instantly}{Center 51,21}{Quina} Accused"
+  },
+  {
+    id: "0089",
+    text: "{W106H1}{Widths 0,106,21,-1}{Instantly}{Center 106,21}{Quina} Can’t Communicate"
+  },
+  {
+    id: "0090",
+    text: "{W62H1}{Widths 0,62,18,-1}{Instantly}{Center 62,18}{Dagger} and William"
+  },
+  {
+    id: "0091",
+    text: "{W76H1}{Instantly}{Center 76}Hungry Bryan"
+  },
+  {
+    id: "0092",
+    text: "{W20H1}{UpperLeftForce}{NoFocus} {Speed 2}...{Speed -1} {Time -1}"
+  },
+  {
+    id: "0093",
+    text: "{W20H1}{UpperRightForce}{NoFocus} {Speed 2}...{Speed -1} {Time -1}"
+  },
+  {
+    id: "0094",
+    text: "{W52H1}{NoFocus}Rally-ho!{Time 30}"
+  },
+  {
+    id: "0095",
+    text: "{W23H1} !!! {Time 30}"
+  },
+  {
+    id: "0096",
+    text: "{W26H1} ???"
+  },
+  {
+    id: "0097",
+    text: "{W52H1}Rally-ho!"
+  },
+  {
+    id: "0098",
+    text: "{W20H1}{UpperRightForce} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0099",
+    text: "{W20H1}{LowerRightForce} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0100",
+    text: "{W20H1}{LowerLeftForce} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0101",
+    text: "{W20H1} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0102",
+    text: "{W194H3}{Vivi}\n“We came all this way, and there’s\n still no Mist at all{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0103",
+    text: "{W197H3}{Zidane}\n“Yeah, and what a weird-shaped{Speed 2}...{Speed -1}\n village?  What is that thing?”"
+  },
+  {
+    id: "0104",
+    text: "{W125H3}{Dagger}\n“Maybe it’s a\n temple of some kind.”"
+  },
+  {
+    id: "0105",
+    text: "{W178H3}{Quina}\n“Is very delicious shape.\n Inside might have fine cuisine!”"
+  },
+  {
+    id: "0106",
+    text: "{W161H3}{Zidane}\n“Geez{Speed 2}...{Speed -1} All s/he ever thinks\n about is food.”"
+  },
+  {
+    id: "0107",
+    text: "{W135H3}{Dagger}\n“Well, all you ever think\n about is girls{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0108",
+    text: "{W183H3}{Zidane}\n“Uh, that’s right!  My mind\n is filled with thoughts of{Speed 2}...{Speed -1}you!”"
+  },
+  {
+    id: "0109",
+    text: "{W171H2}{Zidane}\n“Maybe I’m trying too hard{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0110",
+    text: "{W270H4}{Zidane}\n“It sure is a funky shape.\n Like it’s made of roots grown over the stone{Speed 2}...{Speed -1}\n Or stones pushed in between the roots{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0111",
+    text: "{W204H4}{Zidane}\n“I wonder how they made the roof{Speed 2}...{Speed -1}\n Somebody really had to make an\n effort to try and live there.”"
+  },
+  {
+    id: "0112",
+    text: "{W108H3}{LowerRightForce}{Zidane}\n“Wh-What’s up with\n these little guys?”"
+  },
+  {
+    id: "0113",
+    text: "{W104H2}{Dagger}\n“Wr-{Wait 3}Wraly-ho{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0114",
+    text: "{W116H2}{Vivi}\n“Rh-{Wait 3}Rhallie-who{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0115",
+    text: "{W95H2}{Zidane}\n“Hey, hold up{Speed 2}...{Speed -1}”{Time 45}"
+  },
+  {
+    id: "0116",
+    text: "{W92H2}{LowerRightForce}{Zidane}\n“Oh, come on{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0117",
+    text: "{W193H2}Villager\n“Rally-ho’s oor sacred greetin’!”"
+  },
+  {
+    id: "0118",
+    text: "{W181H4}Villager\n“If ye dinnae say Rally-Ho, then\n ye cannae enter Conde Petie,\n hametoon o’ the dwarves!”"
+  },
+  {
+    id: "0119",
+    text: "{W184H2}{LowerRightForce}{LowerRightForce}{Flash}{Zidane}\n“Now, wait just a minute here{Speed 2}...{Speed -1}”{Time 45}"
+  },
+  {
+    id: "0120",
+    text: "{W85H2}{LowerRightForce}{Zidane}\n“{Speed 2}...{Speed -1}{Wait 10}Rally-ho{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0121",
+    text: "{W147H2}Dwarf\n“Rally-ho!  Ye can pass!”"
+  },
+  {
+    id: "0122",
+    text: "{W253H3}{Signal 0}Harold Pathknower\n“Ye have tae raise yir hand up an’\n open yir mooth wide when ye say{Signal 1} Rally-Ho!”"
+  },
+  {
+    id: "0123",
+    text: "{W271H4}Harold Pathknower\n“The {Cyan}Sootheast Forest{White} o’ the Pyntie-Hets isnae\n far, but ye’ll have tae go aroon’ the cliff\n first, an’ then head tae the east!”"
+  },
+  {
+    id: "0124",
+    text: "{W178H2}Harold Pathknower\n“Did ye meet the Pyntie-Hets?”"
+  },
+  {
+    id: "0125",
+    text: "{W141H2}{UpperLeftForce}Jenny Greeter\n“Welcome tae oor toon!”"
+  },
+  {
+    id: "0126",
+    text: "{W150H3}{Zidane}\n“We came to this continent\n looking for someone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0127",
+    text: "{W116H3}{UpperLeftForce}Jenny Greeter\n“We dinnae get many\n ootsiders here!”"
+  },
+  {
+    id: "0128",
+    text: "{W254H3}{UpperLeftForce}Jenny Greeter\n“Oh, except the Pyntie-Hets.  They come\n oot from the {Cyan}Sootheast Forest{White} all the time!”"
+  },
+  {
+    id: "0129",
+    text: "{W198H3}{UpperLeftForce}Jenny Greeter\n“A long tyme ago, a man once tried\n tae head oot east o’ here.”"
+  },
+  {
+    id: "0130",
+    text: "{W233H3}{UpperLeftForce}Jenny Greeter\n“But he hadnae undergone the ceremony,\n so he couldnae pass through.”"
+  },
+  {
+    id: "0131",
+    text: "{W204H3}Jenny Greeter\n“Aha!  Don’t think I didnae see that!\n Ah ken ye’re checkin’ me oot!”"
+  },
+  {
+    id: "0132",
+    text: "{W148H3}Jenny Greeter\n“It isnae ma fault\n Ah’m so comely, ye lech!”"
+  },
+  {
+    id: "0133",
+    text: "{W215H3}{Vivi}\n“Hmm{Speed 2}...{Speed -1}\n The people here sure are different.”"
+  },
+  {
+    id: "0134",
+    text: "{W92H1}Come hither, ye!"
+  },
+  {
+    id: "0135",
+    text: "{W101H2}{Vivi}\n“Aaa!  I’m sorr─”{Time -1}"
+  },
+  {
+    id: "0136",
+    text: "{W155H3}{LowerLeftForce}Margaret Miller\n“An’ just where do ye think\n ye’re goin’!?”"
+  },
+  {
+    id: "0137",
+    text: "{W181H2}Margaret Miller\n“Ye’re always loiterin’ aroon’!”"
+  },
+  {
+    id: "0138",
+    text: "{W143H3}Granin Miller\n“Wheesht!  Would ye stop\n hecklin’ me fer once!”"
+  },
+  {
+    id: "0139",
+    text: "{W87H2}Margaret Miller\n“Away wi’ ye!”"
+  },
+  {
+    id: "0140",
+    text: "{W132H2}{Vivi}\n“Um, pardon me, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0141",
+    text: "{W94H3}Margaret Miller\n“Where would ye\n be wi’oot me!?”"
+  },
+  {
+    id: "0142",
+    text: "{W232H2}{UpperRightForce}Granin Miller\n“Y-{Wait 3}Ye dinnae have tae get sae angry{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0143",
+    text: "{W219H3}Margaret Miller\n“If ye didnae want tae hear ma\n complainin’, ye’d get back tae work!”"
+  },
+  {
+    id: "0144",
+    text: "{W168H2}{UpperRightForce}Granin Miller\n“Al-{Wait 3}Alright, woman, alright{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0145",
+    text: "{W224H2}{Signal 0}Margaret Miller\n“Lazy, no-good husband o’ mine{Speed 2}...{Signal 1}{Speed -1} Hm?”"
+  },
+  {
+    id: "0146",
+    text: "{W180H4}Margaret Miller\n“Mercy me!\n Are nae ye a wee one{Speed 2}...{Speed -1}\n Runnin’ errands here, are ye?”"
+  },
+  {
+    id: "0147",
+    text: "{W226H2}Margaret Miller\n“Well, give ma regards tae the others!”"
+  },
+  {
+    id: "0148",
+    text: "{W206H3}{Vivi}\n“Gee-whiz{Speed 2}...{Speed -1} The people here aren’t\n afraid of me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0149",
+    text: "{W212H2}Robert Dogherder\n“Wh-{Wait 3}What’s an ootsider doin’ here!?”"
+  },
+  {
+    id: "0150",
+    text: "{W277H3}{Zidane}\n“Hi.  Have you seen a strange-looking guy here?\n He goes by the name of Kuja{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0151",
+    text: "{W161H2}Robert Dogherder\n“{Speed 2}...{Speed -1}{Wait 5}Ye’re strange-lookin’{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0152",
+    text: "{W193H3}{Zidane}\n“No{Speed 2}...{Speed -1} You see, uh, he looks really\n sinister, and uh{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0153",
+    text: "{W159H2}Robert Dogherder\n“{Speed 2}...{Speed -1}{Wait 5}Ye’re sinister-lookin’{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0154",
+    text: "{W226H3}Robert Dogherder\n“Someday, Ah want tae travel the warld\n together wi’ ma duggy!”"
+  },
+  {
+    id: "0155",
+    text: "{W233H4}{PreChoose 2,1}{Instantly}Robert Dogherder\n“How aboot a game o’ cairds, ootsider?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0156",
+    text: "{W194H2}{Instantly}Robert Dogherder\n“Ye cannae play wi’oot 5 cairds!”"
+  },
+  {
+    id: "0157",
+    text: "{W116H2}{LowerLeftForce}{Quina}\n“Rally-ho yourself.”"
+  },
+  {
+    id: "0158",
+    text: "{W101H3}{LowerLeftForce}{Quina}\n“This village have\n tasty munchies?”"
+  },
+  {
+    id: "0159",
+    text: "{W229H4}Wendy Grocer\n“Aye, that we do!\n Condie Petie is hame tae the most\n delicious nuts an’ berries in the warld!”"
+  },
+  {
+    id: "0160",
+    text: "{W153H3}Wendy Grocer\n“Ah ken that’s why folk’re\n always stealin’ oor food!”"
+  },
+  {
+    id: "0161",
+    text: "{W156H3}{LowerLeftForce}{Quina}\n“How rude!\n Thieves very bad people.”"
+  },
+  {
+    id: "0162",
+    text: "{W119H2}Wendy Grocer\n“Aye!  That’s right!”"
+  },
+  {
+    id: "0163",
+    text: "{W166H3}{LowerLeftForce}{Quina}\n“Mmmm, lots of yummy-looking\n food here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0164",
+    text: "{W204H3}Wendy Grocer\n“Ah’ll let ye have that pumpkin bomb\n there fer 1000 Gil!”"
+  },
+  {
+    id: "0165",
+    text: "{W116H3}{LowerLeftForce}{Quina}\n“Huh?  Why you need\n Gil to eat food?”"
+  },
+  {
+    id: "0166",
+    text: "{W151H3}Wendy Grocer\n“If ye dinnae pay fer\n somethin’, ye’re stealin’!”"
+  },
+  {
+    id: "0167",
+    text: "{W186H3}Wendy Grocer\n“Och!\n So ye’re the thief, are ye no!?”"
+  },
+  {
+    id: "0168",
+    text: "{W103H3}{LowerLeftForce}{Quina}\n“N-{Wait 3}Not me!\n I only gourmand!”"
+  },
+  {
+    id: "0169",
+    text: "{W155H2}Wendy Grocer\n“Ye cannae fool me, thief!”"
+  },
+  {
+    id: "0170",
+    text: "{W82H1}No, I not thief!"
+  },
+  {
+    id: "0171",
+    text: "{W201H2}Wendy Grocer\n“Rally-ho!  What kin Ah do fer ye?”"
+  },
+  {
+    id: "0172",
+    text: "{W168H4}{PreChoose 2,1}{Instantly}Wendy Grocer\n“Och!  A game o’ cairds, eh?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0173",
+    text: "{W257H3}Wendy Grocer\n“Ye cannae play wi’ less than 5 cairds!\n An’ Ah dinnae have any tae sell ye, neither!”"
+  },
+  {
+    id: "0174",
+    text: "{W130H3}John Fruitbringer\n“Jenny’s a bonnie lass,\n is she no?”"
+  },
+  {
+    id: "0175",
+    text: "{W253H4}{PreChoose 2,1}{Instantly}John Fruitbringer\n“So, ye want tae play some cairds, do ye!?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0176",
+    text: "{W186H3}John Fruitbringer\n“Away wi’ ye!  Hou do ye expect\n tae play wi’oot 5 cairds!?”"
+  },
+  {
+    id: "0177",
+    text: "{W189H3}{Zidane}\n“Tell me something.\n How come there’s no Mist here?”"
+  },
+  {
+    id: "0178",
+    text: "{W154H3}John Fruitbringer\n“What’s that ye say?  Mist?\n What’s it taste like?”"
+  },
+  {
+    id: "0179",
+    text: "{W208H2}Richard Watchman\n“Ye’re no allowed tae pass, laddie!”"
+  },
+  {
+    id: "0180",
+    text: "{W143H2}Matthew Watchman\n“Ah cannae let ye pass!”"
+  },
+  {
+    id: "0181",
+    text: "{W182H3}{Instantly}Thomas Goldpiler\n“Ye’ll be needin’ a good weapon\n fer the road, will ye no?”"
+  },
+  {
+    id: "0182",
+    text: "{W210H3}Thomas Goldpiler\n“Heist ye back!\n Ah kin sell ye what ye’ll be needin’!”"
+  },
+  {
+    id: "0183",
+    text: "{W248H2}Richard Watchman\n“Ah dinnae ken what else we kin do, lads{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0184",
+    text: "{W123H3}{Quina}\n“Oh, recipe exchange\n time, yes?”"
+  },
+  {
+    id: "0185",
+    text: "{W150H3}Matthew Watchman\n“Nay!  That thief’s been\n snitchin’ oor food again!”"
+  },
+  {
+    id: "0186",
+    text: "{W88H2}{Quina}\n“I{Wait 3}...I not thief.”"
+  },
+  {
+    id: "0187",
+    text: "{W179H2}Richard Watchman\n“Nobody said ye were a thief!”"
+  },
+  {
+    id: "0188",
+    text: "{W163H2}Matthew Watchman\n“Or are ye hidin’ somethin’?”"
+  },
+  {
+    id: "0189",
+    text: "{W166H2}{Quina}\n“I-{Wait 3}I no have nothing to hide.”"
+  },
+  {
+    id: "0190",
+    text: "{W154H2}{Quina}\n{White}(These people so difficult.)"
+  },
+  {
+    id: "0191",
+    text: "{W244H3}Richard Watchman\n“Alright, lads!  We have tae keep oor eyes\n open if we’re gonna catch oor thief!”"
+  },
+  {
+    id: "0192",
+    text: "{W167H3}Matthew Watchman\n“But we’re always lookin’\n oot fer thieves, are we no?”"
+  },
+  {
+    id: "0193",
+    text: "{W96H2}{UpperRightForce}{NoFocus}{Dagger}\n“Excuse me...{Speed 2}...{Speed -1}”{Time -1}"
+  },
+  {
+    id: "0194",
+    text: "{W193H3}Walter Teamaker\n“Soon, Ah’m gonna have tae find a\n wife fer ma wee William.”"
+  },
+  {
+    id: "0195",
+    text: "{W113H3}{LowerLeftForce}Barbara Gibgab\n“No lassie wants yir\n William fer a man.”"
+  },
+  {
+    id: "0196",
+    text: "{W153H3}{LowerLeftForce}Barbara Gibgab\n“Well, what’s wrong wi’ this\n ootsider lass right here?”"
+  },
+  {
+    id: "0197",
+    text: "{W156H2}{UpperRightForce}{NoFocus}{Dagger}\n“Um, hi.  I was wondering─”{Time -1}"
+  },
+  {
+    id: "0198",
+    text: "{W135H3}Walter Teamaker\n“Hmmm{Speed 2}...{Speed -1}  Aye, she’s\n a bonnie lass, at that.”"
+  },
+  {
+    id: "0199",
+    text: "{W146H2}{UpperRightForce}{NoFocus}{Dagger}\n“Have any of you seen─”{Time -1}"
+  },
+  {
+    id: "0200",
+    text: "{W186H3}{LowerRightForce}Helen Birdkeeper\n“But she’s awful small tae send\n tae the Sanctuary, din ye ken?”"
+  },
+  {
+    id: "0201",
+    text: "{W165H3}Jinkus Emptybottle\n“Look at her!  She’s a mickle\n bigger’n ye, Ah ken!”"
+  },
+  {
+    id: "0202",
+    text: "{W160H2}{Dagger}\n“I’m not marrying anybody!”"
+  },
+  {
+    id: "0203",
+    text: "{W81H3}{Dagger}\n“Hmm{Speed 2}...{Speed -1}\n Sanctuary{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0204",
+    text: "{W123H5}{PreChoose 2,1}{Instantly}Margaret Miller\n“Ye kin stay the night\n fer {Variable 0} Gil!”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0205",
+    text: "{W155H3}Margaret Miller\n“The bed may be small, but\n she’ll do ye good enough.”"
+  },
+  {
+    id: "0206",
+    text: "{W120H3}Margaret Miller\n“Ye’re welcome back\n whenever ye like!”"
+  },
+  {
+    id: "0207",
+    text: "{W185H3}Margaret Miller\n“Look, if ye dinnae have 100 Gil,\n ye are nae stayin’ here!”"
+  },
+  {
+    id: "0208",
+    text: "{W195H3}Granin Miller\n“Ye dinnae expect me tae work on\n sich a fine day as this, do ye?”"
+  },
+  {
+    id: "0209",
+    text: "{W170H3}Jinkus Emptybottle\n“Good drink is precious, ken, \n so Ah always sip it slowly.”"
+  },
+  {
+    id: "0210",
+    text: "{W210H3}Helen Birdkeeper\n“We owe oor thanks tae the blessin’s\n o’ the sun and the heavens!”"
+  },
+  {
+    id: "0211",
+    text: "{W239H3}Barbara Gibgab\n“Ah’m happy just tae be sittin’ here,\n sippin’ ma tea an’ gabbin’ the time away.”"
+  },
+  {
+    id: "0212",
+    text: "{W158H4}{PreChoose 2,1}{Instantly}Barbara Gibgab\n“Ye play cairds, ootsider?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0213",
+    text: "{W162H3}Barbara Gibgab\n“Bring 5 cairds, an’ then\n we kin play a game or two.”"
+  },
+  {
+    id: "0214",
+    text: "{W227H4}{PreChoose 2,1}{Instantly}Granin Miller\n“Ah kin play cairds sunup tae sundoon!”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0215",
+    text: "{W147H3}Granin Miller\n“Come back when ye have\n 5 cairds!”"
+  },
+  {
+    id: "0216",
+    text: "{W222H4}Barbara Gibgab\n“Ah heard there’s a spring in the sooth\n where, if ye throw a coin in,\n it’ll make ye happy forever!”"
+  },
+  {
+    id: "0217",
+    text: "{W189H4}Walter Teamaker\n“Well, nou{Speed 2}...{Speed -1} That’s as may be.\n But we wouldnae throw away oor\n money so glibly now, would we?”"
+  },
+  {
+    id: "0218",
+    text: "{W248H3}Helen Birdkeeper\n“Ah hear tell there’s a foontain in the sooth\n that kin restore yir body an’ yir soul!”"
+  },
+  {
+    id: "0219",
+    text: "{W196H4}Jinkus Emptybottle\n“Water is precious, nae doubt.\n But we shouldnae put oor hopes in\n sich faerie tales.”"
+  },
+  {
+    id: "0220",
+    text: "{W127H2}{Widths 0,127,17,-1}{Zidane}\n“What’s the matter, {Vivi}?”"
+  },
+  {
+    id: "0221",
+    text: "{W120H3}{Vivi}\n“Um{Speed 2}...{Speed -1}\n These two people─”"
+  },
+  {
+    id: "0222",
+    text: "{W183H3}Derek Stonehammer\n“That hen ye cooked\n fer me was awful good, it was!”"
+  },
+  {
+    id: "0223",
+    text: "{W148H4}Derek Stonehammer\n“What way did ye cook it?\n Did ye frizzle it wi’ some\n o’ yer mejick?”"
+  },
+  {
+    id: "0224",
+    text: "{W152H3}Kelley Fingerwaver\n“The berries ye traded me\n were astoondin’, too!”"
+  },
+  {
+    id: "0225",
+    text: "{W171H3}Kelley Fingerwaver\n“But likesay, what’s a wee lad\n like ye doin’ here the day?”"
+  },
+  {
+    id: "0226",
+    text: "{W164H3}{Zidane}\n“Hey, {Vivi}{Speed 2}...{Speed -1}\n Do you know these people?”"
+  },
+  {
+    id: "0227",
+    text: "{W177H3}{Vivi}\n“How could I?\n I’ve never been here before.”"
+  },
+  {
+    id: "0228",
+    text: "{W140H2}{Zidane}\n“Yeah, I didn’t think so.”"
+  },
+  {
+    id: "0229",
+    text: "{W131H3}{Vivi}\n“I’ll try talking to some\n other people.”"
+  },
+  {
+    id: "0230",
+    text: "{W210H3}{Zidane}\n“What’s this?\n Some kind of roster or something{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0231",
+    text: "{W256H8}{Instantly}\n{Tab}The current number of couples who,\n{Tab}having received the blessings of the sun\n{Tab}and the heavens through the authority of\n{Tab}Father David, have visited the Sanctuary.\n\n{Center 0,64,0}{Pink}{Variable 0}"
+  },
+  {
+    id: "0232",
+    text: "{W161H3}Derek Stonehammer\n“That’s the Kirkboat,\n the symbol o’ Conde Petie!”"
+  },
+  {
+    id: "0233",
+    text: "{W183H2}{Zidane}\n“What’s a boat doing up there?”"
+  },
+  {
+    id: "0234",
+    text: "{W189H3}Derek Stonehammer\n“Boat?  Ah dinnae ken what ye’re\n talkin’ aboot.  What’s a boat?”"
+  },
+  {
+    id: "0235",
+    text: "{W253H2}Derek Stonehammer\n“So many wee bairns runnin’ aboot the day.”"
+  },
+  {
+    id: "0236",
+    text: "{W172H3}Kelley Fingerwaver\n“This is where we give thanks\n tae the sun an’ the heavens!”"
+  },
+  {
+    id: "0237",
+    text: "{W172H4}{PreChoose 2,1}{Instantly}Kelley Fingerwaver\n“Ah’ll play a game if ye want.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0238",
+    text: "{W212H2}Kelley Fingerwaver\n“Ye dinnae have enough cairds, lad!”"
+  },
+  {
+    id: "0239",
+    text: "{W201H3}Geoffrey Treefeller\n“Someday, Ah wantae be joined tae\n Betsy oan top o’ the Kirkboat.”"
+  },
+  {
+    id: "0240",
+    text: "{W184H4}Geoffrey Treefeller\n“An’ afterward we’ll go tae\n the Sanctuary tae enscribe oor\n names together!”"
+  },
+  {
+    id: "0241",
+    text: "{W195H3}Betsy Lightcatcher\n“Here, a man an’ a woman are\n joined by the blessin’ o’ the sun.”"
+  },
+  {
+    id: "0242",
+    text: "{W217H3}Betsy Lightcatcher\n“O’ course, we’re a wee bit young tae\n receive the blessin’ just yet.”"
+  },
+  {
+    id: "0243",
+    text: "{W215H3}{UpperLeftForce}{Offset -10,-30,0}Bryan Rootrunner\n“Are ye that hungert tae look so far?\n Ah feel a wee sorry fer ye!”"
+  },
+  {
+    id: "0244",
+    text: "{W119H2}{UpperLeftForce}{Offset -10,-30,0}Bryan Rootrunner\n“Sis!  Ah’m hungert!”"
+  },
+  {
+    id: "0245",
+    text: "{W133H3}Darcy Skywatcher\n“But ye just ate a\n boiled owl, did ye no?”"
+  },
+  {
+    id: "0246",
+    text: "{W163H3}{UpperLeftForce}{Offset -10,-30,0}Bryan Rootrunner\n“Ah did, but it didnae satisfy\n me voracious appetite!”"
+  },
+  {
+    id: "0247",
+    text: "{W202H3}{UpperLeftForce}{Offset -10,-30,0}{Signal 0}Bryan Rootrunner\n“Ah have tae eat somethin’ wi’ more\n punch, likesay{Signal 1}{Speed 2}...{Speed -1} Eh?”"
+  },
+  {
+    id: "0248",
+    text: "{W141H2}{UpperLeftForce}{Offset -10,-30,0}Bryan Rootrunner\n“It’s Mister Pyntie-Het!”"
+  },
+  {
+    id: "0249",
+    text: "{W180H3}{UpperLeftForce}{Offset -10,-30,0}Bryan Rootrunner\n“Rally-ho!\n What have ye tae sell today!?”"
+  },
+  {
+    id: "0250",
+    text: "{W105H2}Darcy Skywatcher\n“Oh, an ootsider!”"
+  },
+  {
+    id: "0251",
+    text: "{W143H3}{Zidane}\n“How come you built your\n village on this spot?”"
+  },
+  {
+    id: "0252",
+    text: "{W247H3}Darcy Skywatcher\n“’Cause we feel the mountains, the woods,\n an’ the sun here mair than anywhere else!”"
+  },
+  {
+    id: "0253",
+    text: "{W203H4}Darcy Skywatcher\n“See, Conde Petie is suroonded by\n the mountains, nearhaun the woods,\n an’ blessed by the sun!”"
+  },
+  {
+    id: "0254",
+    text: "{W152H3}Bryan Rootrunner\n“Conde Petie is hame tae a\n heap o’ good food!”"
+  },
+  {
+    id: "0255",
+    text: "{W133H5}{PreChoose 3,2}{Instantly}Bryan Rootrunner\n“What’s yir favourite?”\n{Choice}Boiled owl\n{Tab}Seasoned oglop\n{Tab}Fried rootbeans"
+  },
+  {
+    id: "0256",
+    text: "{W100H3}Bryan Rootrunner\n“Hmm{Speed 2}...{Speed -1}\n Tha’s no bad{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0257",
+    text: "{W157H4}Bryan Rootrunner\n“Aye, that’s great!\n But ye have tae go tae the\n Moontain Path fer that!”"
+  },
+  {
+    id: "0258",
+    text: "{W215H3}Bryan Rootrunner\n“If Ah could spend ma life doin’ nothin’\n but eatin’, Ah’d die a happy man!”"
+  },
+  {
+    id: "0259",
+    text: "{W255H2}Bryan Rootrunner\n“Losh!  Ye caught yersel’ a moontain oglop!”"
+  },
+  {
+    id: "0260",
+    text: "{W143H4}{PreChoose 2,1}{Instantly}Bryan Rootrunner\n“Let me have it, please!”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0261",
+    text: "{W100H2}Bryan Rootrunner\n“Ye nittie!”"
+  },
+  {
+    id: "0262",
+    text: "{W166H3}Bryan Rootrunner\n“Thank ye!\n In return, Ah’ll give ye this!”"
+  },
+  {
+    id: "0263",
+    text: "{W20H1}Hm?"
+  },
+  {
+    id: "0264",
+    text: "{W173H3}Wendy Grocer\n“Plenty thanks.  Yir goods are\n always welcome here.”"
+  },
+  {
+    id: "0265",
+    text: "{W47H2}{Widths 0,0,16,-1}{Zidane}\n“Hey{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0266",
+    text: "{W58H1}What the─"
+  },
+  {
+    id: "0267",
+    text: "{W57H2}{Widths 0,0,17,-1}{Vivi}\n“W-Wait!”"
+  },
+  {
+    id: "0268",
+    text: "{W71H2}{Widths 0,0,16,-1,0,71,17,-1}{Zidane}\n“Hang on, {Vivi}!”"
+  },
+  {
+    id: "0269",
+    text: "{W65H1}{UpperRightForce}Come back!{Time 30}"
+  },
+  {
+    id: "0270",
+    text: "{W19H2}{Widths 0,0,16,-1,0,19,17,-1}{Zidane}\n“{Vivi}!”"
+  },
+  {
+    id: "0271",
+    text: "{W115H2}{Widths 0,115,16,-1}{Dagger}\n“{Zidane}, what’s going on?”"
+  },
+  {
+    id: "0272",
+    text: "{W171H3}{Widths 0,171,17,-1}{Zidane}\n“I have no idea{Speed 2}...{Speed -1}\n But we gotta catch up with {Vivi}!”"
+  },
+  {
+    id: "0273",
+    text: "{W161H2}{Widths 0,161,17,-1}{Zidane}\n“{Vivi}, where’s the black mage?”"
+  },
+  {
+    id: "0274",
+    text: "{W88H2}{Vivi}\n“He ran away.”"
+  },
+  {
+    id: "0275",
+    text: "{W196H4}{Zidane}\n“Huh.\n Where the heck did he come from?\n Has Brahne found us?”"
+  },
+  {
+    id: "0276",
+    text: "{W169H2}Harold Pathknower\n“Do ye ken the Pyntie-Hets?”"
+  },
+  {
+    id: "0277",
+    text: "{W220H2}{Vivi}\n“Huh?  Did you just say Pointy-Hats!?”"
+  },
+  {
+    id: "0278",
+    text: "{W259H3}Harold Pathknower\n“Nay, Ah said Pyntie-Hets!  They often come\n from the {Cyan}Sootheast Forest{White} tae trade wi’ us.”"
+  },
+  {
+    id: "0279",
+    text: "{W225H3}{Zidane}\n“They!?  You mean there’s lots of them?\n And{Speed 2}...{Speed -1}they live near here?”"
+  },
+  {
+    id: "0280",
+    text: "{W212H4}Harold Pathknower\n“Aye!  But ye gots tae go all the way\n aroon’ yon cliff an’ then go east tae\n find the {Cyan}Sootheast Forest{White}!”"
+  },
+  {
+    id: "0281",
+    text: "{W197H3}Harold Pathknower\n“They live sae deep in the forest,\n that even owls dinnae live there!”"
+  },
+  {
+    id: "0282",
+    text: "{W187H2}{Zidane}\n“What’s that supposed to mean?”"
+  },
+  {
+    id: "0283",
+    text: "{W192H3}{Vivi}\n“{Zidane}, I want to go to the\n {Cyan}Southeast Forest{White} and find them!”"
+  },
+  {
+    id: "0284",
+    text: "{W90H2}{LowerRightForce}{Zidane}\n“Yeah, me too.”"
+  },
+  {
+    id: "0285",
+    text: "{W151H3}{Dagger}\n“I think it’s a good idea.\n We might find some clues.”"
+  },
+  {
+    id: "0286",
+    text: "{W162H3}{LowerLeftForce}{Quina}\n“If possible to try new food,\n anywhere fine.”"
+  },
+  {
+    id: "0287",
+    text: "{W146H3}{Zidane}\n“Alright, let’s head to the\n {Cyan}Southeast Forest{White}.”"
+  },
+  {
+    id: "0288",
+    text: "{W162H3}{Zidane}\n“So the {Cyan}Sanctuary{White} is on the\n other side of that valley{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0289",
+    text: "{W218H4}{Offset -50,-50,0}{UpperLeftForce}{Vivi}\n“But the exit leading there\n from the upper floor is guarded\n by a dwarf who won’t let us through.”"
+  },
+  {
+    id: "0290",
+    text: "{W226H3}{Offset 50,-50,0}{UpperRightForce}{Quina}\n“Twin dwarfies block way out from shop\n on right side.  No can get through.”"
+  },
+  {
+    id: "0291",
+    text: "{W146H3}{Zidane}\n“Hmm{Speed 2}...{Speed -1} Well, let’s just try\n to go as far as we can.”"
+  },
+  {
+    id: "0292",
+    text: "{W185H2}Shamis Gatekeeper\n“Ah cannae let ye pass, laddie!”"
+  },
+  {
+    id: "0293",
+    text: "{W245H4}{PreChoose 2,1}{Instantly}Shamis Gatekeeper\n“Och!  Ye want tae play cairds, do ye no?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0294",
+    text: "{W211H2}Shamis Gatekeeper\n“Ye need mair cairds tae play, ken?”"
+  },
+  {
+    id: "0295",
+    text: "{W197H3}Shamis Gatekeeper\n“Bletheration!  Only those who’ve\n received the ceremony kin pass!”"
+  },
+  {
+    id: "0296",
+    text: "{W146H2}Shamis Gatekeeper\n“Speak tae His Holiness!”"
+  },
+  {
+    id: "0297",
+    text: "{W164H2}Shamis Gatekeeper\n“Ah dinnae ken where he is!”"
+  },
+  {
+    id: "0298",
+    text: "{W243H3}Shamis Gatekeeper\n“Happy fit!  Now ye need tae annoonce yir\n joinin’ tae the twins at the other gate!”"
+  },
+  {
+    id: "0299",
+    text: "{W188H2}{Zidane}\n“Say, I wanna get through here.”"
+  },
+  {
+    id: "0300",
+    text: "{W197H3}Richard Watchman\n“Never!  Only those who’ve\n received the ceremony kin pass!”"
+  },
+  {
+    id: "0301",
+    text: "{W197H2}{Zidane}\n“What the heck is that ceremony?”"
+  },
+  {
+    id: "0302",
+    text: "{W146H2}Matthew Watchman\n“Speak tae His Holiness!”"
+  },
+  {
+    id: "0303",
+    text: "{W168H2}{Zidane}\n“And where is ‘His Holiness’?”"
+  },
+  {
+    id: "0304",
+    text: "{W164H2}Richard Watchman\n“Ah dinnae ken where he is!”"
+  },
+  {
+    id: "0305",
+    text: "{W134H3}{UpperRightForce}{Zidane}\n“Hey, mister{Speed 2}...{Speed -1}\n Are you the holy guy?”"
+  },
+  {
+    id: "0306",
+    text: "{W116H3}{UpperLeftForce}David Heavenguard\n“Aye.\n Ah’m Father David.”"
+  },
+  {
+    id: "0307",
+    text: "{W165H3}{UpperRightForce}{Zidane}\n“What are you doing, hanging\n around this hallway?”"
+  },
+  {
+    id: "0308",
+    text: "{W157H3}{UpperLeftForce}David Heavenguard\n“Well{Speed 2}...{Speed -1}a priest has much\n tae worry aboot, ye see?”"
+  },
+  {
+    id: "0309",
+    text: "{W220H3}{UpperRightForce}{Zidane}\n“Yeah{Speed 2}...{Speed -1}whatever.\n Look, we wanna get past this village.”"
+  },
+  {
+    id: "0310",
+    text: "{W217H4}{UpperLeftForce}David Heavenguard\n“Hmph!  Tradition states that\n only those who undergo the ceremony\n kin approach the Sanctuary.”"
+  },
+  {
+    id: "0311",
+    text: "{W157H3}{UpperRightForce}{Zidane}\n“So, what the heck is that\n ceremony about, anyway?”"
+  },
+  {
+    id: "0312",
+    text: "{W211H4}{UpperLeftForce}David Heavenguard\n“Well, after a man an’ a woman are\n blessed in holy union, they leave oan\n holy pilgrimage tae the Sanctuary.”"
+  },
+  {
+    id: "0313",
+    text: "{W177H3}{UpperRightForce}{Zidane}\n“So{Speed 2}...{Speed -1}basically it’s a wedding{Speed 2}...{Speed -1}\n and a honeymoon, right?”"
+  },
+  {
+    id: "0314",
+    text: "{W171H3}{UpperLeftForce}David Heavenguard\n“Ah dinnae ken yir words, lad,\n but methinks ye understan’.”"
+  },
+  {
+    id: "0315",
+    text: "{W214H3}{Dagger}\n“So we can go to the Sanctuary\n if we undergo that ceremony, right?”"
+  },
+  {
+    id: "0316",
+    text: "{W151H3}{UpperRightForce}{Zidane}\n“Oh, hey, {Dagger}!\n So yeah, that’s the deal.”"
+  },
+  {
+    id: "0317",
+    text: "{W206H4}{UpperRightForce}{Signal 0}{Zidane}\n“Whaddya think?\n We can go if we get hitched.\n But there’s no way we’d actually─{Signal 1}”{Time 75}"
+  },
+  {
+    id: "0318",
+    text: "{W62H1}Let’s do it."
+  },
+  {
+    id: "0319",
+    text: "{W37H1}{UpperRightForce}What!?"
+  },
+  {
+    id: "0320",
+    text: "{W240H3}{UpperLeftForce}David Heavenguard\n“Sae ye wantae be joined, eh?\n The ceremony’s only fer dwarves, see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0321",
+    text: "{W260H3}{UpperLeftForce}David Heavenguard\n“{Speed 2}...{Speed -1}But we have sae few young folk nooadays.\n We’re doon tae ninety-nine couples.”"
+  },
+  {
+    id: "0322",
+    text: "{W238H2}{UpperLeftForce}David Heavenguard\n“Ah was worryin’ aboot that very thin’{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0323",
+    text: "{W254H3}{UpperLeftForce}David Heavenguard\n“But what’s the hairm?\n Now we can have oor hundredth ceremony!”"
+  },
+  {
+    id: "0324",
+    text: "{W125H3}{UpperRightForce}{Zidane}\n“Uhh{Speed 2}...{Speed -1} {Dagger}?\n Wh-{Wait 3}What’s going on?”"
+  },
+  {
+    id: "0325",
+    text: "{W148H3}{Offset -200,200,0}David Heavenguard\n“Speerits o’ the moontain,\n Speerits o’ the wood{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0326",
+    text: "{W166H3}{Zidane}\n{White}(Uh{Speed 2}...{Speed -1}\n Now, how did I get into this?)"
+  },
+  {
+    id: "0327",
+    text: "{W180H3}{Offset -200,200,0}David Heavenguard\n“Watch ower this man an’ woman\n as they begin their journey{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0328",
+    text: "{W155H3}{Zidane}\n{White}(We gotta do this ceremony\n to get past this village{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0329",
+    text: "{W158H3}{LowerRightForce}{Zidane}\n{White}(And only a guy and girl can\n have the ceremony{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0330",
+    text: "{W132H2}{LowerRightForce}{Widths 0,132,18,-1}{Zidane}\n“Now, hold on a sec, {Dagger}!”"
+  },
+  {
+    id: "0331",
+    text: "{W212H3}{LowerRightForce}{Zidane}\n“Don’t you get it?\n This is marriage, m-a-r-r-i-a-g-e!”"
+  },
+  {
+    id: "0332",
+    text: "{W217H3}{Dagger}\n“No kidding{Speed 2}...{Speed -1}\n But we have to do it to go on, right?”"
+  },
+  {
+    id: "0333",
+    text: "{W179H3}{Offset 260,20,0}{Zidane}\n“Yeah, but{Speed 2}...{Speed -1}\n But that’s not reason enough!”"
+  },
+  {
+    id: "0334",
+    text: "{W84H2}{Dagger}\n“Oh, come on.”"
+  },
+  {
+    id: "0335",
+    text: "{W125H2}{Zidane}\n{White}(What is she thinking?)"
+  },
+  {
+    id: "0336",
+    text: "{W168H3}{Zidane}\n{White}(She’s supposed to get angry\n and say no way!)"
+  },
+  {
+    id: "0337",
+    text: "{W171H2}{Offset -200,200,0}David Heavenguard\n“{Speed 2}...{Speed -1}In sickness an’ in health{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0338",
+    text: "{W160H3}{Zidane}\n{White}(Of course we’re just trying\n to get past this village{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0339",
+    text: "{W195H3}{Offset -200,200,0}David Heavenguard\n“{Speed 2}...{Speed -1}Have the strength to cairry ye\n through the trials{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0340",
+    text: "{W127H3}{Zidane}\n{White}(Could it be that she{Speed 2}...{Speed -1}\n likes me?)"
+  },
+  {
+    id: "0341",
+    text: "{W230H2}{Offset -200,200,0}David Heavenguard\n“{Speed 2}...{Speed -1}An’ the wisdom tae follow the path{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0342",
+    text: "{W236H4}{Zidane}\n{White}(Gotta admit, I was pretty deep that night\n in the black mage village.  Maybe that’s\n when she fell for me?  I’m such a stud!)"
+  },
+  {
+    id: "0343",
+    text: "{W168H3}{Offset -200,200,0}David Heavenguard\n“May the blessin’s o’ heaven\n be upon this man an’ woman!”"
+  },
+  {
+    id: "0344",
+    text: "{W149H3}{Zidane}\n“{Dagger}!\n Now we’re man and wife!”"
+  },
+  {
+    id: "0345",
+    text: "{W120H2}{Zidane}\n“Time for the kiss{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0346",
+    text: "{W150H2}{Zidane}\n“Playing hard to get, eh?”"
+  },
+  {
+    id: "0347",
+    text: "{W92H2}{Quina}\n“I{Speed 2}...{Speed -1}so happy{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0348",
+    text: "{W83H2}{Vivi}\n“M-Me, too{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0349",
+    text: "{W33H1}Thief!"
+  },
+  {
+    id: "0350",
+    text: "{W230H3}{UpperLeftForce}Shamis Gatekeeper\n“Happy fit!  Now ye need annoonce yer\n joinin’ tae the twins at the other gate!”"
+  },
+  {
+    id: "0351",
+    text: "{W192H2}{LowerLeftForce}{Zidane}\n“What!?  You mean there’s more?”"
+  },
+  {
+    id: "0352",
+    text: "{W203H2}{UpperLeftForce}Shamis Gatekeeper\n“We have tae follow tradition, lad!”"
+  },
+  {
+    id: "0353",
+    text: "{W190H3}{Widths 0,131,18,-1}{Zidane}\n“Ah, well{Speed 2}...{Speed -1} Time for us newlyweds\n to make the rounds, {Dagger}.”"
+  },
+  {
+    id: "0354",
+    text: "{W176H3}{Dagger}\n“Remember, we’re only married\n while we’re here.”"
+  },
+  {
+    id: "0355",
+    text: "{W120H2}{Zidane}\n“Bliss is so fleeting.”"
+  },
+  {
+    id: "0356",
+    text: "{W177H3}{LowerLeftForce}{Vivi}\n“{Zidane}{Speed 2}...{Speed -1}\n What are we supposed to do?”"
+  },
+  {
+    id: "0357",
+    text: "{W141H3}{Zidane}\n“Hey!  You guys tryin’\n to ruin our honeymoon?”"
+  },
+  {
+    id: "0358",
+    text: "{W209H2}{LowerLeftForce}{Quina}\n“But you no can just leave us here!”"
+  },
+  {
+    id: "0359",
+    text: "{W146H3}{Zidane}\n“Don’t worry.\n I’ll figure something out.”"
+  },
+  {
+    id: "0360",
+    text: "{W111H4}{PreChoose 2,1}{Widths 1,175,-1,2,231,-1}{Instantly}{Zidane}\n“Hmmm, let’s see{Speed 2}...{Speed -1}”\n{Choice}First, let’s go see the twins\n{Tab}Why don’t you guys get married, too?"
+  },
+  {
+    id: "0361",
+    text: "{W134H3}{Zidane}\n“I think we should all go\n see the twins first.”"
+  },
+  {
+    id: "0362",
+    text: "{W225H2}{Zidane}\n“Why don’t you guys get married, too?”"
+  },
+  {
+    id: "0363",
+    text: "{W37H1}{LowerLeftForce}What!?"
+  },
+  {
+    id: "0364",
+    text: "{W186H4}{Widths 0,127,18,-1}{Zidane}\n“Yeah, that’s it!\n In the meantime, {Dagger} and I\n can go announce our marriage.”"
+  },
+  {
+    id: "0365",
+    text: "{W62H1}{Instantly}{Center 62}Nuptial Joy"
+  },
+  {
+    id: "0366",
+    text: "{W185H3}{Widths 0,43,16,18,-1}{Zidane}\n“Hi, guys!  We’re the newlyweds,\n {Zidane} and {Dagger}.”"
+  },
+  {
+    id: "0367",
+    text: "{W215H3}Richard Watchman\n“Rally-ho!  Happy fit!\n Off tae the Sanctuary then, are ye?”"
+  },
+  {
+    id: "0368",
+    text: "{W165H3}{Dagger}\n“That’s right.\n Will you let us through now?”"
+  },
+  {
+    id: "0369",
+    text: "{W175H3}Matthew Watchman\n“Rally-ho!  O’ coorse!\n Safe journey tae both o’ ye!”"
+  },
+  {
+    id: "0370",
+    text: "{W156H2}{Zidane}\n“Let us be off, my darling.”"
+  },
+  {
+    id: "0371",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0372",
+    text: "{W66H1}Mog, hurry!"
+  },
+  {
+    id: "0373",
+    text: "{W32H1}{Offset 0,-300,0}Kupo!{Time 30}"
+  },
+  {
+    id: "0374",
+    text: "{W65H1}{UpperRightForce}Stop, thief!{Time 30}"
+  },
+  {
+    id: "0375",
+    text: "{W128H2}{Dagger}\n“Wh-{Wait 3}What’s going on?”"
+  },
+  {
+    id: "0376",
+    text: "{W130H3}{Zidane}\n“I dunno.\n Let’s go take a look.”"
+  },
+  {
+    id: "0377",
+    text: "{W109H2}Richard Watchman\n“They got away{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0378",
+    text: "{W175H3}Matthew Watchman\n“Feuch!  An’ we cannae go any\n farther{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0379",
+    text: "{W167H2}{Zidane}\n“Does anyone live out here?”"
+  },
+  {
+    id: "0380",
+    text: "{W180H2}Richard Watchman\n“O’ course no!  It’s forbidden!”"
+  },
+  {
+    id: "0381",
+    text: "{W153H3}Matthew Watchman\n“Och!  Yon two thieves are\n always snitchin’ food!”"
+  },
+  {
+    id: "0382",
+    text: "{W64H2}{Widths 0,0,16,-1}{Zidane}\n“Oh yeah?”"
+  },
+  {
+    id: "0383",
+    text: "{W155H2}Matthew Watchman\n“Ah’ll catch ’em next time!”"
+  },
+  {
+    id: "0384",
+    text: "{W90H2}{LowerLeftForce}{Dagger}\n“Oh, hi, guys{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0385",
+    text: "{W223H2}{Zidane}\n“So you’ve had your ceremony, right?”"
+  },
+  {
+    id: "0386",
+    text: "{W67H2}{Widths 0,0,17,-1}{Vivi}\n“Y-Yeah{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0387",
+    text: "{W181H3}{Quina}\n“Thief have nerve to steal food\n right in front of me.”"
+  },
+  {
+    id: "0388",
+    text: "{W145H2}{Zidane}\n“Okay, time to press on.”"
+  },
+  {
+    id: "0389",
+    text: "{W153H3}Richard Watchman\n“Weel, Ah’d best go report\n the theft.”"
+  },
+  {
+    id: "0390",
+    text: "{W90H2}{UpperLeftForce}{Dagger}\n“Oh, hi, guys{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0391",
+    text: "{W169H3}{Zidane}\n“Hey, you guys snuck through\n during the commotion?”"
+  },
+  {
+    id: "0392",
+    text: "{W213H3}{Dagger}\n“I guess we didn’t have to go through\n with that ceremony after all.”"
+  },
+  {
+    id: "0393",
+    text: "{W235H3}{Zidane}\n“What!?\n But it’s the stuff memories are made of!”"
+  },
+  {
+    id: "0394",
+    text: "{W215H3}{Dagger}\n“And we’ll forget it all once we leave.\n Come, it’s time to press on.”"
+  },
+  {
+    id: "0395",
+    text: "{W99H2}{Zidane}\n“Yes, dearest{Speed 2}...{Speed -1}”"
+  }
+]

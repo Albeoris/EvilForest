@@ -1,0 +1,2162 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Letter 00\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Mary’s Unrequited Love\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0046",
+    text: "{W150H3}{UpperRight}{Widths 0,0,6,0,-1,0,130,6,1,-1}{Text 0,0}\n“A letter from {Text 0,1}?  Kupo!\n Thanks for the delivery!”"
+  },
+  {
+    id: "0047",
+    text: "{W216H12}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI feel so sad whenever I see\nMary, that part-time worker.\n\nHave you ever fallen in love?\nI’ve never fallen in love before, kupo.\nIf watching someone else in love\nis so difficult, I wonder how difficult\nit is to actually fall in love myself?"
+  },
+  {
+    id: "0048",
+    text: "{W163H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m never gonna fall in love!\n It’s just not worth it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0049",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0050",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0051",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0052",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0053",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0054",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0055",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0056",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0057",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0058",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0059",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0060",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0061",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0062",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0063",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0064",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0065",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0066",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0067",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0068",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0069",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0070",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0071",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0072",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0073",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0074",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0075",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0076",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0077",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0078",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0079",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0080",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0081",
+    text: "{W136H2}{Dagger}\n“Thank you very much.”"
+  },
+  {
+    id: "0082",
+    text: "{W77H2}Conductor\n“Take care.”"
+  },
+  {
+    id: "0083",
+    text: "{W183H3}Conductor\n“You’ll have to wait a while until\n the car to Alexandria arrives.”"
+  },
+  {
+    id: "0084",
+    text: "{W120H2}{Dagger}\n“How long will it be?”"
+  },
+  {
+    id: "0085",
+    text: "{W190H3}Conductor\n“It arrives when this car\n returns to Bohden Station, so{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0086",
+    text: "{W155H3}Conductor\n“{Speed 2}...{Speed -1}about as long as\n you just spent in the car.”"
+  },
+  {
+    id: "0087",
+    text: "{W165H3}Conductor\n“Why don’t you go wait in the\n rest area up ahead?”"
+  },
+  {
+    id: "0088",
+    text: "{W46H2}{Widths 0,0,18,-1}{Dagger}\n“Okay.”"
+  },
+  {
+    id: "0089",
+    text: "{W102H2}{Widths 0,102,19,-1}{Dagger}\n“What’s wrong, {Steiner}?”"
+  },
+  {
+    id: "0090",
+    text: "{W88H2}{Steiner}\n“P-Princess{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0091",
+    text: "{W167H2}{Dagger}\n“Hey, what did I say about─”"
+  },
+  {
+    id: "0092",
+    text: "{W117H3}{Steiner}\n“It’s Alexandria!\n We’re finally home!”"
+  },
+  {
+    id: "0093",
+    text: "{W66H2}{Widths 0,0,18,-1}{Dagger}\n“Really{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0094",
+    text: "{W94H2}{Dagger}\n“We’re home{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0095",
+    text: "{W113H3}{Dagger}\n“But I still can’t see\n the castle.”"
+  },
+  {
+    id: "0096",
+    text: "{W177H3}{Steiner}\n“Princess, Alexandria may only\n mean the castle to you, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0097",
+    text: "{W158H3}{Dagger}\n“Hey, are you making fun of\n me for being naive?”"
+  },
+  {
+    id: "0098",
+    text: "{W98H2}{Steiner}\n“N-No,{Wait 3} I’m not{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0099",
+    text: "{W61H3}{Widths 0,0,18,-1}{Dagger}\n“It’s okay.\n Let’s go.”"
+  },
+  {
+    id: "0100",
+    text: "{W231H5}{PreChoose 2,1}{Instantly}Cable Car Enthusiast\n“Welcome to Summit Station!\n Do you know how the cable cars work?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0101",
+    text: "{W175H3}Cable Car Enthusiast\n“Good!\n Why not go to the rest area?”"
+  },
+  {
+    id: "0102",
+    text: "{W204H5}{UpperRightForce}Cable Car Enthusiast\n“The Berkmea cable cars were built\n 8 years ago.  They are a symbol\n of the friendship between Lindblum\n and Alexandria!”"
+  },
+  {
+    id: "0103",
+    text: "{W226H6}{UpperRightForce}Cable Car Enthusiast\n“They are powered by Mist engines,\n invented in Lindblum.  The cars work by\n pulling on each other.  When one car\n is at the bottom of the mountain,\n the other is at the top.”"
+  },
+  {
+    id: "0104",
+    text: "{W148H3}Conductor\n“This car is going back to\n Lindblum territory.”"
+  },
+  {
+    id: "0105",
+    text: "{W207H3}Part-time Worker Mary\n“I’m more comfortable out here.\n The rest area is full of rowdy men.”"
+  },
+  {
+    id: "0106",
+    text: "{W167H3}Part-time Worker Mary\n“I wanted to stay by his side,\n but I have my work, too.”"
+  },
+  {
+    id: "0107",
+    text: "{W132H3}Part-time Worker Mary\n“I’m sorry, I don’t have\n my cards with me.”"
+  },
+  {
+    id: "0108",
+    text: "{W182H1}{LowerLeftForce}Current Location: Summit Station"
+  },
+  {
+    id: "0109",
+    text: "{W167H2}{UpperRightForce}{Dagger}\n“This must be the rest area.”"
+  },
+  {
+    id: "0110",
+    text: "{W206H3}{UpperLeftForce}{Steiner}\n“Let us gather information while\n we wait for the car to Alexandria!”"
+  },
+  {
+    id: "0111",
+    text: "{W158H3}{Steiner}\n“I am mapping out a plan for\n the rest of our journey!”"
+  },
+  {
+    id: "0112",
+    text: "{W170H3}Attendant\n“The car to Alexandria will be\n arriving shortly.”"
+  },
+  {
+    id: "0113",
+    text: "{W98H2}{Dagger}\n“What was that?”"
+  },
+  {
+    id: "0114",
+    text: "{W116H3}Attendant\n“The car to Lindblum\n just departed.”"
+  },
+  {
+    id: "0115",
+    text: "{W93H1}{UpperRightForce}{Offset -500,255,4000}I missed my ride!"
+  },
+  {
+    id: "0116",
+    text: "{W162H3}{Dagger}\n“{Speed 2}...{Speed -1}?\n That voice sounds familiar.”"
+  },
+  {
+    id: "0117",
+    text: "{W129H4}{LowerLeftForce}{PreChoose 2,1}{Widths 2,182,-1}{Instantly}Chef\n“Hey there, welcome!”\n{Choice}How’s business?\n{Tab}Do you sell anything special?"
+  },
+  {
+    id: "0118",
+    text: "{W135H3}{LowerLeftForce}Chef\n“Business is good!\n It’s always busy here.”"
+  },
+  {
+    id: "0119",
+    text: "{W144H3}{LowerLeftForce}Chef\n“Ah, yes!  You gotta try\n our famous bundt cake!”"
+  },
+  {
+    id: "0120",
+    text: "{W184H4}{LowerLeftForce}Chef\n“The perfect gift for the family!\n Take one home today for your\n loved ones!”"
+  },
+  {
+    id: "0121",
+    text: "{W144H3}{LowerLeftForce}Chef\n“It’s the world-famous\n South Gate Bundt Cake!”"
+  },
+  {
+    id: "0122",
+    text: "{W209H4}{LowerLeftForce}{PreChoose 2,1}{Instantly}Chef\n“Oh, you want to play a card game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0123",
+    text: "{W162H2}{LowerLeftForce}{Instantly}Chef\n“You need 5 cards to play!”"
+  },
+  {
+    id: "0124",
+    text: "{W182H1}{Offset 630,0,-50}{LowerLeftForce}Current Location: Summit Station"
+  },
+  {
+    id: "0125",
+    text: "{W61H2}{Widths 0,0,18,-1}{Dagger}\n“That’s{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0126",
+    text: "{W153H3}Cinna\n“I missed my ride!\n What am I gonna do now!?”"
+  },
+  {
+    id: "0127",
+    text: "{W103H3}Marcus\n“How the heck\n should I know{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0128",
+    text: "{W190H4}{UpperLeftForce}Marcus\n“You were the one who wanted to\n watch the scenery while eating\n South Gate Bundt Cake.”"
+  },
+  {
+    id: "0129",
+    text: "{W140H3}Cinna\n“I’m gonna be late\n returning to Lindblum{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0130",
+    text: "{W159H3}Marcus\n“There’s nothing we can do.\n I won’t tell the boss.”"
+  },
+  {
+    id: "0131",
+    text: "{W100H2}Cinna\n“Thanks, buddy!”"
+  },
+  {
+    id: "0132",
+    text: "{W185H2}Cinna\n“Let’s eat another bundt cake!”"
+  },
+  {
+    id: "0133",
+    text: "{W54H2}Marcus\n“Geez{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0134",
+    text: "{W67H1}{UpperLeftForce}{Offset -100,0,-100}Scoundrels!"
+  },
+  {
+    id: "0135",
+    text: "{W18H1}{Center 18}???"
+  },
+  {
+    id: "0136",
+    text: "{W138H3}{Steiner}\n“Are you here to kidnap\n the princess again!?”"
+  },
+  {
+    id: "0137",
+    text: "{W136H2}Cinna\n“Who’s the big tin man?”"
+  },
+  {
+    id: "0138",
+    text: "{W144H2}{Steiner}\n“WHAT!?  How dare you!”"
+  },
+  {
+    id: "0139",
+    text: "{W137H3}{UpperLeftForce}Marcus\n“He’s the captain of the\n Knights of Pluto.”"
+  },
+  {
+    id: "0140",
+    text: "{W197H2}Cinna\n“Oh yeah!  You’re one bad actor.”"
+  },
+  {
+    id: "0141",
+    text: "{W135H3}{Steiner}\n“Grrr{Speed 2}...{Speed -1}!\n Have you no respect?”"
+  },
+  {
+    id: "0142",
+    text: "{W155H3}{Dagger}\n“You’re Marcus, right?\n What are you doing here?”"
+  },
+  {
+    id: "0143",
+    text: "{W156H3}Marcus\n“Princess!?\n What are YOU doing here?”"
+  },
+  {
+    id: "0144",
+    text: "{W134H3}Marcus\n“When we escaped from\n Evil Forest{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0145",
+    text: "{W179H3}{Steiner}\n“Princess!  You shouldn’t waste\n your breath on criminals!”"
+  },
+  {
+    id: "0146",
+    text: "{W155H3}{Dagger}\n“You must be Cinna.\n What are you doing here?”"
+  },
+  {
+    id: "0147",
+    text: "{W109H3}Cinna\n“Hey, check it out!\n It’s the princess.”"
+  },
+  {
+    id: "0148",
+    text: "{W134H3}Cinna\n“When we escaped from\n Evil Forest{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0149",
+    text: "{W79H2}{Steiner}\n“Princess{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0150",
+    text: "{W94H3}{Dagger}\n“{Steiner}!\n That’s enough!”"
+  },
+  {
+    id: "0151",
+    text: "{W79H2}{Steiner}\n“Wh-{Wait 3}Wha{Speed 2}...{Speed -1}!?”"
+  },
+  {
+    id: "0152",
+    text: "{W100H3}{Dagger}\n“Can’t I even talk\n to my friends?”"
+  },
+  {
+    id: "0153",
+    text: "{W151H2}{Steiner}\n“Friends!?  But they’re{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0154",
+    text: "{W72H2}{Widths 0,72,19,-1}{Dagger}\n“Adelbert {Steiner}!”"
+  },
+  {
+    id: "0155",
+    text: "{W97H1}Yes, Prin─ma’am!"
+  },
+  {
+    id: "0156",
+    text: "{W121H2}Cinna\n“He’s bein’ scolded.”"
+  },
+  {
+    id: "0157",
+    text: "{W119H2}Marcus\n“How embarrassing.”"
+  },
+  {
+    id: "0158",
+    text: "{W146H3}Attendant\n“The cable car to\n Alexandria has arrived!”"
+  },
+  {
+    id: "0159",
+    text: "{W67H2}Cinna\n“It’s here!”"
+  },
+  {
+    id: "0160",
+    text: "{W173H2}{LowerLeftForce}Marcus\n“But you’re goin’ to Lindblum.”"
+  },
+  {
+    id: "0161",
+    text: "{W189H3}Cinna\n“I-{Wait 3}I know that!\n But you’re going to Alexandria!”"
+  },
+  {
+    id: "0162",
+    text: "{W167H2}{LowerLeftForce}Marcus\n“Yeah, I’m heading to Treno.”"
+  },
+  {
+    id: "0163",
+    text: "{W101H2}Cinna\n“I’ll see you off!”"
+  },
+  {
+    id: "0164",
+    text: "{W187H2}{Dagger}\n“Marcus is going to Treno, too?”"
+  },
+  {
+    id: "0165",
+    text: "{W57H3}{Widths 0,0,18,-1,0,15,19,-1}{Dagger}\n“Let’s go,\n {Steiner}.”"
+  },
+  {
+    id: "0166",
+    text: "{W120H3}{Dagger}\n“{Steiner}?\n Are you mad at me?”"
+  },
+  {
+    id: "0167",
+    text: "{W104H3}{Steiner}\n“No, ma’am!\n I’m coming along.”"
+  },
+  {
+    id: "0168",
+    text: "{W202H3}Shopkeeper\n“Get your supplies together before\n you cross the border.”"
+  },
+  {
+    id: "0169",
+    text: "{W199H3}Worker\n“I can’t believe I’m stuck here,\n working in the middle of nowhere.”"
+  },
+  {
+    id: "0170",
+    text: "{W237H3}Worker\n“South Gate serves as a gate to airships,\n as well as cable car travelers.”"
+  },
+  {
+    id: "0171",
+    text: "{W191H3}Worker\n“But the gate’s broken right now;\nthe airships can’t pass through.”"
+  },
+  {
+    id: "0172",
+    text: "{W126H4}{PreChoose 2,1}{Instantly}Worker\n“Oh, you play cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0173",
+    text: "{W151H3}Worker\n“Hey, lady, you need\n at least 5 cards to play.”"
+  },
+  {
+    id: "0174",
+    text: "{W74H2}{LowerRightForce}Cinna\n“Good luck!”"
+  },
+  {
+    id: "0175",
+    text: "{W107H3}Marcus\n“Yeah.\n I’ll save our bro!”"
+  },
+  {
+    id: "0176",
+    text: "{W52H2}{LowerRightForce}{Widths 0,0,18,-1}{Dagger}\n“{Speed 2}...{Speed -1}Bro?”"
+  },
+  {
+    id: "0177",
+    text: "{W114H3}{Dagger}\n“Say, why is Marcus\n going to Treno?”"
+  },
+  {
+    id: "0178",
+    text: "{W177H3}Cinna\n“Are you going to Treno, too?\n Marcus’s got a deal in Treno.”"
+  },
+  {
+    id: "0179",
+    text: "{W67H2}{Widths 0,0,18,-1}{Dagger}\n“A deal{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0180",
+    text: "{W141H3}{UpperRightForce}Conductor\n“We’ll be departing\n for Alexandria shortly.”"
+  },
+  {
+    id: "0181",
+    text: "{W176H2}Cinna\n“You’d better get on the car.”"
+  },
+  {
+    id: "0182",
+    text: "{W159H2}{Steiner}\n“Princess, let us go inside.”"
+  },
+  {
+    id: "0183",
+    text: "{W146H3}Attendant\n“Cable car to Alexandria,\n now at Summit Station!”"
+  },
+  {
+    id: "0184",
+    text: "{W99H2}Conductor\n“Now departing.”"
+  },
+  {
+    id: "0185",
+    text: "{W224H2}{Dagger}\n“Why are you going to Treno, Marcus?”"
+  },
+  {
+    id: "0186",
+    text: "{W134H2}{LowerLeftForce}{Offset 0,150,0}Marcus\n“To save our brother.”"
+  },
+  {
+    id: "0187",
+    text: "{W41H2}{Widths 0,0,18,-1}{Dagger}\n“Who?”"
+  },
+  {
+    id: "0188",
+    text: "{W155H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“There’s only one man\n I call ‘Bro.’  That’s Blank.”"
+  },
+  {
+    id: "0189",
+    text: "{W186H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“You already forgot?\n He got petrified in Evil Forest!”"
+  },
+  {
+    id: "0190",
+    text: "{W170H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“We’ve been gathering info to\n cure his petrification.”"
+  },
+  {
+    id: "0191",
+    text: "{W186H4}{LowerLeftForce}{Offset 0,150,0}{Widths 0,122,14,0,-1}Marcus\n“We finally learned about an item\n called {Item 0} that cures all\n forms of petrification.”"
+  },
+  {
+    id: "0192",
+    text: "{W115H2}{Dagger}\n“What about Cinna?”"
+  },
+  {
+    id: "0193",
+    text: "{W214H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“Cinna’s going to the Tantalus hideout\n in Lindblum to tell the others.”"
+  },
+  {
+    id: "0194",
+    text: "{W53H2}{Widths 0,0,18,-1}{Dagger}\n“I see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0195",
+    text: "{W160H2}{LowerLeftForce}{Offset 0,150,0}Marcus\n“It’s my turn for questions.”"
+  },
+  {
+    id: "0196",
+    text: "{W40H2}{Widths 0,0,18,-1}{Dagger}\n“Yes?”"
+  },
+  {
+    id: "0197",
+    text: "{W68H2}{LowerLeftForce}{Offset 0,150,0}{Widths 0,68,16,-1}Marcus\n“Where’s {Zidane}?”"
+  },
+  {
+    id: "0198",
+    text: "{W158H2}{Dagger}\n“We separated in Lindblum.”"
+  },
+  {
+    id: "0199",
+    text: "{W168H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“Got rid of him as soon as\n he got you to Lindblum, huh?”"
+  },
+  {
+    id: "0200",
+    text: "{W149H4}{UpperRightForce}{Widths 0,134,16,-1}{Dagger}\n“How could you say that!?\n It’s only because {Zidane} kept\n treating me like a child!”"
+  },
+  {
+    id: "0201",
+    text: "{W153H2}{Dagger}\n“{Speed 2}...{Speed -1}I don’t care about him.”"
+  },
+  {
+    id: "0202",
+    text: "{W202H2}{LowerLeftForce}{Offset 0,150,0}Marcus\n“Fine.  Then I don’t know anything.”"
+  },
+  {
+    id: "0203",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0204",
+    text: "{W103H3}{Steiner}\n“I shall not meddle\n in your affairs!”"
+  },
+  {
+    id: "0205",
+    text: "{W147H3}Conductor\n“It’ll be a while before we\n arrive in Alexandria.”"
+  },
+  {
+    id: "0206",
+    text: "{W158H3}{UpperRightForce}{Dagger}\n“Say, Marcus{Speed 2}...{Speed -1} Um, is there\n any way I can help?”"
+  },
+  {
+    id: "0207",
+    text: "{W100H2}{LowerLeftForce}{Offset 0,150,0}Marcus\n“Help with what?”"
+  },
+  {
+    id: "0208",
+    text: "{W180H3}{UpperRightForce}{Dagger}\n“Well{Speed 2}...{Speed -1} I was partly responsible\n for what happened, so{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0209",
+    text: "{W148H3}{LowerLeftForce}{Offset 0,150,0}Marcus\n“No, thanks.\n We’ll be fine on our own.”"
+  },
+  {
+    id: "0210",
+    text: "{W175H2}{UpperRightForce}{Dagger}\n“But wouldn’t it be better if─”"
+  },
+  {
+    id: "0211",
+    text: "{W110H1}{UpperLeftForce}{NoFocus}Wh-{Wait 3}What was that!?{Time 45}"
+  },
+  {
+    id: "0212",
+    text: "{W246H3}{UpperLeftForce}Conductor\n“It might be engine trouble!\n Please remain in your seats while I check.”"
+  },
+  {
+    id: "0213",
+    text: "{W48H1}Ahhhhhh!"
+  },
+  {
+    id: "0214",
+    text: "{W169H3}{UpperLeftForce}Conductor\n“It’s a demon!\n A demon with a pointy hat!!!”"
+  },
+  {
+    id: "0215",
+    text: "{W93H2}{Dagger}\n“A pointy hat!?”"
+  },
+  {
+    id: "0216",
+    text: "{W99H2}{LowerLeftForce}{Offset 0,150,0}Marcus\n“What’s wrong!?”"
+  },
+  {
+    id: "0217",
+    text: "{W171H3}Part-time Worker Mary\n“I’m gonna work hard and help\n him open another shop.”"
+  },
+  {
+    id: "0218",
+    text: "{W112H2}{UpperRightForce}Marcus\n“What’s going on!?”"
+  },
+  {
+    id: "0219",
+    text: "{W15H1}{Center 15}!!!"
+  },
+  {
+    id: "0220",
+    text: "{W118H3}Black Waltz No. 3\n“Mission{Speed 2}...{Speed -1}retrieve{Speed 2}...{Speed -1}\n princess{Speed 2}...{Speed -1}alive{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0221",
+    text: "{W148H3}{Dagger}\n“Isn’t that the one we saw\n on the cargo ship?”"
+  },
+  {
+    id: "0222",
+    text: "{W157H3}{Steiner}\n“Monster!\n I’ll finish you off this time!”"
+  },
+  {
+    id: "0223",
+    text: "{W50H2}{Widths 0,0,18,-1,0,50,19,-1}{Dagger}\n“Wait, {Steiner}!”"
+  },
+  {
+    id: "0224",
+    text: "{W193H3}{Dagger}\n“Tell me something!\n Why do you want to capture me?”"
+  },
+  {
+    id: "0225",
+    text: "{W172H3}{Steiner}\n“Princess, it’s too dangerous!\n Please stand back!”"
+  },
+  {
+    id: "0226",
+    text: "{W137H3}Marcus\n“It’s no use!\n It doesn’t understand!”"
+  },
+  {
+    id: "0227",
+    text: "{W42H2}{Widths 0,0,18,-1}{Dagger}\n“But─”"
+  },
+  {
+    id: "0228",
+    text: "{W98H2}Black Waltz No. 3\n“Eliminate{Speed 2}...{Speed -1}all!”"
+  },
+  {
+    id: "0229",
+    text: "{W39H2}{UpperRightForce}Why{Speed 2}...{Speed -1}?\nWhy{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0230",
+    text: "{W158H2}{UpperRightForce}{Dagger}\n“What did he want with me?”"
+  },
+  {
+    id: "0231",
+    text: "{W74H2}{Steiner}\n“Princess{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0232",
+    text: "{W220H3}Marcus\n“Burmecia was attacked by an army of\n black mage soldiers{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0233",
+    text: "{W65H2}{UpperRightForce}{Widths 0,0,18,-1}{Dagger}\n“{Speed 2}...{Speed -1}I know.”"
+  },
+  {
+    id: "0234",
+    text: "{W158H3}Marcus\n“Those mages wiped out the\n people of Burmecia{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0235",
+    text: "{W24H1}{UpperRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0236",
+    text: "{W165H2}{Steiner}\n“Who would do such a thing?”"
+  },
+  {
+    id: "0237",
+    text: "{W161H3}Marcus\n“Are you serious!?\n How ignorant can you be!?”"
+  },
+  {
+    id: "0238",
+    text: "{W124H2}{Steiner}\n“What do you mean!?”"
+  },
+  {
+    id: "0239",
+    text: "{W108H3}{UpperRightForce}{Widths 0,65,19,-1}{Dagger}\n“Stop it, {Steiner}{Speed 2}...{Speed -1}\n I know who did it.”"
+  },
+  {
+    id: "0240",
+    text: "{W68H2}{Widths 0,0,19,-1}{Steiner}\n“Princess?”"
+  },
+  {
+    id: "0241",
+    text: "{W174H2}{UpperRightForce}{Dagger}\n“We’re almost in Alexandria{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0242",
+    text: "{W133H3}{UpperRightForce}{Dagger}\n“I must go to the castle\n and see my mother{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0243",
+    text: "{W116H2}{UpperRightForce}{Dagger}\n“She’ll listen to me.”"
+  },
+  {
+    id: "0244",
+    text: "{W162H2}{Offset 0,80,0}{UpperLeftForce}{Dagger}\n“I think we’re almost there.”"
+  },
+  {
+    id: "0245",
+    text: "{W170H3}{Offset 0,80,0}{UpperLeftForce}Marcus\n“So, you already heard about\n the attack on Burmecia.”"
+  },
+  {
+    id: "0246",
+    text: "{W79H3}{Offset 0,80,0}{UpperLeftForce}{Widths 0,79,19,-1}{Dagger}\n“Of course.\n I’m not like {Steiner}.”"
+  },
+  {
+    id: "0247",
+    text: "{W107H2}{Offset 0,80,0}{UpperLeftForce}Marcus\n“You’ve changed.”"
+  },
+  {
+    id: "0248",
+    text: "{W94H3}{Offset 0,80,0}{UpperLeftForce}{Dagger}\n“Me?  You mean\n the way I talk?”"
+  },
+  {
+    id: "0249",
+    text: "{W90H2}{Offset 0,80,0}{UpperLeftForce}Marcus\n“Not just that.”"
+  },
+  {
+    id: "0250",
+    text: "{W122H3}{Offset 0,80,0}{UpperLeftForce}{Dagger}\n“Well{Speed 2}...{Speed -1}\n A lot has happened.”"
+  },
+  {
+    id: "0251",
+    text: "{W152H2}{UpperLeftForce}{Dagger}\n“Oh, speaking of which{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0252",
+    text: "{W47H2}{Offset 0,80,0}{UpperLeftForce}Marcus\n“Yeah?”"
+  },
+  {
+    id: "0253",
+    text: "{W198H3}{UpperLeftForce}{Dagger}\n“I’ve been through tons of battles.\n I’m a seasoned pro, now!”"
+  },
+  {
+    id: "0254",
+    text: "{W172H2}{Offset 0,80,0}{UpperLeftForce}Marcus\n“What are you talking about?”"
+  },
+  {
+    id: "0255",
+    text: "{W137H3}{UpperLeftForce}{Widths 0,98,14,0,-1}{Dagger}\n“We need to find {Item 0}\n and save Blank, right?”"
+  },
+  {
+    id: "0256",
+    text: "{W182H3}{Offset 0,80,0}{UpperLeftForce}Marcus\n“You’re gonna come along, even\n if I refuse, right?”"
+  },
+  {
+    id: "0257",
+    text: "{W117H3}{UpperLeftForce}{Dagger}\n“Of course I am!\n This is so exciting!”"
+  },
+  {
+    id: "0258",
+    text: "{W247H3}{UpperLeftForce}{Dagger}\n“I’ve always wanted to see the marvelous\n architecture of Treno.  I can hardly wait!”"
+  },
+  {
+    id: "0259",
+    text: "{W178H3}{Offset 0,80,0}{UpperLeftForce}Marcus\n(On second thought,\n she hasn’t changed that much.)"
+  },
+  {
+    id: "0260",
+    text: "{W78H2}Conductor\n“Take care!”"
+  },
+  {
+    id: "0261",
+    text: "{W167H4}Conductor\n“The road splits up ahead.\n Go right to reach Treno, and\n left to reach Dali.”"
+  },
+  {
+    id: "0262",
+    text: "{W202H3}Conductor\n“This car is returning to the summit.\n You can’t go back.”"
+  },
+  {
+    id: "0263",
+    text: "{W243H4}Conductor\n“The Mist, which provided energy\n to the cable car engine, has disappeared.\n The cars aren’t operational.”"
+  },
+  {
+    id: "0264",
+    text: "{W131H2}Part-time Worker Mary\n“Welcome!”"
+  },
+  {
+    id: "0265",
+    text: "{W131H5}{PreChoose 2,1}{Instantly}Part-time Worker Mary\n“Oh, you’d like to play\n a card game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0266",
+    text: "{W131H2}Part-time Worker Mary\n“Okay, let’s play.”"
+  },
+  {
+    id: "0267",
+    text: "{W131H3}Part-time Worker Mary\n“That’s too bad.\n Maybe next time.”"
+  },
+  {
+    id: "0268",
+    text: "{W154H3}Part-time Worker Mary\n“You need at least 5 cards\n to play.”"
+  },
+  {
+    id: "0269",
+    text: "{W126H4}Part-time Worker Jeff\n“Welcome{Speed 2}...{Speed -1}\n Oh, yeah{Speed 2}...{Speed -1}\n We’re together now.”"
+  },
+  {
+    id: "0270",
+    text: "{W207H1}{LowerLeftForce}Current Location: Alexandria Station"
+  },
+  {
+    id: "0271",
+    text: "{W217H6}{Speed 64}\n{Center 85}{Pink}Item Shop VEGA{White}\n\n{Center 198}{Tab}Working hard to provide you{Tab}\n{Center 217}{Tab}with the best selection of items!{Tab}"
+  },
+  {
+    id: "0272",
+    text: "{W223H6}{Speed 64}\n{Center 175}{Tab}{Pink}Item Shop VEGA & ALTAIR{White}{Tab}\n\n{Center 223}{Tab}Buy a souvenir to remember your{Tab}\n{Center 162}{Tab}ride on the cable car!{Tab}"
+  },
+  {
+    id: "0273",
+    text: "{W202H4}\nTo Treno→\nUse caution when traveling at night."
+  },
+  {
+    id: "0274",
+    text: "{W150H4}\n↑To Dali\nDo not vandalize the farm!"
+  },
+  {
+    id: "0275",
+    text: "{W213H8}No amount of hardship can tear\nour two countries apart.\n11th Regent of Lindblum, Cid VIII\n\nThe Berkmea cable cars were built to\ncommemorate the 20th anniversary\nof friendship between Lindblum and\nAlexandria."
+  },
+  {
+    id: "0276",
+    text: "{W127H3}Guard\n“Hey, we gotta\n lower the gate first.”"
+  },
+  {
+    id: "0277",
+    text: "{W98H2}{Widths 0,98,14,0,-1}Guard\n“Show me your {Item 0}.”"
+  },
+  {
+    id: "0278",
+    text: "{W92H2}Guard\n“Yup, this is it!”"
+  },
+  {
+    id: "0279",
+    text: "{W177H2}{LowerLeftForce}Guard\n“Hey, will you lower the gate?”"
+  },
+  {
+    id: "0280",
+    text: "{W134H2}Guard\n“Be careful out there.”"
+  },
+  {
+    id: "0281",
+    text: "{W154H3}Guard\n“Treno is only a short walk\n from this gate.”"
+  },
+  {
+    id: "0282",
+    text: "{W178H3}Guard\n“The Mist disappeared, and the\n cable cars stopped working.”"
+  },
+  {
+    id: "0283",
+    text: "{W172H5}{PreChoose 2,1}{Instantly}Guard\n“Oh, are you challenging me to\n a card game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0284",
+    text: "{W208H3}Guard\n“Hey, you better have enough cards\n in Treno, or they’ll laugh at you!”"
+  },
+  {
+    id: "0285",
+    text: "{W24H1}{Offset 0,350,0}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0286",
+    text: "{W112H3}{Offset 0,350,0}Cinna\n“I{Speed 2}...{Speed -1}\n I missed it again{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0287",
+    text: "{W188H3}{Offset 0,350,0}Cinna\n“How many times have I missed it?\n It’s morning now{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0288",
+    text: "{W188H3}{Offset 0,100,0}Cinna\n“But it isn’t my fault!\n It’s the South Gate Bundt Cake!”"
+  },
+  {
+    id: "0289",
+    text: "{W107H3}Cinna\n“It’s so delicious{Speed 2}...{Speed -1}\n I just can’t stop!”"
+  },
+  {
+    id: "0290",
+    text: "{W146H3}Cinna\n“When will the next car to\n Lindblum arrive{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0291",
+    text: "{W251H3}Cinna\n“That sound{Speed 2}...{Speed -1}\n That’s a car coming back from Alexandria.”"
+  },
+  {
+    id: "0292",
+    text: "{W146H3}Cinna\n“I’m gonna wait right here\n this time!”"
+  },
+  {
+    id: "0293",
+    text: "{W163H1}{Flash}{Speed 4}What the heck are ya doin’!?"
+  },
+  {
+    id: "0294",
+    text: "{W167H2}Cinna\n“I’m waiting for a cable car.”"
+  },
+  {
+    id: "0295",
+    text: "{W229H1}{Flash}{Speed 4}So this is where you were wastin’ time!!!"
+  },
+  {
+    id: "0296",
+    text: "{W222H3}Cinna\n“I wasn’t wasting time.\n I was eating South Gate Bundt Cake{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0297",
+    text: "{W153H2}Cinna\n“Why are you talking to{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0298",
+    text: "{W26H1}{Center 26}ME!?"
+  },
+  {
+    id: "0299",
+    text: "{W181H4}{UpperRightForce}Baku\n“I knew somethin’ was up,\n ’cause Marcus wouldn’t give me\n a straight answer.”"
+  },
+  {
+    id: "0300",
+    text: "{W187H4}{UpperRightForce}Baku\n“So, this is where you were.\n Ignorin’ your boss’s orders and\n eatin’ South Gate Bundt Cake{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0301",
+    text: "{W156H3}Cinna\n“F-Forgive me!\n I didn’t mean to slack off.”"
+  },
+  {
+    id: "0302",
+    text: "{W126H2}{UpperRightForce}Baku\n“It’s punishment time!”"
+  },
+  {
+    id: "0303",
+    text: "{W250H2}{UpperRightForce}Baku\n“Take my Super Tornado Tantalus Punch!!!”"
+  },
+  {
+    id: "0304",
+    text: "{W123H3}Cinna\n“P-{Wait 3}Please, not that{Speed 2}...{Speed -1}\n Please{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0305",
+    text: "{W64H1}{LowerLeftForce}{NoFocus}NOOOOOO!!!{Time 60}"
+  },
+  {
+    id: "0306",
+    text: "{W118H2}{UpperRightForce}Baku\n“Take it like a man!”"
+  },
+  {
+    id: "0307",
+    text: "{W83H1}Graaaaaagh!!!"
+  },
+  {
+    id: "0308",
+    text: "{W64H1}NOOOOOO!!!{Time 60}"
+  },
+  {
+    id: "0309",
+    text: "{W192H3}{Steiner}\n{White}(Once we cross this gate,\n we are in Alexandrian territory!)"
+  },
+  {
+    id: "0310",
+    text: "{W113H2}{Steiner}\n{White}(I must act natural!)"
+  },
+  {
+    id: "0311",
+    text: "{W120H2}{UpperRightForce}Short Guard\n“Hold it right there.”"
+  },
+  {
+    id: "0312",
+    text: "{W131H3}{UpperLeftForce}Tall Guard\n“What’s the purpose of\n your visit?”"
+  },
+  {
+    id: "0313",
+    text: "{W175H3}{LowerRightForce}{Steiner}\n“I heard workers were needed\n to fix South Gate.”"
+  },
+  {
+    id: "0314",
+    text: "{W183H3}{LowerRightForce}{Steiner}\n“I brought my belongings so that\n I might live and work here.”"
+  },
+  {
+    id: "0315",
+    text: "{W90H2}{UpperLeftForce}Tall Guard\n“That’s great!”"
+  },
+  {
+    id: "0316",
+    text: "{W200H4}{UpperLeftForce}Tall Guard\n“They’ve been working on the gate\n non-stop since the accident,\n but it’s still broken.”"
+  },
+  {
+    id: "0317",
+    text: "{W195H3}{UpperRightForce}Short Guard\n“I need to check your bag.\n Rules and regulations, you know.”"
+  },
+  {
+    id: "0318",
+    text: "{W24H1}{LowerRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0319",
+    text: "{W136H2}{UpperRightForce}Short Guard\n“Would you step back?”"
+  },
+  {
+    id: "0320",
+    text: "{W158H3}{UpperLeftForce}Tall Guard\n“There, that’s good.{Signal 1}\n Sorry, just doing our job.”"
+  },
+  {
+    id: "0321",
+    text: "{W161H2}Tall Guard\n“So{Speed 2}...{Speed -1} Where are you from?”"
+  },
+  {
+    id: "0322",
+    text: "{W158H2}{LowerLeftForce}{Steiner}\n{White}(Blast, I must do something!)"
+  },
+  {
+    id: "0323",
+    text: "{W143H1}{LowerRightForce}This knot is really tight{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0324",
+    text: "{W228H4}{UpperLeftForce}Tall Guard\n“The police are searching for a girl and\n a middle-aged man.  Did you see a pair\n like that on your way here?”"
+  },
+  {
+    id: "0325",
+    text: "{W67H1}{LowerRightForce}I got it now."
+  },
+  {
+    id: "0326",
+    text: "{W251H4}{UpperLeftForce}Tall Guard\n“The girl supposedly looks exactly\n like Princess Garnet, the most beautiful\n princess ever to grace Alexandria Castle.”"
+  },
+  {
+    id: "0327",
+    text: "{W225H4}{UpperLeftForce}Tall Guard\n“But you know how Queen Brahne looks.\n It’s hard to believe that she’d have\n such a beautiful daughter.”{Signal 1}"
+  },
+  {
+    id: "0328",
+    text: "{W37H1}{UpperRightForce}Ungh!?"
+  },
+  {
+    id: "0329",
+    text: "{W82H1}{UpperRightForce}WHAT IS THIS!?"
+  },
+  {
+    id: "0330",
+    text: "{W151H3}{UpperRightForce}Short Guard\n“Wh-What is that!?\n What are those{Speed 2}...{Speed -1}those{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0331",
+    text: "{W111H3}{UpperRightForce}Short Guard\n“{Speed 2}...{Speed -1}rotten things!\n Are they poison!?”"
+  },
+  {
+    id: "0332",
+    text: "{W144H4}{UpperLeftForce}{Steiner}\n“Rotten?\n I’m not carrying anything\n that’s rotting{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0333",
+    text: "{W208H2}{UpperRightForce}Tall Guard\n“Oh, it’s your least favorite food{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0334",
+    text: "{W142H3}{UpperRightForce}Tall Guard\n“{Speed 2}...{Speed -1}the Lindblum delicacy,\n gysahl pickles.”"
+  },
+  {
+    id: "0335",
+    text: "{W144H3}{UpperRightForce}Tall Guard\n“I can’t believe how many\n you brought with you!”"
+  },
+  {
+    id: "0336",
+    text: "{W209H3}{UpperLeftForce}{Steiner}\n“They are my favorite!\n I cannot start my day without them.”"
+  },
+  {
+    id: "0337",
+    text: "{W142H4}{UpperLeftForce}Tall Guard\n“Yeah, sure.  People who\n like ’em all say that.\n You can go now.”"
+  },
+  {
+    id: "0338",
+    text: "{W75H2}{UpperRightForce}{Steiner}\n“Thank you.”"
+  },
+  {
+    id: "0339",
+    text: "{W71H2}{UpperRightForce}{Widths 0,0,19,-1}{Steiner}\n“Good day.”"
+  },
+  {
+    id: "0340",
+    text: "{W127H3}Tall Guard\n“There’s been a lot of\n trouble lately.”"
+  },
+  {
+    id: "0341",
+    text: "{W182H2}Short Guard\n“Oh, you mean about Burmecia?”"
+  },
+  {
+    id: "0342",
+    text: "{W182H4}Short Guard\n“I heard they were attacked by\n an army of soldiers wearing\n pointy hats.”"
+  },
+  {
+    id: "0343",
+    text: "{W191H4}Short Guard\n“I wanna go fight on the frontline.\n Instead, I’m rotting away in this\n stinkin’ place.”"
+  },
+  {
+    id: "0344",
+    text: "{W205H4}Tall Guard\n“Really?\n I don’t like wars.\n Why would someone start a war{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0345",
+    text: "{W202H4}Tall Guard\n“That guy who passed through here\n with the huge bag{Speed 2}...{Speed -1}\n Did he look suspicious to you?”"
+  },
+  {
+    id: "0346",
+    text: "{W132H2}Short Guard\n“No{Speed 2}...{Speed -1} I don’t think so.”"
+  },
+  {
+    id: "0347",
+    text: "{W167H3}Tall Guard\n“But weren’t you the one who\n thought he was suspicious?”"
+  },
+  {
+    id: "0348",
+    text: "{W122H3}Short Guard\n“You know me!\n I’m always like that.”"
+  },
+  {
+    id: "0349",
+    text: "{W158H4}Short Guard\n“I’m telling you,\n people who eat pickles are\n nice people.”"
+  },
+  {
+    id: "0350",
+    text: "{W201H4}Short Guard\n“I envy him.\n Gysahl pickles are the only pickles\n I can’t eat.”"
+  },
+  {
+    id: "0351",
+    text: "{W157H3}Tall Guard\n“{Speed 2}...{Speed -1}You’re really\n confusing, you know that?”"
+  },
+  {
+    id: "0352",
+    text: "{W203H3}Short Guard\n“I know{Speed 2}...{Speed -1}\n Why do you think I ended up here?”"
+  },
+  {
+    id: "0353",
+    text: "{W184H3}{Steiner}\n{White}(We’re inside the gate!\n Princess, you’ve done it again.)"
+  },
+  {
+    id: "0354",
+    text: "{W139H3}{LowerRightForce}{Steiner}\n{White}(I must find a spot where\n I won’t be seen{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0355",
+    text: "{W172H2}{LowerRightForce}{Steiner}\n{White}(That alley looks acceptable.)"
+  },
+  {
+    id: "0356",
+    text: "{W116H3}{LowerRightForce}{Steiner}\n{White}(But a girl and a man\n are in the way.)"
+  },
+  {
+    id: "0357",
+    text: "{W155H3}{UpperRightForce}{Steiner}\n{White}(I must get rid of them\n before I go into the alley.)"
+  },
+  {
+    id: "0358",
+    text: "{W136H3}{Steiner}\n{White}(That just leaves the\n young man over there.)"
+  },
+  {
+    id: "0359",
+    text: "{W130H3}{Steiner}\n{White}(Now I just need to get\n rid of that girl{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0360",
+    text: "{W117H2}{Steiner}\n{White}(The coast is clear.)"
+  },
+  {
+    id: "0361",
+    text: "{W142H2}{Steiner}\n“I cannot climb like this.”"
+  },
+  {
+    id: "0362",
+    text: "{W191H5}Carpenter Hans\n“Things are strange around here.\n There are rumors of ghosts{Speed 2}...{Speed -1}\n How did South Gate get\n destroyed, anyway?”"
+  },
+  {
+    id: "0363",
+    text: "{W207H4}Carpenter Hans\n“And is it true that the castle\n welcomed the old airship even after\n it caused that accident?”"
+  },
+  {
+    id: "0364",
+    text: "{W202H2}Carpenter Hans\n“I wonder what’s really going on{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0365",
+    text: "{W219H3}Worker\n“This gate breaks down a lot,\n ’cause the hinges don’t fit very well.”"
+  },
+  {
+    id: "0366",
+    text: "{W194H4}Worker\n“This road leads to the bottom\n of the Mist.  No one uses it.\n There’s no need to fix it, really.”"
+  },
+  {
+    id: "0367",
+    text: "{W189H4}Worker\n“So, I just polish up the gate and\n make it look all nice.  That takes\n care of it for a couple months.”"
+  },
+  {
+    id: "0368",
+    text: "{W49H1}Hee hee."
+  },
+  {
+    id: "0369",
+    text: "{W66H2}Rub-rub!\nRubba-dub!"
+  },
+  {
+    id: "0370",
+    text: "{W106H2}Scrubba-dub!\nScrubba-dub-dub!"
+  },
+  {
+    id: "0371",
+    text: "{W190H5}{PreChoose 2,1}{Instantly}{Steiner}\n{White}(You were the reason we couldn’t\n come in through this gate!)\n{Choice}Kill!\n{Tab}Don’t kill"
+  },
+  {
+    id: "0372",
+    text: "{W182H2}{Steiner}\n{White}(I almost lost control of myself!)"
+  },
+  {
+    id: "0373",
+    text: "{W153H3}{Steiner}\n{White}(I must tolerate him for\n the sake of the princess!)"
+  },
+  {
+    id: "0374",
+    text: "{W155H4}Jobless Jeff\n“Sigh{Speed 2}...{Speed -1}\n I declared bankruptcy and\n sold my shop.”"
+  },
+  {
+    id: "0375",
+    text: "{W171H4}Jobless Jeff\n“It was called Altair.\n We sold magic items.\n It’s just a regular shop now.”"
+  },
+  {
+    id: "0376",
+    text: "{W146H4}Jobless Jeff\n“I should’ve taken\n all my magic items with me\n when I gave it up.”"
+  },
+  {
+    id: "0377",
+    text: "{W101H2}Jobless Jeff\n“Who is this girl?”"
+  },
+  {
+    id: "0378",
+    text: "{W151H2}Jobless Jeff\n“I want to be left alone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0379",
+    text: "{W135H3}Part-time Worker Mary\n“I can’t believe he went\n out of business{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0380",
+    text: "{W184H5}{PreChoose 2,1}{Instantly}Part-time Worker Mary\n“I didn’t know, because I was on\n the other side of the mountain.”\n{Choice}Console her\n{Tab}Don’t console her"
+  },
+  {
+    id: "0381",
+    text: "{W172H3}{Steiner}\n“What good is it to bemoan\n what has already happened?”"
+  },
+  {
+    id: "0382",
+    text: "{W171H5}{Steiner}\n“Wh-What I meant to say was\n that{Speed 2}...{Speed -1} Now that we are here,\n there must be things we can\n do to help the ones we love.”"
+  },
+  {
+    id: "0383",
+    text: "{W137H3}Part-time Worker Mary\n“You’re right.\n I gotta encourage him.”"
+  },
+  {
+    id: "0384",
+    text: "{W44H1}Thanks!"
+  },
+  {
+    id: "0385",
+    text: "{W243H5}Part-time Worker Mary\n“{Speed 2}...{Speed -1}I really liked your store.\n{Wait 10} It had a nice atmosphere, a lot of sunlight,\n and a nice sign.  But what made the store\n really special for me was{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0386",
+    text: "{W171H3}Part-time Worker Mary\n“The real reason why I always\n went to your store was{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0387",
+    text: "{W149H4}Part-time Worker Mary\n“This is my first time\n talking to him!\n I wish I’d done it sooner.”"
+  },
+  {
+    id: "0388",
+    text: "{W150H3}Earnest Young Man\n“Let’s see{Speed 2}...{Speed -1}\n I need two of model #3{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0389",
+    text: "{W217H5}{PreChoose 2,1}{Instantly}Earnest Young Man\n“Oh, you brought your things with you.\n Are you here to work?”\n{Choice}Answer\n{Tab}Remain silent"
+  },
+  {
+    id: "0390",
+    text: "{W65H2}{Widths 0,0,19,-1}{Steiner}\n“I-Indeed.”"
+  },
+  {
+    id: "0391",
+    text: "{W225H4}Earnest Young Man\n“Welcome!  I’m also new here.\n I’ve been working here for five months\n as the chief engineer of Bohden Gate.”"
+  },
+  {
+    id: "0392",
+    text: "{W238H2}Earnest Young Man\n“But he’s the only one working under me.”{Signal 1}"
+  },
+  {
+    id: "0393",
+    text: "{W229H3}Chief Engineer\n“I’ll be going back to the castle\n next month, when my contract expires.”"
+  },
+  {
+    id: "0394",
+    text: "{W217H4}Chief Engineer\n“I’ll be joining a team of engineers\n who are developing a new engine that\n runs without Mist.”"
+  },
+  {
+    id: "0395",
+    text: "{W214H5}Chief Engineer\n“The world outside the Mist Continent\n is uncharted territory, but there’s\n no need to worry about our safety if\n we can explore it on an airship.”"
+  },
+  {
+    id: "0396",
+    text: "{W171H3}Chief Engineer\n“Regent Cid is an advocate of\n technological advancement.”"
+  },
+  {
+    id: "0397",
+    text: "{W151H3}Chief Engineer\n“Oh, sorry.\n I’ve talked your ear off.”"
+  },
+  {
+    id: "0398",
+    text: "{W207H3}Chief Engineer\n“Sure, I’d like to leave, but I\n intend to work hard while I’m here!”"
+  },
+  {
+    id: "0399",
+    text: "{W200H2}{Steiner}\n“There’s something I must tell you.”"
+  },
+  {
+    id: "0400",
+    text: "{W188H3}Chief Engineer\n“{Speed 2}...{Speed -1}The gate to the bottom of\n the Mist has been left broken!?”"
+  },
+  {
+    id: "0401",
+    text: "{W127H3}Chief Engineer\n“Did he think he could\n get away with that!?”"
+  },
+  {
+    id: "0402",
+    text: "{W81H2}{UpperRightForce}Chief Engineer\n“Excuse me!”{Time 30}"
+  },
+  {
+    id: "0403",
+    text: "{W128H4}Chief Engineer\n“I know I’m young and\n inexperienced, but I’m\n eager to learn!”"
+  },
+  {
+    id: "0404",
+    text: "{W88H2}Short Guard\n“Hey, hold on!”"
+  },
+  {
+    id: "0405",
+    text: "{W191H3}Short Guard\n“Rules and regulations, you know.\n Would you come over here?”"
+  },
+  {
+    id: "0406",
+    text: "{W107H2}Short Guard\n“Come over here.”"
+  },
+  {
+    id: "0407",
+    text: "{W111H2}Short Guard\n“Stop right there!”{Time 45}"
+  },
+  {
+    id: "0408",
+    text: "{W138H3}{LowerLeftForce}Short Guard\n“Don’t make a move until\n I tell you!”"
+  },
+  {
+    id: "0409",
+    text: "{W172H3}{LowerLeftForce}Short Guard\n“Now, turn toward me slowly{Speed 2}...{Speed -1}\n Don’t make a false move.”"
+  },
+  {
+    id: "0410",
+    text: "{W40H1}{LowerLeftForce}Phew{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0411",
+    text: "{W173H3}{LowerLeftForce}Short Guard\n“You need a {Yellow}Gate Pass{White} to\n reach the South Gate summit.”"
+  },
+  {
+    id: "0412",
+    text: "{W144H3}{LowerLeftForce}Short Guard\n“I’m leaving it right here.\n Pick it up after I leave.”{Signal 1}"
+  },
+  {
+    id: "0413",
+    text: "{W182H4}{LowerLeftForce}Short Guard\n“I’d come closer, but you’re\n carrying those stinky pickles!\n See?  I’m leaving it right here!”"
+  },
+  {
+    id: "0414",
+    text: "{W128H1}Received a {Yellow}Gate Pass{White}!"
+  },
+  {
+    id: "0415",
+    text: "{W39H1}Ahem{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0416",
+    text: "{W214H2}‘Tis foolishness!  If all were so easy,\n why, none would suffer in this world!’"
+  },
+  {
+    id: "0417",
+    text: "{W155H3}{Dagger}\n“{Steiner}{Speed 2}...{Speed -1}?  Is it\n okay for me to come out?”"
+  },
+  {
+    id: "0418",
+    text: "{W25H1}Yes!"
+  },
+  {
+    id: "0419",
+    text: "{W148H4}{Dagger}\n“Thank you.\n I will come out now.\n Please keep an eye out.”"
+  },
+  {
+    id: "0420",
+    text: "{W99H1}<Rustle rustle{Speed 2}...{Speed -1}>"
+  },
+  {
+    id: "0421",
+    text: "{W98H3}{Dagger}\n“Oh, finally!\n Some fresh air!”"
+  },
+  {
+    id: "0422",
+    text: "{W190H3}{Dagger}\n“What a horrible smell{Speed 2}...{Speed -1}\n It gave me a terrible headache.”"
+  },
+  {
+    id: "0423",
+    text: "{W132H3}{Dagger}\n{White}(Maybe I’ll get changed\n while he’s on lookout.)"
+  },
+  {
+    id: "0424",
+    text: "{W78H4}{LowerRightForce}{Offset 20,80,0}{PreChoose 2,1}{Widths 1,110,-1,2,165,-1}{Instantly}{Steiner}\n“Let’s see{Speed 2}...{Speed -1}”\n{Choice}Continue looking\n{Tab}Go over to the other side"
+  },
+  {
+    id: "0425",
+    text: "{W50H1}Uh-huh{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0426",
+    text: "{W34H2}{Widths 0,0,18,-1}{Dagger}\n{White}(Ahh!)"
+  },
+  {
+    id: "0427",
+    text: "{W143H2}{Dagger}\n{White}“(Don’t look this way{Speed 2}...{Speed -1})”"
+  },
+  {
+    id: "0428",
+    text: "{W165H2}{UpperRightForce}{Widths 0,165,19,-1}{Dagger}\n“You can turn around now, {Steiner}.”"
+  },
+  {
+    id: "0429",
+    text: "{W79H2}{Steiner}\n“Princess{Speed 2}...{Speed -1}!”{Time -1}"
+  },
+  {
+    id: "0430",
+    text: "{W5H1}{LowerRightForce}{Offset 0,80,0}{Widths 0,5,19,-1}{Steiner}!"
+  },
+  {
+    id: "0431",
+    text: "{W112H3}{Widths 0,112,18,-1}{Steiner}\n“Yes{Speed 2}...{Speed -1}?\n Oh, um, yes, Miss {Dagger}.”"
+  },
+  {
+    id: "0432",
+    text: "{W142H4}{UpperRightForce}{Widths 0,120,18,-1}{Dagger}\n“You have to call me {Dagger}\n until we reach {Cyan}Treno{White}.\n Don’t salute me, either.”"
+  },
+  {
+    id: "0433",
+    text: "{W183H4}{UpperLeftForce}{Steiner}\n“Yes, until we reach\n{Cyan} Treno{White} and find a way back\n to the castle, I will be careful.”"
+  },
+  {
+    id: "0434",
+    text: "{W98H2}{UpperRightForce}{Dagger}\n“Okay, let’s go!”"
+  },
+  {
+    id: "0435",
+    text: "{W40H1}Wow{Speed 2}...{Speed -1}!"
+  },
+  {
+    id: "0436",
+    text: "{W170H4}{Widths 0,125,19,-1}{Dagger}\n“We’re almost there, {Steiner}.\n Alexandria is just beyond the\n summit, right?”"
+  },
+  {
+    id: "0437",
+    text: "{W118H3}{Widths 0,65,16,-1}{Dagger}\n“I managed it without\n {Zidane}’s help{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0438",
+    text: "{W122H3}{Widths 0,122,20,-1}{Steiner}\n“He probably went to\n Burmecia with Miss {Fraya}.”"
+  },
+  {
+    id: "0439",
+    text: "{W103H3}{Dagger}\n“I hope he isn’t\n looking for me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0440",
+    text: "{W143H3}{Steiner}\n“You never needed him \n to begin with, Princess.”"
+  },
+  {
+    id: "0441",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0442",
+    text: "{W124H1}Come get your goods!{Time 30}"
+  },
+  {
+    id: "0443",
+    text: "{W124H1}Come get your goods!{Time 30}"
+  },
+  {
+    id: "0444",
+    text: "{W104H1}Welcome, welcome."
+  },
+  {
+    id: "0445",
+    text: "{W185H4}{PreChoose 2,1}{Instantly}Conductor\n“Will you be boarding Berkmea?”\n{Choice}Board\n{Tab}Don’t board"
+  },
+  {
+    id: "0446",
+    text: "{W163H2}Conductor\n“May I see your {Yellow}Gate Pass{White}?”"
+  },
+  {
+    id: "0447",
+    text: "{W189H3}Conductor\n“We won’t be departing for a bit.\n Take your time.”"
+  },
+  {
+    id: "0448",
+    text: "{W33H1}Okay!"
+  },
+  {
+    id: "0449",
+    text: "{W5H1}{Center 5}!"
+  },
+  {
+    id: "0450",
+    text: "{W106H3}{Dagger}\n“Um{Speed 2}...{Speed -1} Sorry,\n I’ll {Wait 10}go get it now.”"
+  },
+  {
+    id: "0451",
+    text: "{W125H2}Conductor\n“Yup, that’s the one.”"
+  },
+  {
+    id: "0452",
+    text: "{W157H5}{PreChoose 2,1}{Instantly}Conductor\n“We can depart right away,\n if you want.”\n{Choice}Depart\n{Tab}Not yet"
+  },
+  {
+    id: "0453",
+    text: "{W183H3}Conductor\n“Alright, then.  Please go inside.\n We’ll be departing shortly.”"
+  },
+  {
+    id: "0454",
+    text: "{W86H2}Conductor\n“{Speed 2}...{Speed -1}Calm down.”"
+  },
+  {
+    id: "0455",
+    text: "{W133H3}{Dagger}\n“That cable car will\n take us to the summit.”"
+  },
+  {
+    id: "0456",
+    text: "{W133H2}{Dagger}\n“I shouldn’t go back{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0457",
+    text: "{W152H3}Construction Worker\n“South Gate is a big place.\n It’s a mountain, actually.”"
+  },
+  {
+    id: "0458",
+    text: "{W215H3}Construction Worker\n“You can check the board over there\n to see where you are.”"
+  },
+  {
+    id: "0459",
+    text: "{W116H3}Construction Worker\n“Berkmea{Speed 2}...{Speed -1}\n It’s a work of art.”"
+  },
+  {
+    id: "0460",
+    text: "{W184H1}{UpperLeftForce}Current location: Bohden Station"
+  },
+  {
+    id: "0461",
+    text: "{W131H3}{Position 8,148}{PreChoose 2,1}{Instantly}Listen to the itinerary?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0462",
+    text: "{W72H2}{Position 8,148}{Widths 0,72,18,-1}{Steiner}\n“{Speed 2}...{Speed -1}M-Miss {Dagger}.”"
+  },
+  {
+    id: "0463",
+    text: "{W102H4}{Position 8,148}{Steiner}\n“The gate we just\n crossed is called\n Bohden Gate.”"
+  },
+  {
+    id: "0464",
+    text: "{W120H4}{Position 8,148}{Steiner}\n“And here we are,\n at Bohden Station,\n still inside Lindblum.”"
+  },
+  {
+    id: "0465",
+    text: "{W145H4}{Position 8,148}{Steiner}\n“South Gate itself is\n inside Lindblum territory,\n but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0466",
+    text: "{W216H3}{Position 8,148}{Steiner}\n“{Speed 2}...{Speed -1}the cable car will take us over the\n Aerbs Mountains into Alexandria.”"
+  },
+  {
+    id: "0467",
+    text: "{W186H3}{Position 8,148}{Steiner}\n“And this is the Treno Gate,\n which is where we are heading.”"
+  },
+  {
+    id: "0468",
+    text: "{W199H3}{Position 8,148}{Steiner}\n“{Cyan}Treno{White}, the City of Nobles,\n should not be too far from there.”"
+  },
+  {
+    id: "0469",
+    text: "{W195H3}Conductor\n“The car’s empty, as you can see.\n Sit wherever you want.”"
+  },
+  {
+    id: "0470",
+    text: "{W171H2}{Steiner}\n“Where would you like to sit?”"
+  },
+  {
+    id: "0471",
+    text: "{W167H3}{Steiner}\n“The seats on the right look\n nice and warm from the sun.”"
+  },
+  {
+    id: "0472",
+    text: "{W109H3}{Steiner}\n“You must be tired.\n Please sit down.”"
+  },
+  {
+    id: "0473",
+    text: "{W94H2}{UpperLeftForce}{Dagger}\n“Let’s sit here.”"
+  },
+  {
+    id: "0474",
+    text: "{W146H3}{Offset 0,80,0}Conductor\n“Please wait while I\n prepare for departure.”"
+  },
+  {
+    id: "0475",
+    text: "{W131H2}{UpperLeftForce}Part-time Worker Mary\n“Wait!  Wait for me!”"
+  },
+  {
+    id: "0476",
+    text: "{W131H3}Part-time Worker Mary\n“<Pant, pant{Speed 2}...{Speed -1}>\n I made it!”"
+  },
+  {
+    id: "0477",
+    text: "{W131H3}{UpperLeftForce}Part-time Worker Mary\n“Thank you for your\n kind words earlier.”"
+  },
+  {
+    id: "0478",
+    text: "{W102H2}{UpperRightForce}{Steiner}\n“No, I thank you.”"
+  },
+  {
+    id: "0479",
+    text: "{W6H1}{UpperLeftForce}{Center 6}?"
+  },
+  {
+    id: "0480",
+    text: "{W100H2}Conductor\n“Now departing!”"
+  },
+  {
+    id: "0481",
+    text: "{W168H3}Conductor\n“We will be departing shortly.\n Please come back soon.”"
+  },
+  {
+    id: "0482",
+    text: "{W190H2}Conductor\n“Summit Station!  Summit Station!”"
+  },
+  {
+    id: "0483",
+    text: "{W181H3}{Offset -128,128,0}{LowerLeftForce}{Steiner}\n{White}(The princess believes what she\n heard about Queen Brahne.)"
+  },
+  {
+    id: "0484",
+    text: "{W235H4}{Offset -128,128,0}{LowerLeftForce}{Steiner}\n{White}(Queen Brahne would never start a war{Speed 2}...{Speed -1}\n It’s all a misunderstanding.  She will\n see that when she talks to the queen.)"
+  },
+  {
+    id: "0485",
+    text: "{W211H4}{Offset -128,128,0}{LowerLeftForce}{Steiner}\n{White}({Speed 2}...{Speed -1}I need not concern myself\n with such matters.  My only mission is\n to protect the princess.)"
+  },
+  {
+    id: "0486",
+    text: "{W148H3}{UpperLeftForce}{Dagger}\n“Phew{Speed 2}...{Speed -1}\n I feel more relaxed now.”"
+  },
+  {
+    id: "0487",
+    text: "{W174H4}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“That is understandable.\n Our journey from Lindblum was\n very tough.  But{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0488",
+    text: "{W214H4}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“{Speed 2}...{Speed -1}it was your white magic\n that helped me through the\n battles against all those monsters{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0489",
+    text: "{W244H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“{Speed 2}...{Speed -1}your fortitude that got us past the\n obnoxious moogles in Chocobo’s Forest{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0490",
+    text: "{W221H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“{Speed 2}...{Speed -1}your keen sense of\n direction that got us to South Gate{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0491",
+    text: "{W254H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“{Speed 2}...{Speed -1}and finally, your idea to use gysahl\n pickles to get past the South Gate guards!”"
+  },
+  {
+    id: "0492",
+    text: "{W211H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“I am thoroughly impressed by your\n intelligence and courage, Princess!”"
+  },
+  {
+    id: "0493",
+    text: "{W80H3}{Offset -192,144,0}{LowerRightForce}{Widths 0,68,19,-1}{Dagger}\n“{Steiner}, you can’t\n call me that.”"
+  },
+  {
+    id: "0494",
+    text: "{W131H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“My apologies.\n I’m just not used to{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0495",
+    text: "{W145H4}{Offset -192,144,0}{LowerRightForce}{Widths 0,145,16,-1}{Dagger}\n“It’s okay.  I made lots of\n mistakes when {Zidane} taught me\n how to talk like this.”"
+  },
+  {
+    id: "0496",
+    text: "{W148H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“That peasant had\n no manners whatsoever!”"
+  },
+  {
+    id: "0497",
+    text: "{W207H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“Although{Speed 2}...{Speed -1}he did\n have some wit for a bumpkin, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0498",
+    text: "{W154H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“The way he spoke to you\n was simply unacceptable!”"
+  },
+  {
+    id: "0499",
+    text: "{W131H2}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“I say good riddance.”"
+  },
+  {
+    id: "0500",
+    text: "{W211H3}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“The conductor said we’ll be\n arriving at the Summit Station soon.”"
+  },
+  {
+    id: "0501",
+    text: "{W48H2}{Offset 0,160,-20}{LowerRightForce}{Widths 0,0,19,-1}{Steiner}\n“Prin{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0502",
+    text: "{W90H2}{Offset 0,160,-20}{LowerRightForce}{Widths 0,90,18,-1}{Steiner}\n“Ahem{Speed 2}...{Speed -1} Miss {Dagger}?”"
+  },
+  {
+    id: "0503",
+    text: "{W106H2}{Offset 0,160,-20}{LowerRightForce}{Steiner}\n“She’s sleeping{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0504",
+    text: "{W110H3}{Offset -192,144,0}{LowerRightForce}{Widths 0,98,16,-1}{Dagger}\n“It was {Zidane}’s idea to\n hide inside a bag.”"
+  },
+  {
+    id: "0505",
+    text: "{W151H6}{PreChooseMask 4,3}{Instantly}Guard\n“Huh?  What do you want?”\n{Choice}I want to pass through\n{Tab}I want to take a break\n{Tab}I want to talk\n{Tab}Nothing"
+  },
+  {
+    id: "0506",
+    text: "{W164H3}Guard\n“You gotta have a {Yellow}Gate Pass{White}\n to pass through here.”"
+  },
+  {
+    id: "0507",
+    text: "{W189H4}Guard\n“There’s no work here right now.\n Try again when they need\n construction workers.”"
+  },
+  {
+    id: "0508",
+    text: "{W157H5}{PreChoose 2,1}{Instantly}Guard\n“The shopgirl at Vega\n won’t be here for a while.”\n{Choice}I can wait\n{Tab}Maybe some other time"
+  },
+  {
+    id: "0509",
+    text: "{W137H2}Guard\n“Then wait right there.”"
+  },
+  {
+    id: "0510",
+    text: "{W164H3}Guard\n“South Gate is the border\n of Alexandria and Lindblum.”"
+  },
+  {
+    id: "0511",
+    text: "{W172H3}Guard\n“We check every airship and\n person crossing the border.”"
+  },
+  {
+    id: "0512",
+    text: "{W183H3}Guard\n“We’re doing the best we can to\n keep the two nations safe.”"
+  },
+  {
+    id: "0513",
+    text: "{W210H2}Guard\n“Have you ever been on an airship?”"
+  },
+  {
+    id: "0514",
+    text: "{W170H4}Guard\n“South Gate was just fixed,\n but now that the Mist is gone,\n it stopped moving again.”"
+  },
+  {
+    id: "0515",
+    text: "{W89H1}That’s life, huh?"
+  },
+  {
+    id: "0516",
+    text: "{W112H3}Guard\n“The airship gate is\n still broken.”"
+  },
+  {
+    id: "0517",
+    text: "{W173H4}Guard\n“But the construction workers\n are gathering, so it should\n be fixed soon.”"
+  },
+  {
+    id: "0518",
+    text: "{W126H2}Guard\n“She’ll be here soon.”"
+  },
+  {
+    id: "0519",
+    text: "{W175H3}Part-time Worker Mary\n“Hello!  I’m Mary.\n I work at Vega, an item shop.”"
+  },
+  {
+    id: "0520",
+    text: "{W159H6}{PreChoose 3,2}{Instantly}Part-time Worker Mary\n“Sorry to keep you waiting.\n How can I help you?”\n{Choice}I want to rest\n{Tab}I want to shop\n{Tab}Nothing"
+  },
+  {
+    id: "0521",
+    text: "{W131H4}{PreChoose 2,1}{Widths 0,131,64,0,-1}{Instantly}Part-time Worker Mary\n“It’s {Variable 0} Gil to rest here.”\n{Choice}Rest\n{Tab}Don’t rest"
+  },
+  {
+    id: "0522",
+    text: "{W162H2}Part-time Worker Mary\n“You don’t have enough Gil.”"
+  },
+  {
+    id: "0523",
+    text: "{W224H4}Guard\n“The Village of Dali is beyond this gate.\n You gotta go to the other gate\n if you wanna go to Treno.”"
+  },
+  {
+    id: "0524",
+    text: "{W219H4}{PreChoose 2,1}{Instantly}Guard\n“What, you wanna pass through here?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0525",
+    text: "{W127H4}Guard\n“You got a {Yellow}Gate Pass{White}?\n {Speed 2}...{Speed -1}I guess you do.\n I’ll open it now.”"
+  },
+  {
+    id: "0526",
+    text: "{W142H3}Guard\n“Will you get outta here?\n I wanna close the gate.”"
+  },
+  {
+    id: "0527",
+    text: "{W154H3}{UpperLeftForce}Tall Guard\n“Oh, you have a {Yellow}Gate Pass{White}.\n Sorry about that.”"
+  },
+  {
+    id: "0528",
+    text: "{W240H2}{UpperLeftForce}Tall Guard\n“The Berkmea is not operating right now.”"
+  },
+  {
+    id: "0529",
+    text: "{W173H4}{UpperLeftForce}Tall Guard\n“It runs on a Mist engine, just\n like airships.  It stopped when\n the Mist cleared.”"
+  },
+  {
+    id: "0530",
+    text: "{W108H3}{UpperLeftForce}Tall Guard\n“So much for fixing\n the airship gate.”"
+  },
+  {
+    id: "0531",
+    text: "{W139H3}{UpperRightForce}Short Guard\n“What are you doing in a\n sleepy place like this?”"
+  },
+  {
+    id: "0532",
+    text: "{W170H3}Chief Engineer\n“The Berkmea stopped moving\n because the Mist cleared.”"
+  },
+  {
+    id: "0533",
+    text: "{W202H4}Chief Engineer\n“There’s nothing for me to do here,\n but there’s no way for me to\n go back home to Lindblum.”"
+  },
+  {
+    id: "0534",
+    text: "{W141H3}Chief Engineer\n“I hope Regent Cid builds\n his new airship soon.”"
+  },
+  {
+    id: "0535",
+    text: "{W202H3}Carpenter Hans\n“I can’t believe Berkmea stopped{Speed 2}...{Speed -1}\n We just finished fixing the gate.”"
+  },
+  {
+    id: "0536",
+    text: "{W125H3}{UpperRight}{Offset -32,64,0}Worker\n“Ahh{Speed 2}...{Speed -1}\n The sun feels great.”"
+  },
+  {
+    id: "0537",
+    text: "{W49H1}{UpperRight}{Offset -32,64,0}Hee hee."
+  },
+  {
+    id: "0538",
+    text: "{W204H3}Conductor\n“Sorry, Berkmea is not operational.\n Everything runs on a Mist engine.”"
+  },
+  {
+    id: "0539",
+    text: "{W184H3}Conductor\n“I’m glad the Mist is gone,\n but it’s certainly inconvenient.”"
+  }
+]

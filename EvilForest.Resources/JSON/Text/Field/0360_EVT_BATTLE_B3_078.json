@@ -1,0 +1,494 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0045",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0046",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0047",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0048",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0049",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0050",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0051",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0052",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0053",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0054",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0055",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0056",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0057",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0058",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0059",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0060",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0061",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0062",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0063",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0064",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0065",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0066",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0067",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0068",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0069",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0070",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0071",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0072",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0073",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0074",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0075",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0076",
+    text: "{W182H4}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“It isn’t much, but I’ve prepared\n some goods that may be of use\n on your journey.”"
+  },
+  {
+    id: "0077",
+    text: "{W197H4}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“Unfortunately, I must charge you\n money in exchange.  We’re running\n low on supplies.”"
+  },
+  {
+    id: "0078",
+    text: "{W26H1}{UpperLeftForce}{Offset 0,-96,0}So{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0079",
+    text: "{W140H4}{UpperLeftForce}{Offset 0,-96,0}{PreChooseMask 2,1}{Instantly}Morrison\n“Would that be okay{Speed 2}...{Speed -1}?”\n{Choice}Pay Gil for items\n{Tab}No thanks"
+  },
+  {
+    id: "0080",
+    text: "{W132H3}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“I see.\n I’m sorry I can’t help.”"
+  },
+  {
+    id: "0081",
+    text: "{W64H4}{UpperLeftForce}{Offset 0,-96,0}{PreChooseMask 2,1}{Widths 1,111,-1}{Instantly}Morrison\n“Welcome.”\n{Choice}Pay Gil for items\n{Tab}Cancel"
+  },
+  {
+    id: "0082",
+    text: "{W181H3}Moco\n“The Mist covered up the sky.\n It makes me feel so sad, kupo.”"
+  },
+  {
+    id: "0083",
+    text: "{W146H4}{Widths 0,84,22,-1}Moco\n“How’s {Eiko}, kupo?\n We had an earthquake,\n but tell her we’re okay.”"
+  },
+  {
+    id: "0084",
+    text: "{W145H5}{PreChoose 2,1}{Instantly}Momatose\n“Wanna sleep?\n It feels so good!  Kupo!”\n{Choice}Rest\n{Tab}Don’t rest"
+  },
+  {
+    id: "0085",
+    text: "{W184H1}There’s some writing on the wall."
+  },
+  {
+    id: "0086",
+    text: "{W58H3}{Widths 0,15,22,-1}{Center 15,22}{Eiko}: 3\n{Center 37}Mog: 3\n{Center 58}Same age!"
+  },
+  {
+    id: "0087",
+    text: "{W158H2}{Zidane}\n“What are you doing here?”"
+  },
+  {
+    id: "0088",
+    text: "{W242H5}Lani\n“I tried getting back to the Mist Continent,\n but Fossil Roo was blocked, and the\n Alexandrian Fleet was destroyed\n before my eyes.”"
+  },
+  {
+    id: "0089",
+    text: "{W217H4}Lani\n“I became so weak after\n wandering around for days.  Then the\n moogles here rescued me.”"
+  },
+  {
+    id: "0090",
+    text: "{W187H3}Lani\n“That’s when I realized I’ve been\n so selfish all my life{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0091",
+    text: "{W237H4}Lani\n“It’s so wonderful living with moogles.\n I haven’t thought about money once since\n I’ve been here.”"
+  },
+  {
+    id: "0092",
+    text: "{W170H2}Lani\n“I’m glad I lost our last fight.”"
+  },
+  {
+    id: "0093",
+    text: "{W161H3}Mocha\n“The old records are fading\n because of the Mist, kupo.”"
+  },
+  {
+    id: "0094",
+    text: "{W132H3}Mocha\n“Maybe it’s because of\n the seawater{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0095",
+    text: "{W174H4}{PreChoose 2,1}{Instantly}Lani\n“You wanna play some cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0096",
+    text: "{W74H2}Lani\n“Let’s play.”"
+  },
+  {
+    id: "0097",
+    text: "{W124H2}Lani\n“That’s your choice.”"
+  },
+  {
+    id: "0098",
+    text: "{W161H2}Lani\n“You need 5 cards to play.”"
+  },
+  {
+    id: "0099",
+    text: "{W156H2}{Zidane}\n“You’re not running away?”"
+  },
+  {
+    id: "0100",
+    text: "{W202H2}Lani\n“I need to apologize to someone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0101",
+    text: "{W161H3}Lani\n“I thought that mission was a\n great opportunity{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0102",
+    text: "{W215H3}Lani\n“Even though I did some stupid things,\n he still let me do whatever I wanted.”"
+  },
+  {
+    id: "0103",
+    text: "{W158H3}Lani\n“I remember how mad he got\n towards the end.”"
+  },
+  {
+    id: "0104",
+    text: "{W147H3}Lani\n“I was mad, too, but I’m\n kinda short-tempered{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0105",
+    text: "{W168H3}{Zidane}\n“You should apologize sooner\n rather than later.”"
+  },
+  {
+    id: "0106",
+    text: "{W146H3}{Zidane}\n“It becomes more difficult\n as time passes.”"
+  },
+  {
+    id: "0107",
+    text: "{W146H3}Lani\n“I know.\n I’m just not ready yet{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0108",
+    text: "{W183H4}Lani\n“You know, I saw some words\n that might mean something in the\n small room over there.”"
+  },
+  {
+    id: "0109",
+    text: "{W203H3}Chimomo\n“The fishing has been horrible since\n the Mist appeared{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0110",
+    text: "{W108H3}{Offset 0,96,0}{Zidane}\n“There’s something\n carved on it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0111",
+    text: "{W274H4}{Offset 0,96,0}{Zidane}\n“Movment of time....?\n If it’s talking about a clock, forward is\n clockwise, and backward is counterclockwise.”"
+  },
+  {
+    id: "0112",
+    text: "{W153H6}{Instantly}\n{Center 143}Time moves forward once\n{Center 153}Time moves backward once\n{Center 126}Nine is the last number\n{Center 103}It is also the first."
+  },
+  {
+    id: "0113",
+    text: "{W172H10}{Instantly}\n{Center 126}Fear not the power of\n{Center 152}summon magic, but the ones\n{Center 60}who use it.\n\n{Center 117}Greed and instability\n{Center 172}endlessly repeat old mistakes.\n\n{Center 160}Will omniscience set us free?"
+  },
+  {
+    id: "0114",
+    text: "{W200H6}{Instantly}\n{Center 199}This is where the fault lines collide.\n{Center 185}Listen to the planet’s heartbeat.\n{Center 200}Breathe slowly, and calm your mind.\n{Center 156}Let memories return to you.\n{NewPage}{Instantly}\n{Center 118}Memories shape time.\n{Center 82}Time overlaps.\n{Center 192}The overlap becomes our memory.\n{Center 140}Memories construct time.\n{NewPage}{Instantly}\n{Center 127}History repeats itself.\n{Center 160}We must stand in its flow and\n{Center 124}understand the world.\n{Center 164}Such is the goal of our tribe."
+  },
+  {
+    id: "0115",
+    text: "{W246H13}{Instantly}\n{Center 130}The Legend of Eidolons\n{Center 0}\n{Center 223}We discovered eidolons by researching\n{Center 246}legends documented from around the world.\n{Center 0}\n{Center 152}The Thunder God, Ramuh, is\n{Center 122}one of those legends.\n{Center 0}\n{Center 211}Some theorize that the eidolons were\n{Center 194}created from the legends, and not\n{Center 126}the other way around."
+  },
+  {
+    id: "0116",
+    text: "{W239H12}{Instantly}\n{Center 167}The First Eidolon Discovered,\n{Center 30}Shiva\n{Center 0}\n{Center 229}Shiva took the form of a young girl when\n{Center 198}she was first discovered.  She now\n{Center 156}appears as a grown woman.\n\n{Center 187}Eidolons adapt their forms to the\n{Center 215}time and culture in which they appear.\n{Center 161}Shiva illustrates this theory.\n{NewPage}{Instantly}\n{Center 196}In certain areas, Shiva is depicted\n{Center 234}as a snow fairy.  This cannot be verified,\n{Center 205}since the only written document that\n{Center 191}remains is in the summoner village.\n\n{Center 157}People associate Shiva with\n{Center 85}the snow fairy.\n\n{Center 239}Why she changes forms remains a mystery."
+  },
+  {
+    id: "0117",
+    text: "{W202H9}{Instantly}\n{Center 196}When the arrogant one summoned a\n{Center 202}power that could not be controlled,\n{Center 150}holy judgment was passed.\n\n{Center 200}The jewel of this village must serve\n{Center 199}as a reminder of the day we had to\n{Center 106}leave our country."
+  },
+  {
+    id: "0118",
+    text: "{W229H11}{Instantly}\n{Center 117}I survived the storm.\n{Center 170}I wonder if you two are okay?\n{Center 0}\n{Center 143}I see the two of you smile\n{Center 154}every time I close my eyes.\n{Center 0}\n{Center 102}I imagine I see you\n{Center 118}when I open my eyes.\n{NewPage}{Instantly}\n{Center 126}I have a mortal wound.\n{Center 126}I won’t be able to wait\n{Center 104}for you very long.\n{Center 0}\n{Center 164}I regret being so unemotional\n{Center 111}for all these years.\n{Center 0}\n{Center 183}I’m writing down everything here\n{Center 222}in the hope that you’ll read it someday.\n{NewPage}{Instantly}\n{Center 146}To my dearest wife, Jane,\n{Center 173}Although we fought many times,\n{Center 216}and I may not have shown my affection\n{Center 167}enough, I love you very much.\n{Center 0}\n{Center 181}To my beloved daughter, Sarah,\n{Center 209}My life changed when you were born.\n{Center 112}You made me happy.\n{Center 229}These are the things I want you to know."
+  },
+  {
+    id: "0119",
+    text: "{W213H10}{Instantly}\n{Center 163}We repeated the mistake our\n{Center 180}ancestors made 500 years ago.\n\n{Center 188}We failed an attempted summon at\n{Center 200}the foot of the Iifa Tree.  The area\n{Center 212}surrounding the tree was unaffected,\n{Center 148}but we sealed the area as\n{Center 213}they would have done 500 years ago."
+  },
+  {
+    id: "0120",
+    text: "{W234H12}{Instantly}\n{Center 94,22}{Eiko}, my lovely child.\n{Center 0}\n{Center 203}Until you turn 16 and have your own\n{Center 135}eidolon to your control,\n{Center 107}stay in this village.\n\n{Center 234}Then build strong friendships with others.\n\n{Center 170}I wish for your happiness from\n{Center 55}far away."
+  },
+  {
+    id: "0121",
+    text: "{W245H10}{Instantly}{Center 0}\n{Center 4,22}{Eiko},\n{Center 245}You are a treasure born to a dying village.\n{Center 0}\n{Center 222}We are dying, and there is little we can\n{Center 64}do for you.\n{Center 0}\n{Center 156}We shall return to the stars\n{Center 117}with one wish in mind.\n{NewPage}{Instantly}\n{Center 201}If legends are not born of eidolons,\n{Center 211}and eidolons but born out of legends,\n{Center 0}\n{Center 206}let us leave this place with one wish:\n{Center 0}\n{Center 182}If we can give birth to a legend,\n{Center 181}it shall create an eidolon that is\n{Center 181}friend and protector of humans."
+  },
+  {
+    id: "0122",
+    text: "{W221H8}{Instantly}\n{Center 221}This information is yet to be confirmed,\n{Center 210}but there was an eyewitness account\n{Center 217}of a previously-undiscovered eidolon.\n{Center 0}\n{Center 105}It was witnessed in\n{Center 61}Esto Gaza.\n{NewPage}{Instantly}\n{Center 200}If there is an eidolon that can exist\n{Center 196}outside of our legends, our theory\n{Center 147}would no longer hold true.\n{Center 0}\n{Center 189}But maybe there are other tribes\n{Center 177}that have legends of their own."
+  }
+]

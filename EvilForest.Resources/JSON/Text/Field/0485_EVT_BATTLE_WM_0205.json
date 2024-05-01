@@ -1,0 +1,1570 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Opening a Mini-Theater\n{Tab}Narcissus From Lindblum\n{Tab}Eidolon Odin’s Power\n{Tab}Alexandria Destroyed\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W136H2}{UpperRight}{Widths 0,0,6,0,-1,0,136,16,-1}{Text 0,0}\n“There’s a letter for {Zidane}!”"
+  },
+  {
+    id: "0046",
+    text: "{W209H13}{Widths 0,55,6,1,16,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Zidane}{White}\n\n\nAin’t y’all comin’ back to Alexandria?\nI’m so lonely!\n\nJust kiddin’.  I’m openin’ a li’l\ntheater in an alley here.\n\n(A bartender pal o’ mine is\nquittin’ the saloon and gettin’ into\nshowbiz.  He asked me to help.)"
+  },
+  {
+    id: "0047",
+    text: "{W223H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Your friend is starting a mini-theater?\n Sounds like fun, kupo!”"
+  },
+  {
+    id: "0048",
+    text: "{W136H2}{UpperRight}{Widths 0,0,6,0,-1,0,136,16,-1}{Text 0,0}\n“There’s a letter for {Zidane}!”"
+  },
+  {
+    id: "0049",
+    text: "{W199H12}{Widths 0,55,6,1,16,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Zidane}{White}\n\n\nOh, I’m havin’ a terrible time finding\nactors!  I’m willing to take anyone\nwho can read at this point!\n\nWhat was his name?  That narcissist\nfrom Lindblum?  I’d even take him!\nGet him over to my mini-theater!\nWe need to get some business!"
+  },
+  {
+    id: "0050",
+    text: "{W190H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Does she mean Lowell?\n He’s a narcissist, alright, kupo!”"
+  },
+  {
+    id: "0051",
+    text: "{W235H3}{UpperRight}{Widths 0,0,6,0,-1,0,235,6,1,-1}{Text 0,0}\n“Ah, it’s a letter from the flying moogle, {Text 0,1}!\n Thanks for delivering the letter, kupo!”"
+  },
+  {
+    id: "0052",
+    text: "{W244H11}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI rode an airship called the Red Rose,\nbut I saw something horrible... Kupo.\n\nThe eidolon Odin’s power is terrifying.\nIt destroyed Cleyra completely.\n\nThere’s not even a trace of the city now..."
+  },
+  {
+    id: "0053",
+    text: "{W227H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Brahne’s Red Rose destroyed Cleyra!?\n Brahne is scary, kupo!”"
+  },
+  {
+    id: "0054",
+    text: "{W225H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, it’s a letter, kupo!  Yeah!\n It’s been a while since I received one.”"
+  },
+  {
+    id: "0055",
+    text: "{W248H10}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nAlexandria is in a horrible state right now...\nI wonder if Kupo and Mosh are okay?\n\nLet me know when you have more info!\nI heard that Stiltzkin was also in\nAlexandria!  Kupo!"
+  },
+  {
+    id: "0056",
+    text: "{W236H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That wasn’t a very happy letter... Kupo.\n I wonder what’s going to happen now?”"
+  },
+  {
+    id: "0057",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0058",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0059",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0060",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0061",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0062",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0063",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0064",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0065",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0066",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0067",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0068",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0069",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0070",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0071",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0072",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0073",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0074",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0075",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0076",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0077",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0078",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0079",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0080",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0081",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0082",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0083",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0084",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0085",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0086",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0087",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0088",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0089",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Mid Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0090",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Upper Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0091",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Upper Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Mid Level{Cyan}】{White}"
+  },
+  {
+    id: "0092",
+    text: "{W170H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Upper Level{Cyan}】{White}"
+  },
+  {
+    id: "0093",
+    text: "{W154H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Mid Level{Cyan}】{White}"
+  },
+  {
+    id: "0094",
+    text: "{W163H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0095",
+    text: "{W142H4}{PreChoose 3,2}{Widths 1,178,-1,2,154,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Base Level Station{Cyan}】{White}\n{Tab}Ride to {Cyan}【{White}Dragon’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0096",
+    text: "{W142H3}{PreChoose 2,1}{Widths 1,153,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Dragon’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0097",
+    text: "{W142H3}{PreChoose 2,1}{Widths 1,158,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Serpent’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0098",
+    text: "{W142H4}{PreChoose 3,2}{Widths 1,178,-1,2,159,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Base Level Station{Cyan}】{White}\n{Tab}Ride to {Cyan}【{White}Serpent’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0099",
+    text: "{W240H5}{PreChoose 4,3}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0100",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0101",
+    text: "{W242H5}{PreChoose 4,3}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0102",
+    text: "{W242H4}{PreChoose 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0103",
+    text: "{W247H5}{PreChoose 4,3}{Instantly}{Center 247}-{Cyan}Lindblum Castle Air Cab/Industrial District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0104",
+    text: "{W247H4}{PreChoose 3,2}{Instantly}{Center 247}-{Cyan}Lindblum Castle Air Cab/Industrial District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0105",
+    text: "{W184H5}{PreChoose 4,3}{Widths 3,188,-1}{Instantly}{Center 184}-{Cyan}Lindblum Castle Air Cab/Castle{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0106",
+    text: "{W240H4}{PreChooseMask 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to 【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0107",
+    text: "{W242H4}{PreChooseMask 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to 【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0108",
+    text: "{W184H4}{PreChooseMask 3,2}{Instantly}{Center 184}-{Cyan}Lindblum Castle Air Cab/Castle{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the 【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0109",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0110",
+    text: "{W242H4}{PreChoose 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0111",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0112",
+    text: "{W156H1}{Position 170,190}{NoFocus}Lindblum  {Cyan}【{White}Business District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0113",
+    text: "{W150H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Theater District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0114",
+    text: "{W157H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Industrial District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0115",
+    text: "{W94H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Castle{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0116",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,107,-1,2,148,-1}{Instantly}Select event\n{Choice}The Third Jewel\n{Tab}Brahne’s Fleet Arrives\n{Tab}ATE-02\n{Tab}ATE-03\n{Tab}ATE-04\n{Tab}ATE-05\n{Tab}ATE-06\n{Tab}ATE-07\n{Tab}ATE-08\n{Tab}ATE-09\n{Tab}ATE-10\n{Tab}ATE-11\n{Tab}ATE-12\n{Tab}ATE-13\n{Tab}ATE-14\n{Tab}Cancel"
+  },
+  {
+    id: "0117",
+    text: "{W88H1}{Instantly}{Center 88}The Third Jewel"
+  },
+  {
+    id: "0118",
+    text: "{W128H1}{Instantly}{Center 128}Brahne’s Fleet Arrives"
+  },
+  {
+    id: "0119",
+    text: "{W93H2}{Zidane}\n“It’s so quiet{Speed 2}...”"
+  },
+  {
+    id: "0120",
+    text: "{W143H3}{Dagger}\n“Mother{Speed 2}...{Wait 20}{Speed -1} I can’t believe\n you attacked Lindblum!”"
+  },
+  {
+    id: "0121",
+    text: "{W113H3}{Zidane}\n“Careful, they might\n still be around.”"
+  },
+  {
+    id: "0122",
+    text: "{W156H2}{Widths 0,156,17,-1}{Zidane}\n“{Vivi}, you stay here and hide.”"
+  },
+  {
+    id: "0123",
+    text: "{W183H2}{Vivi}\n“No way!{Wait 10}  It’s dangerous here!”"
+  },
+  {
+    id: "0124",
+    text: "{W259H3}{Zidane}\n“There are Alexandrian soldiers everywhere.\n You should stay out of their sight.”"
+  },
+  {
+    id: "0125",
+    text: "{W58H2}{Widths 0,0,17,-1}{Vivi}\n“{Speed 2}...{Speed -1}Okay.”"
+  },
+  {
+    id: "0126",
+    text: "{W192H2}{Zidane}\n“Don’t fret.  We’ll be right back.”"
+  },
+  {
+    id: "0127",
+    text: "{W76H2}{Widths 0,76,17,-1}{Dagger}\n“I’m sorry, {Vivi}.”"
+  },
+  {
+    id: "0128",
+    text: "{W116H3}{Vivi}\n“It’s okay...\n Just make it quick.”"
+  },
+  {
+    id: "0129",
+    text: "{W201H3}Young Man\n“They didn’t even flinch, even when\n one of their own got killed.”"
+  },
+  {
+    id: "0130",
+    text: "{W151H3}Young Man\n“They made monsters seem\n docile!”"
+  },
+  {
+    id: "0131",
+    text: "{W198H3}Engineer\n“I don’t care if it lives.\n My friend was burned alive by it!”"
+  },
+  {
+    id: "0132",
+    text: "{W83H2}Old Man\n“Finish it off!”"
+  },
+  {
+    id: "0133",
+    text: "{W140H3}Engineer\n“Should I crush its head?\n How about its chest?”"
+  },
+  {
+    id: "0134",
+    text: "{W139H3}{Zidane}\n“Stop it!\n He’s a living creature!”"
+  },
+  {
+    id: "0135",
+    text: "{W120H2}Young Man\n“What did you say!?”"
+  },
+  {
+    id: "0136",
+    text: "{W211H3}{Zidane}\n“Brahne programmed them to kill, but\n they’re still just like anybody else!”"
+  },
+  {
+    id: "0137",
+    text: "{W193H3}Young Man\n“Lies!  They may look human, but\n that’s where the similarity ends!”"
+  },
+  {
+    id: "0138",
+    text: "{W197H3}Young Man\n“They destroy everything...like\n wrecking balls destroy buildings.”"
+  },
+  {
+    id: "0139",
+    text: "{W166H3}Young Man\n“They don’t even know we’re\n made of flesh and blood!”"
+  },
+  {
+    id: "0140",
+    text: "{W188H3}Old Man\n“If it’s human, make it understand\n how much suffering it caused!”"
+  },
+  {
+    id: "0141",
+    text: "{W154H3}Old Man\n“Make it understand that it\n killed my only son!”"
+  },
+  {
+    id: "0142",
+    text: "{W187H3}Old Man\n“Otherwise{Speed 2}...{Speed -1}\n My son’s death has no meaning!”"
+  },
+  {
+    id: "0143",
+    text: "{W150H2}Old Margaret\n“Hmm?  Is someone there?”"
+  },
+  {
+    id: "0144",
+    text: "{W142H3}Old Margaret\n“Black mages blinded me.\n What a terrible loss.”"
+  },
+  {
+    id: "0145",
+    text: "{W199H3}Old Margaret\n“I won’t ever see my\n newborn grandchild’s face again.”"
+  },
+  {
+    id: "0146",
+    text: "{W168H3}Maron\n“An airship fell out of the sky\n and almost hit me!”"
+  },
+  {
+    id: "0147",
+    text: "{W172H3}Maron\n“Thank goodness it was only a\n small cargo ship!”"
+  },
+  {
+    id: "0148",
+    text: "{W222H4}Officer\n“The Industrial District is gone,\n and the Business and Theater Districts\n are also in ruins.”"
+  },
+  {
+    id: "0149",
+    text: "{W232H4}{UpperLeftForce}Minister Artania\n“Allocate soldiers to the reconstruction.\n We must get the citizens’ lives\n back on track.”"
+  },
+  {
+    id: "0150",
+    text: "{W61H2}Officer\n“Yes, sir.”"
+  },
+  {
+    id: "0151",
+    text: "{W80H1}{NoFocus}Uncle Artania!{Time -1}"
+  },
+  {
+    id: "0152",
+    text: "{W5H1}{NoFocus}{Center 5}!{Time -1}"
+  },
+  {
+    id: "0153",
+    text: "{W179H3}{Widths 0,158,16,-1}Minister Artania\n“Princess Garnet!  Master {Zidane}!\n Glad to see you’re both safe!”"
+  },
+  {
+    id: "0154",
+    text: "{W127H3}{Dagger}\n“Where is Uncle Cid...?{Wait 10}\n Is the regent safe?”"
+  },
+  {
+    id: "0155",
+    text: "{W143H3}Minister Artania\n“Yes, Princess.\n The castle was spared.”"
+  },
+  {
+    id: "0156",
+    text: "{W122H2}Minister Artania\n“Regent Cid is alive.”"
+  },
+  {
+    id: "0157",
+    text: "{W116H2}{Dagger}\n“Thank goodness{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0158",
+    text: "{W156H2}Minister Artania\n“I will take you to see him.”"
+  },
+  {
+    id: "0159",
+    text: "{W140H1}{UpperRightForce}{NoFocus}Princess Garnet is back!{Time -1}"
+  },
+  {
+    id: "0160",
+    text: "{W56H1}{UpperLeftForce}{NoFocus}Uncle Cid!{Time -1}"
+  },
+  {
+    id: "0161",
+    text: "{W166H3}Regent Cid\n“Garnet!  I thought\n Brahne had imprisoned you!”"
+  },
+  {
+    id: "0162",
+    text: "{W86H2}{LowerRightForce}{Widths 0,86,16,-1}{Dagger}\n“{Zidane} rescued me.”"
+  },
+  {
+    id: "0163",
+    text: "{W141H2}{Widths 0,141,16,-1}Regent Cid\n“Thank you, {Zidane}.  <Gwok!>”"
+  },
+  {
+    id: "0164",
+    text: "{W130H3}{LowerRightForce}{Widths 0,111,20,19,-1}{Dagger}\n“But {Fraya}, {Steiner}, and Beatrix\n were left behind.  I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0165",
+    text: "{W201H4}Regent Cid\n“Ah, the renowned General Beatrix.{Wait 10}\n I don’t think you have anything to\n worry about.”"
+  },
+  {
+    id: "0166",
+    text: "{W152H2}{Widths 0,152,18,-1}{Zidane}\n“I don’t think so, either, {Dagger}.”"
+  },
+  {
+    id: "0167",
+    text: "{W178H3}{UpperLeftForce}{Zidane}\n“We wound up in Pinnacle Rocks\n instead of Treno, but...”"
+  },
+  {
+    id: "0168",
+    text: "{W181H2}{Zidane}\n“...they’ll be fine on their own.”"
+  },
+  {
+    id: "0169",
+    text: "{W165H3}Regent Cid\n“<Gwok-gwok!>  Pinnacle{Speed 2}...{Speed -1}?{Wait 15}\n Did you ride the gargant?”"
+  },
+  {
+    id: "0170",
+    text: "{W119H2}{Zidane}\n“How did you know?”"
+  },
+  {
+    id: "0171",
+    text: "{W174H3}Regent Cid\n“It’s my job to know the\n land surrounding my country.”"
+  },
+  {
+    id: "0172",
+    text: "{W161H3}Regent Cid\n“However{Speed 2}...{Speed -1}{Wait 5}\n I sometimes lack foresight.”"
+  },
+  {
+    id: "0173",
+    text: "{W230H3}Regent Cid\n“Brahne was after the <gwok> eidolons.\n That much, I knew.”"
+  },
+  {
+    id: "0174",
+    text: "{W144H3}Regent Cid\n“But I underestimated the\n power of the eidolons.”"
+  },
+  {
+    id: "0175",
+    text: "{W136H3}Regent Cid\n“Maybe I deserve to be\n cursed with this body.”"
+  },
+  {
+    id: "0176",
+    text: "{W180H3}{UpperLeftForce}{Zidane}\n“I’m glad you surrendered.{Wait 5}\n Cleyra resisted {Wait 5}and perished.”"
+  },
+  {
+    id: "0177",
+    text: "{W119H3}{Dagger}\n(What should I say{Speed 2}...{Speed -1}?\n What can I do{Speed 2}...{Speed -1}?)"
+  },
+  {
+    id: "0178",
+    text: "{W132H2}{LowerRightForce}{Offset 600,0,-600}Hey,\nwe got a live one here!"
+  },
+  {
+    id: "0179",
+    text: "{W87H2}{Offset 650,0,-600}Watch out!{Wait 5}\nIt might attack!"
+  },
+  {
+    id: "0180",
+    text: "{W134H2}{Offset 700,0,-200}Hey,{Wait 5} this one’s much\nsmaller than the others."
+  },
+  {
+    id: "0181",
+    text: "{W5H1}{NoFocus}{Center 5}!{Time -1}"
+  },
+  {
+    id: "0182",
+    text: "{W5H1}{Center 5}!"
+  },
+  {
+    id: "0183",
+    text: "{W110H2}{Offset 700,0,-100}Ouch!  Let me go!\nI’m not one of them!"
+  },
+  {
+    id: "0184",
+    text: "{W149H2}{Offset 700,0,-200}Then why are you dressed\nlike a black mage!?"
+  },
+  {
+    id: "0185",
+    text: "{W97H2}{Zidane}\n“That must be{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0186",
+    text: "{W139H3}{UpperRightForce}Soldier\n“We took an Alexandrian\n soldier into custody!”"
+  },
+  {
+    id: "0187",
+    text: "{W80H2}{Vivi}\n“I just said─”"
+  },
+  {
+    id: "0188",
+    text: "{W77H2}{LowerLeftForce}{Offset 250,0,-500}{Dagger}\n“Uncle Cid{Speed 2}...”"
+  },
+  {
+    id: "0189",
+    text: "{W176H3}{Widths 0,118,17,-1}Minister Artania\n“Let him go.  Master {Vivi}\n is not an Alexandrian soldier.”"
+  },
+  {
+    id: "0190",
+    text: "{W128H3}Minister Artania\n“It’s only a disguise to\n deceive the enemy.”"
+  },
+  {
+    id: "0191",
+    text: "{W88H3}Soldier\n“I-{Wait 5}I see!\n My apologies.”"
+  },
+  {
+    id: "0192",
+    text: "{W24H1}{Speed 2}......"
+  },
+  {
+    id: "0193",
+    text: "{W132H3}Soldier\n“Should we turn it over\n to Alexandria?”"
+  },
+  {
+    id: "0194",
+    text: "{W179H3}Regent Cid\n“I’ve acquired more information\n about Queen Brahne <gwok>.”"
+  },
+  {
+    id: "0195",
+    text: "{W216H3}{UpperRightForce}Regent Cid\n“A weapons dealer named Kuja is\n behind the recent string of attacks.”"
+  },
+  {
+    id: "0196",
+    text: "{W211H3}{UpperRightForce}Regent Cid\n“Kuja has been supplying Brahne with\n highly advanced magic weapons.”"
+  },
+  {
+    id: "0197",
+    text: "{W219H2}{LowerRightForce}{Dagger}\n“Supplying my mother{Speed 2}...with weapons?”"
+  },
+  {
+    id: "0198",
+    text: "{W209H3}Regent Cid\n“Yes.{Wait 15}  The black mage\n soldiers are among these weapons.”"
+  },
+  {
+    id: "0199",
+    text: "{W216H4}{UpperRightForce}Minister Artania\n“According to eyewitnesses in Treno,\n Kuja appeared from the northern sky\n on a silver dragon.”"
+  },
+  {
+    id: "0200",
+    text: "{W195H1}(That’s the guy I saw in Burmecia!)"
+  },
+  {
+    id: "0201",
+    text: "{W220H3}{UpperRightForce}Minister Artania\n“That he came from the north suggests\n that he is from the {Cyan}Outer Continent{White}.”"
+  },
+  {
+    id: "0202",
+    text: "{W139H2}{Dagger}\n“The Outer{Speed 2}...{Speed -1}Continent?”"
+  },
+  {
+    id: "0203",
+    text: "{W162H3}{Zidane}\n“There are many unexplored\n continents in the world.”"
+  },
+  {
+    id: "0204",
+    text: "{W208H4}{Zidane}\n“The {Cyan}Outer Continent{White} is an\n unexplored continent located to the\n {Cyan}north of our Mist Continent{White}.”"
+  },
+  {
+    id: "0205",
+    text: "{W237H3}Regent Cid\n“I believe Kuja is the only one\n supplying <gwok> Brahne with weapons.”"
+  },
+  {
+    id: "0206",
+    text: "{W219H4}{Dagger}\n“The man I saw at the castle must have\n been Kuja.  He must be the one who is\n corrupting my mother!”"
+  },
+  {
+    id: "0207",
+    text: "{W134H2}{LowerRightForce}{NoFocus}{Dagger}\n“If we eliminate Kuja{Speed 2}...”{Time -1}"
+  },
+  {
+    id: "0208",
+    text: "{W129H2}{UpperLeftForce}{Zidane}\n“If we defeat Kuja{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0209",
+    text: "{W164H2}{UpperRightForce}Regent Cid\n“You both catch on quickly.”"
+  },
+  {
+    id: "0210",
+    text: "{W185H4}{UpperRightForce}Regent Cid\n“Defeat Kuja, and Brahne loses\n her weapon supply.  That will be\n our cue for a counterattack.”"
+  },
+  {
+    id: "0211",
+    text: "{W180H3}{UpperRightForce}Minister Artania\n“Challenging Brahne now will\n only result in more casualties.”"
+  },
+  {
+    id: "0212",
+    text: "{W214H2}{Zidane}\n“So we crush the source of the evil!”"
+  },
+  {
+    id: "0213",
+    text: "{W190H3}{UpperRightForce}Minister Artania\n“Yes.  Kuja will find other clients,\n even if we defeat Brahne.”"
+  },
+  {
+    id: "0214",
+    text: "{W201H4}{Dagger}\n“I make no excuses for my mother’s\n behavior,{Signal 1} but I shan’t forgive Kuja\n for taking advantage of her!”"
+  },
+  {
+    id: "0215",
+    text: "{W148H3}{Widths 0,110,19,-1}{Dagger}\n“But first, we must rescue\n {Steiner} and the others{Speed 2}...”"
+  },
+  {
+    id: "0216",
+    text: "{W245H3}Regent Cid\n“I’m afraid I can’t spare any soldiers.\n They must remain to protect our citizens.”"
+  },
+  {
+    id: "0217",
+    text: "{W177H3}{Zidane}\n“Hey, {Dagger}.\n I’m telling you, they’ll be fine.”"
+  },
+  {
+    id: "0218",
+    text: "{W212H4}{Zidane}\n“The best dragon knight of Burmecia,\n the female general of Alexandria,\n and Rusty... How could they lose?”"
+  },
+  {
+    id: "0219",
+    text: "{W118H3}{Zidane}\n“Besides, you have\n me to protect you!”"
+  },
+  {
+    id: "0220",
+    text: "{W140H2}{Dagger}\n“Then I’ll look for Kuja.”"
+  },
+  {
+    id: "0221",
+    text: "{W112H2}{UpperLeftForce}{Vivi}\n“I wanna go, too...”"
+  },
+  {
+    id: "0222",
+    text: "{W191H2}{Vivi}\n“There’s no place for me here...”"
+  },
+  {
+    id: "0223",
+    text: "{W156H3}{Zidane}\n“Alright!\n Let’s go kick Kuja’s butt!”"
+  },
+  {
+    id: "0224",
+    text: "{W158H3}{Zidane}\n“Will you lend us the fastest\n airship in Lindblum?”"
+  },
+  {
+    id: "0225",
+    text: "{W197H4}{UpperRightForce}Regent Cid\n“Airships can only fly where there\n is Mist, and the Mist only exists on\n this continent.  <Gwok.>”"
+  },
+  {
+    id: "0226",
+    text: "{W184H3}Regent Cid\n“That means you can’t cross the\n ocean on an airship.”"
+  },
+  {
+    id: "0227",
+    text: "{W185H3}{Zidane}\n“What about the new airship that\n can fly without Mist?”"
+  },
+  {
+    id: "0228",
+    text: "{W218H3}Regent Cid\n“It’s not ready yet <gwok>.\n Besides, it’s under Brahne’s control.”"
+  },
+  {
+    id: "0229",
+    text: "{W179H3}Regent Cid\n“Brahne gave us two conditions\n for our surrender.”"
+  },
+  {
+    id: "0230",
+    text: "{W151H3}Regent Cid\n“One was the surrender of\n the {Cyan}new airship{White}.”"
+  },
+  {
+    id: "0231",
+    text: "{W213H3}Regent Cid\n“The other was to hand over <gwok>\n the {Cyan}Falcon Claw{White}.”"
+  },
+  {
+    id: "0232",
+    text: "{W202H4}{UpperLeftForce}{Zidane}\n“The airship, I can understand, but\n what does she want with a piece of\n stone?”"
+  },
+  {
+    id: "0233",
+    text: "{W105H2}Regent Cid\n“I have no idea...”"
+  },
+  {
+    id: "0234",
+    text: "{W163H2}{Zidane}\n“Alright.{Wait 5}  We’ll take a boat.”"
+  },
+  {
+    id: "0235",
+    text: "{W171H3}{UpperRightForce}Regent Cid\n“That’s not an option, either.\n The harbor was also seized.”"
+  },
+  {
+    id: "0236",
+    text: "{W142H3}{Zidane}\n“Ahhhhhh!!!{Wait 15}  What do you\n want us to do!?  Swim!?”"
+  },
+  {
+    id: "0237",
+    text: "{W101H2}Regent Cid\n“There is a way.”"
+  },
+  {
+    id: "0238",
+    text: "{W232H3}Regent Cid\n“There’s an old excavation site near\n a {Cyan}swamp located north from the castle{White}.”"
+  },
+  {
+    id: "0239",
+    text: "{W191H4}Regent Cid\n“Monsters not native to our\n continent are rumored to appear\n in the excavation site.”"
+  },
+  {
+    id: "0240",
+    text: "{W196H4}Regent Cid\n“The cave, which was found during\n excavation, is rumored to lead to\n another continent.”"
+  },
+  {
+    id: "0241",
+    text: "{W140H3}{Dagger}\n“Will this cave lead us to\n the Outer Continent?”"
+  },
+  {
+    id: "0242",
+    text: "{W167H3}{Zidane}\n“Doesn’t sound too reliable...\n Are you sure?”"
+  },
+  {
+    id: "0243",
+    text: "{W140H2}{UpperRightForce}Regent Cid\n“<Gwok> I’m not sure...”"
+  },
+  {
+    id: "0244",
+    text: "{W207H3}{Zidane}\n“I guess we’ll find out.\n Not knowing is half of the fun, huh?”"
+  },
+  {
+    id: "0245",
+    text: "{W190H4}Regent Cid\n“Please protect Princess Garnet.\n We’ll prepare the counterattack\n in the meantime.”"
+  },
+  {
+    id: "0246",
+    text: "{W162H3}Regent Cid\n“It’s not much, but use it to\n prepare for your journey.”"
+  },
+  {
+    id: "0247",
+    text: "{W122H1}Received 1 Million Gil!"
+  },
+  {
+    id: "0248",
+    text: "{W157H3}{Widths 0,103,16,-1}{Vivi}\n“I-{Wait 5}I’ll wait here.  {Zidane},\n will you get my stuff, too?”"
+  },
+  {
+    id: "0249",
+    text: "{W218H2}{Zidane}\n“Yeah.{Wait 5}  That’s probably a good idea.”"
+  },
+  {
+    id: "0250",
+    text: "{W148H1}Bring the item I asked for."
+  },
+  {
+    id: "0251",
+    text: "{W162H3}Man\n“Listen, Lindblum is\n Alexandrian territory now.”"
+  },
+  {
+    id: "0252",
+    text: "{W187H3}Man\n“You won’t be able to come back\n for a while.”"
+  },
+  {
+    id: "0253",
+    text: "{W193H3}Man\n“Prepare yourself well.\n Let me know when you’re ready.”"
+  },
+  {
+    id: "0254",
+    text: "{W102H4}{PreChoose 2,1}{Widths 2,105,-1}{Instantly}Man\n“Are you ready?”\n{Choice}Ready\n{Tab}Need more time"
+  },
+  {
+    id: "0255",
+    text: "{W190H3}Man\n“Follow me.  The regent is waiting\n on the Base Level.”"
+  },
+  {
+    id: "0256",
+    text: "{W196H2}Man\n“Let me know when you’re ready.”"
+  },
+  {
+    id: "0257",
+    text: "{W126H2}{Zidane}\n“What’s this rag for?”"
+  },
+  {
+    id: "0258",
+    text: "{W141H3}Alexandrian Soldier\n“The air cab will soon be\n under our control.”"
+  },
+  {
+    id: "0259",
+    text: "{W102H5}{NoAnimation}{PreChoose 4,3}{Widths 1,112,-1,2,169,-1,3,156,-1}{Instantly}Select destination\n{Choice}Business District\n{Tab}{Brown}Industrial District (closed)\n{Tab}Lindblum Castle (closed){White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0260",
+    text: "{W102H5}{NoAnimation}{PreChoose 4,3}{Widths 1,110,-1,2,169,-1,3,156,-1}{Instantly}Select destination\n{Choice}Theater District\n{Tab}{Brown}Industrial District (closed)\n{Tab}Lindblum Castle (closed){White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0261",
+    text: "{W193H4}{PreChoose 2,1}{Instantly}Card Freak Gon\n“You wanna play a game with me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0262",
+    text: "{W170H3}Card Freak Gon\n“I hope you’re a good player.\n Let’s play!”"
+  },
+  {
+    id: "0263",
+    text: "{W188H3}Card Freak Gon\n“You’re no match for me.\n Come back when you’re better.”"
+  },
+  {
+    id: "0264",
+    text: "{W203H3}Card Freak Gon\n“What is this, a joke?  You don’t\n even have enough cards with you.”"
+  },
+  {
+    id: "0265",
+    text: "{W177H3}Lindblum Soldier\n“I can’t believe we lost against\n soulless dolls{Speed 2}...”"
+  },
+  {
+    id: "0266",
+    text: "{W40H1}Waaah!"
+  },
+  {
+    id: "0267",
+    text: "{W24H1}{Speed 2}......"
+  },
+  {
+    id: "0268",
+    text: "{W139H3}Alexandrian Soldier\n“War is hell.\n I just wanna go home{Speed 2}...”"
+  },
+  {
+    id: "0269",
+    text: "{W209H2}Alexandrian Soldier\n“I can’t follow the queen anymore{Speed 2}...”"
+  },
+  {
+    id: "0270",
+    text: "{W206H4}Alexandrian Soldier\n“Alexandria is invincible as long as\n we possess the black mage soldiers\n and our eidolon!”"
+  },
+  {
+    id: "0271",
+    text: "{W114H3}Alexandria Soldier\n“We took Lindblum in\n just one night!”"
+  },
+  {
+    id: "0272",
+    text: "{W144H3}Alexandrian Soldier\n“Don’t you dare resist us\n if you wanna live.”"
+  },
+  {
+    id: "0273",
+    text: "{W106H3}Marsha\n“Mommy{Speed 2}...{Speed -1} Daddy{Speed 2}...{Speed -1}\n Where are you?”"
+  },
+  {
+    id: "0274",
+    text: "{W179H2}Marsha\n“Please don’t leave me here{Speed 2}...”"
+  },
+  {
+    id: "0275",
+    text: "{W188H3}Wayne\n“A black mage was attacking\n my dad by the time I got here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0276",
+    text: "{W208H3}Wayne\n“He escaped with his life,\n but he burned his hands in the fire.”"
+  },
+  {
+    id: "0277",
+    text: "{W180H3}Wayne\n“He said he won’t be able to\n do any more synthesis work{Speed 2}...”"
+  },
+  {
+    id: "0278",
+    text: "{W196H2}Wayne\n“...so I asked my dad to train me.”"
+  },
+  {
+    id: "0279",
+    text: "{W157H3}Wayne\n“I’m gonna become a great\n synthesis worker like him!”"
+  },
+  {
+    id: "0280",
+    text: "{W93H2}Wayne\n“I’ll work hard.”"
+  },
+  {
+    id: "0281",
+    text: "{W121H2}Card Freak Gon\n“War is so primitive.”"
+  },
+  {
+    id: "0282",
+    text: "{W208H3}Card Freak Gon\n“Why couldn’t they play a card game\n to settle their differences?”"
+  },
+  {
+    id: "0283",
+    text: "{W250H3}Old Man\n“I wonder what the regent is going to do.\n Is he going to let them roam free forever?”"
+  },
+  {
+    id: "0284",
+    text: "{W184H3}Attendant\n“All the air cabs in service got\n shot down by the black mages.”"
+  },
+  {
+    id: "0285",
+    text: "{W113H3}Attendant\n“It hurts me even to\n think about it.”"
+  },
+  {
+    id: "0286",
+    text: "{W138H3}Attendant\n“What did our customers\n ever do to them?”"
+  },
+  {
+    id: "0287",
+    text: "{W192H3}Dragoos\n“(I raised the price ’cause I don’t\n wanna sell them anything.)”"
+  },
+  {
+    id: "0288",
+    text: "{W110H3}Dragoos\n“(But I’ll give you a\n major discount!)”"
+  },
+  {
+    id: "0289",
+    text: "{W206H3}Alice\n“Sorry, my shop got destroyed, and\n I don’t have much to sell{Speed 2}...”"
+  },
+  {
+    id: "0290",
+    text: "{W226H3}Chris\n“These monsters with shiny eyes\n came and destroyed my sister’s shop!”"
+  },
+  {
+    id: "0291",
+    text: "{W144H3}Chris\n“I’ll never forgive them...\n or Brahne!”"
+  },
+  {
+    id: "0292",
+    text: "{W158H3}{UpperRightForce}Alexandrian Soldier\n“I was thinking about buying\n a new sword!”"
+  },
+  {
+    id: "0293",
+    text: "{W215H3}{UpperRightForce}Alexandrian Soldier\n“But everything is so expensive here.\n I wonder if he’d give me a discount?”"
+  },
+  {
+    id: "0294",
+    text: "{W153H3}Seth\n“Darn it, I lost\n everything in the attack.”"
+  },
+  {
+    id: "0295",
+    text: "{W188H3}Seth\n“Where’s the combat ship armada\n when you need it?”"
+  },
+  {
+    id: "0296",
+    text: "{W156H3}Soldier\n“We should’ve killed Brahne\n when we had the chance!”"
+  },
+  {
+    id: "0297",
+    text: "{W196H3}Attendant\n“I’m sorry.  We can’t fly the\n air cab to the Industrial District.”"
+  },
+  {
+    id: "0298",
+    text: "{W239H3}Alicia\n“Please!  My husband is there.\n Please take us to the Industrial District!”"
+  },
+  {
+    id: "0299",
+    text: "{W153H3}Molly\n“What’s wrong with Mommy?\n Why is she crying?”"
+  },
+  {
+    id: "0300",
+    text: "{W131H3}Pigeon Lover\n“Look to the sky.\n It’s such a sad color.”"
+  },
+  {
+    id: "0301",
+    text: "{W141H3}Pigeon Lover\n“Lindblum’s blue sky died\n with our freedom{Speed 2}...”"
+  },
+  {
+    id: "0302",
+    text: "{W207H3}Devon\n“KILL!  KILL!  KILL!\n Their voices are stuck in my head!”"
+  },
+  {
+    id: "0303",
+    text: "{W183H2}Devon\n“Black mages killed my friends.”"
+  },
+  {
+    id: "0304",
+    text: "{W33H1}{UpperLeftForce}{Offset 0,50,0}Whoa!"
+  },
+  {
+    id: "0305",
+    text: "{W161H2}{Zidane}\n“Wow, that was dangerous!”"
+  },
+  {
+    id: "0306",
+    text: "{W232H3}Alexandrian Soldier\n“Queen Brahne plans on building\n an opera house in the Theater District.”"
+  },
+  {
+    id: "0307",
+    text: "{W136H3}Alexandrian Soldier\n“Hmm{Speed 2}...{Speed -1}\n This is a nice painting.”"
+  },
+  {
+    id: "0308",
+    text: "{W151H3}Alexandrian Soldier\n“Such a sad picture, but it\n possesses strength.”"
+  },
+  {
+    id: "0309",
+    text: "{W142H3}Struggling Artist Michael\n“Wh-What’s she gonna do\n with my painting?”"
+  },
+  {
+    id: "0310",
+    text: "{W138H2}Struggling Artist Michael\n“Yeah?  You think so?”"
+  },
+  {
+    id: "0311",
+    text: "{W173H3}Struggling Artist Michael\n“I thought about attacking her\n from behind before, but{Speed 2}...”"
+  },
+  {
+    id: "0312",
+    text: "{W209H3}Struggling Artist Michael\n“{Speed 2}...{Speed -1}I changed my\n mind after she praised my painting!”"
+  },
+  {
+    id: "0313",
+    text: "{W138H3}Struggling Artist Michael\n“People who understand\n art are good people.”"
+  },
+  {
+    id: "0314",
+    text: "{W183H3}Lindblum Officer\n“It’s a shame that we don’t have\n enough power to fight Brahne.”"
+  },
+  {
+    id: "0315",
+    text: "{W146H3}Lindblum Officer\n“Cleyra resisted, and her\n eidolon destroyed it{Speed 2}...”"
+  },
+  {
+    id: "0316",
+    text: "{W249H2}Lindblum Officer\n“I heard that you can’t even enter Cleyra.”"
+  },
+  {
+    id: "0317",
+    text: "{W188H3}Lindblum Officer\n“The regent told us to live today\n and fight tomorrow.”"
+  },
+  {
+    id: "0318",
+    text: "{W244H3}Lindblum Officer\n“I’m going to heed him and wait\n for the day when we rise against Brahne.”"
+  },
+  {
+    id: "0319",
+    text: "{W189H3}Alexandrian Soldier\n“Rejoice, for you are now a part\n of the {Cyan}Alexandrian Empire{White}!”"
+  },
+  {
+    id: "0320",
+    text: "{W167H3}Alexandrian Soldier\n“I can’t believe we wiped this\n city out in just one night{Speed 2}...”"
+  },
+  {
+    id: "0321",
+    text: "{W182H3}Alexandrian Soldier\n“The black mage soldiers and\n eidolons are not of this earth.”"
+  },
+  {
+    id: "0322",
+    text: "{W136H3}Alexandrian Soldier\n“It’s as if we’ve opened\n Pandora’s Box{Speed 2}...”"
+  },
+  {
+    id: "0323",
+    text: "{W159H3}Alexandrian Soldier\n“Do you know a rebel group\n called {Cyan}Vigilantes{White}?”"
+  },
+  {
+    id: "0324",
+    text: "{W39H4}{PreChoose 2,1}{Widths 0,0,16,-1}{Instantly}{Zidane}\n“Oh...”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0325",
+    text: "{W135H3}Alexandrian Soldier\n“If their leader is a man\n named Justin{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0326",
+    text: "{W121H2}Alexandrian Soldier\n“Please tell him this.”"
+  },
+  {
+    id: "0327",
+    text: "{W131H3}Alexandrian Soldier\n“Please tell him to stop\n what he is doing.”"
+  },
+  {
+    id: "0328",
+    text: "{W140H2}Alexandrian Soldier\n“Tell him Nicole said so.”"
+  },
+  {
+    id: "0329",
+    text: "{W155H3}Alexandrian Soldier\n“If you do, you must report\n it to me right away!”"
+  },
+  {
+    id: "0330",
+    text: "{W110H3}Alexandrian Soldier\n“Justin{Speed 2}...{Speed -1}\n You must stop{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0331",
+    text: "{W157H3}Alexandrian Soldier\n“The people of this country\n still don’t understand.”"
+  },
+  {
+    id: "0332",
+    text: "{W184H3}Alexandrian Soldier\n“Regent Cid lost the war.\n Why don’t they face the truth?”"
+  },
+  {
+    id: "0333",
+    text: "{W105H3}Justin\n“H-Hey!\n Don’t talk to me!”"
+  },
+  {
+    id: "0334",
+    text: "{W189H3}Justin\n“You’ll blow my cover!\n I’m the leader of the {Cyan}Vigilantes{White}!”"
+  },
+  {
+    id: "0335",
+    text: "{W73H2}Justin\n“Is that so?”"
+  },
+  {
+    id: "0336",
+    text: "{W166H2}Justin\n“That’s what Nicole thinks{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0337",
+    text: "{W152H3}Justin\n“But this is my cause.\n I can’t turn away from it.”"
+  },
+  {
+    id: "0338",
+    text: "{W221H3}Justin\n“This is what I believe in,\n no matter how much pain it may bring.”"
+  },
+  {
+    id: "0339",
+    text: "{W174H3}Justin\n“I won’t stop{Speed 2}...{Speed -1}\n I’m gonna fight for my cause!”"
+  },
+  {
+    id: "0340",
+    text: "{W180H2}Justin\n“Even if I have to fight Nicole!”"
+  },
+  {
+    id: "0341",
+    text: "{W167H4}{PreChoose 2,1}{Instantly}Alexandrian Soldier\n“Are you going to resist us?”\n{Choice}Yes, to the death!\n{Tab}No, wouldn’t dream of it"
+  },
+  {
+    id: "0342",
+    text: "{W140H3}Alexandrian Soldier\n“Oh, really?\n I admire your courage.”"
+  },
+  {
+    id: "0343",
+    text: "{W236H3}Alexandrian Soldier\n“That’s good.\n Yes, leave everything to Queen Brahne.”"
+  },
+  {
+    id: "0344",
+    text: "{W233H3}Alexandrian Soldier\n“Armed with the black mage army and the\n eidolons, Queen Brahne is invincible!”"
+  },
+  {
+    id: "0345",
+    text: "{W116H3}Alexandrian Soldier\n“Resistance will only\n bring death.”"
+  },
+  {
+    id: "0346",
+    text: "{W194H3}Engineer Gabin\n“I can’t believe the\n Industrial District got wiped out.”"
+  },
+  {
+    id: "0347",
+    text: "{W225H3}Engineer Gabin\n“That means I’ll never taste\n my boss’s awesome soup ever again{Speed 2}...”"
+  },
+  {
+    id: "0348",
+    text: "{W217H3}Attendant\n“The Industrial District was destroyed\n by the eidolons’ attack.”"
+  },
+  {
+    id: "0349",
+    text: "{W204H3}Alexandrian Soldier\n“Owning an airship fleet no\n longer determines who wins a war.”"
+  },
+  {
+    id: "0350",
+    text: "{W247H3}Alexandrian Soldier\n“Black mage soldiers and the eidolons are\n the ultimate weapons of mass destruction.”"
+  },
+  {
+    id: "0351",
+    text: "{W174H3}Lindblum Officer\n“This is where I witnessed the\n Industrial District disappear.”"
+  },
+  {
+    id: "0352",
+    text: "{W204H3}Lindblum Officer\n“I bet everyone’s dead.\n The eidolon swallowed everything.”"
+  },
+  {
+    id: "0353",
+    text: "{W178H3}Alexandrian Soldier\n“Oh, I can’t believe I’m standing\n next to Mr. Lowell{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0354",
+    text: "{W78H1}I’m so happy♥"
+  },
+  {
+    id: "0355",
+    text: "{W189H3}Lowell\n“Even a big star like me can’t\n make a living without a theater.”"
+  },
+  {
+    id: "0356",
+    text: "{W186H3}Lowell\n“Hey pal, do you know any other\n theaters I can work at?”"
+  },
+  {
+    id: "0357",
+    text: "{W185H3}{Zidane}\n“Yeah, this girl Ruby runs a small\n theater in Alexandria.”"
+  },
+  {
+    id: "0358",
+    text: "{W150H2}Lowell\n“Oh, buddy, is that right?”"
+  },
+  {
+    id: "0359",
+    text: "{W224H3}Lowell\n“I’m too big of a star for a sleepy\n town like Alexandria, but that’s okay.”"
+  },
+  {
+    id: "0360",
+    text: "{W151H3}Lowell\n“I’ll share my talent with\n those uncultured people.”"
+  },
+  {
+    id: "0361",
+    text: "{W110H2}{LowerRightForce}{NoFocus}Alexandrian Soldier\n“Oh, don’t go!”{Time -1}"
+  },
+  {
+    id: "0362",
+    text: "{W201H3}{Zidane}\n“Ruby and Lowell, huh?\n What a strange pairing of actors.”"
+  },
+  {
+    id: "0363",
+    text: "{W159H3}Alexandrian Soldier\n“There was no need to take\n things this far.”"
+  },
+  {
+    id: "0364",
+    text: "{W217H3}Alexandrian Soldier\n“I pledged my loyalty to Queen Brahne\n in order to protect Alexandria.”"
+  },
+  {
+    id: "0365",
+    text: "{W115H2}Alexandrian Soldier\n“Not to kill people.”"
+  },
+  {
+    id: "0366",
+    text: "{W137H3}Alexandrian Soldier\n“Don’t underestimate me\n because I’m a woman.”"
+  },
+  {
+    id: "0367",
+    text: "{W110H2}Alexandrian Soldier\n“Obey us.”"
+  },
+  {
+    id: "0368",
+    text: "{W33H1}{UpperRightForce}Whoa!"
+  },
+  {
+    id: "0369",
+    text: "{W24H1}{UpperLeftForce}{NoFocus}Ahh!{Time -1}"
+  },
+  {
+    id: "0370",
+    text: "{W143H3}{Widths 0,82,16,-1}Bunce\n“Oh, it’s you, {Zidane}.\n I almost peed my pants!”"
+  },
+  {
+    id: "0371",
+    text: "{W181H3}Lucella\n“I thought you were one of them\n people with pointy hats!”"
+  },
+  {
+    id: "0372",
+    text: "{W226H3}Bunce\n“We’ve been protecting the\n Tantalus hideout while you were gone!”"
+  },
+  {
+    id: "0373",
+    text: "{W183H3}Bunce\n“You can leave us here.\n Go take care of the bad guys.”"
+  },
+  {
+    id: "0374",
+    text: "{W122H3}Lucella\n“Is Uncle Baku coming\n home soon?”"
+  },
+  {
+    id: "0375",
+    text: "{W149H3}Lucella\n“It wouldn’t be so scary if\n he was around{Speed 2}...”"
+  },
+  {
+    id: "0376",
+    text: "{W152H5}{PreChoose 2,1}{Widths 0,105,64,0,-1}{Instantly}Innkeeper\n“It’s {Variable 0} Gil per night.\n Do you wanna stay here?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0377",
+    text: "{W162H2}Innkeeper\n“You don’t have enough Gil.”"
+  },
+  {
+    id: "0378",
+    text: "{W148H3}{Zidane}\n“No one is here...{Wait 10}\n I’m gonna get some rest.”"
+  },
+  {
+    id: "0379",
+    text: "{W190H4}{PreChoose 2,1}{Instantly}{Zidane}\n“Maybe I should get some rest...”\n{Choice}Rest\n{Tab}Don’t rest"
+  },
+  {
+    id: "0380",
+    text: "{W209H2}{Zidane}\n“Even the air cabs got shot down{Speed 2}...”"
+  },
+  {
+    id: "0381",
+    text: "{W224H11}{Instantly}\n{Center 140}  =  {Cyan}Customer Opinion{White}  =  \n\n{Center 139}I came here on vacation.\n{Center 182}I can’t believe a war broke out!\n\n{Center 198}It’s too dangerous to walk outside.\n{Center 112}What am I gonna do?\n\n{Center 224}{Tab}{Tab}Give me back my money!  -Dylan"
+  },
+  {
+    id: "0382",
+    text: "{W215H10}{Instantly}\n{Center 142}  =  {Cyan}Bobo Bird Statue{White}  =  \n\n{Center 188} Bobo Birds are symbols of good \n{Center 215} fortune, according to an Olgan myth. \n\n{Center 177} The founder of this inn bought \n{Center 204} the statue, and it has been passed \n{Center 133} down for generations."
+  },
+  {
+    id: "0383",
+    text: "{W190H11}{Instantly}\n{Center 184}  =  {Cyan}New Air Cab Management{White}  =  \n\n{Center 171}Starting tomorrow, Alexandria\n{Center 156}will be running the air cabs.\n\n{Center 190}Those who wish to ride an air cab\n{Center 144}must pay 200 Gil per trip.\n\n{Center 146}  New Air Cab Management"
+  },
+  {
+    id: "0384",
+    text: "{W245H11}{Instantly}\n{Center 165}  =  {Cyan}Card Collector Vol. 8{White}  =  \n\n{Center 212}Exclusive: Selecting effective cards!\n\n{Center 245}Do you know how to pick out strong cards?\n{Center 177}Our own Regent Cid reveals the\n{Center 232}secret of selecting the strongest cards!\n\n{Center 165}            Fabool Publications"
+  },
+  {
+    id: "0385",
+    text: "{W201H10}{Instantly}\n{Center 76}  =  {Cyan}Price{White}  =  \n\n{Center 127}Stardust Rod: 2000 Gil\n{Center 107}Ice Brand: 9500 Gil\n{Center 130}Mythril Armlet: 1500 Gil\n\n{Center 201}Providing exclusive discount prices\n{Center 164}for our Alexandrian patrons!"
+  },
+  {
+    id: "0386",
+    text: "{W103H2}{Zidane}\n(What a rip-off{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0387",
+    text: "{W151H4}{Instantly}\n{Center 144}The flame looks so cold{Speed 2}...{Speed -1}\n{Center 151}It’s as though it’s weeping."
+  },
+  {
+    id: "0388",
+    text: "{W238H4}{Instantly}\n{Center 238}There are pickles scattered everywhere.\n{Center 154}It smells awful around here."
+  },
+  {
+    id: "0389",
+    text: "{W187H7}{Instantly}\n{Center 109}= {Cyan}Lindblum Exhibit{White} =\n\n{Center 187} The 50th Annual Lindblum Exhibit \n{Center 148}This year’s winner gets to\n{Center 144}paint on the church walls."
+  },
+  {
+    id: "0390",
+    text: "{W172H4}{PreChoose 2,1}{Instantly}Alexandrian Soldier\n“Do you wish to play a game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0391",
+    text: "{W172H3}Alexandrian Soldier\n“You fool.  You don’t even\n have enough cards with you.”"
+  }
+]

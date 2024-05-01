@@ -1,0 +1,1194 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0045",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0046",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0047",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0048",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0049",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0050",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0051",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0052",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0053",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0054",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0055",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0056",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0057",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0058",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0059",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0060",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0061",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0062",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0063",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0064",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0065",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0066",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0067",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0068",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0069",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0070",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0071",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0072",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0073",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0074",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0075",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0076",
+    text: "{W138H5}{PreChoose 2,1}{Instantly}{Zidane}\n“Should I go back to the\n engine room{Speed 2}...{Speed -1}?”\n{Choice}Go back\n{Tab}Don’t go back"
+  },
+  {
+    id: "0077",
+    text: "{W186H3}{Zidane}\n“Come on,\n it’s not like I did it on purpose.”"
+  },
+  {
+    id: "0078",
+    text: "{W102H2}{Dagger}\n“Please, enough.”{Time -1}"
+  },
+  {
+    id: "0079",
+    text: "{W140H3}{Zidane}\n“There’s that royal tone\n in your voice again.”"
+  },
+  {
+    id: "0080",
+    text: "{W116H2}{Widths 0,116,17,-1}{Zidane}\n“{Speed 2}...{Speed -1}Are you okay, {Vivi}?”"
+  },
+  {
+    id: "0081",
+    text: "{W81H2}{Vivi}\n“It’s{Speed 2}...{Speed -1}scary.”"
+  },
+  {
+    id: "0082",
+    text: "{W141H2}{Zidane}\n“You don’t like heights?”"
+  },
+  {
+    id: "0083",
+    text: "{W157H3}{Vivi}\n“Feels like I’m going to\n get sucked into the sky{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0084",
+    text: "{W18H2}{UpperLeftForce}{Widths 0,0,18,-1,0,18,16,-1}{Signal 0}{Dagger}\n“{Zidane}.”{Signal 1}"
+  },
+  {
+    id: "0085",
+    text: "{W128H3}{UpperLeftForce}{Dagger}\n“Are you sure you can\n get me to Lindblum?”"
+  },
+  {
+    id: "0086",
+    text: "{W75H3}{Zidane}\n“Yeah, baby!\n Trust me.”"
+  },
+  {
+    id: "0087",
+    text: "{W108H2}{UpperLeftForce}{Widths 0,108,17,-1}{Dagger}\n“Let’s go inside, {Vivi}.”"
+  },
+  {
+    id: "0088",
+    text: "{W70H3}{Widths 0,0,18,-1,0,15,16,-1}{Dagger}\n“I trust you,\n {Zidane}.”"
+  },
+  {
+    id: "0089",
+    text: "{W166H3}{Zidane}\n“I get the feeling she doesn’t\n quite trust me yet{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0090",
+    text: "{W192H3}{Zidane}\n“Maybe she’ll reward me with a\n kiss or two if I try hard enough.”"
+  },
+  {
+    id: "0091",
+    text: "{W96H2}{Zidane}\n{White}(Wow, already!?){Time 30}"
+  },
+  {
+    id: "0092",
+    text: "{W31H2}{Widths 0,0,18,-1,0,31,16,-1}{Dagger}\n“{Zidane}{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0093",
+    text: "{W110H3}{Zidane}\n“What is it?\n Something wrong?”"
+  },
+  {
+    id: "0094",
+    text: "{W48H2}{Widths 0,0,18,-1,0,48,17,-1}{Dagger}\n“It’s {Vivi}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0095",
+    text: "{W20H2}{Widths 0,0,16,-1,0,20,17,-1}{Zidane}\n“{Vivi}?”"
+  },
+  {
+    id: "0096",
+    text: "{W116H3}{Zidane}\n“We’ll be flying over\n Evil Forest soon{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0097",
+    text: "{W163H3}{Zidane}\n“Did the boss and the others\n escape safely{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0098",
+    text: "{W204H3}{Zidane}\n“I’m sure the boss would tell me that\n it’s none of my business!”"
+  },
+  {
+    id: "0099",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0100",
+    text: "{W130H2}{Zidane}\n“What an old engine{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0101",
+    text: "{W149H3}{Zidane}\n“Lindblum is the only place\n that sells Mist engines.”"
+  },
+  {
+    id: "0102",
+    text: "{W205H3}{Zidane}\n“They must be using the same engine\n they bought years ago.”"
+  },
+  {
+    id: "0103",
+    text: "{W251H5}{Zidane}\n“That’s the thing{Speed 2}...{Speed -1}\n Alexandria is not technologically advanced,\n but the stuff we saw in the Village of Dali\n was so{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0104",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0105",
+    text: "{W40H1}{UpperLeftForce}{NoFocus}U-Um{Speed 2}...{Speed -1}{Time -1}"
+  },
+  {
+    id: "0106",
+    text: "{W40H1}{UpperLeftForce}{NoFocus}U-Um{Speed 2}...{Speed -1}{Time -1}"
+  },
+  {
+    id: "0107",
+    text: "{W45H1}{UpperLeftForce}{NoFocus}Hello{Speed 2}...{Speed -1}?{Time -1}"
+  },
+  {
+    id: "0108",
+    text: "{W17H1}{Speed 2}...{Speed -1}!"
+  },
+  {
+    id: "0109",
+    text: "{W142H3}{LowerLeftForce}{Offset 0,64,0}{Zidane}\n“Wow, they’re alive, and\n they’re moving around!”"
+  },
+  {
+    id: "0110",
+    text: "{W189H3}{LowerLeftForce}{Offset 0,64,0}{Zidane}\n“So, the mages built in the village\n bring back the new ones?”"
+  },
+  {
+    id: "0111",
+    text: "{W47H2}{Widths 0,0,18,-1,0,47,17,-1}{Dagger}\n“Oh, {Vivi}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0112",
+    text: "{W5H1}{UpperLeftForce}{Widths 0,5,17,-1}{Vivi}!"
+  },
+  {
+    id: "0113",
+    text: "{W15H1}{UpperLeftForce}{Widths 0,15,17,-1}{Vivi}!!!"
+  },
+  {
+    id: "0114",
+    text: "{W129H3}{Offset 0,64,0}{Zidane}\n“Were you able to talk\n to any of them?”"
+  },
+  {
+    id: "0115",
+    text: "{W26H1}{Offset 0,16,0}No{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0116",
+    text: "{W54H1}{Offset 0,16,0}It’s like{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0117",
+    text: "{W113H1}{Offset 0,16,0}{Speed 2}...{Speed -1}they don’t even{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0118",
+    text: "{W95H1}{Offset 0,16,0}{Speed 2}...{Speed -1}see me at all{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0119",
+    text: "{W47H1}{Offset 0,16,0}I tried{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0120",
+    text: "{W112H1}{Offset 0,16,0}{Speed 2}...{Speed -1}again and again{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0121",
+    text: "{W42H1}{Offset 0,16,0}{Speed 2}...{Speed -1}but{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0122",
+    text: "{W176H1}{Offset 0,16,0}{Speed 2}...{Speed -1}they won’t even turn around."
+  },
+  {
+    id: "0123",
+    text: "{W4H1}{Offset 0,64,0}{Widths 0,4,17,-1}{Vivi}."
+  },
+  {
+    id: "0124",
+    text: "{W125H3}{Offset 0,64,0}{Zidane}\n“I need to go upstairs\n for a little bit.”"
+  },
+  {
+    id: "0125",
+    text: "{W177H3}{UpperLeftForce}{Zidane}\n“I gotta turn the ship around\n before it reaches the castle.”"
+  },
+  {
+    id: "0126",
+    text: "{W102H3}{UpperLeftForce}{Widths 0,102,17,-1}{Zidane}\n“Keep an eye on {Vivi},\n okay?”"
+  },
+  {
+    id: "0127",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0128",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0129",
+    text: "{W82H3}{Dagger}\n“Who is behind\n all of this{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0130",
+    text: "{W24H1}{UpperRightForce}{Offset 0,96,0}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0131",
+    text: "{W208H3}{UpperRightForce}{Offset 0,96,0}{Zidane}\n“It looks like a treasure chest,\n but it’s actually a part of the ship.”"
+  },
+  {
+    id: "0132",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0133",
+    text: "{W244H4}{Offset 224,96,64}{Steiner}\n“How could this happen{Speed 2}...{Speed -1}?\n What am I to do{Speed 2}...{Speed -1}?\n I never expected things to go so badly{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0134",
+    text: "{W204H4}{Offset 224,96,64}{Steiner}\n“I cannot believe the ship\n took off without the princess!\n What will I say to Queen Brahne{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0135",
+    text: "{W186H3}{Zidane}\n“What the heck were you doing?\n You almost took off without us!”"
+  },
+  {
+    id: "0136",
+    text: "{W111H3}{Steiner}\n“That is because{Speed 2}...{Speed -1}\n this ship’s crew{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0137",
+    text: "{W5H1}{Offset 224,96,64}{Center 5}!"
+  },
+  {
+    id: "0138",
+    text: "{W143H3}{Steiner}\n“Why, you{Speed 2}...{Speed -1}!\n Where is the princess!?”"
+  },
+  {
+    id: "0139",
+    text: "{W120H2}{Zidane}\n“In the engine room.”"
+  },
+  {
+    id: "0140",
+    text: "{W123H2}{Steiner}\n“She is on the ship!?”"
+  },
+  {
+    id: "0141",
+    text: "{W209H3}{Steiner}\n“All is well, now.\n This ship is returning to the castle.”"
+  },
+  {
+    id: "0142",
+    text: "{W208H5}{Steiner}\n“You will be hanged for the\n kidnapping of a member of the royal\n family!  Enjoy your freedom while\n you can.”"
+  },
+  {
+    id: "0143",
+    text: "{W146H2}{Steiner}\n“Where is the princess!?”"
+  },
+  {
+    id: "0144",
+    text: "{W116H3}{Steiner}\n“I will not let you\n near the princess!”"
+  },
+  {
+    id: "0145",
+    text: "{W112H3}{Zidane}\n“It’s like he doesn’t\n even see me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0146",
+    text: "{W157H4}{Steiner}\n“At last!\n Queen Brahne is sure to be\n pleased.”"
+  },
+  {
+    id: "0147",
+    text: "{W204H4}{Steiner}\n“However{Speed 2}...{Speed -1}the princess would have\n been left behind without the\n thief’s aid.”"
+  },
+  {
+    id: "0148",
+    text: "{W233H4}{Steiner}\n“I shall petition for a\n life sentence on his behalf.\n Yes, that would be the honorable thing!”"
+  },
+  {
+    id: "0149",
+    text: "{W182H4}{Steiner}\n“But that was because the crew\n wouldn’t listen!  I must run a\n background check on them.”"
+  },
+  {
+    id: "0150",
+    text: "{W150H3}{Steiner}\n“Ah, yes.\n It is my duty as a knight!”"
+  },
+  {
+    id: "0151",
+    text: "{W79H1}Wh-What the─{Time 30}"
+  },
+  {
+    id: "0152",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}{Time -1}"
+  },
+  {
+    id: "0153",
+    text: "{W35H1}Y-Y-Y"
+  },
+  {
+    id: "0154",
+    text: "{W190H3}{Offset -100,0,0}{UpperLeftForce}{Signal 0}{Zidane}\n“What’s wrong?\n Something stuck in your throat?”{Signal 1}"
+  },
+  {
+    id: "0155",
+    text: "{W112H1}Y-You insolent fool!"
+  },
+  {
+    id: "0156",
+    text: "{W121H1}Turn the ship around!"
+  },
+  {
+    id: "0157",
+    text: "{W62H1}Graaagh!!!"
+  },
+  {
+    id: "0158",
+    text: "{W184H2}{Steiner}\n“I will have your head for that!”"
+  },
+  {
+    id: "0159",
+    text: "{W94H3}{UpperRightForce}{Zidane}\n“Hey, I think\n we upset them.”"
+  },
+  {
+    id: "0160",
+    text: "{W156H3}{Steiner}\n“But they didn’t respond to\n anything until now{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0161",
+    text: "{W128H3}{Steiner}\n“You’re the one who\n started this trouble!”"
+  },
+  {
+    id: "0162",
+    text: "{W81H2}{Steiner}\n“I apologize!”"
+  },
+  {
+    id: "0163",
+    text: "{W148H4}{Steiner}\n“Please wait while I take\n this fool into custody and\n turn the ship around.”"
+  },
+  {
+    id: "0164",
+    text: "{W106H1}{NoFocus}Wh-What’s wrong!?{Time 30}"
+  },
+  {
+    id: "0165",
+    text: "{W116H1}We must take cover!"
+  },
+  {
+    id: "0166",
+    text: "{W109H1}{Widths 0,109,17,-1}{NoFocus}Master {Vivi}!  Princess!{Time 40}"
+  },
+  {
+    id: "0167",
+    text: "{W143H3}{Dagger}\n“A Black Waltz is heading\n toward the ship!”"
+  },
+  {
+    id: "0168",
+    text: "{W111H2}{UpperLeftForce}{Steiner}\n“He’s still alive{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0169",
+    text: "{W170H3}{UpperLeftForce}{Zidane}\n“What a strange way to greet\n one of their own ships.”"
+  },
+  {
+    id: "0170",
+    text: "{W119H3}{UpperLeftForce}{Vivi}\n“I have a bad feeling\n about this{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0171",
+    text: "{W31H1}No{Speed 2}...{Speed -1}!"
+  },
+  {
+    id: "0172",
+    text: "{W5H1}{UpperRightForce}{Widths 0,5,17,-1}{Vivi}!"
+  },
+  {
+    id: "0173",
+    text: "{W87H1}{UpperRightForce}{Offset -64,96,0}Are you okay!?"
+  },
+  {
+    id: "0174",
+    text: "{W177H3}So, No. 2 was defeated by\na small child!  You are no match\nagainst my power!"
+  },
+  {
+    id: "0175",
+    text: "{W158H4}Black Waltz No. 3\n“Kwahahaha!\n Princess, stay there while I\n eliminate this child!”"
+  },
+  {
+    id: "0176",
+    text: "{W148H2}Black Waltz No. 3\n“Are you protecting him?”"
+  },
+  {
+    id: "0177",
+    text: "{W198H4}Black Waltz No. 3\n“{Speed 2}...{Speed -1}Nonsense.\n You are no different from mindless\n dolls!  What can you do?”"
+  },
+  {
+    id: "0178",
+    text: "{W212H3}Black Waltz No. 3\n“Get out of my way!\n Do you dare to fight a Black Waltz?”"
+  },
+  {
+    id: "0179",
+    text: "{W117H3}Black Waltz No. 3\n“I said,\n get out of my way!”"
+  },
+  {
+    id: "0180",
+    text: "{W81H1}What is this{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0181",
+    text: "{W123H1}You are all in my way!"
+  },
+  {
+    id: "0182",
+    text: "{W111H2}{Steiner}\n“Wh-What cruelty!”"
+  },
+  {
+    id: "0183",
+    text: "{W56H1}{Speed 2}...{Speed -1}Aaahhh!{Time 30}"
+  },
+  {
+    id: "0184",
+    text: "{W109H3}{Widths 0,54,17,-1}{Steiner}\n“Master {Vivi},\n I shall assist you!”{Time 25}"
+  },
+  {
+    id: "0185",
+    text: "{W98H2}{UpperRightForce}{Zidane}\n“Hey, you guys!”{Time 30}"
+  },
+  {
+    id: "0186",
+    text: "{W5H1}{Offset 0,96,0}{UpperLeftForce}{Widths 0,5,18,-1}{Dagger}!"
+  },
+  {
+    id: "0187",
+    text: "{W40H1}{Offset 0,128,0}Y-Yes?"
+  },
+  {
+    id: "0188",
+    text: "{W118H4}{UpperLeftForce}{Zidane}\n“We’ll take care of\n the Black Waltz.\n You steer the ship.”"
+  },
+  {
+    id: "0189",
+    text: "{W188H4}{UpperLeftForce}{Zidane}\n“Things are gonna get even more\n dangerous from here on.\n It’s not too late to turn back.”"
+  },
+  {
+    id: "0190",
+    text: "{W196H4}{UpperLeftForce}{Zidane}\n“You can go back to the castle\n or cross South Gate into Lindblum.\n It’s your choice!”"
+  },
+  {
+    id: "0191",
+    text: "{W178H3}{UpperLeftForce}{Zidane}\n“I’ll be with you either way!\n But try not to crash the ship!”"
+  },
+  {
+    id: "0192",
+    text: "{W15H1}{Center 15}I{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0193",
+    text: "{W86H2}{Widths 0,86,16,-1}{Dagger}\n“Be careful, {Zidane}!”{Time 60}"
+  },
+  {
+    id: "0194",
+    text: "{W61H1}I’ll be fine!{Time 20}"
+  },
+  {
+    id: "0195",
+    text: "{W184H4}{Vivi}\n“Why{Speed 2}...{Speed -1}?\n Why would you do such a thing!?\n Weren’t they your friends!?”"
+  },
+  {
+    id: "0196",
+    text: "{W169H3}Black Waltz No. 3\n“You fool.  Do I look like some\n lowly black mage soldier?”"
+  },
+  {
+    id: "0197",
+    text: "{W194H3}{Steiner}\n“Even if they weren’t your allies,\n what you did was reprehensible!”"
+  },
+  {
+    id: "0198",
+    text: "{W215H4}Black Waltz No. 3\n“Kwahahaha!\n Worry not about them: many more are\n being produced even now!”"
+  },
+  {
+    id: "0199",
+    text: "{W94H2}{Zidane}\n“What are you?”"
+  },
+  {
+    id: "0200",
+    text: "{W163H4}Black Waltz No. 3\n“Ah, the princess’s\n bodyguards have gathered!\n How very convenient!”"
+  },
+  {
+    id: "0201",
+    text: "{W77H2}{LowerLeft}{Zidane}\n“Answer me!”"
+  },
+  {
+    id: "0202",
+    text: "{W229H4}Black Waltz No. 3\n“It wouldn’t do you any good if I\n answered, since you’re all going to die!\n Kwahahaha!”"
+  },
+  {
+    id: "0203",
+    text: "{W129H3}Black Waltz No. 3\n“I will eliminate any\n who stand in my way!”"
+  },
+  {
+    id: "0204",
+    text: "{W98H3}Black Waltz No. 3\n“You{Speed 2}...{Speed -1}\n You scum{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0205",
+    text: "{W117H2}Black Waltz No. 3\n“I exist only to kill!”"
+  },
+  {
+    id: "0206",
+    text: "{W168H4}{UpperRightForce}{Steiner}\n“Just how many Black Waltzes\n do we have to fight!?\n This is becoming ridiculous!”"
+  },
+  {
+    id: "0207",
+    text: "{W175H2}{LowerLeft}{Zidane}\n“I think that was the last one.”"
+  },
+  {
+    id: "0208",
+    text: "{W114H3}{Steiner}\n“How do you know!?\n Are you{Speed 2}...{Speed -1}!?”"
+  },
+  {
+    id: "0209",
+    text: "{W201H3}{Zidane}\n“He said ‘Waltz,’ right?  Don’t you\n think No. 3 would be the last one?”"
+  },
+  {
+    id: "0210",
+    text: "{W6H1}{Center 6}?{Time 30}"
+  },
+  {
+    id: "0211",
+    text: "{W133H3}{Zidane}{White}\n(I can see South Gate{Speed 2}...{Speed -1}\n She’s gonna go for it!)"
+  },
+  {
+    id: "0212",
+    text: "{W112H2}{UpperRightForce}{Offset 0,-256,0}Zorn\n“Did you see that?”{Time -1}"
+  },
+  {
+    id: "0213",
+    text: "{W100H2}{UpperLeftForce}{Offset 0,-256,0}Thorn\n“That, I did see!”"
+  },
+  {
+    id: "0214",
+    text: "{W168H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“Our enhanced black mages!”{Time -1}"
+  },
+  {
+    id: "0215",
+    text: "{W186H2}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“Our black mage enhancements!”"
+  },
+  {
+    id: "0216",
+    text: "{W88H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“All defeated!”"
+  },
+  {
+    id: "0217",
+    text: "{W110H3}{Offset 0,-256,0}{UpperLeftForce}{Widths 0,110,19,-1}Thorn\n“Betrayed us, {Steiner} did!\n It is all his fault!”"
+  },
+  {
+    id: "0218",
+    text: "{W39H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“Huh?”"
+  },
+  {
+    id: "0219",
+    text: "{W206H3}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“Unstable, the ship becomes!\n Don’t let go of the steering wheel!”"
+  },
+  {
+    id: "0220",
+    text: "{W134H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“No. 3 is coming back!”"
+  },
+  {
+    id: "0221",
+    text: "{W69H3}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“True is it!?\n Hurray!”"
+  },
+  {
+    id: "0222",
+    text: "{W153H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“But something is wrong{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0223",
+    text: "{W91H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“It’s broken!!!”"
+  },
+  {
+    id: "0224",
+    text: "{W221H2}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“Made its magic too powerful, we did!”"
+  },
+  {
+    id: "0225",
+    text: "{W192H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“There’s nothing we can do now!”"
+  },
+  {
+    id: "0226",
+    text: "{W106H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“We shall depart!”{Time -1}"
+  },
+  {
+    id: "0227",
+    text: "{W106H2}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“Depart shall we!”"
+  },
+  {
+    id: "0228",
+    text: "{W71H2}{Offset 0,-256,0}{UpperRightForce}Zorn\n“Run away!”{Time -1}"
+  },
+  {
+    id: "0229",
+    text: "{W71H2}{Offset 0,-256,0}{UpperLeftForce}Thorn\n“Run away!”"
+  },
+  {
+    id: "0230",
+    text: "{W126H5}{DialogPosition}Black Waltz No. 3\n“I exist only to kill!\n I exist only to kill!\n I exist only to kill!\n I exist only to kill{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0231",
+    text: "{W147H2}{Zidane}\n“Do you see South Gate?”"
+  },
+  {
+    id: "0232",
+    text: "{W25H1}{UpperLeftForce}Yes!"
+  },
+  {
+    id: "0233",
+    text: "{W182H3}{UpperRightForce}{Zidane}\n“South Gate is a huge gate built\n exclusively for airships, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0234",
+    text: "{W189H4}{UpperRightForce}{Zidane}\n“{Speed 2}...{Speed -1}maneuvering through it\n could be tricky.  Do you want me\n to do it, {Dagger}?”"
+  },
+  {
+    id: "0235",
+    text: "{W86H3}{UpperLeftForce}{Dagger}\n“I want to do it\n on my own{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0236",
+    text: "{W49H1}{UpperRightForce}Alright{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0237",
+    text: "{W193H3}{Zidane}\n“We don’t have clearance.\n They might close the gate on us.”"
+  },
+  {
+    id: "0238",
+    text: "{W209H4}{UpperRightForce}{Zidane}\n“It should be okay, though.\n Security was totally lax when I came\n through here on the theater ship.”"
+  },
+  {
+    id: "0239",
+    text: "{W72H3}{UpperRightForce}{Widths 0,62,18,-1}{Zidane}\n“It’ll be fine,\n Captain {Dagger}!”"
+  },
+  {
+    id: "0240",
+    text: "{W39H1}{UpperLeftForce}Roger!"
+  },
+  {
+    id: "0241",
+    text: "{W123H3}{UpperRightForce}{Zidane}\n“{Speed 2}...{Speed -1}It’s old, but the\n engine’s got power.”"
+  },
+  {
+    id: "0242",
+    text: "{W131H2}{UpperRightForce}{Steiner}\n“We must turn back!!!”"
+  },
+  {
+    id: "0243",
+    text: "{W171H3}{UpperRightForce}{Steiner}\n“Princess!\n Please turn the ship around!”"
+  },
+  {
+    id: "0244",
+    text: "{W156H4}{UpperRightForce}{Steiner}\n“The Black Waltz is\n heading straight toward us\n on an airship!”"
+  },
+  {
+    id: "0245",
+    text: "{W142H2}{UpperRightForce}{Steiner}\n“He might crash into us!”"
+  },
+  {
+    id: "0246",
+    text: "{W166H3}{UpperRightForce}{Zidane}\n“{Dagger}, Rusty’s right!\n It’s headed straight for us!”"
+  },
+  {
+    id: "0247",
+    text: "{W202H2}{UpperLeftForce}{Zidane}\n“Punch it!  Go through South Gate!”"
+  },
+  {
+    id: "0248",
+    text: "{W185H3}{UpperRightForce}{Steiner}\n“Don’t be ridiculous!\n What if the gate closes on us!?”"
+  },
+  {
+    id: "0249",
+    text: "{W211H3}{UpperLeftForce}{Zidane}\n“There’s no way we can outmaneuver\n him in this cargo ship!”"
+  },
+  {
+    id: "0250",
+    text: "{W89H3}{UpperRightForce}{Steiner}\n“But the gate{Speed 2}...{Speed -1}\n It’s closing!”"
+  },
+  {
+    id: "0251",
+    text: "{W170H4}{UpperLeftForce}{Zidane}\n“We’ll slide in before the gate\n closes and shut him out!\n That’s our only chance!”"
+  },
+  {
+    id: "0252",
+    text: "{W190H3}{UpperLeftForce}{Zidane}\n“Rusty!  Turn the power up to\n max with that lever over there!”"
+  },
+  {
+    id: "0253",
+    text: "{W100H3}{UpperLeftForce}{Widths 0,100,18,-1}{Zidane}\n“{Dagger}, stay on course\n no matter what!”"
+  },
+  {
+    id: "0254",
+    text: "{W33H1}Okay!"
+  },
+  {
+    id: "0255",
+    text: "{W141H2}{UpperLeftForce}{Zidane}\n“I know we can make it!”"
+  },
+  {
+    id: "0256",
+    text: "{W126H3}{UpperLeftForce}{Offset 0,64,0}{Zidane}\n“I think we pushed it a\n little too hard.”"
+  },
+  {
+    id: "0257",
+    text: "{W83H3}{UpperLeftForce}{Zidane}\n“Why so silent,\n people?”"
+  },
+  {
+    id: "0258",
+    text: "{W119H3}{UpperLeftForce}{Zidane}\n“We made it!\n Come on, cheer up!”"
+  },
+  {
+    id: "0259",
+    text: "{W107H3}{UpperRightForce}{Dagger}\n“South Gate was\n badly damaged{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0260",
+    text: "{W92H3}{UpperRightForce}{Dagger}\n“It was my fault,\n wasn’t it{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0261",
+    text: "{W156H3}{UpperLeftForce}{Zidane}\n“Don’t worry about it!\n They’ll fix it up in no time.”"
+  },
+  {
+    id: "0262",
+    text: "{W68H2}{Widths 0,0,19,-1}{Steiner}\n“You idiot!”"
+  },
+  {
+    id: "0263",
+    text: "{W189H4}{UpperRightForce}{Steiner}\n“The cargo ship was wrecked,\n we lost all the cargo,\n and South Gate was destroyed!”"
+  },
+  {
+    id: "0264",
+    text: "{W177H3}{UpperRightForce}{Steiner}\n“I can’t believe I played a part\n in this debacle!”"
+  },
+  {
+    id: "0265",
+    text: "{W4H1}{Widths 0,4,19,-1}{Steiner}."
+  },
+  {
+    id: "0266",
+    text: "{W81H1}Yes, Princess!"
+  },
+  {
+    id: "0267",
+    text: "{W203H3}{UpperLeftForce}{Dagger}\n“I didn’t mean to get you involved{Speed 2}...{Speed -1}\n But you saved us.”"
+  },
+  {
+    id: "0268",
+    text: "{W66H1}{UpperLeftForce}I thank you."
+  },
+  {
+    id: "0269",
+    text: "{W103H3}{UpperRightForce}{Steiner}\n“Such kind words!\n I am not worthy!”"
+  },
+  {
+    id: "0270",
+    text: "{W131H3}{UpperRightForce}{Steiner}\n“Well, now I’ve made up\n my mind!”"
+  },
+  {
+    id: "0271",
+    text: "{W184H3}{UpperRightForce}{Steiner}\n“I vow to protect you, Princess,\n until we return to the castle!”"
+  },
+  {
+    id: "0272",
+    text: "{W174H4}{UpperLeftForce}{Widths 0,174,18,-1}{Zidane}\n“How do you feel about that, {Dagger}?\n He’ll follow you to the end\n of the world.”"
+  },
+  {
+    id: "0273",
+    text: "{W76H2}{UpperLeftForce}{Widths 0,76,16,-1}{Dagger}\n“It’s okay, {Zidane}.”"
+  },
+  {
+    id: "0274",
+    text: "{W134H3}{UpperLeftForce}{Dagger}\n“Hey, I can see the\n main gate of Lindblum!”"
+  },
+  {
+    id: "0275",
+    text: "{W141H3}{UpperRightForce}{Steiner}\n“That’s Lindblum Castle!?\n How gigantic{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0276",
+    text: "{W131H3}{UpperLeftForce}{Dagger}\n“The city of Lindblum is\n inside the castle.”"
+  },
+  {
+    id: "0277",
+    text: "{W160H4}{LowerLeftForce}{Widths 0,100,18,-1}{Zidane}\n(I guess {Dagger} and I will\n go our separate ways once\n we reach Lindblum{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0278",
+    text: "{W182H3}{LowerLeftForce}{Zidane}\n(Just when we were beginning to\n get close{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0279",
+    text: "{W39H1}I see{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0280",
+    text: "{W30H2}{Widths 0,0,17,-1,0,30,16,-1}{Vivi}\n“{Speed 2}...{Speed -1}{Zidane}.”"
+  },
+  {
+    id: "0281",
+    text: "{W121H3}{Vivi}\n“Those{Speed 2}...{Speed -1}black mages\n and I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0282",
+    text: "{W132H2}{Vivi}\n“Are we{Speed 2}...{Speed -1}the same{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0283",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0284",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0285",
+    text: "{W114H3}{UpperRightForce}{Widths 0,58,17,-1}{Steiner}\n“I don’t understand,\n Master {Vivi}.”"
+  },
+  {
+    id: "0286",
+    text: "{W153H3}{UpperRightForce}{Steiner}\n“Just what seems to be the\n problem{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0287",
+    text: "{W84H1}{Speed 2}...{Speed -1}I don’t know."
+  },
+  {
+    id: "0288",
+    text: "{W163H3}{UpperRightForce}{Widths 0,149,17,-1}{Steiner}\n“Master {Vivi}, why would those\n mages be the same as you?”"
+  },
+  {
+    id: "0289",
+    text: "{W152H3}{UpperRightForce}{Steiner}\n“And why would it matter if\n they were{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0290",
+    text: "{W91H2}{UpperLeftForce}{Zidane}\n“Rusty’s right!”"
+  },
+  {
+    id: "0291",
+    text: "{W6H1}{NoFocus}{Center 6}?{Time 30}"
+  },
+  {
+    id: "0292",
+    text: "{W179H3}{UpperRightForce}{Zidane}\n“You’re an individual, no matter\n what happens, {Vivi}!”"
+  },
+  {
+    id: "0293",
+    text: "{W47H1}R-Right!"
+  },
+  {
+    id: "0294",
+    text: "{W113H3}{UpperLeftForce}{Widths 0,52,17,-1}{Zidane}\n“Let’s go out to the\n deck, {Vivi}!”"
+  },
+  {
+    id: "0295",
+    text: "{W27H1}{NoFocus}{Center 27}Why?{Time 30}"
+  },
+  {
+    id: "0296",
+    text: "{W182H3}{UpperLeftForce}{Zidane}\n“You’ve gotta see Lindblum from\n above!  It’s the best!”"
+  },
+  {
+    id: "0297",
+    text: "{W141H3}{UpperLeftForce}{Zidane}\n“Look, the Falcon’s Gate\n is right in front of us!”"
+  }
+]

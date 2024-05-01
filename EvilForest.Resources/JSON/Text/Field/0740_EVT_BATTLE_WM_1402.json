@@ -1,0 +1,1758 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Letter 00\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W219H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“It’s so unusual to have visitors here!\n Please deliver my mail for me!  Kupo!”"
+  },
+  {
+    id: "0046",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Very Mad!  Kupo!\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0047",
+    text: "{W216H4}{UpperRight}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Text 0,0}\n“Thanks for delivering the letter from\n {Text 0,1}!  Artemicion hasn’t been delivering\n mail lately.  Let’s read it, kupo!”"
+  },
+  {
+    id: "0048",
+    text: "{W227H11}{Widths 0,55,6,1,6,0,-1,0,126,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI haven’t received any mail lately, kupo.\nWhat’s going on?\n\nHey, {Text 0,0}, would you go to\nMognet Central and complain for me?\n\nI’m so mad about it!  Kupo!"
+  },
+  {
+    id: "0049",
+    text: "{W265H3}{UpperRight}{Widths 0,0,6,0,-1,0,177,6,1,-1}{Text 0,0}\n“{Text 0,1} is scary when she gets mad{Speed 2}...{Speed -1}\n I’m not sure where Mognet Central is, though.”"
+  },
+  {
+    id: "0050",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Letter 00\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0051",
+    text: "{W198H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Wow, a visitor!  Kupo!\n I need you to deliver mail for me!”"
+  },
+  {
+    id: "0052",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Stiltzkin, On the Move\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0053",
+    text: "{W209H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thank you, kupo!  Thank you, kupo!\n I’m so happy I got a letter!”"
+  },
+  {
+    id: "0054",
+    text: "{W191H12}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nAccording to rumors, Stiltzkin is\non a quest to find out why Mognet\nstopped functioning!\n\nI’m sure Stiltzkin will find out\nthe truth, kupo.\nWhy did Artemicion stop\ndelivering mail?"
+  },
+  {
+    id: "0055",
+    text: "{W186H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“There must be a reason, kupo.”"
+  },
+  {
+    id: "0056",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Where Is Mognet Central?\n{Tab}Rare Item\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0057",
+    text: "{W199H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“A letter?  Kupo!\n How unusual!  I’m so happy, kupo!”"
+  },
+  {
+    id: "0058",
+    text: "{W225H12}{Widths 0,55,6,1,6,0,-1,0,152,6,0,-1,0,147,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nHey, {Text 0,0}.  How are you, kupo?\nUs moogles in Lindblum are all wondering\nthe same thing these days:\nWhere the heck is Mognet Central?\nNo one knows, kupo.\nDo you know where it is, {Text 0,0}?\nIt’s supposedly very far away, and you\ncan’t enter very easily, kupo{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0059",
+    text: "{W255H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I heard that you can’t enter Mognet Central\n unless you’re riding on a chocobo.  Kupo.”"
+  },
+  {
+    id: "0060",
+    text: "{W91H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What, a letter?\n Thanks, kupo!”"
+  },
+  {
+    id: "0061",
+    text: "{W238H11}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI heard that the machine in Mognet Central\nbroke down!  It’s because they’re missing\nthat item!\n\nI wonder where you can find one?  Kupo?\nIt’s a rare item, so I don’t think\nyou’ll find one very easily..."
+  },
+  {
+    id: "0062",
+    text: "{W109H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That item{Speed 2}...{Speed -1}?  Oh!”"
+  },
+  {
+    id: "0063",
+    text: "{W186H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I think we’re getting closer to\n solving the mystery of Mognet!”"
+  },
+  {
+    id: "0064",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0065",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0066",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0067",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0068",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0069",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0070",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0071",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0072",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0073",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0074",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0075",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0076",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0077",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0078",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0079",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0080",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0081",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0082",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0083",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0084",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0085",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0086",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0087",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0088",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0089",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0090",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0091",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0092",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0093",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0094",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0095",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0096",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,162,-1,3,103,-1,4,87,-1,5,103,-1,7,85,-1,8,132,-1,10,83,-1}{Instantly}Select event\n{Choice}Something Washed Ashore\n{Tab}My Bad\n{Tab}Self-reproach\n{Tab}Deep Anger\n{Tab}No Free Lunch\n{Tab}The Rally\n{Tab}My Hammer\n{Tab}Give Me My Money!\n{Tab}Team\n{Tab}Recovery\n{Tab}ATE-10\n{Tab}ATE-11\n{Tab}ATE-12\n{Tab}ATE-13\n{Tab}ATE-14\n{Tab}Cancel"
+  },
+  {
+    id: "0097",
+    text: "{W143H1}{Instantly}{Center 143}Something Washed Ashore"
+  },
+  {
+    id: "0098",
+    text: "{W40H1}{Instantly}{Center 40}My Bad"
+  },
+  {
+    id: "0099",
+    text: "{W82H1}{Instantly}{Center 82}Self-reproach"
+  },
+  {
+    id: "0100",
+    text: "{W65H1}{Instantly}{Center 65}Deep Anger"
+  },
+  {
+    id: "0101",
+    text: "{W80H1}{Instantly}{Center 80}No Free Lunch"
+  },
+  {
+    id: "0102",
+    text: "{W51H1}{Instantly}{Center 51}The Rally"
+  },
+  {
+    id: "0103",
+    text: "{W60H1}{Instantly}{Center 60}My Hammer"
+  },
+  {
+    id: "0104",
+    text: "{W106H1}{Instantly}{Center 106}Give Me My Money!"
+  },
+  {
+    id: "0105",
+    text: "{W28H1}{Instantly}{Center 28}Team"
+  },
+  {
+    id: "0106",
+    text: "{W55H1}{Instantly}{Center 55}Recovery"
+  },
+  {
+    id: "0107",
+    text: "{W166H3}Kuja\n“That blast almost destroyed\n our ship{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0108",
+    text: "{W104H3}Kuja\n“For a second,\n I thought I was{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0109",
+    text: "{W114H3}Kuja\n“{Speed 2}...{Speed -1}Hahahahaha!\n What am I thinking!”"
+  },
+  {
+    id: "0110",
+    text: "{W194H3}Kuja\n“What can that old fool do to me!?\n He can’t kill me!  Nothing can!”"
+  },
+  {
+    id: "0111",
+    text: "{W200H3}Kuja\n“{Speed 2}...{Speed -1}Besides, he’s too late.\n The wheels are already in motion.”"
+  },
+  {
+    id: "0112",
+    text: "{W150H2}Kuja\n“I won’t let him interfere.”"
+  },
+  {
+    id: "0113",
+    text: "{W104H2}Zorn\n“What happened?”"
+  },
+  {
+    id: "0114",
+    text: "{W222H2}Thorn\n“Terrible injuries, you have suffered.”"
+  },
+  {
+    id: "0115",
+    text: "{W46H1}Shut up!"
+  },
+  {
+    id: "0116",
+    text: "{W218H3}Kuja\n“{Speed 2}...{Speed -1}If I can’t have Alexander, so be it.\n I’ll find another eidolon soon enough.”"
+  },
+  {
+    id: "0117",
+    text: "{W68H2}Kuja\n“Hey, you!”"
+  },
+  {
+    id: "0118",
+    text: "{W86H2}Black Mage\n“I am Mr. 234.”"
+  },
+  {
+    id: "0119",
+    text: "{W174H3}Kuja\n“Shut up!\n I didn’t ask for your number!”"
+  },
+  {
+    id: "0120",
+    text: "{W194H2}Kuja\n“Are the preparations complete?”"
+  },
+  {
+    id: "0121",
+    text: "{W64H2}Black Mage\n“Yes.”"
+  },
+  {
+    id: "0122",
+    text: "{W98H2}Kuja\n“It’s about time.”"
+  },
+  {
+    id: "0123",
+    text: "{W183H3}{Widths 0,183,16,-1}Kuja\n“Hahaha{Speed 2}...{Speed -1} {Zidane}, your role in my play\n is far from over.”"
+  },
+  {
+    id: "0124",
+    text: "{W133H3}Kuja\n“I’m gonna go rest now.\n Get back to work.”"
+  },
+  {
+    id: "0125",
+    text: "{W224H2}{Center 161}Huhaha{Speed 2}... {Speed -1}I knew you’d come.\n{Center 224}{Wait 15}Everything is going according to plan{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0126",
+    text: "{W118H3}{LowerLeftForce}Regent Cid\n“{Zidane}!\n <Ribbit>, wake up!”"
+  },
+  {
+    id: "0127",
+    text: "{W66H2}{Widths 0,0,16,-1}{Zidane}\n“U-Ungh{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0128",
+    text: "{W147H3}{Zidane}\n“Cid{Speed 2}...{Speed -1}\n Where the heck are we?”"
+  },
+  {
+    id: "0129",
+    text: "{W142H3}{LowerLeftForce}Regent Cid\n“Good question <ribbit>!\n I wish I knew!”"
+  },
+  {
+    id: "0130",
+    text: "{W177H3}{Zidane}\n“After I fell into the quicksand,\n everything went dark{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0131",
+    text: "{W159H2}{Zidane}\n“That’s all I can remember.”"
+  },
+  {
+    id: "0132",
+    text: "{W254H3}{LowerLeftForce}Regent Cid\n“Me, too <ribbit>!\n When I woke up, <ribbit> I was in this room.”"
+  },
+  {
+    id: "0133",
+    text: "{W122H3}{Zidane}\n“Oh yeah!\n Where is everyone?”"
+  },
+  {
+    id: "0134",
+    text: "{W136H3}{LowerLeftForce}Regent Cid\n“I don’t know <ribbit>.\n I hope they’re alright.”"
+  },
+  {
+    id: "0135",
+    text: "{W145H1}So you’re finally awake{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0136",
+    text: "{W79H3}{Zidane}\n“That voice{Speed 2}...{Speed -1}\n it’s Kuja!”"
+  },
+  {
+    id: "0137",
+    text: "{W171H1}{Center 171}I’m so happy to see you again."
+  },
+  {
+    id: "0138",
+    text: "{W130H3}{Zidane}\n“You rat bastard!\n Where’re my friends?”"
+  },
+  {
+    id: "0139",
+    text: "{W187H1}{Center 187}My, my{Speed 2}...{Speed -1} Aren’t we feisty today?"
+  },
+  {
+    id: "0140",
+    text: "{W192H2}{Center 168}No need to worry about them.\n{Center 192}They’re in rooms not unlike yours."
+  },
+  {
+    id: "0141",
+    text: "{W175H3}{Center 123}Oh, yes{Speed 2}...{Speed -1} By the way,\n{Center 175}I should probably enlighten you\n{Center 162}as to your current situation."
+  },
+  {
+    id: "0142",
+    text: "{W35H1}Yikes!"
+  },
+  {
+    id: "0143",
+    text: "{W193H3}{Center 171}I’m sure that even your feeble\n{Center 193}mind can grasp what would happen\n{Center 181}if you were to take that plunge."
+  },
+  {
+    id: "0144",
+    text: "{W103H1}{Center 103}Ahahahahahahaha!"
+  },
+  {
+    id: "0145",
+    text: "{W136H2}{Zidane}\n“Kuja!  You’re dead!!!”"
+  },
+  {
+    id: "0146",
+    text: "{W191H1}{Center 191}Oh, dear.  Was it something I said?"
+  },
+  {
+    id: "0147",
+    text: "{W196H3}{Center 196}Either way, now that you’re aware\n{Center 185}of your predicament, I’d like you\n{Center 176}to do a tiny little favor for me."
+  },
+  {
+    id: "0148",
+    text: "{W130H2}{Center 130}I’ll let your friends live\n{Center 84}if you say yes."
+  },
+  {
+    id: "0149",
+    text: "{W62H4}{PreChoose 2,-1}{Widths 0,0,16,-1,1,111,-1}{Instantly}{Zidane}\n“Dammit...”\n{Choice}I have no choice\n{Tab}Never!"
+  },
+  {
+    id: "0150",
+    text: "{W53H2}{Widths 0,0,16,-1}{Zidane}\n“Never!”"
+  },
+  {
+    id: "0151",
+    text: "{W164H1}{Center 164}You still don’t get it, do you?"
+  },
+  {
+    id: "0152",
+    text: "{W109H1}{Center 109}Do you still refuse?"
+  },
+  {
+    id: "0153",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0154",
+    text: "{W182H2}{Zidane}\n“Dammit, I don’t have a choice!”"
+  },
+  {
+    id: "0155",
+    text: "{W194H2}{Center 194}Very good.  You’ve chosen wisely.\n{Center 109}First, step outside."
+  },
+  {
+    id: "0156",
+    text: "{W167H3}{UpperLeftForce}{Zidane}\n“Hey, Cid.  I need you to look\n after the others.”"
+  },
+  {
+    id: "0157",
+    text: "{W218H2}{UpperLeftForce}Regent Cid\n“Fine <ribbit>!  I won’t let you down!”"
+  },
+  {
+    id: "0158",
+    text: "{W240H2}{UpperLeftForce}Regent Cid\n“And you <ribbit>!  You come back safe!”"
+  },
+  {
+    id: "0159",
+    text: "{W77H2}{UpperLeftForce}{Zidane}\n“Yeah, I will.”"
+  },
+  {
+    id: "0160",
+    text: "{W43H1}{UpperLeftForce}See ya."
+  },
+  {
+    id: "0161",
+    text: "{W144H2}{Zidane}\n“Not these guys again{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0162",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0163",
+    text: "{W24H1}{UpperRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0164",
+    text: "{W206H1}{Center 206}Stand between the two black mages."
+  },
+  {
+    id: "0165",
+    text: "{W143H3}Black Mage No. 12\n“Aren’t you gonna ask us\n why we’re doing this?”"
+  },
+  {
+    id: "0166",
+    text: "{W173H3}{Vivi}\n“No.  I’d probably do the same\n thing if I were you.”"
+  },
+  {
+    id: "0167",
+    text: "{W177H2}Kuja\n“Welcome to my humble abode.”"
+  },
+  {
+    id: "0168",
+    text: "{W181H3}{Zidane}\n“Just cut to the chase and\n tell me what the hell you want!”"
+  },
+  {
+    id: "0169",
+    text: "{W165H3}Kuja\n“My, we’re upset, aren’t we?\n Well, this is your errand{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0170",
+    text: "{W187H3}Kuja\n“I want you to go somewhere and\n bring something back for me.”"
+  },
+  {
+    id: "0171",
+    text: "{W139H3}{Zidane}\n“So, tell me what it\n is already, you demon!”"
+  },
+  {
+    id: "0172",
+    text: "{W197H2}Kuja\n“I’d watch my mouth if I were you.”"
+  },
+  {
+    id: "0173",
+    text: "{W213H3}Kuja\n“Surely, you haven’t forgotten that I\n hold your friends’ lives in my hands.”"
+  },
+  {
+    id: "0174",
+    text: "{W32H1} Grr!"
+  },
+  {
+    id: "0175",
+    text: "{W144H3}Kuja\n“I’m going to send you to\n a place called {Cyan}Oeilvert{White}.”"
+  },
+  {
+    id: "0176",
+    text: "{W91H2}{Zidane}\n“Where’s that?”"
+  },
+  {
+    id: "0177",
+    text: "{W234H3}Kuja\n“{Cyan}Oeilvert{White} is south of the {Cyan}Seaways Canyon{White}\n on the {Cyan}Forgotten Continent{White}.”"
+  },
+  {
+    id: "0178",
+    text: "{W187H2}Kuja\n“It really isn’t my kind of place.”"
+  },
+  {
+    id: "0179",
+    text: "{W164H2}{Zidane}\n“What do you mean by that?”"
+  },
+  {
+    id: "0180",
+    text: "{W180H3}Kuja\n“You see, there’s an anti-magic\n barrier around the place.”"
+  },
+  {
+    id: "0181",
+    text: "{W187H3}Kuja\n“And I want to send you because\n you’re too stupid to use magic.”"
+  },
+  {
+    id: "0182",
+    text: "{W150H3}{Widths 0,129,14,0,-1}Kuja\n“Once there, I want you to\n retrieve the {Cyan}{Item 0}{White} for me.”"
+  },
+  {
+    id: "0183",
+    text: "{W130H3}Kuja\n“What do you say?\n Isn’t it a simple task?”"
+  },
+  {
+    id: "0184",
+    text: "{W294H3}Kuja\n“I’ll even send you on my luxury cruise ship,\n so you won’t have to worry about transportation.”"
+  },
+  {
+    id: "0185",
+    text: "{W190H4}Kuja\n“Perhaps it’s too much for you.\n I’d better send you with three of\n your friends just to be safe.”"
+  },
+  {
+    id: "0186",
+    text: "{W143H3}Kuja\n“Besides, nobody likes\n to fight against himself.”"
+  },
+  {
+    id: "0187",
+    text: "{W26H1} ???"
+  },
+  {
+    id: "0188",
+    text: "{W248H3}Kuja\n“Heheh, nevermind.   Speak their\n names when you’ve chosen your partners.”"
+  },
+  {
+    id: "0189",
+    text: "{W56H3}{Widths 0,0,16,-1,0,56,25,26,-1,0,39,27,-1}{Zidane}\n“I want {Party 2}, {Party 3},\n and {Party 4}.”"
+  },
+  {
+    id: "0190",
+    text: "{W157H2}Kuja\n“Fine.  I shall summon them.”"
+  },
+  {
+    id: "0191",
+    text: "{W12H1}{Widths 0,12,25,-1}{Center 12,25}{Party 2}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0192",
+    text: "{W12H1}{Widths 0,12,26,-1}{Center 12,26}{Party 3}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0193",
+    text: "{W36H1}{Widths 0,36,27,-1}{Center 36,27}and {Party 4}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0194",
+    text: "{W130H1}{Center 130}Step through the door."
+  },
+  {
+    id: "0195",
+    text: "{W221H1}{Center 221}Proceed to the center of the platform."
+  },
+  {
+    id: "0196",
+    text: "{W23H1} !!!"
+  },
+  {
+    id: "0197",
+    text: "{W138H3}Kuja\n“Spare me the emotional\n reunion scene, please.”"
+  },
+  {
+    id: "0198",
+    text: "{W197H2}Kuja\n“Now, go stand with your friends.”"
+  },
+  {
+    id: "0199",
+    text: "{W233H2}{Zidane}\n“You’d better keep your promise, Kuja!”"
+  },
+  {
+    id: "0200",
+    text: "{W162H3}Kuja\n“Of course.\n You needn’t worry one bit.”"
+  },
+  {
+    id: "0201",
+    text: "{W139H3}Kuja\n“Khehehe{Speed 2}...{Speed -1}\n What a bunch of idiots.”"
+  },
+  {
+    id: "0202",
+    text: "{W47H2}{Widths 0,0,16,-1}{Zidane}\n“Whoa!”"
+  },
+  {
+    id: "0203",
+    text: "{W192H2}{Zidane}\n“That must be the Hilda Garde 1!”"
+  },
+  {
+    id: "0204",
+    text: "{W103H3}{Eiko}\n“Why am I trapped\n in here!?”"
+  },
+  {
+    id: "0205",
+    text: "{W121H3}{Eiko}\n“Hey!\n Someone lemme out!”"
+  },
+  {
+    id: "0206",
+    text: "{W101H3}{Eiko}\n“This is no way\n to treat a lady!”"
+  },
+  {
+    id: "0207",
+    text: "{W35H1}Aww{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0208",
+    text: "{W216H2}{Widths 0,216,16,-1}{Eiko}\n“I hope {Zidane} and the others are alright{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0209",
+    text: "{W204H2}{Eiko}\n“I’m sure they’ll come back for me.”"
+  },
+  {
+    id: "0210",
+    text: "{W191H3}{Steiner}\n“Blast that Kuja!\n He’ll pay for taking us hostage!”"
+  },
+  {
+    id: "0211",
+    text: "{W147H3}{Steiner}\n“I pray for the princess’s\n safety!”"
+  },
+  {
+    id: "0212",
+    text: "{W180H3}{Steiner}\n“Chivalry demands that a knight\n protects his princess!”"
+  },
+  {
+    id: "0213",
+    text: "{W247H2}{Steiner}\n“I must find a way out of this predicament!”"
+  },
+  {
+    id: "0214",
+    text: "{W182H2}{Widths 0,182,16,-1}{Vivi}\n“I wonder what happened to {Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0215",
+    text: "{W242H2}{Vivi}\n“I wonder what’s going to happen to me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0216",
+    text: "{W232H3}{Fraya}\n“That villain, Kuja!\n What could he want, taking us hostage?”"
+  },
+  {
+    id: "0217",
+    text: "{W208H3}{Fraya}\n“His power is great indeed, but\n there must be a way to defeat him!”"
+  },
+  {
+    id: "0218",
+    text: "{W196H2}{Center 175}So, how do you like the special\n{Center 196}suites I reserved for each of you?"
+  },
+  {
+    id: "0219",
+    text: "{W229H2}{Widths 0,166,16,-1}{Center 166,16}By the way, {Zidane} is out running an\n{Center 229}errand for me in return for your safety."
+  },
+  {
+    id: "0220",
+    text: "{W167H1}{Center 167}But I hate keeping promises{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0221",
+    text: "{W116H1}{Center 116}And I so love deceit."
+  },
+  {
+    id: "0222",
+    text: "{W190H2}{Center 176}So, I thought I would give you a\n{Center 190}special death to remember me by."
+  },
+  {
+    id: "0223",
+    text: "{W136H2}{Center 117}My palace is home to\n{Center 136}a magnificent hourglass."
+  },
+  {
+    id: "0224",
+    text: "{W212H2}{Center 93}As its sands fall,\n{Center 212}the floors of your rooms slowly open."
+  },
+  {
+    id: "0225",
+    text: "{W132H2}{Center 27}Well?\n{Center 132}Isn’t it a fabulous idea?"
+  },
+  {
+    id: "0226",
+    text: "{W231H2}{Widths 0,225,16,-1}{Center 231}Your lives will be spared if the hourglass\n{Center 225,16}is reset.  If {Zidane} comes back in time, that is."
+  },
+  {
+    id: "0227",
+    text: "{W158H2}{Center 158}Oops, just ten more minutes.\n{Center 121}Better start praying."
+  },
+  {
+    id: "0228",
+    text: "{W148H2}{Center 60}Farewell{Speed 2}...{Speed -1}\n{Center 148}My sweet, lovable morons."
+  },
+  {
+    id: "0229",
+    text: "{W117H3}{Eiko}\n“What!?\n Somebody help me!”"
+  },
+  {
+    id: "0230",
+    text: "{W132H3}{Steiner}\n“Damn you, Kuja!\n I will have your head!”"
+  },
+  {
+    id: "0231",
+    text: "{W87H3}{Vivi}\n“Either way,\n I’m gonna die.”"
+  },
+  {
+    id: "0232",
+    text: "{W168H3}{Fraya}\n“What treachery!\n That man is without a heart!”"
+  },
+  {
+    id: "0233",
+    text: "{W122H2}Regent Cid\n“That bastard Kuja!”"
+  },
+  {
+    id: "0234",
+    text: "{W190H3}Regent Cid\n“That does it <ribbit>!\n If I don’t save them, no one will!”"
+  },
+  {
+    id: "0235",
+    text: "{W104H2}Black Mage No. 69\n“Say{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0236",
+    text: "{W199H3}Black Mage No. 69\n“I reset the hourglass and locked\n it just because I was ordered to.”"
+  },
+  {
+    id: "0237",
+    text: "{W116H3}Black Mage No. 69\n“What we’re doing is\n wrong, isn’t it?”"
+  },
+  {
+    id: "0238",
+    text: "{W162H3}Black Mage No. 12\n“Wait.  Isn’t that better than\n to stop functioning?”"
+  },
+  {
+    id: "0239",
+    text: "{W160H2}Black Mage No. 12\n“C-Come on, let’s go back.”"
+  },
+  {
+    id: "0240",
+    text: "{W221H3}Black Mage No. 69\n“Turning off that trap again?\n I still don’t understand how you do it.”"
+  },
+  {
+    id: "0241",
+    text: "{W222H3}Black Mage No. 12\n“You basically have to turn them all on.\n You’re just thinking too hard.”"
+  },
+  {
+    id: "0242",
+    text: "{W104H2}Black Mage No. 12\n“Let’s go.”"
+  },
+  {
+    id: "0243",
+    text: "{W221H3}Regent Cid\n“I don’t have time to be following them!\n <Ribbit>!”"
+  },
+  {
+    id: "0244",
+    text: "{W173H3}Regent Cid\n“That must be the key they\n were talking about <ribbit>!”"
+  },
+  {
+    id: "0245",
+    text: "{W229H3}Regent Cid\n“I guess I should stand still when\n that creature looks this way <ribbit>!”"
+  },
+  {
+    id: "0246",
+    text: "{W212H3}Regent Cid\n“Ohh{Speed 2}...{Speed -1} If only I was a man again,\n I wouldn’t fear that beast <ribbit>!”"
+  },
+  {
+    id: "0247",
+    text: "{W92H2}Regent Cid\n“One more try!”"
+  },
+  {
+    id: "0248",
+    text: "{W195H3}Regent Cid\n“I’ve gotta do something <ribbit>!\n I’m running out of time!”"
+  },
+  {
+    id: "0249",
+    text: "{W199H2}{NoAnimation}{Instantly}{Center 71}{Yellow}Get the key!{White}\n{Center 199}Press the {Circle}{Mobile 260} button to go forward."
+  },
+  {
+    id: "0250",
+    text: "{W199H3}{DialogPosition}{Instantly}\n   You receive the {Yellow}Hourglass Key{White}!"
+  },
+  {
+    id: "0251",
+    text: "{W243H6}{PreChoose 4,-1}{Instantly}Regent Cid\n“I see a scale and some weights <ribbit>!”\n{Choice}Examine the scales\n{Tab}Examine the weights\n{Tab}Put weights on the scales\n{Tab}Climb onto the scales"
+  },
+  {
+    id: "0252",
+    text: "{W123H4}{PreChoose 2,1}{Widths 2,138,-1}{Instantly}Regent Cid\n“Now what <ribbit>?”\n{Choice}Remove weight\n{Tab}Climb onto the scales"
+  },
+  {
+    id: "0253",
+    text: "{W216H4}{PreChoose 2,1}{Instantly}Regent Cid\n“I’d better rearrange them <ribbit>.”\n{Choice}Redo\n{Tab}Keep"
+  },
+  {
+    id: "0254",
+    text: "{W163H3}Regent Cid\n“I’ve gotta put something on\n the left side, too <ribbit>!”"
+  },
+  {
+    id: "0255",
+    text: "{W215H2}Regent Cid\n“I’m still heavier than the other side.”"
+  },
+  {
+    id: "0256",
+    text: "{W240H3}Regent Cid\n“These are huge scales <ribbit>.\n I could probably put 3 weights on a dish.”"
+  },
+  {
+    id: "0257",
+    text: "{W246H3}Regent Cid\n“I’ve got to climb onto the scales\n in order to reach the hourglass <ribbit>!”"
+  },
+  {
+    id: "0258",
+    text: "{W130H3}Regent Cid\n“This weight is made of\n wood.”"
+  },
+  {
+    id: "0259",
+    text: "{W130H3}Regent Cid\n“This weight is made of\n clay.”"
+  },
+  {
+    id: "0260",
+    text: "{W130H3}Regent Cid\n“This weight is made of\n stone.”"
+  },
+  {
+    id: "0261",
+    text: "{W130H3}Regent Cid\n“This weight is made of\n iron.”"
+  },
+  {
+    id: "0262",
+    text: "{W207H6}{PreChoose 4,-1}{Instantly}Regent Cid\n“Hmm... Which should I use <ribbit>?”\n{Choice}A, B, and C\n{Tab}A, B, and D\n{Tab}A, C, and D\n{Tab}B, C, and D"
+  },
+  {
+    id: "0263",
+    text: "{W207H6}{PreChoose 4,-1}{Instantly}Regent Cid\n“Hmm... Which should I use <ribbit>?”\n{Choice}Wood, clay, and stone\n{Tab}Wood, clay, and iron\n{Tab}Wood, stone, and iron\n{Tab}Clay, stone, and iron"
+  },
+  {
+    id: "0264",
+    text: "{W15H1}{LowerRightForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 15} A"
+  },
+  {
+    id: "0265",
+    text: "{W15H1}{LowerLeftForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 15} B"
+  },
+  {
+    id: "0266",
+    text: "{W15H1}{LowerRightForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 15} C"
+  },
+  {
+    id: "0267",
+    text: "{W15H1}{LowerLeftForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 15} D"
+  },
+  {
+    id: "0268",
+    text: "{W29H1}{LowerRightForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 29}Wood"
+  },
+  {
+    id: "0269",
+    text: "{W24H1}{LowerLeftForce}{Offset 20,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 24}Clay"
+  },
+  {
+    id: "0270",
+    text: "{W32H1}{LowerRightForce}{Offset -20,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 32}Stone"
+  },
+  {
+    id: "0271",
+    text: "{W22H1}{LowerLeftForce}{Offset 0,150,0}{NoAnimation}{NoFocus}{Instantly}{Center 22}Iron"
+  },
+  {
+    id: "0272",
+    text: "{W139H6}{NoAnimation}{PreChoose 2,0}{Instantly}No!\nI didn’t make it <ribbit>!\n\nShould I try again?\n{Choice}Try again\n{Tab}Give up"
+  },
+  {
+    id: "0273",
+    text: "{W205H8}{PreChoose 2,0}{Center 205}{Instantly}Do you really want to end the game?\n{Center 48}{Yellow}Warning!\n{Center 132}The game will resume at\n{Center 51}your last\n{Center 63}save point.{White}\n\n{Choice}Try again\n{Tab}End game"
+  },
+  {
+    id: "0274",
+    text: "{W110H2}{Steiner}\n“That was close{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0275",
+    text: "{W161H2}{Steiner}\n“Hail!  Is everyone alright?”"
+  },
+  {
+    id: "0276",
+    text: "{W148H2}{Eiko}\n“I thought I was a goner!”"
+  },
+  {
+    id: "0277",
+    text: "{W172H2}{Eiko}\n“Thank goodness we made it!”"
+  },
+  {
+    id: "0278",
+    text: "{W76H2}{Vivi}\n“I-{Wait 5}I made it!”"
+  },
+  {
+    id: "0279",
+    text: "{W163H2}{Vivi}\n“I’m so glad we’re all okay!”"
+  },
+  {
+    id: "0280",
+    text: "{W208H2}{Fraya}\n“I escaped by the skin of my teeth!”"
+  },
+  {
+    id: "0281",
+    text: "{W144H2}{Fraya}\n“I see we all did as well.”"
+  },
+  {
+    id: "0282",
+    text: "{W220H3}{Steiner}\n“I am so happy you are safe, Princess.\nI was terribly worried!”"
+  },
+  {
+    id: "0283",
+    text: "{W159H2}{Dagger}\n“I wonder who saved us{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0284",
+    text: "{W170H1}Aha!  You all made it <ribbit>!"
+  },
+  {
+    id: "0285",
+    text: "{W131H2}{Steiner}\n“It’s{Speed 2}...{Speed -1}It’s Regent Cid!”"
+  },
+  {
+    id: "0286",
+    text: "{W19H1} !?"
+  },
+  {
+    id: "0287",
+    text: "{W19H1} !?"
+  },
+  {
+    id: "0288",
+    text: "{W118H2}{Fraya}\n“It’s{Speed 2}...{Speed -1}It’s Lord Cid!”"
+  },
+  {
+    id: "0289",
+    text: "{W129H2}{Steiner}\n“You saved us, sire!?”"
+  },
+  {
+    id: "0290",
+    text: "{W127H2}{Eiko}\n“Huh?  You saved us?”"
+  },
+  {
+    id: "0291",
+    text: "{W120H3}{Vivi}\n“You saved us?\n Thank you so much!”"
+  },
+  {
+    id: "0292",
+    text: "{W121H3}{Fraya}\n“You are nothing less\n than an angel.”"
+  },
+  {
+    id: "0293",
+    text: "{W241H3}Regent Cid\n“And it wasn’t easy, mind you{Speed 2}...{Speed -1}\n But we’ve no time to celebrate <ribbit>!”"
+  },
+  {
+    id: "0294",
+    text: "{W241H3}Regent Cid\n“I heard from two black mages <ribbit>\n that there’s some kind of trap up ahead.”"
+  },
+  {
+    id: "0295",
+    text: "{W176H5}Regent Cid\n“They said {Cyan}you basically just\n have to turn them all on{White},\n whatever that means <ribbit>.\n Let’s hurry!”"
+  },
+  {
+    id: "0296",
+    text: "{W107H2}{Steiner}\n“Indeed, we must!”"
+  },
+  {
+    id: "0297",
+    text: "{W164H3}{Widths 0,132,16,-1}{Steiner}\n“Now is the time to focus our\n strength for {Zidane} as well!”"
+  },
+  {
+    id: "0298",
+    text: "{W210H2}{Steiner}\n“We must join together and escape!”"
+  },
+  {
+    id: "0299",
+    text: "{W138H3}{Widths 0,138,16,-1}{Eiko}\n“That’s right!\n We can’t just rely on {Zidane}!”"
+  },
+  {
+    id: "0300",
+    text: "{W182H3}{Eiko}\n“We have to work together until\n {Zidane} gets back!”"
+  },
+  {
+    id: "0301",
+    text: "{W139H3}{Eiko}\n“We can do it if we stick\n together!”"
+  },
+  {
+    id: "0302",
+    text: "{W204H3}{Vivi}\n“Yeah!\n We gotta be able to do something!”"
+  },
+  {
+    id: "0303",
+    text: "{W180H3}{Vivi}\n“For {Zidane},\n and for the black mages, too!”"
+  },
+  {
+    id: "0304",
+    text: "{W92H3}{Vivi}\n“Now’s the time!\n Let’s go!”"
+  },
+  {
+    id: "0305",
+    text: "{W173H3}{Fraya}\n“Indeed,\nlest we lose this opportunity!”"
+  },
+  {
+    id: "0306",
+    text: "{W203H3}{Fraya}\n“I may not have the strength\n to escape this predicament alone.”"
+  },
+  {
+    id: "0307",
+    text: "{W190H2}{Fraya}\n“We must join forces to escape!”"
+  },
+  {
+    id: "0308",
+    text: "{W150H2}{DialogPosition}{Center 82}Intruder alert.\n{Center 150}Defense system activated."
+  },
+  {
+    id: "0309",
+    text: "{W267H2}{DialogPosition}{Center 218}Initializing automatic countermeasures.\n{Center 267}Transferring from observation to attack mode."
+  },
+  {
+    id: "0310",
+    text: "{W147H3}{Eiko}\n“Huh?\n That’s not Kuja’s voice!”"
+  },
+  {
+    id: "0311",
+    text: "{W260H2}{Eiko}\n“Who’s there!?  Come out and show yourself!”"
+  },
+  {
+    id: "0312",
+    text: "{W134H3}{Steiner}\n“What’s that?\n It better not be Kuja!”"
+  },
+  {
+    id: "0313",
+    text: "{W105H3}{Steiner}\n“Who goes there!?\n Show yourself!”"
+  },
+  {
+    id: "0314",
+    text: "{W150H2}{Vivi}\n“That’s not Kuja’s voice!”"
+  },
+  {
+    id: "0315",
+    text: "{W87H2}{Vivi}\n“Wh-Who is it?”"
+  },
+  {
+    id: "0316",
+    text: "{W145H2}{Fraya}\n“A strange voice I hear.”"
+  },
+  {
+    id: "0317",
+    text: "{W98H2}{Fraya}\n“Show yourself!”"
+  },
+  {
+    id: "0318",
+    text: "{W67H1}Meanwhile{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0319",
+    text: "{W130H2}{Zidane}\n“Finally made it back.”"
+  },
+  {
+    id: "0320",
+    text: "{W169H3}{Zidane}\n“Well, no rest for the wicked!\n I gotta get movin’!”"
+  },
+  {
+    id: "0321",
+    text: "{W119H3}{Zidane}\n“What the{Speed 2}...{Speed -1}\n Where are we now?”"
+  },
+  {
+    id: "0322",
+    text: "{W150H2}{Zidane}\n“Did I take a wrong turn?”"
+  },
+  {
+    id: "0323",
+    text: "{W195H2}{Center 90}Welcome back{Speed 2}...{Speed -1}\n{Center 195}I’m inside the room past the stairs."
+  },
+  {
+    id: "0324",
+    text: "{W173H2}{Widths 0,173,16,-1}{Center 173,16}But I want you to come alone, {Zidane}.\n{Center 34}Alone."
+  },
+  {
+    id: "0325",
+    text: "{W135H3}{Widths 0,120,16,-1}{Steiner}\n“{Zidane}, it is surely a trap!\n Proceed with caution!”"
+  },
+  {
+    id: "0326",
+    text: "{W187H3}{Vivi}\n“I got a bad feeling about this.{Speed 2}...{Speed -1}\n Be careful, {Zidane}.”"
+  },
+  {
+    id: "0327",
+    text: "{W194H3}{Eiko}\n“He’s got something up his sleeve!\n Don’t trust him, {Zidane}!”"
+  },
+  {
+    id: "0328",
+    text: "{W154H3}{Widths 0,109,16,-1}{Fraya}\n“He’s the worst scum alive.\n {Zidane}, go with caution!”"
+  },
+  {
+    id: "0329",
+    text: "{W120H3}{Widths 0,120,16,-1}{Quina}\n“He have bad plan!\n {Zidane}, you better no go!”"
+  },
+  {
+    id: "0330",
+    text: "{W137H2}{Zidane}\n“Yeah, tell me about it.”"
+  },
+  {
+    id: "0331",
+    text: "{W148H3}{Zidane}\n“I’ll be okay!\n You guys just wait here.”"
+  },
+  {
+    id: "0332",
+    text: "{W147H2}{Widths 0,147,16,-1}{Vivi}\n“Keep your eyes open, {Zidane}!”"
+  },
+  {
+    id: "0333",
+    text: "{W124H2}{Steiner}\n“Stay alert, soldier!”"
+  },
+  {
+    id: "0334",
+    text: "{W143H2}{Eiko}\n“Watch your back, now!”"
+  },
+  {
+    id: "0335",
+    text: "{W166H2}{Fraya}\n“You must exercise caution!”"
+  },
+  {
+    id: "0336",
+    text: "{W78H2}{Quina}\n“Be careful!”"
+  },
+  {
+    id: "0337",
+    text: "{W200H2}{Amarant}\n“Don’t trust anything he tells you!”"
+  },
+  {
+    id: "0338",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0339",
+    text: "{W76H1}Come inside{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0340",
+    text: "{W193H2}{Widths 0,193,16,-1}Kuja\n“I’m so happy to see you again, {Zidane}.”"
+  },
+  {
+    id: "0341",
+    text: "{W178H2}{Zidane}\n“My friends better be alright!”"
+  },
+  {
+    id: "0342",
+    text: "{W191H2}Kuja\n“Oh my!  Blunt as always, I see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0343",
+    text: "{W133H2}Kuja\n“Take a look in there.”"
+  },
+  {
+    id: "0344",
+    text: "{W230H3}Kuja\n“No need to worry.\n They just needed some rest, that’s all.”"
+  },
+  {
+    id: "0345",
+    text: "{W124H2}{Widths 0,124,14,0,-1}Kuja\n“Now, give me the {Item 0}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0346",
+    text: "{W155H2}{Widths 0,155,16,-1}{Eiko}\n“I hope {Zidane}’s alright in there.”"
+  },
+  {
+    id: "0347",
+    text: "{W247H2}{Eiko}\n“I wonder how the others are doing, too{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0348",
+    text: "{W220H2}{Steiner}\n“I wonder how the others are doing{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0349",
+    text: "{W254H3}{Steiner}\n“Why, if something happened to the princess,\n I don’t know what I would do!”"
+  },
+  {
+    id: "0350",
+    text: "{W160H2}{Vivi}\n“I hope everyone’s okay{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0351",
+    text: "{W189H3}{Fraya}\n“I worry for {Zidane}, but\n I hope the others are well, too!”"
+  },
+  {
+    id: "0352",
+    text: "{W136H2}{Quina}\n“Hope everyone okay.”"
+  },
+  {
+    id: "0353",
+    text: "{W162H2}{Quina}\n“Come think of it{Speed 2}...{Speed -1}{Wait 10}I hungry.”"
+  },
+  {
+    id: "0354",
+    text: "{W101H2}{Widths 0,101,16,-1}{Eiko}\n“Huh?  Where’s {Zidane}?”"
+  },
+  {
+    id: "0355",
+    text: "{W124H2}{Widths 0,124,16,-1}{Steiner}\n“What happened to {Zidane}?”"
+  },
+  {
+    id: "0356",
+    text: "{W68H2}{Widths 0,0,17,-1,0,68,16,-1}{Vivi}\n“Where’s {Zidane}?”"
+  },
+  {
+    id: "0357",
+    text: "{W151H2}{Widths 0,151,16,-1}{Fraya}\n“Whatever happened to {Zidane}?”"
+  },
+  {
+    id: "0358",
+    text: "{W183H3}{Eiko}\n“He went to see Kuja by himself.\n But how did you escape?”"
+  },
+  {
+    id: "0359",
+    text: "{W195H3}{Steiner}\n“He went alone to Kuja’s chamber.\n But how did you escape?”"
+  },
+  {
+    id: "0360",
+    text: "{W200H3}{Vivi}\n“He went to see Kuja all by himself.\n How did you guys get out?”"
+  },
+  {
+    id: "0361",
+    text: "{W218H3}{Fraya}\n“He went forth to Kuja’s domain alone.\n By what means did you escape?”"
+  },
+  {
+    id: "0362",
+    text: "{W108H3}{Quina}\n“He go see Kuja.\n How you get out?”"
+  },
+  {
+    id: "0363",
+    text: "{W71H2}{LowerRightForce}Regent Cid\n“Actually{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0364",
+    text: "{W117H3}{UpperLeftForce}{Widths 0,117,16,-1}{Eiko}\n“There’s no time!\n We gotta go stop {Zidane}!”"
+  },
+  {
+    id: "0365",
+    text: "{W160H3}{Widths 0,160,16,-1}{Steiner}\n“We’ve no time to explain!\n We must stop {Zidane} at all costs!”"
+  },
+  {
+    id: "0366",
+    text: "{W126H3}{Widths 0,119,16,-1}{Vivi}\n“That’s not important!\n We gotta go save {Zidane}!”"
+  },
+  {
+    id: "0367",
+    text: "{W152H3}{Fraya}\n“I shall explain later!\n First, we must stop Kuja!”"
+  },
+  {
+    id: "0368",
+    text: "{W172H3}{Zidane}\n“You bastard!\n You’re the worst scum alive!”"
+  },
+  {
+    id: "0369",
+    text: "{W238H2}Kuja\n“<Yawn> I grow weary of your tantrums.”"
+  },
+  {
+    id: "0370",
+    text: "{W119H3}Kuja\n“Well, will you hand it\n over or not?”"
+  },
+  {
+    id: "0371",
+    text: "{W125H2}{Widths 0,125,16,-1}{Steiner}\n“Don’t relinquish it, {Zidane}!”"
+  },
+  {
+    id: "0372",
+    text: "{W132H2}{Widths 0,132,16,-1}{Vivi}\n“Don’t give it to him, {Zidane}!”"
+  },
+  {
+    id: "0373",
+    text: "{W53H2}{Widths 0,0,20,-1,0,53,16,-1}{Fraya}\n“Stop, {Zidane}!”"
+  },
+  {
+    id: "0374",
+    text: "{W135H2}{Quina}\n“You no need give him!”"
+  },
+  {
+    id: "0375",
+    text: "{W162H3}{Zidane}\n“Huh!?\n So, who’s inside this cage?”"
+  },
+  {
+    id: "0376",
+    text: "{W228H3}Kuja\n“Oh dear, I wasn’t expecting this.\n That’s right, the ones inside are fake!”"
+  },
+  {
+    id: "0377",
+    text: "{W190H2}Kuja\n“But don’t think you’ve won yet.”"
+  },
+  {
+    id: "0378",
+    text: "{W66H2}Kuja\n“Hehehe{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0379",
+    text: "{W26H1}Aaa!"
+  },
+  {
+    id: "0380",
+    text: "{W104H2}{Eiko}\n“What the heck!?”"
+  },
+  {
+    id: "0381",
+    text: "{W125H1}{UpperLeftForce}{Offset 0,-50,0}Aaa!  Leave me alone!"
+  },
+  {
+    id: "0382",
+    text: "{W13H1}{Widths 0,13,22,-1} {Eiko}!"
+  },
+  {
+    id: "0383",
+    text: "{W175H1}<Rrrrribbit!>  I’ll protect you!"
+  },
+  {
+    id: "0384",
+    text: "{W204H1}{UpperLeftForce}{Offset 0,-150,0}What a freak!  This frog can speak!"
+  },
+  {
+    id: "0385",
+    text: "{W133H2}{UpperLeftForce}{Offset 0,-100,0}Frog that goes squish,\n you’ll make a fine dish!"
+  },
+  {
+    id: "0386",
+    text: "{W62H1}{Speed 2}...{Speed -1}Ungph!{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0387",
+    text: "{W86H1}{Speed 2}...{Speed -1}<R-Ribbit>{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0388",
+    text: "{W69H2}{Widths 0,0,16,-1}{Zidane}\n“Aw, man{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0389",
+    text: "{W31H1}Hey!!"
+  },
+  {
+    id: "0390",
+    text: "{W182H4}{Widths 0,130,14,0,-1}Kuja\n“I wanted to finish you off after\n getting the {Item 0} and killing\n all your friends{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0391",
+    text: "{W181H2}Kuja\n“Instead, I’ll just take the girl.”"
+  },
+  {
+    id: "0392",
+    text: "{W135H2}Kuja\n“I hope we meet again.”"
+  },
+  {
+    id: "0393",
+    text: "{W43H2}{Widths 0,0,16,-1}{Zidane}\n“No!!!”"
+  },
+  {
+    id: "0394",
+    text: "{W149H2}{Zidane}\n“Arrg!  It won’t respond.”"
+  },
+  {
+    id: "0395",
+    text: "{W137H2}{Widths 0,137,16,-1}{Steiner}\n“{Zidane}!  To the Hilda Garde!”"
+  },
+  {
+    id: "0396",
+    text: "{W156H2}{Widths 0,156,16,-1}{Vivi}\n“Remember that big ship, {Zidane}!”"
+  },
+  {
+    id: "0397",
+    text: "{W216H2}{Fraya}\n“He plans to flee on the Hilda Garde!”"
+  },
+  {
+    id: "0398",
+    text: "{W126H2}{Quina}\n“He take big airship!”"
+  },
+  {
+    id: "0399",
+    text: "{W187H2}{Widths 0,187,16,-1}{Amarant}\n“He’s gonna take that airship, {Zidane}!”"
+  },
+  {
+    id: "0400",
+    text: "{W90H2}{Zidane}\n“Let’s get him!”"
+  },
+  {
+    id: "0401",
+    text: "{W86H3}{LowerLeftForce}{Offset -20,0,0}{Zidane}\n“Dammit!\n He got away!”"
+  },
+  {
+    id: "0402",
+    text: "{W127H3}Regent Cid\n“We can still follow him\n on the Blue Narciss!”"
+  },
+  {
+    id: "0403",
+    text: "{W146H2}{Zidane}\n“Great minds think alike!”"
+  },
+  {
+    id: "0404",
+    text: "{W111H2}{Zidane}\n“Let’s go, people!”"
+  },
+  {
+    id: "0405",
+    text: "{W32H1}{UpperLeftForce} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0406",
+    text: "{W15H1}{Center 15}!!!"
+  },
+  {
+    id: "0407",
+    text: "{W266H2}{UpperRightForce}Regent Cid\n“Just have to turn this upside-down <ribbit>!”"
+  },
+  {
+    id: "0408",
+    text: "{W69H1}{UpperRightForce}  <Ribbit!>"
+  },
+  {
+    id: "0409",
+    text: "{W252H2}{UpperRightForce}Regent Cid\n“Now, everyone should be alright <ribbit>!”"
+  },
+  {
+    id: "0410",
+    text: "{W192H2}{Steiner}\n“We must find a way out of here!”"
+  },
+  {
+    id: "0411",
+    text: "{W120H3}{Steiner}\n“Hmph{Speed 2}...{Speed -1}You coward!\n Let me out of here!”"
+  },
+  {
+    id: "0412",
+    text: "{W75H1}{UpperLeftForce}{Instantly} Release me!"
+  },
+  {
+    id: "0413",
+    text: "{W291H3}{Vivi}\n“I’ll die if I don’t get out.\n I wonder if that’s better than to stop functioning.”"
+  },
+  {
+    id: "0414",
+    text: "{W156H3}{Vivi}\n“Oh, no{Speed 2}...{Speed -1}\n What’ll happen when I die?”"
+  },
+  {
+    id: "0415",
+    text: "{W131H2}{Fraya}\n“No{Speed 2}...{Speed -1} This cannot be!”"
+  },
+  {
+    id: "0416",
+    text: "{W205H2}{Fraya}\n“I must find a way out of this room!”"
+  },
+  {
+    id: "0417",
+    text: "{W113H2}{Fraya}\n“The end is near{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0418",
+    text: "{W99H2}{Fraya}\n“Ahh{Speed 2}...{Speed -1}Fratley{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0419",
+    text: "{W155H3}{Quina}\n“I no want die this way!\n Must sample more cuisine!”"
+  },
+  {
+    id: "0420",
+    text: "{W163H2}{Quina}\n“No more munchies for me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0421",
+    text: "{W110H3}{Quina}\n“Should have eaten\n little frog king.{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0422",
+    text: "{W111H2}Regent Cid\n“Leave this to me!”"
+  },
+  {
+    id: "0423",
+    text: "{W214H4}{DialogPosition}{Instantly}\n{Center 126}Illusion of the Goddess\n{Yellow}The path will open when the lamp is lit.{White}"
+  },
+  {
+    id: "0424",
+    text: "{W213H5}{DialogPosition}{Instantly}\n{Center 99}Truth of the Devil\n{Pink}The bloodstone is proof of his power.\nHide the light with your hand.{White}"
+  },
+  {
+    id: "0425",
+    text: "{W242H5}{DialogPosition}{Instantly}\n{Center 130}Promise of the Evil God\n{Pink}The bloodstone is the source of his power.\nEach color holds different powers.{White}"
+  },
+  {
+    id: "0426",
+    text: "{W226H4}{DialogPosition}{Instantly}\n{Center 97}Lie of the Archon\n{Pink}The path will open when all lamps are lit.{White}"
+  },
+  {
+    id: "0427",
+    text: "{W240H4}{DialogPosition}{Instantly}\n{Center 90}Wise Man’s Folly\n{Green}Unlit stained glass opens the path when lit.{White}"
+  },
+  {
+    id: "0428",
+    text: "{W181H5}{DialogPosition}{Instantly}\n{Center 132}Dead Spirit’s Seduction\n{Cyan}Dare not to follow those of evil.\nStrive to follow those of good.{White}"
+  },
+  {
+    id: "0429",
+    text: "{W161H3}{DialogPosition}{Instantly}\n{Cyan}Apostle from the Underworld{White}"
+  },
+  {
+    id: "0430",
+    text: "{W134H3}{DialogPosition}{Instantly}\n{Cyan}Messenger from Heaven{White}"
+  },
+  {
+    id: "0431",
+    text: "{W252H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract the {Cyan}power to nullify\nelemental properties{White} from the {Yellow}ring{White}."
+  },
+  {
+    id: "0432",
+    text: "{W173H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract {Cyan}magic{White}\nfrom the {Yellow}chain{White}."
+  },
+  {
+    id: "0433",
+    text: "{W265H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract the {Cyan}strength to resist{White}\nfrom the {Yellow}armor{White}."
+  },
+  {
+    id: "0434",
+    text: "{W254H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract the {Cyan}power to dodge{White}\nfrom the {Yellow}bracer{White}."
+  },
+  {
+    id: "0435",
+    text: "{W300H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract the {Cyan}strength to resist magic{White}\nfrom the {Yellow}hat{White}."
+  },
+  {
+    id: "0436",
+    text: "{W289H5}{DialogPosition}{Instantly}\n{Center 101}{Pink}Offering of Power{White}\nFaithful paladin, extract the {Cyan}power to dodge magic{White}\nfrom the {Yellow}shield{White}."
+  },
+  {
+    id: "0437",
+    text: "{W139H3}{DialogPosition}{PreChoose 2,1}{Instantly}{f4}Inspect the bloodstone?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0438",
+    text: "{W117H3}{UpperLeftForce}Black Mage No. 12\n“I was told not to go\n any farther.”"
+  }
+]

@@ -1,0 +1,1562 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W109H4}{Table 4,8,18,36,56,}Baby Frog\nAdult Frog (male)\nAdult Frog (female)\nGolden Frog"
+  },
+  {
+    id: "0004",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0007",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0008",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0009",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0010",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0011",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0012",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0020",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0021",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0023",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0024",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0025",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0026",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0027",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0028",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0029",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0030",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0031",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0032",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0033",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0035",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0038",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0039",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0040",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0041",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0043",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0044",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0045",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Where Is That Item!?\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0046",
+    text: "{W183H5}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,112,6,1,-1}{Instantly}{Text 0,0}\n“Hey, you gotta deliver a letter\n to {Text 0,1} for me!  Kupo!”\n{Choice}Sure\n{Tab}No way"
+  },
+  {
+    id: "0047",
+    text: "{W223H13}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nKupo!  Long time no see!  How are you?\n\nJust a word of warning...\nI think Queen Brahne is up to something.\nYou should be careful, too, Chipo!\nKupo!\n\nBy the way, I saw a boy wearing\na tall, pointy hat today.\nFashion is weird these days."
+  },
+  {
+    id: "0048",
+    text: "{W90H3}{UpperRight}{Widths 0,0,6,0,-1,0,90,6,1,-1}{Text 0,0}\n“A letter from {Text 0,1}?\n Thanks, dude!”"
+  },
+  {
+    id: "0049",
+    text: "{W256H10}{Widths 0,55,6,1,6,0,-1,0,256,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI understand!  Kupo!  Mognet will\nfunction again once we have some!\n\nI think {Text 0,0} would know!Kupo!  Where is that item?\n\nWe need it to repair Mognet!"
+  },
+  {
+    id: "0050",
+    text: "{W168H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“They gotta tell me more than\n ‘that item’!  Kupo!!!”"
+  },
+  {
+    id: "0051",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0052",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0053",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0054",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0055",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0056",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0057",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0058",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0059",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0060",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0061",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0062",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0063",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0064",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0065",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0066",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0067",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0068",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0069",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0070",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0071",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0072",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0073",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0074",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0075",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0076",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0077",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0078",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0079",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0080",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0081",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0082",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0083",
+    text: "{W192H3}{Instantly}Howdy!\nI’m {Cyan}Mene{White}!{NewPage}{Instantly}I’m just another moogle who’s\nwandered all over the world─\nyou know...been there, done that."
+  },
+  {
+    id: "0084",
+    text: "{W130H2}{Instantly}I’ve battled monsters\nthe size of mountains{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0085",
+    text: "{W107H2}{Instantly}{Speed 2}...{Speed -1}discovered very\nrare chocobos{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0086",
+    text: "{W202H2}{Instantly}{Speed 2}...{Speed -1}and explored forbidden dungeons\nin search of treasures."
+  },
+  {
+    id: "0087",
+    text: "{W189H2}{Instantly}Those were the good old days{Speed 2}...{Speed -1}{NewPage}{Instantly}I know pretty much everything\nthere is to know about the world."
+  },
+  {
+    id: "0088",
+    text: "{W170H2}{Instantly}So, if you have any questions,\nfeel free to ask me."
+  },
+  {
+    id: "0089",
+    text: "{W88H1}Hey, what’s up?"
+  },
+  {
+    id: "0090",
+    text: "{W161H12}{PreChooseMask 11,10}{Widths 5,208,112,4,-1,11,201,-1}{Instantly}What do you wanna go over?\n{Choice}Help Menu{Icon+ 0}\n{Tab}Battles{Icon+ 1}\n{Tab}Abilities{Icon+ 2}\n{Tab}Trance{Icon+ 3}\n{Tab}Icon that appears over the head{Icon+ 4}\n{Tab}Save Moogles{Icon+ 5}\n{Tab}Status Effects{Icon+ 6}\n{Tab}Elemental Properties{Icon+ 7}\n{Tab}Card Game{Icon+ 8}\n{Tab}Synthesis Shops{Icon+ 9}\n{Tab}Nothing{x190}"
+  },
+  {
+    id: "0091",
+    text: "{W127H2}{Instantly}{Cyan}Status{White} refers to a\ncharacter’s condition."
+  },
+  {
+    id: "0092",
+    text: "{W212H2}{Instantly}There are good status effects and\nbad status effects, so pay attention!"
+  },
+  {
+    id: "0093",
+    text: "{W206H3}{Instantly}We’ll go over the bad status effects\nfirst.  The following status effects\ngo away when the battle is over."
+  },
+  {
+    id: "0094",
+    text: "{W284H12}{Icon 27}\n{Center 138}{Cyan}-{f2}Bad Status Effects{f6}1{f2}-{White}\n{f2}{y10}{Icon 147}{y-2}{f8}{Cyan}Confuse{White}{x75}You lose control of\n{y8}{x75}your character.\n{f2}{y10}{Icon 146}{y-2}{f8}{Cyan}Berserk{White}{x75}Although strength increases,\n{y8}{x75}the character can only attack.\n{f2}{y10}{Icon 145}{y-2}{f8}{Cyan}Stop{White}{x75}The character cannot move.\n{f2}{y10}{Icon 144}{y-2}{f8}{Cyan}Poison{White}{x75}HP gradually decrease.\n{f2}{y10}{Icon 143}{y-2}{f8}{Cyan}Sleep{White}{x75}The character falls asleep\n{y8}{x75}and cannot move.\n{f2}{y10}{Icon 139}{y-2}{f8}{Cyan}Slow{White}{x75}The ATB Gauge fills up slowly.\n{x224}{NewPage}{Icon 27}\n{Center 138}{Cyan}-{f2}Bad Status Effects{f6}2{f2}-{White}\n{f2}{y10}{Icon 141}{y-2}{f8}{Cyan}Heat{White}{x70}The terrible burns cause {Cyan}KO{White}\n{y8}{x70}if the character takes any action.\n{f2}{y10}{Icon 140}{y-2}{f8}{Cyan}Freeze{White}{x70}The character becomes frozen\n{y8}{x70}and gets {Cyan}KO{White}’d if\n{y8}{x70}physically attacked.\n{f2}{y10}{Icon 142}{y-2}{f8}{Cyan}Mini{White}{x70}The character shrinks, which reduces\n{y8}{x70}Battle Power and Defense.\n{x224}"
+  },
+  {
+    id: "0095",
+    text: "{W187H3}{Instantly}Now, I’ll discuss VERY bad status\neffects that don’t go away after\nthe battle is over."
+  },
+  {
+    id: "0096",
+    text: "{W161H2}{Instantly}These effects are displayed\nin the Main Menu."
+  },
+  {
+    id: "0097",
+    text: "{W284H11}{Icon 27}\n{Center 169}{Cyan}-{f2}Very Bad Status Effects{f6}1{f2}-{White}\n{y10}{Icon 154}{y-2}{f8}{Cyan}Petrify{White}{x70}The character becomes petrified\n{y8}{x70}and cannot move.\n{y10}{Icon 153}{y-2}{f8}{Cyan}Venom{White}{x70}HP and MP gradually decrease,\n{y8}{x70}and the character cannot move.\n{y10}{Icon 152}{y-2}{f8}{Cyan}Virus{White}{x70}The character cannot gain EXP or AP\n{y8}{x70}after battle because growth is\n{y8}{x70}stunted.\n{y10}{Icon 151}{y-2}{f8}{Cyan}Silence{White}{x70}The character cannot use magic.\n{x224}{NewPage}{Icon 27}\n{Center 169}{Cyan}-{f2}Very Bad Status Effects{f6}2{f2}-{White}\n{y10}{Icon 150}{y-2}{f8}{Cyan}Darkness{White}{x78}The character’s vision is impaired,\n{y8}{x78}and physical attack accuracy\n{y8}{x78}decreases.\n{y10}{Icon 149}{y-2}{f8}{Cyan}Trouble{White}{x78}The damage one character receives\n{y8}{x78}transfers to other characters\n{y8}{x78}as well.\n{y10}{Icon 148}{y-2}{f8}{Cyan}Zombie{White}{x78}Healing items and magic cause\n{y8}{x78}damage to the character.\n{x224}"
+  },
+  {
+    id: "0098",
+    text: "{W182H3}{Instantly}Alright, enough of the bad stuff.\nLet’s talk about the good\nstatus effects."
+  },
+  {
+    id: "0099",
+    text: "{W289H13}{Icon 27}\n{Center 145}{Cyan}-{f2}Good Status Effects{f6}1{f2}-{White}\n{y10}{Icon 131}{y-2}{f8}{Cyan}Auto-Life{White}{x84}The character revives from {Cyan}KO{White},\n{y8}{x84}automatically, once during battle.\n{y10}{Icon 138}{y-2}{f8}{Cyan}Regen{White}{x84}HP are gradually restored.\n{y10}{Icon 137}{y-2}{f8}{Cyan}Haste{White}{x84}ATB Gauge fills up faster.\n{y10}{Icon 136}{y-2}{f8}{Cyan}Float{White}{x84}The character floats and does not\n{y8}{x84}receive {Cyan}Earth damage{White}.\n{x224}{NewPage}{Icon 27}\n{Center 145}{Cyan}-{f2}Good Status Effects{f6}2{f2}-{White}\n{y10}{Icon 135}{y-2}{f8}{Cyan}Shell{White}{x70}The damage from magic\n{y8}{x70}attacks decreases.\n{y10}{Icon 134}{y-2}{f8}{Cyan}Protect{White}{x70}The damage from physical\n{y8}{x70}attacks decreases.\n{y10}{Icon 133}{y-2}{f8}{Cyan}Vanish{White}{x70}The character vanishes and\n{y8}{x70}cannot be hit by physical attacks;\n{y8}{x70}the character reappears if hit\n{y8}{x70}by magic.\n{y10}{Icon 132}{y-2}{f8}{Cyan}Reflect{White}{x70}Magic is reflected back at the caster.\n{y8}{x70}(Some magic cannot be reflected.)\n{x224}"
+  },
+  {
+    id: "0100",
+    text: "{W211H3}In addition to these, there are status\neffects known as {Cyan}Doom{White} and\n{Cyan}Gradual Petrify{White}."
+  },
+  {
+    id: "0101",
+    text: "{W183H4}Remember this!  If all your party\nmembers incur {Cyan}KO{White}, {Cyan}Stop{White},\n{Cyan}Petrify{White}, or {Cyan}Venom{White} during battle,\nit’s {Cyan}Game Over{White}!"
+  },
+  {
+    id: "0102",
+    text: "{W205H3}{Instantly}Also, you won’t receive EXP or AP if\nyou’re still under {Cyan}KO{White}, {Cyan}Petrify{White}, {Cyan}Virus{White},\nor {Cyan}Zombie{White} when the battle ends."
+  },
+  {
+    id: "0103",
+    text: "{W213H3}{Instantly}There are a total of 8 Elemental\nProperties: Fire, Ice, Thunder, Earth,\nWater, Wind, Holy, and Shadow."
+  },
+  {
+    id: "0104",
+    text: "{W203H3}{Instantly}Applying these Elemental Properties\nto your attacks and defense makes\nbattles a lot easier."
+  },
+  {
+    id: "0105",
+    text: "{W229H2}{Instantly}But your enemies can take advantage of\nthem as well, so watch out."
+  },
+  {
+    id: "0106",
+    text: "{W153H2}{Instantly}To apply them, you have to\nunderstand their natures."
+  },
+  {
+    id: "0107",
+    text: "{W285H13}{Icon 27}\n{Center 135}{Cyan}-{f2}Elemental Properties{f2}-{White}\n{y8}{f4}{Cyan}Fire{White}{x54}Effective against ice\n{y8}{x54}and undead monsters.\n{y8}{f4}{Cyan}Ice{White}{x54}Effective against insects, large enemies,\n{y8}{x54}and fire and dragon-type monsters.\n{y8}{f4}{Cyan}Thunder{White}{x54}Effective against enemies near water.\n{y8}{f4}{Cyan}Earth{White}{x54}Ineffective against flying monsters.\n{y8}{f4}{Cyan}Water{White}{x54}Effective against fire monsters.\n{y8}{f4}{Cyan}Wind{White}{x54}Effective against flying monsters.\n{y8}{f4}{Cyan}Holy{White}{x54}Effective against shadow monsters.\n{y8}{f4}{Cyan}Shadow{White}{x54}Effective against holy monsters.\n{x224}"
+  },
+  {
+    id: "0108",
+    text: "{W221H3}{Instantly}There is also a {Cyan}Non-elemental{White}\nProperty, which is not affected by any\nelemental property."
+  },
+  {
+    id: "0109",
+    text: "{W131H3}{Instantly}Did all that sink in?\nIt’s easy, once you get\nthe hang of it."
+  },
+  {
+    id: "0110",
+    text: "{W212H1}{Instantly}First, I’ll go over the battle controls."
+  },
+  {
+    id: "0111",
+    text: "{W267H8}{Icon 27}\n{Center 150}{Cyan}-{f2}Basic Battle Controls{f6}1{f2}-{White}\n{y8}{f4}{Cross+}{Mobile 317}{x58}Confirm.\n{y8}{f4}{Circle+}{Mobile 261}{x58}Cancel.\n{y8}{f4}{Triangle+}{Mobile 335}{x58}Cycle to the next ready character\n{y8}{x58}when the ATB Gauge is full.\n{y8}{f4}{Square+}{Mobile 329}{x58}Hold down to clear menu.\n{x224}{NewPage}{Icon 27}\n{Center 150}{Cyan}-{f2}Basic Battle Controls{f6}2{f2}-{White}\n{y8}{f4}{L1+}{R1+}{Mobile 303}{x48}Select single/multiple targets.\n{y8}{f4}{Start}{Mobile 304}{x48}Pause.\n{y8}{f4}{Select}{Mobile 279}{x48}Turn on/off help.\n{x224}"
+  },
+  {
+    id: "0112",
+    text: "{W138H1}{Instantly}Next, I’ll talk about {Cyan}ATB{White}."
+  },
+  {
+    id: "0113",
+    text: "{W194H3}{Instantly}ATB stands for {Cyan}Active Time Battle{White}.\nTime during battle is managed\nby the ATB System."
+  },
+  {
+    id: "0114",
+    text: "{W230H3}{Instantly}There are 2 ATB modes: {Cyan}Active{White} and {Cyan}Wait{White}.\nYou can select them in the\n{Cyan}Config{White} Menu."
+  },
+  {
+    id: "0115",
+    text: "{W245H7}{Icon 27}\n{Center 72}{Cyan}-{f2}ATB Mode{f2}-{White}\n{y8}{f4}{Cyan}Active{White}{x60}Always real-time\n{y8}{x60}(time never stops during battle).\n{y8}{f4}{Cyan}Wait{White}{x60}Time stops while you are\n{y8}{x60}selecting magic and items.\n{x224}"
+  },
+  {
+    id: "0116",
+    text: "{W212H3}{Instantly}If you’re a beginner,\nI think you should choose {Cyan}Wait{White}.\n{Cyan}Active{White} is more for advanced players."
+  },
+  {
+    id: "0117",
+    text: "{W192H1}{Instantly}Now, let’s go over {Cyan}damage points{White}."
+  },
+  {
+    id: "0118",
+    text: "{W231H2}{Instantly}Numbers and details pop up during\nbattle whenever your HP and MP change."
+  },
+  {
+    id: "0119",
+    text: "{W106H2}{Instantly}Numbers appear in\n2 different colors."
+  },
+  {
+    id: "0120",
+    text: "{W272H9}{Icon 27}\n{Center 98}{Cyan}-{f2}Damage Points{f2}-{White}\n{y10}{f4}{Icon 173}{f1}{Icon 173}{f1}{Icon 173}{f1}{Icon 173}{x60}{y-2}HP change:\n{y8}{x60}White numbers indicate damage.\n{y8}{x60}{Green}Green numbers indicate HP recovery.{White}\n{y10}{f4}{Icon 173}{f1}{Icon 173}{f1}{Icon 173}{f1}{Icon 173}{y-2}{y5}{f1}{Icon 163}{y-5}{x60}MP change:\n{y8}{x60}White numbers indicate loss.\n{y8}{x60}{Green}Green numbers indicate MP recovery.{White}\n{x224}{NewPage}{Icon 27}\n{Center 102}{Cyan}-{f2}Damage Details{f2}-{White}\n{y10}{f4}{Icon 159}{y-2}{x60}When the attack misses.\n{y10}{f4}{Icon 179}{y-2}{x60}When you deal greater damage\n{y8}{x60}than usual.\n{y10}{f4}{Icon 160}{y-2}{x60}When you get KO’d.\n{y10}{f4}{Icon 161}{y-2}{x60}When status attacks and elemental\n{y8}{x60}attacks have no effect.\n{x224}"
+  },
+  {
+    id: "0121",
+    text: "{W140H2}{Instantly}Finally, I’ll give you some\ntips regarding {Cyan}Order{White}."
+  },
+  {
+    id: "0122",
+    text: "{W215H2}{Instantly}The Order option involves not only\nthe {Cyan}lineup{White} but also the {Cyan}battle position{White}."
+  },
+  {
+    id: "0123",
+    text: "{W164H2}{Instantly}There are 2 battle positions:\nfront row and back row."
+  },
+  {
+    id: "0124",
+    text: "{W245H9}{Icon 27}\n{Center 157}{Cyan}-{f2}Front Row and Back Row{f2}-{White}\n{y8}{f4}{Cyan}Front Row{White}{x70}You can deal big damage\n{y8}{x70}with {Cyan}Attack{White}, but you can\n{y8}{x70}also receive big damage.\n{y8}{f4}{Cyan}Back Row{White}{x70}You can only deal small damage\n{y8}{x70}with {Cyan}Attack{White}, but you receive\n{y8}{x70}less damage from attacks.\n{x224}"
+  },
+  {
+    id: "0125",
+    text: "{W155H2}{Instantly}You can change this setting\nwith the {Cyan}Order{White} option."
+  },
+  {
+    id: "0126",
+    text: "{W191H3}{Instantly}You can also switch between the\nfront and back row during battle,\nby selecting {Cyan}Change{White}."
+  },
+  {
+    id: "0127",
+    text: "{W242H3}{Instantly}If you use magic or long-range weapons,\nyou can deal just as much damage from the\nback row as you can from the front row."
+  },
+  {
+    id: "0128",
+    text: "{W196H3}{Instantly}In tough battles, adjusting battle\npositions appropriately might save\nyour life."
+  },
+  {
+    id: "0129",
+    text: "{W147H2}{Instantly}Okay, I think I’ve covered\nenough battle stuff."
+  },
+  {
+    id: "0130",
+    text: "{W140H2}{Instantly}When {Cyan}Trance{White} occurs, the\ncharacter transforms."
+  },
+  {
+    id: "0131",
+    text: "{W152H2}{Instantly}Your powers increase\nwhile you’re under Trance."
+  },
+  {
+    id: "0132",
+    text: "{W208H2}{Instantly}In addition to greater attack power,\nyou receive new battle commands."
+  },
+  {
+    id: "0133",
+    text: "{W147H2}{Instantly}It’s really amazing\nhow much you can change."
+  },
+  {
+    id: "0134",
+    text: "{W116H2}{Instantly}Here are some facts\nabout Trance:"
+  },
+  {
+    id: "0135",
+    text: "{W253H12}{Icon 27}\n{Center 94}{Cyan}-{f2}About Trance{f2}-{White}\n{y8}{f4}1.{x20}The {Cyan}Trance Gauge{White} increases as you\n{y8}{x20}take hits from the enemy.\n{y8}{f4}2.{x20}The Trance Gauge does not increase\n{y8}{x20}if you get hit by other party members.\n{y8}{f4}3.{x20}If you get afflicted by\n{y8}{x20}{Cyan}Zombie{White}, the Trance Gauge\n{y8}{x20}goes down completely.\n{y8}{f4}4.{x20}When the Trance Gauge fills completely,\n{y8}{x20}it’s party time!\n{x224}{NewPage}{Icon 27}\n{Center 253}{Tab}  {Cyan}-{f2}Conditions that Stop/Prevent Trance{f2}-{White}\n{y8}{f4}1.{x32}End of a battle: Trance Gauge\n{y8}{x32}goes back down to zero.\n{y8}{f4}2.{x32}During battle: Trance Gauge\n{y8}{x32}decreases to zero as you take\n{y8}{x32}actions during battle."
+  },
+  {
+    id: "0136",
+    text: "{W179H2}{Instantly}You could say that the origin of\nTrance comes from hostility."
+  },
+  {
+    id: "0137",
+    text: "{W186H2}{Instantly}The hostile energy of the\nenemy’s attacks induces Trance."
+  },
+  {
+    id: "0138",
+    text: "{W195H2}{Instantly}That’s why being attacked\nby your allies can’t cause Trance."
+  },
+  {
+    id: "0139",
+    text: "{W167H3}{Instantly}Also, I heard that there is an\nability that helps you achieve\nTrance faster."
+  },
+  {
+    id: "0140",
+    text: "{W239H3}{Instantly}By the way, the Trance Gauge\nappears both in battle and in the\n{Cyan}Status Menu{White}, which is under the Main Menu."
+  },
+  {
+    id: "0141",
+    text: "{W161H2}{Instantly}Unfortunately, not everyone\ncan achieve Trance."
+  },
+  {
+    id: "0142",
+    text: "{W110H2}{Instantly}I guess it’s only for\nthe chosen ones."
+  },
+  {
+    id: "0143",
+    text: "{W196H2}{Instantly}Or maybe it’s just a myth.\nI’ve never seen anyone achieve it."
+  },
+  {
+    id: "0144",
+    text: "{W157H2}{Instantly}{Cyan}Abilities{White} are special powers\nthat characters possess."
+  },
+  {
+    id: "0145",
+    text: "{W109H2}{Instantly}Using them wisely is\nthe key to victory."
+  },
+  {
+    id: "0146",
+    text: "{W208H3}{Instantly}There are tons of different abilities,\nbut generally, they fall into\n2 categories."
+  },
+  {
+    id: "0147",
+    text: "{W246H10}{Icon 27}\n{Center 116}{Cyan}-{f2}Types of Abilities{f2}-{White}\n{y9}{f2}{Icon 188}{y-1}{Cyan}Action Abilities{White}:\n{y8}{x30}Magic and special moves you can use\n{y8}{x30}in battle; consume {Cyan}MP{White}.\n{y9}{f2}{Icon 189}{y-1}{Cyan}Support Abilities{White}:\n{y8}{x30}Special abilities that\n{y8}{x30}support you in battle\n{y8}{x30}(must equip {Cyan}magic stones{White} to use them).\n{x224}"
+  },
+  {
+    id: "0148",
+    text: "{W168H3}{Instantly}You need {Cyan}MP{White} to use magic and\nspecial moves.  Maximum MP\nincreases as you level up."
+  },
+  {
+    id: "0149",
+    text: "{W220H4}{Instantly}Support abilities must be equipped with\n{Cyan}magic stones{White} to be functional.\nLike MP, the maximum number of these\nstones increases as you level up."
+  },
+  {
+    id: "0150",
+    text: "{W198H3}{Instantly}The Main Menu shows 2 numbers for\nmagic stones: the remaining number\nand the maximum number."
+  },
+  {
+    id: "0151",
+    text: "{W258H7}{Icon 27}\n{Center 92}{Cyan}-{f2}Magic Stones{f2}-{White}\n{x24}{y8}Rem. No. (Decreases as you {Cyan}Equip{White}\n{x19}{y4}{Icon 20}{x19}{y-5}{Icon 20}{y8}{x135}Support Abilities.)\n{x4}{y3}{Icon 193}{f1}{y1}{Icon 173}{Icon 173}{Icon 174}{Icon 173}{Icon 173}\n{x39}{y-1}{Icon 19}{x39}{y4}{Icon 19}\n{x39}{y-0}Max. No. (Increases as you level up.)"
+  },
+  {
+    id: "0152",
+    text: "{W177H3}{Instantly}To set magic stones on support\nabilities, select {Cyan}Ability{White} in the\nMain Menu and select {Cyan}Equip{White}."
+  },
+  {
+    id: "0153",
+    text: "{W200H4}{Instantly}There are round slots next to each\nsupport ability.  The ability is\nequipped if a magic stone appears\ninside the slot."
+  },
+  {
+    id: "0154",
+    text: "{W217H2}{Instantly}The menu shows which support abilities\nhave been equipped."
+  },
+  {
+    id: "0155",
+    text: "{W224H5}{Icon 27}\n{Center 93}{Cyan}-{f2}Ability Status{f2}-{White}\n{y9}{f2}{Icon 244}{y-1}Ability Name:{x94}Not Equipped.\n{y9}{f2}{Icon 189}{y-1}Ability Name:{x94}Equipped.\n{x224}"
+  },
+  {
+    id: "0156",
+    text: "{W126H2}{Instantly}Now I’ll tell you how to\nlearn abilities."
+  },
+  {
+    id: "0157",
+    text: "{W165H2}{Instantly}In general, you have to equip\nitems to learn abilities."
+  },
+  {
+    id: "0158",
+    text: "{W201H2}{Instantly}Most items hold special powers that\nhelp draw out your inborn abilities."
+  },
+  {
+    id: "0159",
+    text: "{W180H2}{Instantly}You could say the items work to\nfree your latent abilities."
+  },
+  {
+    id: "0160",
+    text: "{W180H3}{Instantly}Select {Cyan}Equip{White} in the Main Menu\nto check which abilities you can\nlearn from items."
+  },
+  {
+    id: "0161",
+    text: "{W167H2}{Instantly}The abilities you cannot learn\nare grayed out."
+  },
+  {
+    id: "0162",
+    text: "{W267H7}{Icon 27}\n{Center 194}{Cyan}-{f2}Which Abilities Can Be Learned?{f2}-{White}\n{y9}{f2}{Icon 188}{y-1}Ability Name:{x94}Ability that can be learned.\n{y9}{f2}{Icon 189}{y-1}Ability Name:{x94}Ability that can be learned.\n{y9}{f2}{Icon 190}{y-1}{Grey}Ability Name:{White}{x94}Ability that cannot be learned.\n{y9}{f2}{Icon 191}{y-1}{Grey}Ability Name:{White}{x94}Ability that cannot be learned.\n{x224}"
+  },
+  {
+    id: "0163",
+    text: "{W214H3}{Instantly}Abilities can be used as soon as you\nequip the item.  However, they cannot\nbe used once you remove the item."
+  },
+  {
+    id: "0164",
+    text: "{W222H4}{Instantly}To use abilities without equipping items,\nyou must learn them by gaining enough\n{Cyan}AP{White} for each ability.  You can gain\nAP through battle."
+  },
+  {
+    id: "0165",
+    text: "{W276H11}{Icon 27}\n{Center 70}{Cyan}-{f2}AP Gauge{f2}-{White}\n{y9}{f2}{Icon 188}{y-1}Ability Name{y1}{x89}{Icon 254}{x98}{Icon 192}\n{y9}{f2}{Icon 189}{y-1}Ability Name{y1}{x89}{Icon 254}{x98}{Icon 192}\n{y8}{x30}The character has gained enough AP to use\n{y8}{x30}the ability without equipping an item.\n{y9}{f2}{Icon 188}{y-1}Ability Name{y1}{x89}{Icon 255}{y-1}{x98}{Icon 39}{x103}{Icon 34}{x108}{Icon 45}{x111}{Icon 35}{x115}{Icon 34}{x120}{Icon 34}{y-2}{y1}\n{y9}{f2}{Icon 189}{y-1}Ability Name{y1}{x89}{Icon 255}{y-1}{x98}{Icon 39}{x103}{Icon 34}{x108}{Icon 45}{x111}{Icon 35}{x115}{Icon 34}{x120}{Icon 34}{y-2}{y1}\n{y8}{x30}The character must equip the item to use\n{y8}{x30}the ability until more AP is gained.\n{x224}"
+  },
+  {
+    id: "0166",
+    text: "{W202H2}{Instantly}Press {Cross+}{Mobile 317}{f2} in the Status Menu to view\nall the learned abilities."
+  },
+  {
+    id: "0167",
+    text: "{W207H2}{Instantly}On a final note, each ability requires\ndifferent amounts of AP to learn."
+  },
+  {
+    id: "0168",
+    text: "{W144H2}{Instantly}You can find our buddies\neverywhere in this world."
+  },
+  {
+    id: "0169",
+    text: "{W133H2}{Instantly}Talk to them whenever\nyou have any problems."
+  },
+  {
+    id: "0170",
+    text: "{W119H2}{Instantly}Here are some things\nthey can handle."
+  },
+  {
+    id: "0171",
+    text: "{W254H9}{Icon 27}\n{Center 156}{Cyan}-{f2}Save Moogle’s Functions{f2}-{White}\n{y8}{f4}{Cyan}Save{White}{x60}Saves your game.\n{y8}{f4}{Cyan}Tent{White}{x60}Uses the {Icon 118}{f2}Tent item to restore\n{y8}{f4}{x60}everyone’s HP and MP;\n{y8}{f4}{x60}also removes some status effects.\n{y8}{f4}{Cyan}Mognet{White}{x60}Exchange letters with\n{y8}{f4}{x60}other people.\n{x224}"
+  },
+  {
+    id: "0172",
+    text: "{W87H1}{Instantly}That’s about it."
+  },
+  {
+    id: "0173",
+    text: "{W201H2}{Instantly}Unfortunately, you won’t be able to\nSave or use a Tent in some places."
+  },
+  {
+    id: "0174",
+    text: "{W189H2}{Instantly}If you press {f2}{Square+}{Mobile 282}{f2} in the World Map,\n{Cyan}Moguo{White} will come help you."
+  },
+  {
+    id: "0175",
+    text: "{W174H3}{Instantly}Try not to overdo it.\nHe might get mad if you call him\ntoo many times."
+  },
+  {
+    id: "0176",
+    text: "{W170H3}{Instantly}When you see {f2}{Icon 1}{f2} in the menu,\npress {Select}{Mobile 279}{f2}, and I’ll come\nhelp you anytime.{x170}"
+  },
+  {
+    id: "0177",
+    text: "{W177H2}{Instantly}After you’re done with my help,\npress {f2}{Select}{Mobile 279}{f2} so I can leave."
+  },
+  {
+    id: "0178",
+    text: "{W170H2}{Instantly}I’m usually pretty busy, so try\nnot to keep me too long."
+  },
+  {
+    id: "0179",
+    text: "{W145H3}{Instantly}During your adventure,\nyou’ll run into a lot of\nsuspicious-looking things."
+  },
+  {
+    id: "0180",
+    text: "{W167H2}{Instantly}That’s when a {Cyan}Field Icon{White} might\npop up over your head."
+  },
+  {
+    id: "0181",
+    text: "{W185H2}{Instantly}Press {f2}{Cross+}{Mobile 260}{f2} when you see the icon,\nand something will happen."
+  },
+  {
+    id: "0182",
+    text: "{W136H2}{Instantly}Field Icons pop up a lot,\nso stay alert."
+  },
+  {
+    id: "0183",
+    text: "{W154H3}{Instantly}Also, there are some areas\nwhere you might not be\nable to see where you are."
+  },
+  {
+    id: "0184",
+    text: "{W135H2}{Instantly}Whenever that happens,\npop out the {Cyan}HERE Icon{White}."
+  },
+  {
+    id: "0185",
+    text: "{W113H2}{Instantly}Press {Select}{Mobile 279}{f2} to call\nthe HERE Icon."
+  },
+  {
+    id: "0186",
+    text: "{W172H2}{Instantly}You can pop out the HERE Icon\nanytime by pressing {Select}{Mobile 279}{f2}."
+  },
+  {
+    id: "0187",
+    text: "{W164H2}Also, you can turn on/off the\nicon in the {Cyan}Config{White} Menu."
+  },
+  {
+    id: "0188",
+    text: "{W177H2}{Instantly}The official name of\n{Cyan}the card game{White} is {Cyan}Tetra Master{White}."
+  },
+  {
+    id: "0189",
+    text: "{W175H2}{Instantly}Many people all over the world\nplay Tetra Master."
+  },
+  {
+    id: "0190",
+    text: "{W195H2}{Instantly}The only way to find out who plays\nis by challenging them."
+  },
+  {
+    id: "0191",
+    text: "{W223H2}{Instantly}Tetra Master players never back down\nfrom a challenge."
+  },
+  {
+    id: "0192",
+    text: "{W208H2}{Instantly}To challenge people, walk up to them\nand press {f2}{Square+}{Mobile 310}{f2}."
+  },
+  {
+    id: "0193",
+    text: "{W196H3}{Instantly}If you challenge a person who isn’t\na player, he or she will probably\njust talk to you."
+  },
+  {
+    id: "0194",
+    text: "{W187H1}{Instantly}Okay, here are some basic rules."
+  },
+  {
+    id: "0195",
+    text: "{W224H8}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}1{f2}-{White}\n{y8}{x20}Select 5 cards in your\n{y8}{x20}possession to play.\n{x224}{NewPage}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}2{f2}-{White}\n{y8}{f4}1.{x20}Put down a card by your\n{y8}{x20}opponent’s card.\n{y8}{f4}2.{x20}If the arrow on your card points\n{y8}{x20}to your opponent’s card, you can\n{y8}{x20}win his/her card.\n{x224}{NewPage}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}3{f2}-{White}\n{y8}{x20}If the arrow on your card faces the\n{y8}{x20}arrow on your opponent’s card,\n{y8}{x20}a card battle begins.\n{x224}"
+  },
+  {
+    id: "0196",
+    text: "{W191H2}{Instantly}If your card wins the card battle,\nyou win the opponent’s card."
+  },
+  {
+    id: "0197",
+    text: "{W197H2}{Instantly}If your card loses the card battle,\nthe opponent wins your card."
+  },
+  {
+    id: "0198",
+    text: "{W237H6}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}4{f2}-{White}\n{y8}{x20}If you have to battle 2 or more cards,\n{y8}{x20}you can choose the opponent’s card\n{y8}{x20}that you want to battle.\n{x224}{NewPage}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}5{f2}-{White}\n{y8}{x20}The game ends once all the cards\n{y8}{x20}are played, and the person with the\n{y8}{x20}most cards is the winner.\n{x224}{NewPage}{Icon 27}\n{Center 139}{Cyan}-{f2}Tetra Master Rules{f6}6{f2}-{White}\n{y8}{x20}The winner gets to take\n{y8}{x20}the loser’s card(s).\n{x224}"
+  },
+  {
+    id: "0199",
+    text: "{W209H4}{Instantly}Tetra Master has other rules, but\nI won’t get into them now.\nJust give it a try and figure them out\nfor yourself."
+  },
+  {
+    id: "0200",
+    text: "{W242H4}{Instantly}In addition to {Cyan}regular shops{White} where\nyou can buy and sell items, there are\n{Cyan}synthesis shops{White}, where you can synthesize\nitems to create new items."
+  },
+  {
+    id: "0201",
+    text: "{W188H3}{Instantly}All you need are {Cyan}2 items{White} to serve\nas the base and a few {Cyan}Gil{White} to\ncover labor."
+  },
+  {
+    id: "0202",
+    text: "{W211H3}{Instantly}The items you need and the amount of\nmoney you pay vary for each\nsynthesized item."
+  },
+  {
+    id: "0203",
+    text: "{W141H1}{Instantly}Here are some examples."
+  },
+  {
+    id: "0204",
+    text: "{W224H11}{Icon 27}\n{Center 120}{Cyan}-{f2}Synthesis Example{f2}-{White}\n{y8}{f4}{Icon 94}{f2}The Ogre\n{y8}{x20}(Required Item 1){x120}{Icon 93}{f2}Mage Masher\n{y8}{x20}(Required Item 2){x120}{Icon 93}{f2}Mage Masher\n{y8}{x20}(Cost){x120}700 Gil\n{y8}{f4}{Icon 595}{f2}Desert Boots\n{y8}{x20}(Required Item 1){x120}{Icon 107}{f2}Leather Hat\n{y8}{x20}(Required Item 2){x120}{Icon 110}{f2}Leather Shirt\n{y8}{x20}(Cost){x120}300 Gil\n{x224}"
+  },
+  {
+    id: "0205",
+    text: "{W222H2}{Instantly}If you haven’t been to a synthesis shop\nyet, go check out the one in Lindblum."
+  },
+  {
+    id: "0206",
+    text: "{W147H2}{Instantly}Oh, speaking of synthesis,\nI’ll tell you a big secret."
+  },
+  {
+    id: "0207",
+    text: "{W214H3}{Instantly}Long ago, I heard rumors there’s a\n{Cyan}Legendary Synthesist{White} who can create\nthe best items."
+  },
+  {
+    id: "0208",
+    text: "{W175H2}{Instantly}But I don’t know where he lives\nor what he looks like{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0209",
+    text: "{W219H3}{LowerRightForce}Moggy\n“Hey, Bro.\n What are you gonna teach me today?”"
+  },
+  {
+    id: "0210",
+    text: "{W118H2}Mogster\n“Lots of neat stuff.”"
+  },
+  {
+    id: "0211",
+    text: "{W189H2}Mogster\n“You’re gonna love this lecture.”"
+  },
+  {
+    id: "0212",
+    text: "{W163H3}Mogster\n“Today, I’m gonna talk about\n the {Cyan}Synthesis Shop{White}.”"
+  },
+  {
+    id: "0213",
+    text: "{W126H3}Moggy\n“Gosh, Bro.\n You sure know a lot.”"
+  },
+  {
+    id: "0214",
+    text: "{W96H2}Mogster\n“Yeah, I know{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0215",
+    text: "{W185H5}{PreChoose 3,2}{Widths 3,191,-1}{Instantly}Mogster\n“You wanna learn from me, too?”\n{Choice}Yeah, teach me some stuff\n{Tab}I just need directions\n{Tab}No, I already know everything"
+  },
+  {
+    id: "0216",
+    text: "{W110H1}{NoAnimation}{UpperRight}{NoFocus}{Instantly}Press {Circle+}{Mobile 261} to cancel.{Time -1}"
+  },
+  {
+    id: "0217",
+    text: "{W214H2}You can’t become a great adventurer\nif you rely on others too much."
+  },
+  {
+    id: "0218",
+    text: "{W200H3}Whenever you get lost in the world,\npress {Select}{Mobile 283}{f2}, and you’ll\nsee a large navigation map."
+  },
+  {
+    id: "0219",
+    text: "{W202H3}The map will show the places you’ve\nvisited and also indicate your\ndestination with a white dot."
+  },
+  {
+    id: "0220",
+    text: "{W197H3}If you’re riding on an airship, move\nthe finger icon over the white dot\nand press {Cross+}{Mobile 305}."
+  },
+  {
+    id: "0221",
+    text: "{W202H2}It’ll fly your ship to that destination\nautomatically!  Pretty cool, eh!?"
+  },
+  {
+    id: "0222",
+    text: "{W176H2}To view the airship controls,\nopen the big map and press {Triangle+}{Mobile 279}."
+  },
+  {
+    id: "0223",
+    text: "{W191H2}Hey, if you wanna go to Burmecia,\nit’s further north."
+  },
+  {
+    id: "0224",
+    text: "{W225H2}Press {f2}{Select}{Mobile 283}{f2} on the world map, and use\nthe map to confirm your direction."
+  },
+  {
+    id: "0225",
+    text: "{W217H3}Remember, you have to go through the\n{Cyan}Gizamaluke Grotto{White} at the base of the\nmountain to get to Burmecia."
+  },
+  {
+    id: "0226",
+    text: "{W202H2}You wanna go to Cleyra?\nWell, what are you doin’ back here?"
+  },
+  {
+    id: "0227",
+    text: "{W198H3}Cleyra is west of Burmecia!\nPress {f2}{Select}{Mobile 283}{f2} on the world map and\ncheck where you’re going."
+  },
+  {
+    id: "0228",
+    text: "{W221H2}Wow!  You’re finally taking the big leap\nto the {Cyan}Outer Continent{White}, eh?"
+  },
+  {
+    id: "0229",
+    text: "{W246H3}The entrance to the passage that connects\nto the {Cyan}Outer Continent{White} is somewhere\nin this swamp."
+  },
+  {
+    id: "0230",
+    text: "{W138H2}Why don’t you go talk to\none of the Qu guys?"
+  },
+  {
+    id: "0231",
+    text: "{W151H2}All they do is eat, but\nthey might know something."
+  },
+  {
+    id: "0232",
+    text: "{W205H3}So, you found the entrance to the\npassage, eh?  It’s called Fossil Roo?\nWhat a weird name."
+  },
+  {
+    id: "0233",
+    text: "{W202H2}I heard the passage has some weird\nmazes and traps."
+  },
+  {
+    id: "0234",
+    text: "{W175H3}Also, {Cyan}Fossil Roo{White} has some\npaths that only allow you to go\none way, so be careful!"
+  },
+  {
+    id: "0235",
+    text: "{W194H3}What?  This is your first time in\nthe Outer Continent, and you don’t\nknow where to go?"
+  },
+  {
+    id: "0236",
+    text: "{W203H2}On your way here, you saw a flat\nbuilding shaped like a bridge, right?"
+  },
+  {
+    id: "0237",
+    text: "{W122H1}Try going there first."
+  },
+  {
+    id: "0238",
+    text: "{W154H2}You’re looking for a forest\nwith black mages?"
+  },
+  {
+    id: "0239",
+    text: "{W250H3}That’s gonna be a little tough to find.\nTo the south of this swamp, there’s a\nhuge forest surrounded by mountain ranges."
+  },
+  {
+    id: "0240",
+    text: "{W224H3}It’s called Magdalene Forest.  Once you\nget there, open the menu to check if\nyou’re in the right forest."
+  },
+  {
+    id: "0241",
+    text: "{W185H3}If you go deep into the forest,\nyou’ll eventually run into a place\nthat you can go inside."
+  },
+  {
+    id: "0242",
+    text: "{W226H3}What was that again?  ‘A forest so thick\nthat even owls can’t live there.’\nSounds like you might get lost."
+  },
+  {
+    id: "0243",
+    text: "{W217H3}But those mages are pretty clumsy, so\nI’m sure there’ll be signposts\nor something you can follow."
+  },
+  {
+    id: "0244",
+    text: "{W228H2}You’re trying to get to the ‘Sanctuary’?\nWell, that’s what the dwarves call it."
+  },
+  {
+    id: "0245",
+    text: "{W240H2}I know you can get there by going through\nthe Conde Petie Mountain Path, but{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0246",
+    text: "{W232H2}The dwarves know that area pretty well,\nso you might wanna ask one of them."
+  },
+  {
+    id: "0247",
+    text: "{W219H3}Kuja’s hideout is in the Kiera\nDesert, which is on the eastern side of\nthe Outer Continent."
+  },
+  {
+    id: "0248",
+    text: "{W199H3}You’ll see 4 areas with sand\nflowing in there.  One of them is the\nentrance to his hideout."
+  },
+  {
+    id: "0249",
+    text: "{W233H4}You won’t be able to walk over there\nfrom here, though.  Mountain ranges\nthat run along the middle of the continent\nseparate the eastern and western sides."
+  },
+  {
+    id: "0250",
+    text: "{W128H2}Sounds like you’ve got\nsome major problems."
+  },
+  {
+    id: "0251",
+    text: "{W164H2}You sort of know where your\nnext destination is, right?"
+  },
+  {
+    id: "0252",
+    text: "{W222H2}Press {Select}{Mobile 283}{f2} to open the big map\non the world map, and look for {Cyan}Oeilvert{White}"
+  },
+  {
+    id: "0253",
+    text: "{W141H2}I’m sure your enemies will\nfly you there."
+  },
+  {
+    id: "0254",
+    text: "{W111H2}It’ll save both sides\na lot of time."
+  },
+  {
+    id: "0255",
+    text: "{W186H2}The 4 shrines{Speed 2}...{Speed -1}?\nSorry.  I can’t help you this time."
+  },
+  {
+    id: "0256",
+    text: "{W188H2}Why don’t you ask your\ncrew members?  They might know."
+  },
+  {
+    id: "0257",
+    text: "{W195H3}{UpperRightForce}{Steiner}\n“You still do not have my approval\n to be with the princess!”"
+  },
+  {
+    id: "0258",
+    text: "{W159H3}Mogster\n“I’m gonna give another\n interesting lecture today!”"
+  },
+  {
+    id: "0259",
+    text: "{W176H3}Qu\n“Six month already since my\n disciple left for Alexandria...”"
+  },
+  {
+    id: "0260",
+    text: "{W162H2}Qu\n“I wonder how s/he doing{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0261",
+    text: "{W146H3}Qu\n“My disciple still far from\n mastering art of eating.”"
+  },
+  {
+    id: "0262",
+    text: "{W146H2}Qu\n“Might never master it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0263",
+    text: "{W150H3}Qu Clan Member\n“We Qus big frog eaters.\n Frogs give much energy.”"
+  },
+  {
+    id: "0264",
+    text: "{W146H3}{Widths 0,134,21,-1}Quale\n“{Quina}, you should go on trip\n to master art of eating.”"
+  },
+  {
+    id: "0265",
+    text: "{W186H3}Quale\n“{Quina}... S/he still need\n much learning.  Please help him.”"
+  },
+  {
+    id: "0266",
+    text: "{W91H2}Qu\n“You got frog!”"
+  },
+  {
+    id: "0267",
+    text: "{W108H3}Qu\n“Frogs very good!\n Mmmm!”"
+  },
+  {
+    id: "0268",
+    text: "{W142H2}{Zidane}\n“Who the heck are you?”"
+  },
+  {
+    id: "0269",
+    text: "{W35H2}Qu\n“Me?”"
+  },
+  {
+    id: "0270",
+    text: "{W138H3}{Zidane}\n“{Quina},\n do you want this frog?”"
+  },
+  {
+    id: "0271",
+    text: "{W67H2}{Widths 0,0,21,-1}{Quina}\n“Yes, yes!”"
+  },
+  {
+    id: "0272",
+    text: "{W106H2}{Zidane}\n“{Speed 2}...{Speed -1}Alright.  Here.”"
+  },
+  {
+    id: "0273",
+    text: "{W54H2}{Widths 0,0,21,-1}{Quina}\n“Yaaay!”"
+  },
+  {
+    id: "0274",
+    text: "{W74H2}{Quina}\n“Mine, mine!”"
+  },
+  {
+    id: "0275",
+    text: "{W156H3}{Widths 0,90,21,-1}Quale\n“You pathetic, {Quina}.\n Can’t even feed yourself.”"
+  },
+  {
+    id: "0276",
+    text: "{W155H3}{Widths 0,126,21,-1}Quale\n“Can’t master art of eating\n just chasing frogs, {Quina}.”"
+  },
+  {
+    id: "0277",
+    text: "{W110H3}{Quina}\n“But, Master,\n frogs very good!”"
+  },
+  {
+    id: "0278",
+    text: "{W154H3}{Quina}\n“Frogs here best!\n Better than Alexandria’s.”"
+  },
+  {
+    id: "0279",
+    text: "{W108H3}{Widths 0,108,21,-1}Quale\n“{Quina}, you in darkness.\n Need some light.”"
+  },
+  {
+    id: "0280",
+    text: "{W110H3}Quale\n“World big place.\n Many many foods.”"
+  },
+  {
+    id: "0281",
+    text: "{W229H3}Quale\n“Alexandria just one kingdom.\n You need go out more, eat other food.”"
+  },
+  {
+    id: "0282",
+    text: "{W141H4}{Quina}\n“Go out into world{Speed 2}...{Speed -1}?\n Sound scary.  Are there\n yummier frogs outside?”"
+  },
+  {
+    id: "0283",
+    text: "{W182H2}Quale\n“Of course!  Many good frogs!”"
+  },
+  {
+    id: "0284",
+    text: "{W182H3}Quale\n“All Qus love frogs best.\n Eating frogs is key to growth.”"
+  },
+  {
+    id: "0285",
+    text: "{W102H3}Quale\n“Qu marshes exist\n all over world.”"
+  },
+  {
+    id: "0286",
+    text: "{W150H4}Quale\n“Go eat frogs in\n other marshes.  I promise,\n you get much learning.”"
+  },
+  {
+    id: "0287",
+    text: "{W133H3}{Widths 0,72,21,-1}Quale\n“Traveler, please show\n {Quina} the world.”"
+  },
+  {
+    id: "0288",
+    text: "{W87H3}{UpperRight}Quale\n“Anywhere with\n food good.”"
+  },
+  {
+    id: "0289",
+    text: "{W196H4}{PreChoose 2,1}{Instantly}{Zidane}\n“You want me to take him with us?”\n{Choice}Why not\n{Tab}Forget it"
+  },
+  {
+    id: "0290",
+    text: "{W183H5}{PreChoose 2,1}{Instantly}{Zidane}\n“You want me to take him with us\n to the Outer Continent?”\n{Choice}Why not\n{Tab}Forget it"
+  },
+  {
+    id: "0291",
+    text: "{W196H2}{UpperLeft}{Quina}\n“Will I find yummier frogs outside?”"
+  },
+  {
+    id: "0292",
+    text: "{W159H3}{UpperLeft}{Quina}\n“Outer Continent very far{Speed 2}...{Speed -1}\n I find frogs there?”"
+  },
+  {
+    id: "0293",
+    text: "{W209H3}{Zidane}\n“There is plenty of stuff in the world\n that tastes better than frogs.”"
+  },
+  {
+    id: "0294",
+    text: "{W96H2}{UpperLeft}{Quina}\n“Really really!?”"
+  },
+  {
+    id: "0295",
+    text: "{W87H3}{UpperLeft}{Quina}\n“Okay,\n I go with you!”"
+  },
+  {
+    id: "0296",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}{Time -1}"
+  },
+  {
+    id: "0297",
+    text: "{W24H1}{Speed 2}......{Speed -1}{Time -1}"
+  },
+  {
+    id: "0298",
+    text: "{W139H3}{Quina}\n“It okay, Master.\n I stay, eat frogs here.”"
+  },
+  {
+    id: "0299",
+    text: "{W79H2}Quale\n“Lazy fool...”"
+  },
+  {
+    id: "0300",
+    text: "{W172H3}Quale\n“Traveler, if you change mind,\n take {Quina} with you.”"
+  },
+  {
+    id: "0301",
+    text: "{W122H2}{Zidane}\n“{Speed 2}...{Speed -1}I’ll think about it.”"
+  },
+  {
+    id: "0302",
+    text: "{W24H1}{UpperRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0303",
+    text: "{W81H2}{UpperLeftForce}{Widths 0,81,17,-1}{Zidane}\n“What’s up, {Vivi}?”"
+  },
+  {
+    id: "0304",
+    text: "{W40H2}{UpperRightForce}{Widths 0,0,17,-1}{Vivi}\n“Um{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0305",
+    text: "{W137H3}{UpperRightForce}{Vivi}\n“That man looks exactly\n like my grandpa.”"
+  },
+  {
+    id: "0306",
+    text: "{W128H3}{UpperLeftForce}{Zidane}\n“Your grandfather?\n Who, that Quale guy?”"
+  },
+  {
+    id: "0307",
+    text: "{W175H3}{UpperRightForce}{Vivi}\n“Yeah{Speed 2}...{Speed -1}\n Maybe he knows my grandpa.”"
+  },
+  {
+    id: "0308",
+    text: "{W118H3}{UpperRightForce}{Vivi}\n“I’m gonna go talk to\n him, {Zidane}.”"
+  },
+  {
+    id: "0309",
+    text: "{W137H3}Quale\n“What wrong?\n Something on my face?”"
+  },
+  {
+    id: "0310",
+    text: "{W191H3}{LowerRightForce}{Vivi}\n“Um{Speed 2}...{Speed -1}\n Do you know a man named Quan?”"
+  },
+  {
+    id: "0311",
+    text: "{W5H1}{UpperRightForce}{NoAnimation}{Instantly}{Center 5}!{Time -1}"
+  },
+  {
+    id: "0312",
+    text: "{W148H2}Quale\n“{Speed 2}...{Speed -1}I not know that bigot!”"
+  },
+  {
+    id: "0313",
+    text: "{W226H3}{LowerRightForce}{Vivi}\n“Grandpa Quan was a bit strange, but{Speed 2}...{Speed -1}\n How do you know him?”"
+  },
+  {
+    id: "0314",
+    text: "{W116H2}Quale\n“I-I no can answer.”"
+  },
+  {
+    id: "0315",
+    text: "{W166H3}{LowerRightForce}{Vivi}\n“Grandpa Quan looks exactly\n like you, Mr. Quale{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0316",
+    text: "{W192H2}Quale\n“Of course.  We from same tribe.”"
+  },
+  {
+    id: "0317",
+    text: "{W24H1}{LowerRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0318",
+    text: "{W162H2}{Zidane}\n“You really don’t know him?”"
+  },
+  {
+    id: "0319",
+    text: "{W128H3}Quale\n“No!\n I not know this Quan!”"
+  },
+  {
+    id: "0320",
+    text: "{W80H2}{Zidane}\n“Honestly{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0321",
+    text: "{W102H3}{Widths 0,69,17,-1}{Zidane}\n“That’s too bad{Speed 2}...{Speed -1}\n Let’s go, {Vivi}.”"
+  },
+  {
+    id: "0322",
+    text: "{W40H1}{LowerRightForce}Okay{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0323",
+    text: "{W98H2}{Widths 0,98,21,-1}{Zidane}\n“{Quina}!  You’re safe!”"
+  },
+  {
+    id: "0324",
+    text: "{W196H3}{Widths 0,196,16,-1}{Quina}\n“Long time no see, {Zidane}.  Much trouble,\n coming back from Cleyra alone.”"
+  },
+  {
+    id: "0325",
+    text: "{W229H4}{Zidane}\n“Do you know a way to the\n Outer Continent?  I heard there was\n an entrance somewhere around here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0326",
+    text: "{W202H3}{Quina}\n“Outer Continent{Speed 2}...{Speed -1}\n Maybe I find more delicious frogs.”"
+  },
+  {
+    id: "0327",
+    text: "{W186H4}{Quina}\n“Sound interesting.\n I help you, and I eat more frogs.\n I come with you.”"
+  },
+  {
+    id: "0328",
+    text: "{W163H4}{Quina}\n“I go with you.\n I come even if you not want!\n I want eat delicious frogs!”"
+  },
+  {
+    id: "0329",
+    text: "{W233H4}{Zidane}\n“Alright{Speed 2}...{Speed -1}\n Then help us look for an entrance to the\n Outer Continent.”"
+  },
+  {
+    id: "0330",
+    text: "{W126H4}{Widths 0,64,16,-1}{Quina}\n“{Zidane}, I hungry.\n I want different food.\n Okay if I follow you?”"
+  },
+  {
+    id: "0331",
+    text: "{W168H4}{PreChoose 2,1}{Widths 2,192,-1}{Instantly}{Zidane}\n“You still wanna come along?”\n{Choice}Alright, let’s go\n{Tab}No, you’ll just hog all our food"
+  },
+  {
+    id: "0332",
+    text: "{W79H1}Okay!  We go!"
+  },
+  {
+    id: "0333",
+    text: "{W125H3}{Widths 0,101,16,-1}{Quina}\n“I hoped {Zidane} help me.\n I very disappointed.”"
+  },
+  {
+    id: "0334",
+    text: "{W138H3}{Zidane}\n“{Quina}!\n Where are you going!?”"
+  },
+  {
+    id: "0335",
+    text: "{W84H3}{Quina}\n“I smell!\n I smell frogs!”"
+  },
+  {
+    id: "0336",
+    text: "{W196H3}{Zidane}\n“No, we have to look for the\n entrance to the Outer Continent!”"
+  },
+  {
+    id: "0337",
+    text: "{W131H2}{Quina}\n“I smell frog this way!”{Time -1}"
+  },
+  {
+    id: "0338",
+    text: "{W57H3}{Widths 0,0,16,-1,0,41,21,-1}{Zidane}\n“Hey, {Quina}!\n Hold on!”"
+  },
+  {
+    id: "0339",
+    text: "{W64H2}{Widths 0,0,16,-1}{Zidane}\n“Darn it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0340",
+    text: "{W199H3}{Zidane}\n“Do you know any excavation sites\n in this area?”"
+  },
+  {
+    id: "0341",
+    text: "{W101H3}Quale\n“Excavation site?\n Hmm{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0342",
+    text: "{W140H3}Quale\n“Maybe I hear about it{Speed 2}...{Speed -1}\n Maybe not{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0343",
+    text: "{W54H2}Quale\n“Maybe.”"
+  },
+  {
+    id: "0344",
+    text: "{W176H2}{Zidane}\n“What do you mean, ‘Maybe’!?”"
+  },
+  {
+    id: "0345",
+    text: "{W135H4}Quale\n“I only hear about\n excavation site around\n this area.”"
+  },
+  {
+    id: "0346",
+    text: "{W214H4}Quale\n“This marsh road covered in brush.\n Maybe there road to excavation site\n hidden somewhere.”"
+  },
+  {
+    id: "0347",
+    text: "{W82H2}{Widths 0,82,21,-1}Quale\n“{Quina} might know.”"
+  },
+  {
+    id: "0348",
+    text: "{W127H3}{Zidane}\n“Hidden in brush, huh?\n Well, thanks anyway.”"
+  },
+  {
+    id: "0349",
+    text: "{W101H3}Qu\n“Excavation site?\n Hmm{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0350",
+    text: "{W140H3}Qu\n“Maybe I hear about it{Speed 2}...{Speed -1}\n Maybe not{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0351",
+    text: "{W54H2}Qu\n“Maybe.”"
+  },
+  {
+    id: "0352",
+    text: "{W139H4}Qu\n“I only hear rumor about\n excavation site around\n this area.”"
+  },
+  {
+    id: "0353",
+    text: "{W214H4}Qu\n“This marsh road covered in brush.\n Maybe there road to excavation site\n hidden somewhere.”"
+  },
+  {
+    id: "0354",
+    text: "{W169H4}Qu\n“My student run around catch\n frog nearby.  Maybe s/he\n know something.”"
+  },
+  {
+    id: "0355",
+    text: "{W78H3}{Widths 0,78,16,-1}{Quina}\n“{Zidane}, can I catch\n frogs?”"
+  },
+  {
+    id: "0356",
+    text: "{W91H4}{PreChoose 2,1}{Widths 1,169,-1}{Instantly}{Zidane}\n“Frogs, again?”\n{Choice}Sure, just for a little while\n{Tab}Do it later"
+  },
+  {
+    id: "0357",
+    text: "{W54H2}{Widths 0,0,21,-1}{Quina}\n“Okay{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0358",
+    text: "{W58H2}{Widths 0,0,21,-1}{Quina}\n“Thanks!”"
+  },
+  {
+    id: "0359",
+    text: "{W92H2}{Widths 0,92,21,-1}{Zidane}\n“Had enough, {Quina}?”"
+  },
+  {
+    id: "0360",
+    text: "{W98H5}{PreChoose 2,1}{Widths 1,105,-1,2,121,-1}{Instantly}{Quina}\n“Is hard to catch\n frogs here.”\n{Choice}I done catching\n{Tab}I catch some more"
+  },
+  {
+    id: "0361",
+    text: "{W140H5}{PreChoose 2,1}{Instantly}{Quina}\n“Is pretty easy to catch\n frogs here.”\n{Choice}I done catching\n{Tab}I catch some more"
+  },
+  {
+    id: "0362",
+    text: "{W140H5}{PreChoose 2,1}{Instantly}{Quina}\n“Is pretty easy to catch\n frogs here.”\n{Choice}I done catching\n{Tab}I catch some more"
+  },
+  {
+    id: "0363",
+    text: "{W124H2}{Widths 0,124,21,-1}Quale\n“You working hard, {Quina}.”"
+  },
+  {
+    id: "0364",
+    text: "{W201H3}Quale\n“You come far along\n way of gourmand.  I give you this.”"
+  },
+  {
+    id: "0365",
+    text: "{W151H3}{Quina}\n“Thank you, Master Quale!\n I train more!”"
+  },
+  {
+    id: "0366",
+    text: "{W246H4}Quale\n“Now the time{Speed 2}...{Speed -1} {Quina},\n you on your own from now on.  You train to\n become ultimate gourmand alone.”"
+  },
+  {
+    id: "0367",
+    text: "{W100H2}{Quina}\n“Master Quale{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0368",
+    text: "{W121H3}Quale\n“Before you go{Speed 2}...{Speed -1}\n You take final test!”"
+  },
+  {
+    id: "0369",
+    text: "{W169H3}Quale\n“I no have more to teach you.\n I give you this.”"
+  },
+  {
+    id: "0370",
+    text: "{W51H1}Hungry{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0371",
+    text: "{W45H1}Frogs{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0372",
+    text: "{W0H1}{Time -1}"
+  },
+  {
+    id: "0373",
+    text: "{W103H2}{Quina}\n“A-HA!  Frogs!!!”{Time -1}"
+  },
+  {
+    id: "0374",
+    text: "{W29H1}Hold!{Time -1}"
+  },
+  {
+    id: "0375",
+    text: "{W142H2}{UpperRightForce}{Quina}\n“They run away again{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0376",
+    text: "{W91H3}{UpperLeftForce}{Widths 0,91,21,-1}{Zidane}\n“Wait a minute, {Quina}.\n Check it out.”"
+  },
+  {
+    id: "0377",
+    text: "{W187H4}{UpperLeftForce}{Zidane}\n“This entrance{Speed 2}...{Speed -1}\n This must be the entrance to the\n excavation site!”"
+  },
+  {
+    id: "0378",
+    text: "{W126H2}{Quina}\n“First time I see this.”"
+  },
+  {
+    id: "0379",
+    text: "{W113H2}{Widths 0,113,16,-1}{Quina}\n“{Zidane}, we going inside?”"
+  },
+  {
+    id: "0380",
+    text: "{W113H2}{UpperLeftForce}{Zidane}\n“Of course we will.”"
+  },
+  {
+    id: "0381",
+    text: "{W113H4}{UpperLeftForce}{Zidane}\n“It might lead to the\n Outer Continent.\n Let’s go!”"
+  },
+  {
+    id: "0382",
+    text: "{W87H1}{Position 3,3}{NoAnimation}{Instantly}Baby Frog:      {Time -1}"
+  },
+  {
+    id: "0383",
+    text: "{W92H1}{Position 3,3}{NoAnimation}{Instantly}Adult Frog: Male{Time -1}"
+  },
+  {
+    id: "0384",
+    text: "{W105H1}{Position 3,3}{NoAnimation}{Instantly}Adult Frog: Female{Time -1}"
+  },
+  {
+    id: "0385",
+    text: "{W96H1}{Position 3,3}{NoAnimation}{Instantly}Golden Frog:      {Time -1}"
+  },
+  {
+    id: "0386",
+    text: "{W38H3}{DialogPosition}{PreChoose 2,1}{Widths 0,38,6,50,-1,1,59,-1,2,68,-1}{Instantly}Keep {Text 3,2}?\n{Choice}Keep it\n{Tab}Let it go"
+  },
+  {
+    id: "0387",
+    text: "{W97H1}{NoAnimation}{UpperCenter}{Widths 0,97,64,1,-1}{NoFocus}{Instantly}Frogs Captured: {Variable 1}{Time -1}"
+  },
+  {
+    id: "0388",
+    text: "{W86H1}{DialogPosition}{Widths 0,86,16,-1}{Zidane} caught a frog."
+  },
+  {
+    id: "0389",
+    text: "{W99H1}{DialogPosition}{Widths 0,99,21,-1}{Quina} received a frog."
+  }
+]

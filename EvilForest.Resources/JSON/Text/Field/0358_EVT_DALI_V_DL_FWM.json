@@ -1,0 +1,3458 @@
+[
+  {
+    id: "0000",
+    text: "{W54H3}{Table 3,6,14,20,}Chimomo\nMocha\nMomatose"
+  },
+  {
+    id: "0001",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0002",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0003",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0005",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0006",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0008",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0009",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0010",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0011",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0012",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0013",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0014",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0017",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0018",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0019",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0020",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0021",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0022",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0023",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0024",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0025",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0026",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0027",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0028",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0029",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0030",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0031",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0032",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0033",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,79,17,-1,2,80,18,-1,3,81,22,-1,4,77,22,-1,5,89,22,-1}{Instantly}Select event\n{Choice}{Vivi}’s Feelings\n{Tab}{Dagger}’s Feelings\n{Tab}{Eiko}’s Feelings\n{Tab}{Eiko}’s Kitchen\n{Tab}{Eiko}’s Kitchen 2\n{Tab}ATE-05\n{Tab}ATE-06\n{Tab}ATE-07\n{Tab}ATE-08\n{Tab}ATE-09\n{Tab}ATE-10\n{Tab}ATE-11\n{Tab}ATE-12\n{Tab}ATE-13\n{Tab}ATE-14\n{Tab}Cancel"
+  },
+  {
+    id: "0034",
+    text: "{W60H1}{Widths 0,60,17,-1}{Instantly}{Center 60,17}{Vivi}’s Feelings"
+  },
+  {
+    id: "0035",
+    text: "{W60H1}{Widths 0,60,18,-1}{Instantly}{Center 60,18}{Dagger}’s Feelings"
+  },
+  {
+    id: "0036",
+    text: "{W60H1}{Widths 0,60,22,-1}{Instantly}{Center 60,22}{Eiko}’s Feelings"
+  },
+  {
+    id: "0037",
+    text: "{W55H1}{Widths 0,55,22,-1}{Instantly}{Center 55,22}{Eiko}’s Kitchen"
+  },
+  {
+    id: "0038",
+    text: "{W66H1}{Widths 0,66,22,-1}{Instantly}{Center 66,22}{Eiko}’s Kitchen 2"
+  },
+  {
+    id: "0039",
+    text: "{W5H1}{Widths 0,5,16,-1}{Zidane}!"
+  },
+  {
+    id: "0040",
+    text: "{W95H3}{Eiko}\n“This is my home:\n Madain Sari!”"
+  },
+  {
+    id: "0041",
+    text: "{W168H3}{Eiko}\n“This is my home: Madain Sari,\n the village of summoners!”"
+  },
+  {
+    id: "0042",
+    text: "{W193H2}{Zidane}\n“The village of the summoners{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0043",
+    text: "{W130H3}{Zidane}\n“You live here...?\n{White}(It’s a pile of rubble.)”"
+  },
+  {
+    id: "0044",
+    text: "{W6H1}{Widths 0,6,18,-1}{Dagger}?"
+  },
+  {
+    id: "0045",
+    text: "{W132H2}What happened here{Speed 2}...{Speed -1}?\nThis place is in ruins."
+  },
+  {
+    id: "0046",
+    text: "{W32H1}{NoFocus}Kupo!{Time 45}"
+  },
+  {
+    id: "0047",
+    text: "{W153H2}{Eiko}\n“Mocha!  Moco!  Chimomo!”"
+  },
+  {
+    id: "0048",
+    text: "{W135H2}{Eiko}\n“Momatose!  Morrison!”"
+  },
+  {
+    id: "0049",
+    text: "{W90H2}{Eiko}\n“Where’s Mog?”"
+  },
+  {
+    id: "0050",
+    text: "{W103H3}{Eiko}\n“No{Speed 2}...{Speed -1}\n Mog got eaten!?”"
+  },
+  {
+    id: "0051",
+    text: "{W27H1}MOG!"
+  },
+  {
+    id: "0052",
+    text: "{W109H1}Kup!  Kupo{Speed 2}...{Speed -1} Kupo?"
+  },
+  {
+    id: "0053",
+    text: "{W101H2}{Eiko}\n“No, I’m not mad.”"
+  },
+  {
+    id: "0054",
+    text: "{W142H3}{Eiko}\n“But don’t ever leave me\n behind again, okay?”"
+  },
+  {
+    id: "0055",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0056",
+    text: "{W33H1}{UpperLeftForce}Good!"
+  },
+  {
+    id: "0057",
+    text: "{W69H3}{Widths 0,0,22,-1,0,12,16,-1}{Eiko}\n“{Zidane}!\n Follow me!”"
+  },
+  {
+    id: "0058",
+    text: "{W118H2}{Dagger}\n“I feel so anxious{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0059",
+    text: "{W144H2}{Widths 0,144,16,-1}{Dagger}\n“Where are you going, {Zidane}?”"
+  },
+  {
+    id: "0060",
+    text: "{W99H3}{Zidane}\n“I’m gonna take a\n look around.”"
+  },
+  {
+    id: "0061",
+    text: "{W85H2}{Dagger}\n“Be careful{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0062",
+    text: "{W112H2}{Zidane}\n“I’ll be right back.”"
+  },
+  {
+    id: "0063",
+    text: "{W138H1}A village of summoners{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0064",
+    text: "{W209H4}{Dagger}\n“I read about them in a book once{Speed 2}...{Speed -1}\n A tribe that possesses the power to\n call forth eidolons{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0065",
+    text: "{W58H1}Eidolons{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0066",
+    text: "{W213H3}{Dagger}\n“Knowing that I had eidolons inside me\n didn’t bring me any joy.”"
+  },
+  {
+    id: "0067",
+    text: "{W221H4}{Dagger}\n“Mother imprisoned me{Speed 2}...{Speed -1}\n used the eidolons she stole from me as\n tools of war.”"
+  },
+  {
+    id: "0068",
+    text: "{W234H3}{Dagger}\n“I thought I would kill my eidolons\n if Kuja was going to use them for war{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0069",
+    text: "{W227H3}{Dagger}\n“But now that they’re gone{Speed 2}...{Speed -1}\n I feel like I’ve lost a piece of myself{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0070",
+    text: "{W191H2}{Dagger}\n“Why am I thinking all this now{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0071",
+    text: "{W189H4}{Dagger}\n“It must be the location.\n This place feels so familiar to me\n somehow{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0072",
+    text: "{W33H1}{Widths 0,33,18,-1}Hey, {Dagger}."
+  },
+  {
+    id: "0073",
+    text: "{W156H4}{Zidane}\n“Come with me.\n I’ll show you something big!\n Summon-magic stuff.”"
+  },
+  {
+    id: "0074",
+    text: "{W81H1}Summon magic?"
+  },
+  {
+    id: "0075",
+    text: "{W201H2}{Zidane}\n“Yeah, it’s called the Eidolon Wall!”"
+  },
+  {
+    id: "0076",
+    text: "{W105H3}{Widths 0,64,16,-1}{Dagger}\n“{Zidane}, I want to\n come back here.”"
+  },
+  {
+    id: "0077",
+    text: "{W161H3}{Dagger}\n“When I first saw the Eidolon\n Wall, I was scared{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0078",
+    text: "{W178H3}{Dagger}\n“But when I went inside and saw\n the murals, they calmed me.”"
+  },
+  {
+    id: "0079",
+    text: "{W122H2}{Dagger}\n“I want to see more.”"
+  },
+  {
+    id: "0080",
+    text: "{W168H3}{Zidane}\n“Sure.  We’ll come back after\n we check out the Iifa Tree.”"
+  },
+  {
+    id: "0081",
+    text: "{W69H1}Thank you{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0082",
+    text: "{W145H4}{Widths 0,137,21,-1}{Zidane}\n“We gotta come back and\n get {Quina}, anyway.  We can’t\n just leave him here.”"
+  },
+  {
+    id: "0083",
+    text: "{W124H3}{Widths 0,69,22,-1}{Dagger}\n“Are you coming back\n here for {Eiko}?”"
+  },
+  {
+    id: "0084",
+    text: "{W152H4}{Widths 0,129,22,-1}{Zidane}\n“{Eiko} is only six years old.\n She acts tough, but I think\n she’s lonely.”"
+  },
+  {
+    id: "0085",
+    text: "{W109H3}{Vivi}\n“I haven’t seen her\n today{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0086",
+    text: "{W72H1}You’re right."
+  },
+  {
+    id: "0087",
+    text: "{W5H1}{Widths 0,5,22,-1}{Eiko}!"
+  },
+  {
+    id: "0088",
+    text: "{W49H1}Tee hee."
+  },
+  {
+    id: "0089",
+    text: "{W185H4}{Eiko}\n“You can’t break the seal of the\n Iifa Tree without calling an\n eidolon.”"
+  },
+  {
+    id: "0090",
+    text: "{W140H2}{Zidane}\n“You’re coming with us?”"
+  },
+  {
+    id: "0091",
+    text: "{W137H2}{Eiko}\n“Don’t you want me to?”"
+  },
+  {
+    id: "0092",
+    text: "{W139H3}{Zidane}\n“Of course I want you to\n come along!”"
+  },
+  {
+    id: "0093",
+    text: "{W138H4}{Eiko}\n“That’s what I thought.\n Okay, I’ll join your team\n for a while!”"
+  },
+  {
+    id: "0094",
+    text: "{W93H3}{Widths 0,19,17,18,-1}{Eiko}\n“{Vivi}, {Dagger},\n let’s have fun!”"
+  },
+  {
+    id: "0095",
+    text: "{W164H3}{Eiko}\n“The {Cyan}Iifa Tree{White} is beyond the\n Conde Petie Mountain Path!”"
+  },
+  {
+    id: "0096",
+    text: "{W51H1}Let’s go!"
+  },
+  {
+    id: "0097",
+    text: "{W136H3}{Widths 0,79,16,-1}{Dagger}\n“Why are you so nice to\n everyone, {Zidane}?”"
+  },
+  {
+    id: "0098",
+    text: "{W108H3}{Zidane}\n“Huh?  What do you\n mean by that?”"
+  },
+  {
+    id: "0099",
+    text: "{W110H2}{Dagger}\n“Forget I asked{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0100",
+    text: "{W133H2}{Vivi}\n“I think she was mad{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0101",
+    text: "{W115H2}{Zidane}\n“You think so, too?”"
+  },
+  {
+    id: "0102",
+    text: "{W156H4}{Widths 0,145,22,-1}Morrison\n“Please look after Lady {Eiko}.\n Come see us if there is any\n trouble.”"
+  },
+  {
+    id: "0103",
+    text: "{W76H2}{Zidane}\n“Sure thing!”"
+  },
+  {
+    id: "0104",
+    text: "{W165H3}{Widths 0,133,17,-1}{Zidane}\n“{Vivi}, have you figured out\n a solution to your problem?”"
+  },
+  {
+    id: "0105",
+    text: "{W60H1}Not really."
+  },
+  {
+    id: "0106",
+    text: "{W112H2}{Vivi}\n“But I’m moving on.”"
+  },
+  {
+    id: "0107",
+    text: "{W33H1}Good!"
+  },
+  {
+    id: "0108",
+    text: "{W144H2}{UpperRightForce}{Eiko}\n“Get to work, you guys!”"
+  },
+  {
+    id: "0109",
+    text: "{W104H1}{NoFocus}Kupo!  Yes, ma’am.{Time 30}"
+  },
+  {
+    id: "0110",
+    text: "{W171H2}{Eiko}\n“Mog, you stay here with me.”"
+  },
+  {
+    id: "0111",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0112",
+    text: "{W61H3}{Widths 0,0,22,-1}{Eiko}\n“Okay,\n come on!”"
+  },
+  {
+    id: "0113",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0114",
+    text: "{W115H3}{Zidane}\n“Did that moogle go\n inside your dress?”"
+  },
+  {
+    id: "0115",
+    text: "{W158H3}{Eiko}\n“Yup!\n Mog always stays with me.”"
+  },
+  {
+    id: "0116",
+    text: "{W91H3}{Widths 0,43,16,-1}{Eiko}\n“{Zidane}, come\n sit over here!”"
+  },
+  {
+    id: "0117",
+    text: "{W40H1}H-Hey!"
+  },
+  {
+    id: "0118",
+    text: "{W175H2}{Eiko}\n“Tell me more about yourself!”"
+  },
+  {
+    id: "0119",
+    text: "{W43H1}Tell me!"
+  },
+  {
+    id: "0120",
+    text: "{W149H3}{Widths 0,106,22,-1}{Zidane}\n“Sure.  I wanna know more\n about you, too, {Eiko}.”"
+  },
+  {
+    id: "0121",
+    text: "{W45H1}Really!?"
+  },
+  {
+    id: "0122",
+    text: "{W167H2}{Zidane}\n“For instance, the eidolon{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0123",
+    text: "{W133H5}{UpperLeftForce}{Eiko}\n“Where are you from?\n How old are you?\n What do you do?\n Where are you going?”{Signal 1}"
+  },
+  {
+    id: "0124",
+    text: "{W164H2}{Zidane}\n“No, what I wanna know is{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0125",
+    text: "{W196H5}{UpperLeftForce}{Eiko}\n“What kind of foods do you like?\n What kind of eidolons do you like?\n What type of moogles do you like?\n What type of girls do you like?”{Signal 1}{Time -1}"
+  },
+  {
+    id: "0126",
+    text: "{W132H3}{Eiko}\n“I’ve never met anyone\n like you before{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0127",
+    text: "{W6H1}{Widths 0,6,18,-1}{Dagger}?"
+  },
+  {
+    id: "0128",
+    text: "{W102H3}{Zidane}\n“What’s wrong?\n You look dazed.”"
+  },
+  {
+    id: "0129",
+    text: "{W77H3}{Offset 0,96,0}{Dagger}\n“Oh,\n it’s nothing.”"
+  },
+  {
+    id: "0130",
+    text: "{W76H3}{Zidane}\n“Do you have\n a fever?”"
+  },
+  {
+    id: "0131",
+    text: "{W30H1}{Offset 0,96,0}{LowerLeftForce}{NoFocus}Ahhh!{Time 20}"
+  },
+  {
+    id: "0132",
+    text: "{W135H3}{Zidane}\n“You’re fine.{Wait 10}\n Hey, are you jealous?”"
+  },
+  {
+    id: "0133",
+    text: "{W146H2}{Offset 0,90,0}{LowerLeftForce}{Dagger}\n“Why would I be jealous?”"
+  },
+  {
+    id: "0134",
+    text: "{W120H3}{UpperRightForce}{Widths 0,79,18,-1}{Eiko}\n“Are you and {Dagger}\n really just friends?”"
+  },
+  {
+    id: "0135",
+    text: "{W186H3}{Eiko}\n“Seems like{Speed 2}...{Speed -1}\n you guys are{Speed 2}...{Speed -1}something more.”"
+  },
+  {
+    id: "0136",
+    text: "{W47H2}{Widths 0,0,16,-1}{Zidane}\n“Well{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0137",
+    text: "{W188H2}{Zidane}\n“Yeah, we’re more than friends.”"
+  },
+  {
+    id: "0138",
+    text: "{W121H3}{Eiko}\n“So?\n What are you guys?”"
+  },
+  {
+    id: "0139",
+    text: "{W91H2}{Zidane}\n“We’re a team.”"
+  },
+  {
+    id: "0140",
+    text: "{W69H2}{Widths 0,0,22,-1}{Eiko}\n“A team{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0141",
+    text: "{W31H1}Yeah."
+  },
+  {
+    id: "0142",
+    text: "{W156H3}{Widths 0,156,17,-1}{Zidane}\n“{Vivi}’s also a part of the team.\n Hey{Speed 2}...{Speed -1} Where did he go?”"
+  },
+  {
+    id: "0143",
+    text: "{W125H3}{Eiko}\n“Is it sort of like\n me and the moogles?”"
+  },
+  {
+    id: "0144",
+    text: "{W124H2}{Zidane}\n“Something like that.”"
+  },
+  {
+    id: "0145",
+    text: "{W106H2}Mocha\n“All clean!  Kupo!”"
+  },
+  {
+    id: "0146",
+    text: "{W113H3}{Eiko}\n“Thanks, Mocha!\n I’ll be right there!”"
+  },
+  {
+    id: "0147",
+    text: "{W144H4}{Eiko}\n“I’m gonna start cooking!\n You have to come eat at\n my place later, okay?”"
+  },
+  {
+    id: "0148",
+    text: "{W221H3}{Zidane}\n“There’s still stuff I want to\n ask her.  Let’s accept her invitation.”"
+  },
+  {
+    id: "0149",
+    text: "{W54H2}{Offset 0,96,0}{LowerLeftForce}{Widths 0,0,18,-1}{Dagger}\n“Okay{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0150",
+    text: "{W161H3}{Eiko}\n“I’ll call you when the food’s\n ready.  Don’t go too far!”"
+  },
+  {
+    id: "0151",
+    text: "{W105H2}{Offset 0,96,0}{Dagger}\n“I’m a little tired.”"
+  },
+  {
+    id: "0152",
+    text: "{W83H3}{Zidane}\n“Geez,\n what a dump.”"
+  },
+  {
+    id: "0153",
+    text: "{W164H3}{Zidane}\n“It must’ve been like\n this for at least ten years.”"
+  },
+  {
+    id: "0154",
+    text: "{W109H3}{Widths 0,61,22,-1}{Zidane}\n“What can {Eiko}\n possibly feed us?”"
+  },
+  {
+    id: "0155",
+    text: "{W129H4}{Widths 0,96,22,-1}Moco\n“{Eiko} and her people\n protected the Eidolon\n Wall for generations.”"
+  },
+  {
+    id: "0156",
+    text: "{W128H3}{Widths 0,110,22,-1}Moco\n“We moogles also help \n {Eiko} protect the wall.”"
+  },
+  {
+    id: "0157",
+    text: "{W107H2}Moco\n“Don’t mess it up!”"
+  },
+  {
+    id: "0158",
+    text: "{W139H3}{Zidane}\n“Where are all the other\n people of her tribe?”"
+  },
+  {
+    id: "0159",
+    text: "{W112H2}Moco\n“{Speed 2}...{Speed -1}I can’t tell you.”"
+  },
+  {
+    id: "0160",
+    text: "{W151H3}Moco\n“You’re pretty good.\n Thanks for rescuing her.”"
+  },
+  {
+    id: "0161",
+    text: "{W147H2}{Widths 0,147,22,-1}Moco\n“I wonder if {Eiko} is leaving{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0162",
+    text: "{W158H3}Moco\n“I-I knew you could protect\n {Eiko}!  Kupo!”"
+  },
+  {
+    id: "0163",
+    text: "{W18H1}{Widths 0,18,17,-1}{Speed 2}...{Speed -1}{Vivi}?"
+  },
+  {
+    id: "0164",
+    text: "{W122H3}{UpperLeft}{Zidane}\n“What’s up?\n Is something wrong?”"
+  },
+  {
+    id: "0165",
+    text: "{W124H3}{Offset 64,-64,0}{Vivi}\n“Oh, it’s nothing.\n I was just thinking{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0166",
+    text: "{W192H3}{UpperLeft}{Zidane}\n“{Speed 2}...{Speed -1}Well, try not to think too much.\n Get some rest.”"
+  },
+  {
+    id: "0167",
+    text: "{W105H2}{Offset 64,-64,0}{Widths 0,105,16,-1}{Vivi}\n“Okay.  Thanks, {Zidane}.”"
+  },
+  {
+    id: "0168",
+    text: "{W152H3}{Offset 64,-64,0}{Vivi}\n“I’m gonna stay here and\n think about it some more.”"
+  },
+  {
+    id: "0169",
+    text: "{W107H1}Kupo.  Please wait."
+  },
+  {
+    id: "0170",
+    text: "{W204H4}Morrison\n“Lady {Eiko} says it’ll be\n a while before she is done cooking.\n I will call you when it is done.”"
+  },
+  {
+    id: "0171",
+    text: "{W133H4}{Widths 0,117,22,-1}Morrison\n“Thank you for waiting.\n Lady {Eiko} says the food\n will be ready soon.”"
+  },
+  {
+    id: "0172",
+    text: "{W99H4}Morrison\n“I’ll take you to\n the Eidolon Wall\n in the meantime.”"
+  },
+  {
+    id: "0173",
+    text: "{W110H2}Morrison\n“Please follow me.”"
+  },
+  {
+    id: "0174",
+    text: "{W47H1}KUPOOO!"
+  },
+  {
+    id: "0175",
+    text: "{W108H2}Mog\n“Kupo kupo kupo!”"
+  },
+  {
+    id: "0176",
+    text: "{W60H2}Mog\n“Kupopo!”"
+  },
+  {
+    id: "0177",
+    text: "{W119H3}{Widths 0,119,22,-1}{Vivi}\n“I wonder how {Eiko} stays\n so energetic{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0178",
+    text: "{W12H1}{Widths 0,12,17,-1}{Vivi}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0179",
+    text: "{W165H3}{Zidane}\n“You better get some sleep\n before we leave tomorrow.”"
+  },
+  {
+    id: "0180",
+    text: "{W153H4}{Vivi}\n“I tried to stop\n worrying about things, but\n I just can’t.”"
+  },
+  {
+    id: "0181",
+    text: "{W148H3}{Vivi}\n“I know you told me not to\n think too much, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0182",
+    text: "{W129H3}{Widths 0,74,17,-1}{Zidane}\n“That’s because we’re\n different, {Vivi}.”"
+  },
+  {
+    id: "0183",
+    text: "{W190H3}{Zidane}\n“You don’t have to do everything\n my way, you know?”"
+  },
+  {
+    id: "0184",
+    text: "{W214H3}{Vivi}\n“I want to stop{Speed 2}...{Speed -1}\n I don’t wanna feel like this anymore.”"
+  },
+  {
+    id: "0185",
+    text: "{W187H2}{Vivi}\n“What if I keep feeling like this?”"
+  },
+  {
+    id: "0186",
+    text: "{W209H3}{Zidane}\n“Well{Speed 2}...{Speed -1} In the end,\n it boils down to two simple choices.”"
+  },
+  {
+    id: "0187",
+    text: "{W168H2}{Zidane}\n“Either you do or you don’t.”"
+  },
+  {
+    id: "0188",
+    text: "{W136H2}{Zidane}\n“Can you believe that?”"
+  },
+  {
+    id: "0189",
+    text: "{W232H3}{Zidane}\n“You’d think with all the problems\n in this world, there’d be more answers.”"
+  },
+  {
+    id: "0190",
+    text: "{W91H2}{UpperLeftForce}{Zidane}\n“It’s not fair{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0191",
+    text: "{W194H2}{UpperLeftForce}{Zidane}\n“{Speed 2}...{Speed -1}but that’s the way things are.”"
+  },
+  {
+    id: "0192",
+    text: "{W128H2}{UpperLeftForce}{Zidane}\n“The choice is yours.”"
+  },
+  {
+    id: "0193",
+    text: "{W26H2}{Widths 0,0,17,-1,0,26,16,-1}{Vivi}\n“{Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0194",
+    text: "{W122H3}{UpperLeftForce}{Zidane}\n“I just wanna protect\n the people I’m with.”"
+  },
+  {
+    id: "0195",
+    text: "{W213H3}{UpperLeftForce}{Zidane}\n“Doesn’t matter whether I can or not.\n It’s what I believe in.”"
+  },
+  {
+    id: "0196",
+    text: "{W75H3}{Eiko}\n“I knew it!\n I was right!”"
+  },
+  {
+    id: "0197",
+    text: "{W76H3}{Widths 0,42,16,-1}{Eiko}\n“{Zidane} is the\n man for me!”"
+  },
+  {
+    id: "0198",
+    text: "{W169H3}{Eiko}\n“He’s right.\n You either do, or you don’t.”"
+  },
+  {
+    id: "0199",
+    text: "{W115H3}{Widths 0,105,16,-1}{Eiko}\n“My choice is clear!\n I wanna go with {Zidane}!”"
+  },
+  {
+    id: "0200",
+    text: "{W167H3}{UpperLeftForce}{Zidane}\n“You wanna know a trick\n to get your mind off things?”"
+  },
+  {
+    id: "0201",
+    text: "{W32H1}Okay."
+  },
+  {
+    id: "0202",
+    text: "{W142H3}{UpperLeftForce}{Zidane}\n“This is an age-old ritual\n between male friends!”"
+  },
+  {
+    id: "0203",
+    text: "{W42H1}Uh-huh."
+  },
+  {
+    id: "0204",
+    text: "{W115H3}{UpperLeftForce}{Widths 0,108,17,-1}{Zidane}\n“Come over here, {Vivi}.\n Let’s go together.”"
+  },
+  {
+    id: "0205",
+    text: "{W193H3}{UpperLeftForce}{Zidane}\n“Doesn’t it feel nice to\n let yourself go under the stars?”"
+  },
+  {
+    id: "0206",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0207",
+    text: "{W53H1}<Tinkle.>"
+  },
+  {
+    id: "0208",
+    text: "{W88H1}<Tinkle tinkle.>"
+  },
+  {
+    id: "0209",
+    text: "{W158H1}<Tinkle tinkle tinkle tinkle.>"
+  },
+  {
+    id: "0210",
+    text: "{W88H1}<Tinkle tinkle.>"
+  },
+  {
+    id: "0211",
+    text: "{W116H3}Moco\n“This is a restricted\n area!”"
+  },
+  {
+    id: "0212",
+    text: "{W112H3}{Zidane}\n“Restricted?\n What’s that, then?”"
+  },
+  {
+    id: "0213",
+    text: "{W38H1}Kupo!?"
+  },
+  {
+    id: "0214",
+    text: "{W129H3}{Widths 0,70,16,-1}{Quina}\n“{Zidane}, this place\n only rocks and sand.”"
+  },
+  {
+    id: "0215",
+    text: "{W145H3}{Quina}\n“I eat star sand once,\n but sand here not food.”"
+  },
+  {
+    id: "0216",
+    text: "{W113H2}{Quina}\n“Water look clean.”"
+  },
+  {
+    id: "0217",
+    text: "{W61H1}Squee{Speed 2}...{Speed -1}!!!"
+  },
+  {
+    id: "0218",
+    text: "{W158H3}{Zidane}\n“Hey, don’t take it so hard.\n S/he’s a special case.”"
+  },
+  {
+    id: "0219",
+    text: "{W123H3}Moco\n“Restricted{Speed 2}...{Speed -1}access,\n kupo.”"
+  },
+  {
+    id: "0220",
+    text: "{W5H1}{NoFocus}{Center 5}!{Time 12}"
+  },
+  {
+    id: "0221",
+    text: "{W169H2}Morrison\n“That moogle is called Moco.”"
+  },
+  {
+    id: "0222",
+    text: "{W183H3}Morrison\n“Moco was very proud of his\n role as the Eidolon Wall guard.”"
+  },
+  {
+    id: "0223",
+    text: "{W138H4}{Widths 0,83,22,-1}Morrison\n“{Eiko}’s decision to\n show the Eidolon Wall to\n outsiders upset him.”"
+  },
+  {
+    id: "0224",
+    text: "{W149H4}Morrison\n“But we moogles\n love {Eiko}.\n He’ll understand, in time.”"
+  },
+  {
+    id: "0225",
+    text: "{W108H3}{Zidane}\n“Why does the wall\n need protection?”"
+  },
+  {
+    id: "0226",
+    text: "{W182H4}{Widths 0,182,22,-1}Morrison\n“The Eidolon Wall has been\n protected by {Eiko}’s summoner tribe\n for generations.”"
+  },
+  {
+    id: "0227",
+    text: "{W117H2}{Zidane}\n“{Speed 2}...{Speed -1}Summoner tribe?”"
+  },
+  {
+    id: "0228",
+    text: "{W160H3}{Widths 0,89,18,-1}{Zidane}\n“I’m gonna get {Dagger}.\n She can use summon magic.”"
+  },
+  {
+    id: "0229",
+    text: "{W136H3}{Widths 0,136,18,-1}{Zidane}\n“{Dagger} can use summon magic,\n too. Can I go get her?”"
+  },
+  {
+    id: "0230",
+    text: "{W70H1}Is that true?"
+  },
+  {
+    id: "0231",
+    text: "{W92H2}Morrison\n“I’ll be waiting.”"
+  },
+  {
+    id: "0232",
+    text: "{W100H2}Morrison\n“Please come in.”"
+  },
+  {
+    id: "0233",
+    text: "{W170H2}Morrison\n“The Eidolon Wall is this way.”"
+  },
+  {
+    id: "0234",
+    text: "{W237H3}{UpperLeftForce}{Vivi}\n“Mr. 288 told me that I understand what it\n means to live and to die{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0235",
+    text: "{W214H3}{UpperLeftForce}{Vivi}\n“But it’s only because I thought\n stopping was different from dying{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0236",
+    text: "{W191H3}{UpperLeftForce}{Vivi}\n“I don’t think I really understand\n what it means to live and to die.”"
+  },
+  {
+    id: "0237",
+    text: "{W218H3}{UpperLeftForce}{Vivi}\n“Where do we come from{Speed 2}...{Speed -1}?\n Do we go back there when we die{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0238",
+    text: "{W183H3}{UpperLeftForce}{Vivi}\n“If that’s what it means to live{Speed 2}...{Speed -1}\n I wonder where I came from{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0239",
+    text: "{W194H2}{UpperLeftForce}{Vivi}\n“Where will I end up when I die{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0240",
+    text: "{W124H2}{UpperLeftForce}{Vivi}\n“Why am I shaking{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0241",
+    text: "{W170H2}{UpperLeftForce}{Vivi}\n“What is it that I’m feeling{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0242",
+    text: "{W157H3}{Eiko}\n“Thanks for cleaning!\n You guys did a great job!”"
+  },
+  {
+    id: "0243",
+    text: "{W143H3}{Widths 0,112,16,-1}{Eiko}\n“A clean house worthy of\n hosting my hero, {Zidane}!”"
+  },
+  {
+    id: "0244",
+    text: "{W136H3}{Eiko}\n“But here’s where the\n real challenge begins!”"
+  },
+  {
+    id: "0245",
+    text: "{W101H4}{Widths 0,32,16,18,-1}{Eiko}\n“I don’t think\n {Zidane} and {Dagger}\n are dating, yet.”"
+  },
+  {
+    id: "0246",
+    text: "{W132H3}{Widths 0,105,18,-1,0,132,16,-1}{Eiko}\n“{Dagger} has been slow to\n catch on to {Zidane}’s moves.”"
+  },
+  {
+    id: "0247",
+    text: "{W137H4}{Eiko}\n“That means there’s\n plenty of time for me to\n get between them!”"
+  },
+  {
+    id: "0248",
+    text: "{W175H4}{Widths 0,127,16,-1}{Eiko}\n“I’m gonna cook lots of\n yummy food and show {Zidane}\n what a good homemaker I am!”"
+  },
+  {
+    id: "0249",
+    text: "{W143H3}Mocha\n“Kupo!  It might work if\n you cooked good food.”"
+  },
+  {
+    id: "0250",
+    text: "{W133H3}{Widths 0,90,22,-1}Momatose\n“But {Eiko} screws up\n a lot when she cooks.”"
+  },
+  {
+    id: "0251",
+    text: "{W154H3}Momatose\n“We don’t have much\n food in stock right now{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0252",
+    text: "{W163H4}{Eiko}\n“I know!\n That’s why I can’t screw up.\n You’re all gonna help me.”"
+  },
+  {
+    id: "0253",
+    text: "{W35H2}Mocha\n“NO!”"
+  },
+  {
+    id: "0254",
+    text: "{W67H2}Chimomo\n“Kupopo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0255",
+    text: "{W117H2}Momatose\n“Kupo{Speed 2}...{Speed -1} I’m sleepy!”"
+  },
+  {
+    id: "0256",
+    text: "{W123H1}You’re all gonna help!"
+  },
+  {
+    id: "0257",
+    text: "{W131H4}{Eiko}\n“I’m gonna cook my\n specialty: rock-fisted\n potato stew!”"
+  },
+  {
+    id: "0258",
+    text: "{W114H3}Momatose\n“Kupo.  Yeah, that’s\n delicious.”"
+  },
+  {
+    id: "0259",
+    text: "{W161H4}Mocha\n“But the last one you made\n tasted so bad, I thought\n my pompom would fall off{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0260",
+    text: "{W73H2}Chimomo\n“Just stew?”"
+  },
+  {
+    id: "0261",
+    text: "{W146H4}{Eiko}\n“Yeah, I think I need\n another dish.\n What do you guys think?”"
+  },
+  {
+    id: "0262",
+    text: "{W172H2}Chimomo\n“Kupo.  How about some fish?”"
+  },
+  {
+    id: "0263",
+    text: "{W112H3}Chimomo\n“Fresh fish tastes\n great barbecued.”"
+  },
+  {
+    id: "0264",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0265",
+    text: "{W118H2}{Eiko}\n“That sounds good!”"
+  },
+  {
+    id: "0266",
+    text: "{W143H4}{Eiko}\n“Okay, our menu is\n rock-fisted potato stew\n and barbecued fish!”"
+  },
+  {
+    id: "0267",
+    text: "{W64H1}Let’s see{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0268",
+    text: "{W138H5}{PreChoose 3,-1}{Widths 1,19,6,0,-1,2,20,6,1,-1,3,21,6,2,-1}{Instantly}{Eiko}\n“Who should go fishing?”\n{Choice}{Text 0,0}\n{Tab}{Text 0,1}\n{Tab}{Text 0,2}"
+  },
+  {
+    id: "0269",
+    text: "{W41H2}{Widths 0,0,22,-1,0,41,6,0,-1}{Eiko}\n“Go, {Text 0,0}!”"
+  },
+  {
+    id: "0270",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0271",
+    text: "{W191H4}{PreChoose 2,-1}{Widths 1,19,6,0,-1,2,20,6,1,-1}{Instantly}{Eiko}\n“Who should go dig up potatoes?”\n{Choice}{Text 0,0}\n{Tab}{Text 0,1}"
+  },
+  {
+    id: "0272",
+    text: "{W91H3}{Widths 0,80,6,0,-1}{Eiko}\n“{Text 0,0}, you help me\n in the kitchen.”"
+  },
+  {
+    id: "0273",
+    text: "{W185H4}{PreChoose 2,1}{Instantly}{Eiko}\n“Did I make the right decisions?”\n{Choice}Start cooking\n{Tab}Start over"
+  },
+  {
+    id: "0274",
+    text: "{W80H2}{Eiko}\n“Let’s start!”"
+  },
+  {
+    id: "0275",
+    text: "{W73H2}{Eiko}\n“Grandpa{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0276",
+    text: "{W195H2}{Eiko}\n“I don’t wanna be alone anymore.”"
+  },
+  {
+    id: "0277",
+    text: "{W91H3}{Eiko}\n“Help me do this\n right{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0278",
+    text: "{W127H3}{Eiko}\n“How many people do I\n need to cook for?”"
+  },
+  {
+    id: "0279",
+    text: "{W92H3}{Eiko}\n“There’s me and\n {Zidane}.”"
+  },
+  {
+    id: "0280",
+    text: "{W138H3}{Eiko}\n“There’s that quiet boy,\n {Vivi}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0281",
+    text: "{W96H3}{Widths 0,96,18,-1}{Eiko}\n“I guess I should\n cook for {Dagger}, too.”"
+  },
+  {
+    id: "0282",
+    text: "{W162H4}{Eiko}\n“And all you guys:\n Mog, Moco, Mocha, Chimomo,\n Momatose, and Morrison!”"
+  },
+  {
+    id: "0283",
+    text: "{W146H4}{Eiko}\n“Will you put water on for\n all the people I listed?\n I’ll get the ingredients.”"
+  },
+  {
+    id: "0284",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0285",
+    text: "{W30H4}{UpperRightForce}{Widths 0,0,22,-1,0,11,16,-1,0,30,17,-1,0,15,18,-1}{Eiko}\n“{Zidane},\n me, {Vivi},\n {Dagger}.”"
+  },
+  {
+    id: "0286",
+    text: "{W162H4}{UpperRightForce}{Eiko}\n“And all you guys:\n Mog, Moco, Mocha, Chimomo,\n Momatose, and Morrison!”"
+  },
+  {
+    id: "0287",
+    text: "{W101H4}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,101,64,1,-1}{Instantly}{Text 0,0}\n“{Variable 1} people!  Kupo!”\n{Choice}Pour water\n{Tab}Think again"
+  },
+  {
+    id: "0288",
+    text: "{W123H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Water spilled over!”"
+  },
+  {
+    id: "0289",
+    text: "{W33H1}Kupo?"
+  },
+  {
+    id: "0290",
+    text: "{W134H4}{Eiko}\n“Potato, potato♪\n Pumpkin bomb♪\n Lots and lots of nuts♪”"
+  },
+  {
+    id: "0291",
+    text: "{W204H5}{PreChoose 2,1}{Instantly}{Eiko}\n“Should I put in that oglop I found\n on the Conde Petie Mountain Path?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0292",
+    text: "{W58H2}{Widths 0,0,22,-1}{Eiko}\n“Thanks!”"
+  },
+  {
+    id: "0293",
+    text: "{W80H2}{Eiko}\n“Let’s start!”"
+  },
+  {
+    id: "0294",
+    text: "{W134H3}{Eiko}\n“Get the water goin’♪\n A good shake o’ salt♪”"
+  },
+  {
+    id: "0295",
+    text: "{W144H4}{Eiko}\n“Potato, potato♪\n Pumpkin bomb♪\n Another shake o’ salt!♪”"
+  },
+  {
+    id: "0296",
+    text: "{W137H2}{Eiko}\n“Lots and lots of nuts♪”"
+  },
+  {
+    id: "0297",
+    text: "{W150H2}{Eiko}\n“An oglop for seasoning♪”"
+  },
+  {
+    id: "0298",
+    text: "{W128H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“I caught one!  Kupo!”"
+  },
+  {
+    id: "0299",
+    text: "{W118H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“It’s heavy{Speed 2}...{Speed -1} Kupo!”"
+  },
+  {
+    id: "0300",
+    text: "{W101H4}{PreChoose 2,1}{Widths 1,124,-1,2,170,6,0,-1}{Instantly}{Eiko}\n“Are you okay!?”\n{Choice}Tell him to let it go\n{Tab}Let {Text 0,0} cook, and lend a hand"
+  },
+  {
+    id: "0301",
+    text: "{W138H4}{Widths 0,12,6,0,-1}{Eiko}\n“{Text 0,0}!\n Let go of that one and\n catch a different one!”"
+  },
+  {
+    id: "0302",
+    text: "{W46H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!”"
+  },
+  {
+    id: "0303",
+    text: "{W112H2}{Eiko}\n“Ooo, smells good!”"
+  },
+  {
+    id: "0304",
+    text: "{W136H3}{Eiko}\n“That’s strange.  It’s\n usually boiling by now.”"
+  },
+  {
+    id: "0305",
+    text: "{W126H2}{Eiko}\n“What’s up with that?”"
+  },
+  {
+    id: "0306",
+    text: "{W139H3}{Eiko}\n“This is strange.\n Smells like it’s burning.”"
+  },
+  {
+    id: "0307",
+    text: "{W105H3}{Widths 0,93,6,0,-1}{Eiko}\n“Keep stirring, {Text 0,0}.\n Don’t let it burn!”"
+  },
+  {
+    id: "0308",
+    text: "{W87H2}{Eiko}\n“{Speed 2}...{Speed -1}This is big!”"
+  },
+  {
+    id: "0309",
+    text: "{W121H3}{Eiko}\n“We’ll pull it together\n on 3, okay?”"
+  },
+  {
+    id: "0310",
+    text: "{W66H2}{Widths 0,0,22,-1}{Flash}{Eiko}\n“1!  {Wait 10}2!  {Wait 10}3!”{Time 10}"
+  },
+  {
+    id: "0311",
+    text: "{W78H1}AAAAAAHHH!!!"
+  },
+  {
+    id: "0312",
+    text: "{W119H2}{LowerRightForce}{Quina}\n“You use good bait.”"
+  },
+  {
+    id: "0313",
+    text: "{W141H2}{LowerRightForce}{Quina}\n“Your bait not so good.”"
+  },
+  {
+    id: "0314",
+    text: "{W113H4}{Eiko}\n“Pale{Speed 2}...{Speed -1}\n White hair{Speed 2}...{Speed -1}\n Strange clothes{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0315",
+    text: "{W116H3}{Widths 0,116,16,-1}{Eiko}\n“{Zidane} told me about you!\n You’re Kuja!”"
+  },
+  {
+    id: "0316",
+    text: "{W159H3}{LowerRightForce}{Widths 0,147,16,-1}{Quina}\n“Yes, {Zidane} look for man named\n Kuja.  I no see him before.”"
+  },
+  {
+    id: "0317",
+    text: "{W159H2}{LowerRightForce}{Widths 0,159,16,-1}{Quina}\n“{Zidane} look for man named Kuja.”"
+  },
+  {
+    id: "0318",
+    text: "{W63H2}{LowerRightForce}{Widths 0,0,21,-1,0,63,21,-1}{Quina}\n“I called {Quina}.”"
+  },
+  {
+    id: "0319",
+    text: "{W203H3}{Eiko}\n“{Speed 2}...{Speed -1}{Wait 10}Oh!{Signal 1}  You chased Mog\n on the Conde Petie Mountain Path!”"
+  },
+  {
+    id: "0320",
+    text: "{W23H1}{Widths 0,23,22,-1}I’m {Eiko}!"
+  },
+  {
+    id: "0321",
+    text: "{W156H3}{UpperLeft}{Eiko}\n“(Mog, don’t ever come out\n while s/he’s around.)”"
+  },
+  {
+    id: "0322",
+    text: "{W56H1}{UpperRight}{Offset 0,128,0}“(Kupo!)”"
+  },
+  {
+    id: "0323",
+    text: "{W77H2}{LowerRightForce}{Quina}\n“Smell good.”"
+  },
+  {
+    id: "0324",
+    text: "{W122H2}{LowerRightForce}{Eiko}\n“Don’t eat anything!”"
+  },
+  {
+    id: "0325",
+    text: "{W112H2}{UpperLeftForce}{Quina}\n“The heat too low.”"
+  },
+  {
+    id: "0326",
+    text: "{W101H2}{LowerRightForce}{Eiko}\n“You can cook!?”"
+  },
+  {
+    id: "0327",
+    text: "{W153H3}{UpperLeftForce}{Quina}\n“Is my destiny to\n pursue way of gourmand!”"
+  },
+  {
+    id: "0328",
+    text: "{W146H5}{LowerRightForce}{PreChoose 2,1}{Widths 1,107,21,-1}{Instantly}{Eiko}\n“Th-This must be a helper\n from above!”\n{Choice}Ask {Quina} for advice\n{Tab}Don’t ask"
+  },
+  {
+    id: "0329",
+    text: "{W46H2}{UpperLeftForce}{Widths 0,0,21,-1}{Quina}\n“Hrm{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0330",
+    text: "{W140H3}{UpperLeftForce}{Quina}\n“I know how many people\n live in this village.”"
+  },
+  {
+    id: "0331",
+    text: "{W148H4}{UpperLeftForce}{Quina}\n“Is {Zidane}’s group,\n the moogles, and me make\n 11 people.”"
+  },
+  {
+    id: "0332",
+    text: "{W111H3}{UpperLeftForce}{Widths 0,82,64,1,-1}{Quina}\n“You make food for\n {Variable 1} people now.”"
+  },
+  {
+    id: "0333",
+    text: "{W129H3}{UpperLeftForce}{Quina}\n“Is too little.\n Is not enough for me.”"
+  },
+  {
+    id: "0334",
+    text: "{W161H3}{UpperLeftForce}{Quina}\n“This no have enough water.\n Is starting to burn.”"
+  },
+  {
+    id: "0335",
+    text: "{W101H2}{UpperLeftForce}{Quina}\n“Is good amount.”"
+  },
+  {
+    id: "0336",
+    text: "{W125H2}{UpperLeftForce}{Quina}\n“Is too much water{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0337",
+    text: "{W162H3}{UpperLeftForce}{Quina}\n“Is important to know how\n many people you cook for.”"
+  },
+  {
+    id: "0338",
+    text: "{W185H3}{UpperLeftForce}{Quina}\n“This heat only strong enough to\n make food for 9 people.”"
+  },
+  {
+    id: "0339",
+    text: "{W148H3}{UpperLeftForce}{Quina}\n“Was not possible to make\n enough for everyone.”"
+  },
+  {
+    id: "0340",
+    text: "{W54H1}{LowerRightForce}NOOOOOO!"
+  },
+  {
+    id: "0341",
+    text: "{W97H3}{UpperLeftForce}{Quina}\n“We come up with\n another plan.”"
+  },
+  {
+    id: "0342",
+    text: "{W135H2}{Quina}\n“We catch more fish!!!”"
+  },
+  {
+    id: "0343",
+    text: "{W158H3}{UpperLeftForce}{Quina}\n“I teach you very important\n lesson in cooking.”"
+  },
+  {
+    id: "0344",
+    text: "{W210H2}{UpperLeftForce}{Quina}\n“‘Always make more than you need.’”"
+  },
+  {
+    id: "0345",
+    text: "{W175H2}{UpperLeftForce}{Quina}\n“Maybe more people show up.”"
+  },
+  {
+    id: "0346",
+    text: "{W198H2}{UpperLeftForce}{Quina}\n“Maybe your guests very hungry.”"
+  },
+  {
+    id: "0347",
+    text: "{W155H3}{UpperLeftForce}{Quina}\n“Is not enough food for me.\n I not cook if I not eat!”"
+  },
+  {
+    id: "0348",
+    text: "{W176H3}{UpperLeftForce}{Quina}\n“You correct to make food for\n more than 10 people!”"
+  },
+  {
+    id: "0349",
+    text: "{W147H3}{UpperLeftForce}{Quina}\n“This your only ingredient\n for stew?”"
+  },
+  {
+    id: "0350",
+    text: "{W137H3}{Widths 0,122,6,0,-1}{Eiko}\n“{Text 0,0} went to dig up some\n rock-fisted potatoes.”"
+  },
+  {
+    id: "0351",
+    text: "{W148H3}{UpperLeftForce}{Quina}\n“Is problem now with heat.\n How we get more heat?”"
+  },
+  {
+    id: "0352",
+    text: "{W33H1}{UpperLeftForce}Hmm{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0353",
+    text: "{W80H2}{UpperLeftForce}{Quina}\n“Ah!  I know!”"
+  },
+  {
+    id: "0354",
+    text: "{W119H3}{UpperLeftForce}{Quina}\n“I know black mage.\n I ask him make fire.”"
+  },
+  {
+    id: "0355",
+    text: "{W174H2}{Eiko}\n“{Speed 2}...{Speed -1}I’m gonna add more water.”"
+  },
+  {
+    id: "0356",
+    text: "{W245H3}{Eiko}\n“I need to turn up the heat{Speed 2}...{Speed -1}\n But this stove isn’t gonna get any hotter.”"
+  },
+  {
+    id: "0357",
+    text: "{W237H3}{Eiko}\n“We turned the heat down, but now I’m not\n sure if there’s enough for everyone.”"
+  },
+  {
+    id: "0358",
+    text: "{W108H2}Momatose\n“So sleepy, kupo.”"
+  },
+  {
+    id: "0359",
+    text: "{W178H2}{Eiko}\n“Let’s keep cooking the stew.”"
+  },
+  {
+    id: "0360",
+    text: "{W121H2}{Widths 0,121,17,-1}{Eiko}\n“Hmm?  What about {Vivi}?”"
+  },
+  {
+    id: "0361",
+    text: "{W187H3}{Eiko}\n“That’s right, he’s a black mage!\n He can use fire magic!”"
+  },
+  {
+    id: "0362",
+    text: "{W142H3}{Eiko}\n“I hope we catch a lot of\n delicious fish{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0363",
+    text: "{W196H2}{Quina}\n“Many delicious fish in the water!”"
+  },
+  {
+    id: "0364",
+    text: "{W220H5}Morrison\n“The Eidolon Wall is a collection of\n paintings.  The summoner tribe painted\n all the eidolons they found during\n their research.”"
+  },
+  {
+    id: "0365",
+    text: "{W152H2}{Dagger}\n“These eidolons all exist?”"
+  },
+  {
+    id: "0366",
+    text: "{W31H1}Kupo."
+  },
+  {
+    id: "0367",
+    text: "{W143H3}Morrison\n“This is a holy place\n for the summoner tribe.”"
+  },
+  {
+    id: "0368",
+    text: "{W205H4}Morrison\n“Lady {Eiko} comes here\n everyday to pray and burn incense\n for her ancestors.”"
+  },
+  {
+    id: "0369",
+    text: "{W116H2}{Dagger}\n“What’s this one{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0370",
+    text: "{W104H2}{Dagger}\n“There’s Atomos.”"
+  },
+  {
+    id: "0371",
+    text: "{W102H2}{Dagger}\n“That’s Bahamut.”"
+  },
+  {
+    id: "0372",
+    text: "{W102H2}{Widths 0,102,18,-1}{Zidane}\n“What’s wrong, {Dagger}?”"
+  },
+  {
+    id: "0373",
+    text: "{W29H2}{Widths 0,0,18,-1}{Dagger}\n“I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0374",
+    text: "{W115H2}{Zidane}\n“You’ll get it back.”"
+  },
+  {
+    id: "0375",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0376",
+    text: "{W134H3}{Dagger}\n“I want to look at\n the murals some more.”"
+  },
+  {
+    id: "0377",
+    text: "{W44H1}{Speed 2}...{Speed -1}Okay."
+  },
+  {
+    id: "0378",
+    text: "{W112H3}{Dagger}\n“I don’t know most\n of these eidolons.”"
+  },
+  {
+    id: "0379",
+    text: "{W202H5}Morrison\n“The summoner tribe honors nature.\n They named this world Gaia.\n They considered the eidolons\n guardians of this planet.”"
+  },
+  {
+    id: "0380",
+    text: "{W181H4}Morrison\n“They attempted to become one\n with nature through their\n summon magic research.”"
+  },
+  {
+    id: "0381",
+    text: "{W164H4}Morrison\n“The tribe migrated to\n this location 500 years ago.\n But now{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0382",
+    text: "{W60H1}Kupopopo!"
+  },
+  {
+    id: "0383",
+    text: "{W57H3}{Widths 0,0,22,-1,0,16,16,-1}{Eiko}\n“Welcome,\n {Zidane}!”"
+  },
+  {
+    id: "0384",
+    text: "{W72H1}Have a seat."
+  },
+  {
+    id: "0385",
+    text: "{W126H1}Wow, this looks great!"
+  },
+  {
+    id: "0386",
+    text: "{W95H1}{UpperLeftForce}Hey, looks good."
+  },
+  {
+    id: "0387",
+    text: "{W109H1}Ah, so you finished."
+  },
+  {
+    id: "0388",
+    text: "{W100H3}{Zidane}\n“You made all this\n by yourself!?”"
+  },
+  {
+    id: "0389",
+    text: "{W101H2}{Zidane}\n“You made a lot!”"
+  },
+  {
+    id: "0390",
+    text: "{W124H3}{UpperLeftForce}{Zidane}\n“This food’s gonna be\n gone so fast!”"
+  },
+  {
+    id: "0391",
+    text: "{W114H3}{Widths 0,114,21,-1}{Eiko}\n“What’s his name{Speed 2}...{Speed -1}?\n {Quina}?  S/he helped me.”"
+  },
+  {
+    id: "0392",
+    text: "{W177H3}{Zidane}\n“S/he helped you without\n eating all the food?  Amazing.”"
+  },
+  {
+    id: "0393",
+    text: "{W105H2}{Widths 0,105,17,-1}{Eiko}\n“{Vivi} helped me, too!”"
+  },
+  {
+    id: "0394",
+    text: "{W46H2}{Widths 0,0,22,-1,0,46,17,-1}{Eiko}\n“{Vivi}, too!”"
+  },
+  {
+    id: "0395",
+    text: "{W44H1}Hehehe."
+  },
+  {
+    id: "0396",
+    text: "{W85H3}{Widths 0,66,16,-1}{Eiko}\n“I cooked it all\n for you, {Zidane}!”"
+  },
+  {
+    id: "0397",
+    text: "{W56H1}{UpperLeftForce}Let’s eat!"
+  },
+  {
+    id: "0398",
+    text: "{W53H1}How is it?"
+  },
+  {
+    id: "0399",
+    text: "{W181H3}{Offset 64,64,0}{Zidane}\n“Wow, this stew tastes amazing!\nYou should start a restaurant.”"
+  },
+  {
+    id: "0400",
+    text: "{W141H2}{Offset 64,64,0}{Zidane}\n“The stew tastes good!”"
+  },
+  {
+    id: "0401",
+    text: "{W181H2}{Offset 64,64,0}{Zidane}\n“The stew tastes{Speed 2}...{Speed -1}interesting.”"
+  },
+  {
+    id: "0402",
+    text: "{W132H2}{Offset 64,64,0}{Zidane}\n“The fish is just right.”"
+  },
+  {
+    id: "0403",
+    text: "{W137H3}{Offset 64,64,0}{Zidane}\n“The fish tastes good!\n Can I have some more?”"
+  },
+  {
+    id: "0404",
+    text: "{W211H3}{Offset 64,64,0}{Zidane}\n“The fish tastes better than it looks,\n but it doesn’t have much meat on it.”"
+  },
+  {
+    id: "0405",
+    text: "{W149H3}{Offset 64,64,0}{Widths 0,102,22,-1}{Zidane}\n“Hey, {Eiko}, where are\n all the other summoners?”"
+  },
+  {
+    id: "0406",
+    text: "{W167H3}{Offset 64,64,0}{Zidane}\n“Are they hiding underground\n or something?”"
+  },
+  {
+    id: "0407",
+    text: "{W85H3}{Eiko}\n“Underground?\n Yeah.”"
+  },
+  {
+    id: "0408",
+    text: "{W162H3}{Eiko}\n“They’re all underground,\n sleeping the eternal sleep.”"
+  },
+  {
+    id: "0409",
+    text: "{W44H1}{Offset 64,64,0}What{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0410",
+    text: "{W120H3}{Eiko}\n“I’m the last survivor\n of my tribe.”"
+  },
+  {
+    id: "0411",
+    text: "{W166H4}{Eiko}\n“I’ve been living with moogles\n ever since my grandpa died\n last year.”"
+  },
+  {
+    id: "0412",
+    text: "{W62H1}{Offset -64,64,0}I’m sorry{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0413",
+    text: "{W153H3}{Eiko}\n“Oh, don’t worry about me.\n I’m really happy here.”"
+  },
+  {
+    id: "0414",
+    text: "{W32H1}{NoFocus}Kupo!{Time 30}"
+  },
+  {
+    id: "0415",
+    text: "{W168H3}{Eiko}\n“Ten years ago, which is four\n years before I was born{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0416",
+    text: "{W197H4}{Eiko}\n“A natural disaster struck\n the village.  Even the\n survivors suffered a great deal.”"
+  },
+  {
+    id: "0417",
+    text: "{W169H3}{Eiko}\n“But my mom and dad\n fell in love and had a family.”"
+  },
+  {
+    id: "0418",
+    text: "{W170H4}{Eiko}\n“Not that I remember what\n they look like, because they\n died when I was very young.”"
+  },
+  {
+    id: "0419",
+    text: "{W39H1}{Offset 64,64,0}I see{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0420",
+    text: "{W195H4}{Eiko}\n“I’ve been told that when I turn 16\n and my body builds a resistance\n to summon magic{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0421",
+    text: "{W143H3}{Eiko}\n“I can leave the village\n with any eidolon I want!”"
+  },
+  {
+    id: "0422",
+    text: "{W178H4}{Widths 0,125,16,-1}{Eiko}\n“That’s only a short time away!\n Just like the small difference\n between our ages, {Zidane}!”"
+  },
+  {
+    id: "0423",
+    text: "{W170H3}{Offset 64,64,0}{Widths 0,120,22,-1}{Zidane}\n“But you already know how to\n use summon magic, {Eiko}.”"
+  },
+  {
+    id: "0424",
+    text: "{W201H3}{Eiko}\n“Well, a summoner can’t choose her\n eidolon until she has come of age.”"
+  },
+  {
+    id: "0425",
+    text: "{W168H4}{Eiko}\n“That’s why I can’t choose an\n eidolon or leave the village\n until I turn 16.”"
+  },
+  {
+    id: "0426",
+    text: "{W127H3}{Eiko}\n“We just keep training\n until then!”"
+  },
+  {
+    id: "0427",
+    text: "{W115H2}{Offset -64,64,0}{Dagger}\n“How do you train?”"
+  },
+  {
+    id: "0428",
+    text: "{W176H4}{Eiko}\n“How{Speed 2}...{Speed -1}?  Oh, it’s\n our horn.  We use our horns to\n communicate with eidolons.”"
+  },
+  {
+    id: "0429",
+    text: "{W144H3}{Widths 0,105,18,-1}{Eiko}\n“How do you communicate\n without a horn, {Dagger}?”"
+  },
+  {
+    id: "0430",
+    text: "{W24H1}{Offset -64,64,0}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0431",
+    text: "{W192H3}{Eiko}\n“I’m like a beautiful young heroine\n in turmoil, don’t you think?”"
+  },
+  {
+    id: "0432",
+    text: "{W25H1}{Offset 64,64,0}Huh?"
+  },
+  {
+    id: "0433",
+    text: "{W216H4}{Eiko}\n“You know why I’m here in this village?\n It was to meet you, {Zidane},\n my beautiful shooting star{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0434",
+    text: "{W91H1}{NoFocus}Whoa!!!  Ahhh!!!{Time 30}"
+  },
+  {
+    id: "0435",
+    text: "{W118H3}{UpperLeftForce}{Eiko}\n“What is it?\n Don’t interrupt me!”"
+  },
+  {
+    id: "0436",
+    text: "{W151H3}{Vivi}\n“There’s something in here\n with feelers{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0437",
+    text: "{W66H1}{Offset 64,64,0}{Speed 2}...{Speed -1}{Wait 20}An oglop?"
+  },
+  {
+    id: "0438",
+    text: "{W171H3}{Eiko}\n“Don’t you know that oglops\n are a Conde Petie delicacy?”"
+  },
+  {
+    id: "0439",
+    text: "{W24H1}{NoFocus}{Speed 2}......{Speed -1}{Time 45}"
+  },
+  {
+    id: "0440",
+    text: "{W129H3}{Offset 64,64,0}{Zidane}\n“L-Let’s eat the fish.\n That should be okay.”"
+  },
+  {
+    id: "0441",
+    text: "{W204H3}{Offset -64,64,0}{Dagger}\n“That’s a line from Lord Avon’s play\n ‘Wishing Upon a Star.’”"
+  },
+  {
+    id: "0442",
+    text: "{W117H3}{Eiko}\n“How did you know!?\n Darn it!”"
+  },
+  {
+    id: "0443",
+    text: "{W190H4}{UpperRightForce}{Offset 64,64,0}{Widths 0,130,22,-1}{Zidane}\n(How does {Eiko} know about\n that play?  This place is far from\n the Mist Continent.)"
+  },
+  {
+    id: "0444",
+    text: "{W61H1}Thank you."
+  },
+  {
+    id: "0445",
+    text: "{W52H1}{Widths 0,52,22,-1}Thanks, {Eiko}!"
+  },
+  {
+    id: "0446",
+    text: "{W124H1}{UpperLeftForce}That was really good!"
+  },
+  {
+    id: "0447",
+    text: "{W143H3}{UpperRightForce}{Eiko}\n“See?  Don’t you wanna\n eat my food everyday?”"
+  },
+  {
+    id: "0448",
+    text: "{W171H4}{UpperLeftForce}{Zidane}\n“Maybe.\n Hey, there’s some other stuff\n I wanna ask you.”"
+  },
+  {
+    id: "0449",
+    text: "{W47H1}{UpperRightForce}Maybe!?"
+  },
+  {
+    id: "0450",
+    text: "{W92H3}{UpperRightForce}{Eiko}\n“That’s soooo\n rude of you!!!”"
+  },
+  {
+    id: "0451",
+    text: "{W204H3}{UpperRightForce}{Widths 0,150,16,-1}{Eiko}\n“{Zidane}, help me clear the table!\n Bring the pot over to the kitchen!”"
+  },
+  {
+    id: "0452",
+    text: "{W149H2}{Widths 0,149,22,-1}{Vivi}\n“{Eiko} is always so energetic.”"
+  },
+  {
+    id: "0453",
+    text: "{W112H3}{Dagger}\n“There are so many\n old books here.”"
+  },
+  {
+    id: "0454",
+    text: "{W173H3}{Dagger}\n“I think this one is Lord Avon’s\n ‘Wishing Upon a Star.’”"
+  },
+  {
+    id: "0455",
+    text: "{W238H4}{Dagger}\n“The line {Eiko} recited,\n ‘To meet you, my beautiful shooting star,’\n is from this book.”"
+  },
+  {
+    id: "0456",
+    text: "{W244H4}{Dagger}\n“Can you believe this?\n This is a first edition!  I’ve\n only ever seen one at the castle library!”"
+  },
+  {
+    id: "0457",
+    text: "{W218H3}{Dagger}\n“Why does she own books\n that are more than 500 years old{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0458",
+    text: "{W149H3}{Dagger}\n“I don’t think there are\n any books on summoning.”"
+  },
+  {
+    id: "0459",
+    text: "{W154H5}{PreChoose 2,1}{Instantly}Momatose\n“You should get some sleep\n before you go!”\n{Choice}Sleep\n{Tab}Don’t sleep"
+  },
+  {
+    id: "0460",
+    text: "{W151H3}{Dagger}\n“Why don’t we rest before\n we go, {Zidane}?”"
+  },
+  {
+    id: "0461",
+    text: "{W173H5}{PreChoose 2,1}{Instantly}Momatose\n“Why don’t you get some rest?\n It’ll be good for you.  Kupo!”\n{Choice}Rest\n{Tab}Don’t rest"
+  },
+  {
+    id: "0462",
+    text: "{W182H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“This person keeps telling me to\n catch more fish{Speed 2}...{Speed -1} Kupo.”"
+  },
+  {
+    id: "0463",
+    text: "{W159H2}{Widths 0,159,16,-1}{Quina}\n“{Zidane}, I make great discovery!”"
+  },
+  {
+    id: "0464",
+    text: "{W148H3}{Quina}\n“These fish different from\n Mist Continent fish!”"
+  },
+  {
+    id: "0465",
+    text: "{W123H2}{Quina}\n“Catch another one!”"
+  },
+  {
+    id: "0466",
+    text: "{W121H3}{Widths 0,115,18,-1,0,121,16,-1}{Eiko}\n“So it wasn’t just {Dagger}{Speed 2}...{Speed -1}\n {Zidane} is really slow, too!”"
+  },
+  {
+    id: "0467",
+    text: "{W123H3}{Eiko}\n“Those two are\n going nowhere fast.”"
+  },
+  {
+    id: "0468",
+    text: "{W115H3}{Eiko}\n“Well, this is\n good news for me!”"
+  },
+  {
+    id: "0469",
+    text: "{W187H2}{Zidane}\n“Is there something on my face?”"
+  },
+  {
+    id: "0470",
+    text: "{W121H2}{Eiko}\n“{Speed 2}...{Speed -1}Where’s the pot?”"
+  },
+  {
+    id: "0471",
+    text: "{W153H3}{Eiko}\n“Thanks, {Zidane}.\n Could you leave it there?”"
+  },
+  {
+    id: "0472",
+    text: "{W175H3}{Widths 0,114,22,-1}{Zidane}\n“Hey, {Eiko}, do you know\n anything about the Iifa Tree?”"
+  },
+  {
+    id: "0473",
+    text: "{W157H2}{Eiko}\n“What about the Iifa Tree?”"
+  },
+  {
+    id: "0474",
+    text: "{W132H2}{Zidane}\n“We want to go there.”"
+  },
+  {
+    id: "0475",
+    text: "{W157H3}{Eiko}\n“It’s sealed with an eidolon.\n You can’t get in.”"
+  },
+  {
+    id: "0476",
+    text: "{W105H3}{Widths 0,105,22,-1}{Zidane}\n“Sealed?\n Did you seal it, {Eiko}?”"
+  },
+  {
+    id: "0477",
+    text: "{W47H2}{Widths 0,0,22,-1}{Eiko}\n“Well{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0478",
+    text: "{W118H3}{Eiko}\n{White}(So he’s sharp about\n certain things.)"
+  },
+  {
+    id: "0479",
+    text: "{W235H4}{Eiko}\n“It all happened before I was born,\n but they sealed an eidolon that we failed\n to summon in the Iifa Tree.”"
+  },
+  {
+    id: "0480",
+    text: "{W203H3}{Eiko}\n“It’s our custom to seal a\n failed eidolon where we summon it.”"
+  },
+  {
+    id: "0481",
+    text: "{W208H2}{Zidane}\n“An eidolon you failed to summon{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0482",
+    text: "{W158H3}{Eiko}\n“But we used the power of\n another eidolon to seal it.”"
+  },
+  {
+    id: "0483",
+    text: "{W242H5}{Eiko}\n“Do you understand what that means?\n That means the sealed eidolon was so\n powerful that they needed another one to\n trap it inside.”"
+  },
+  {
+    id: "0484",
+    text: "{W196H3}{Zidane}\n“Sealed with the power of another\n eidolon, huh?”"
+  },
+  {
+    id: "0485",
+    text: "{W138H3}{Zidane}\n“{Eiko}, will you\n break the seal for us?”"
+  },
+  {
+    id: "0486",
+    text: "{W65H3}{Widths 0,0,22,-1}{Eiko}\n“Wh-What!?\n No way!”"
+  },
+  {
+    id: "0487",
+    text: "{W207H4}{Zidane}\n“It’s not like we’re gonna do\n anything bad{Speed 2}...{Speed -1} Well, I’m sure we can\n handle it on our own.”"
+  },
+  {
+    id: "0488",
+    text: "{W104H3}{Eiko}\n“No way!\n Are you crazy!?”"
+  },
+  {
+    id: "0489",
+    text: "{W116H2}{Zidane}\n“{Speed 2}...{Speed -1}You won’t do it?”"
+  },
+  {
+    id: "0490",
+    text: "{W44H2}{Widths 0,0,22,-1}{Eiko}\n“{Speed 2}...{Speed -1}No.”"
+  },
+  {
+    id: "0491",
+    text: "{W64H2}{Widths 0,0,22,-1}{Eiko}\n“I’m home!”"
+  },
+  {
+    id: "0492",
+    text: "{W77H2}{Eiko}\n“I’M HOME!!!”"
+  },
+  {
+    id: "0493",
+    text: "{W42H1}Kupo!!!"
+  },
+  {
+    id: "0494",
+    text: "{W137H3}{Offset 32,0,0}{Eiko}\n“Moco told me the news.\n Are you alright?”"
+  },
+  {
+    id: "0495",
+    text: "{W107H3}{UpperLeft}{Offset -64,0,0}Morrison\n“Come now!\n Talk later, kupo!”"
+  },
+  {
+    id: "0496",
+    text: "{W32H1}{NoFocus}Kupo!{Time -1}"
+  },
+  {
+    id: "0497",
+    text: "{W63H2}{UpperLeft}{Widths 0,0,16,-1,0,63,22,-1}{Zidane}\n“H-Hey, {Eiko}?”"
+  },
+  {
+    id: "0498",
+    text: "{W146H2}{UpperLeft}{Zidane}\n“We’d better follow her!”"
+  },
+  {
+    id: "0499",
+    text: "{W157H4}Morrison\n“Oh{Speed 2}...{Speed -1}this is so terrible{Speed 2}...{Speed -1}\n Someone stole the village’s\n most precious stone.”"
+  },
+  {
+    id: "0500",
+    text: "{W172H3}Mocha\n“I saw someone with a weapon\n shaped like a big axe, kupo!”"
+  },
+  {
+    id: "0501",
+    text: "{W121H3}Chimomo\n“I was fishing all day,\n so I fell asleep{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0502",
+    text: "{W174H3}Moco\n“I can’t believe it!\n I’m so angry at myself, kupo!”"
+  },
+  {
+    id: "0503",
+    text: "{W162H3}Momatose\n“I didn’t notice,\n because I was fast asleep.”"
+  },
+  {
+    id: "0504",
+    text: "{W53H2}{UpperRightForce}{Offset 0,-240,0}Mog\n“Kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0505",
+    text: "{W101H1}{Widths 0,101,22,-1}What’s going on, {Eiko}?"
+  },
+  {
+    id: "0506",
+    text: "{W78H2}{UpperLeftForce}{Eiko}\n“It’s{Speed 2}...{Speed -1} It’s{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0507",
+    text: "{W272H3}{UpperLeftForce}{Eiko}\n“The precious stone that has been passed down\n in this village for generations is gone!”"
+  },
+  {
+    id: "0508",
+    text: "{W149H2}{LowerLeftForce}{Eiko}\n“My grandparents said{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0509",
+    text: "{W292H3}{LowerLeftForce}{Eiko}\n“They said that we should take care of it\n because it’s a symbol of the summoners’ heritage.”"
+  },
+  {
+    id: "0510",
+    text: "{W123H4}{UpperLeftForce}{Offset -64,0,0}{Zidane}\n“Well{Speed 2}...{Speed -1}how about\n crying for a change?\n It’ll help.”"
+  },
+  {
+    id: "0511",
+    text: "{W180H4}{UpperLeftForce}{Eiko}\n“I’m not gonna cry!\n I’m a grown-up now,\n and crying won’t help one bit!”"
+  },
+  {
+    id: "0512",
+    text: "{W226H3}{UpperLeftForce}{Zidane}\n“Alright.\n How about we start looking for clues?”"
+  },
+  {
+    id: "0513",
+    text: "{W85H2}{Dagger}\n“I’ll help, too.”"
+  },
+  {
+    id: "0514",
+    text: "{W33H1}Is it{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0515",
+    text: "{W75H1}Is it my fault?"
+  },
+  {
+    id: "0516",
+    text: "{W57H1}{Position 64,80}{White}<Hiccup.>"
+  },
+  {
+    id: "0517",
+    text: "{W57H1}{Position 224,128}{White}<Hiccup.>"
+  },
+  {
+    id: "0518",
+    text: "{W194H3}{Eiko}\n“Is it ’cause I broke my promise\n and opened the Iifa Tree’s seal?”"
+  },
+  {
+    id: "0519",
+    text: "{W177H3}{Eiko}\n“Everyone{Speed 2}...{Speed -1}everyone\n was watching over the stone.”"
+  },
+  {
+    id: "0520",
+    text: "{W6H1}{Widths 0,6,22,-1}{Eiko}?"
+  },
+  {
+    id: "0521",
+    text: "{W157H3}{UpperLeftForce}{Zidane}\n“It just happened that way!\n It wasn’t your fault.”"
+  },
+  {
+    id: "0522",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0523",
+    text: "{W167H3}{UpperLeftForce}{Offset 0,96,0}{Zidane}\n“Besides, we’re the ones who\n made you open the seal!”"
+  },
+  {
+    id: "0524",
+    text: "{W232H3}{UpperLeftForce}{Offset 0,96,0}{Zidane}\n“You understand, right?\n The real villain is the thief who stole it.”"
+  },
+  {
+    id: "0525",
+    text: "{W194H3}{UpperLeftForce}{Offset 0,96,0}{Zidane}\n“So, let’s just look for some clues\n and get that stone back, okay?”"
+  },
+  {
+    id: "0526",
+    text: "{W33H1}Okay!"
+  },
+  {
+    id: "0527",
+    text: "{W154H4}{UpperLeftForce}{Eiko}\n“I wasn’t going to cry,\n you know.\n After all, I’m a grown-up!”"
+  },
+  {
+    id: "0528",
+    text: "{W213H3}{LowerLeftForce}{Offset -30,100,0}{Zidane}\n“We know, {Eiko}.\n But if you feel like crying, just cry.”"
+  },
+  {
+    id: "0529",
+    text: "{W227H3}{UpperLeftForce}{Eiko}\n“I’m gonna go pray to my grandparents!\n I’ll be right back.”"
+  },
+  {
+    id: "0530",
+    text: "{W138H3}{LowerLeftForce}{Offset -30,100,0}{Widths 0,70,18,-1}{Zidane}\n“If you need to, you can\n cry, too, {Dagger}.”"
+  },
+  {
+    id: "0531",
+    text: "{W192H2}{LowerLeftForce}{Offset -30,100,0}{Zidane}\n“My shoulder’s always available.”"
+  },
+  {
+    id: "0532",
+    text: "{W90H2}{UpperLeftForce}{Dagger}\n“Yeah, thanks.”"
+  },
+  {
+    id: "0533",
+    text: "{W114H2}{UpperLeftForce}{Widths 0,114,16,-1}{Dagger}\n“What about you, {Zidane}?”"
+  },
+  {
+    id: "0534",
+    text: "{W139H3}{UpperLeftForce}{Dagger}\n“What do you do\n when you need to cry?”"
+  },
+  {
+    id: "0535",
+    text: "{W118H3}{UpperRightForce}{Zidane}\n“Oh, I get real clingy\n when I’m sad!”"
+  },
+  {
+    id: "0536",
+    text: "{W57H1}{UpperLeftForce}Cut it out!"
+  },
+  {
+    id: "0537",
+    text: "{W120H2}{UpperRightForce}{Zidane}\n“Hey, I was serious.”"
+  },
+  {
+    id: "0538",
+    text: "{W23H1}{NoFocus} !!! {Time -1}"
+  },
+  {
+    id: "0539",
+    text: "{W23H1} !!!"
+  },
+  {
+    id: "0540",
+    text: "{W106H3}{LowerLeftForce}{Offset 0,100,0}{Widths 0,102,22,-1}{Dagger}\n“I heard a scream.\n It sounded like {Eiko}!”"
+  },
+  {
+    id: "0541",
+    text: "{W145H3}{LowerLeftForce}{Offset -40,100,0}{Zidane}\n“Dammit!\n The thief was still here!”"
+  },
+  {
+    id: "0542",
+    text: "{W167H4}{UpperLeftForce}{Vivi}\n“{Zidane}, I saw her!\n It’s that girl from Fossil Roo!\n She took {Eiko}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0543",
+    text: "{W183H2}{UpperLeftForce}{Vivi}\n“They went to the Eidolon Wall!”"
+  },
+  {
+    id: "0544",
+    text: "{W51H1}Let’s go!"
+  },
+  {
+    id: "0545",
+    text: "{W199H3}{Widths 0,154,22,-1}Morrison\n“Look what happened to {Eiko}{Speed 2}...{Speed -1}\n The ancestors will be displeased.”"
+  },
+  {
+    id: "0546",
+    text: "{W154H3}Morrison\n“Tell us if there’s anything\n we can do for you, kupo!”"
+  },
+  {
+    id: "0547",
+    text: "{W47H8}{PreChooseMask 6,5}{Widths 0,0,16,-1,1,83,-1,2,88,-1,3,97,-1,4,62,-1,5,110,-1,6,100,-1}{Instantly}{Zidane}\n“Hmm{Speed 2}...{Speed -1}”\n{Choice}Peek inside\n{Tab}Go save her\n{Tab}Where’s Mog?\n{Tab}Heal us\n{Tab}Treasure Chest\n{Tab}Hold on a sec"
+  },
+  {
+    id: "0548",
+    text: "{W47H8}{PreChooseMask 6,5}{Widths 0,0,16,-1,1,83,-1,2,88,-1,3,97,-1,4,62,-1,5,110,-1,6,100,-1}{Instantly}{Zidane}\n“Hmm{Speed 2}...{Speed -1}”\n{Choice}Peek inside\n{Tab}Go save her\n{Tab}Where’s Mog?\n{Tab}Heal us\n{Tab}Treasure Chest\n{Tab}Hold on a sec"
+  },
+  {
+    id: "0549",
+    text: "{W157H2}Moco\n“I found a treasure, kupo!”"
+  },
+  {
+    id: "0550",
+    text: "{W112H2}{Widths 0,112,22,-1}Chimomo\n“Use it for {Eiko}, kupo!”"
+  },
+  {
+    id: "0551",
+    text: "{W150H2}{UpperLeft}{Zidane}\n“Was Mog captured, too?”"
+  },
+  {
+    id: "0552",
+    text: "{W109H3}Morrison\n“Nope, Mog is right\n here behind me.”"
+  },
+  {
+    id: "0553",
+    text: "{W39H1}Kupo{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0554",
+    text: "{W128H3}{UpperLeft}{Widths 0,62,22,-1}{Zidane}\n“Mog, I need your help\n to save {Eiko}.”"
+  },
+  {
+    id: "0555",
+    text: "{W73H2}Mog\n“Ku-Kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0556",
+    text: "{W239H3}{UpperLeft}{Zidane}\n“I got an idea.\n It’s alright.  You won’t be in any danger.”"
+  },
+  {
+    id: "0557",
+    text: "{W157H4}{UpperLeft}{Zidane}\n“I’m gonna surprise her.\n Then, she’ll be all ours.\n Just leave it to me, okay?”"
+  },
+  {
+    id: "0558",
+    text: "{W65H2}Mog\n“Ku{Speed 2}...{Speed -1}po{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0559",
+    text: "{W142H4}{UpperLeft}{Widths 0,80,22,-1}{Zidane}\n“You understand what I’m\n saying, right?\n {Eiko} needs help!”"
+  },
+  {
+    id: "0560",
+    text: "{W171H2}Morrison\n“Mog!  They need you, kupo!”"
+  },
+  {
+    id: "0561",
+    text: "{W190H3}Morrison\n“It’s no use.\n Mog has always been a coward.”"
+  },
+  {
+    id: "0562",
+    text: "{W170H3}{UpperLeft}{Zidane}\n“Yeah{Speed 2}...{Speed -1}\n Well, we gotta do something.”"
+  },
+  {
+    id: "0563",
+    text: "{W146H3}{UpperLeft}{Zidane}\n“Maybe there’s something\n useful inside.”"
+  },
+  {
+    id: "0564",
+    text: "{W179H3}{UpperLeft}{Zidane}\n“Quick, go check that treasure\n chest out.”"
+  },
+  {
+    id: "0565",
+    text: "{W156H3}{UpperLeft}{Zidane}\n“Go check it out\n just one more time, okay?”"
+  },
+  {
+    id: "0566",
+    text: "{W86H2}{Widths 0,86,22,-1}{Instantly}Chimomo\n“Save {Eiko}, kupo!”"
+  },
+  {
+    id: "0567",
+    text: "{W232H3}Moco\n“Another hornless human{Speed 2}...{Speed -1}\n She’d better not be in league with you!”"
+  },
+  {
+    id: "0568",
+    text: "{W152H3}Moco\n“I won’t forgive you if\n anything happens to her!”"
+  },
+  {
+    id: "0569",
+    text: "{W147H4}Momatose\n“What should I do, kupo!?\n What should I do, kupo!?\n What should I do, kupo!?”"
+  },
+  {
+    id: "0570",
+    text: "{W93H1}{UpperLeft}Alright, let’s go!"
+  },
+  {
+    id: "0571",
+    text: "{W101H3}{UpperLeftForce}{Eiko}\n“This is no way to\n treat a lady!”"
+  },
+  {
+    id: "0572",
+    text: "{W235H3}{LowerRightForce}Lani\n“What’s this wing ornament on your back?\n It makes you so easy to pick up.”"
+  },
+  {
+    id: "0573",
+    text: "{W178H3}{UpperLeftForce}{Eiko}\n“My grandpa gave it to me!\n Get your grubby hands off it!”"
+  },
+  {
+    id: "0574",
+    text: "{W96H4}{LowerRightForce}Lani\n“Oh, shut up.\n Just be still until\n he gets here.”"
+  },
+  {
+    id: "0575",
+    text: "{W112H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Well, so there’s my\n good sir knight.”"
+  },
+  {
+    id: "0576",
+    text: "{W119H3}{Zidane}\n“What have you done\n to {Eiko}!?”"
+  },
+  {
+    id: "0577",
+    text: "{W250H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“She was too rambunctious,\n so I put her to sleep with a sleeping weed.”"
+  },
+  {
+    id: "0578",
+    text: "{W204H3}{Zidane}\n“Sleeping weed, eh?\n Then she’s probably sleeping well.”"
+  },
+  {
+    id: "0579",
+    text: "{W188H3}{Dagger}\n“If it’s my pendant you’re after,\n then leave the others out of it!”"
+  },
+  {
+    id: "0580",
+    text: "{W189H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“No can do.  This is\n way too convenient to pass up!”"
+  },
+  {
+    id: "0581",
+    text: "{W206H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Hand over your pendant,\n and I’ll hand over the girl, capice?”"
+  },
+  {
+    id: "0582",
+    text: "{W178H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“What happened to the pendant\n that you always have on!?”"
+  },
+  {
+    id: "0583",
+    text: "{W64H2}{Widths 0,0,16,-1}{Zidane}\n“I have it.”"
+  },
+  {
+    id: "0584",
+    text: "{W194H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Oh, you really are a good knight.\n Now, cough it up already!”"
+  },
+  {
+    id: "0585",
+    text: "{W145H2}{Widths 0,145,22,-1}{Zidane}\n{White}(If only {Eiko} was conscious{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0586",
+    text: "{W128H2}{Instantly}{Zidane}\n{White}(I gotta outsmart her.)"
+  },
+  {
+    id: "0587",
+    text: "{W229H3}{Zidane}\n“First, tell me something.\n Was it you who stole the village stone?”"
+  },
+  {
+    id: "0588",
+    text: "{W209H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Trying to distract me?\n No go, joe.  I’m havin’ a great day.”"
+  },
+  {
+    id: "0589",
+    text: "{W131H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Queen Brahne is after\n the royal pendant.”"
+  },
+  {
+    id: "0590",
+    text: "{W153H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“I found another jewel just\n like it in this village!”"
+  },
+  {
+    id: "0591",
+    text: "{W129H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“I’m glad I came all this\n way looking for it!”"
+  },
+  {
+    id: "0592",
+    text: "{W118H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“Now, hand it over!”"
+  },
+  {
+    id: "0593",
+    text: "{W107H2}{Zidane}\n{White}(Time to get it on!)"
+  },
+  {
+    id: "0594",
+    text: "{W32H1} Grr!"
+  },
+  {
+    id: "0595",
+    text: "{W60H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“Hold on!”"
+  },
+  {
+    id: "0596",
+    text: "{W222H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“You’re plotting something, aren’t you?\n Stay right there!”"
+  },
+  {
+    id: "0597",
+    text: "{W110H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“You, black mage!”"
+  },
+  {
+    id: "0598",
+    text: "{W83H2}{Vivi}\n“Huh?  M-Me?”"
+  },
+  {
+    id: "0599",
+    text: "{W137H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“Bring me the pendant!”"
+  },
+  {
+    id: "0600",
+    text: "{W167H3}{UpperLeftForce}{Offset -640,0,0}Lani\n“Remember, do as I say\n if you value this brat’s life!”"
+  },
+  {
+    id: "0601",
+    text: "{W26H2}{Widths 0,0,17,-1,0,26,16,-1}{Vivi}\n“{Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0602",
+    text: "{W52H2}{Widths 0,0,16,-1,0,52,17,-1}{Zidane}\n“Do it, {Vivi}.”"
+  },
+  {
+    id: "0603",
+    text: "{W68H2}{Widths 0,0,17,-1}{Vivi}\n“O-Okay{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0604",
+    text: "{W66H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“Hahaha{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0605",
+    text: "{W41H1}{UpperCenter}Hold it!"
+  },
+  {
+    id: "0606",
+    text: "{W122H2}{UpperLeftForce}{Offset -640,0,0}Lani\n“Stop dilly-dallying!{Signal 1}”"
+  },
+  {
+    id: "0607",
+    text: "{W36H1}{NoFocus}Aaa!!!{Time 30}"
+  },
+  {
+    id: "0608",
+    text: "{W123H3}{Zidane}\n“I dunno who you are,\n but thanks!”"
+  },
+  {
+    id: "0609",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0610",
+    text: "{W48H1}<Yawn.>"
+  },
+  {
+    id: "0611",
+    text: "{W85H2}Yo!\nCan you stand?"
+  },
+  {
+    id: "0612",
+    text: "{W104H3}{Eiko}\n“Huh?\n What’s going on?”"
+  },
+  {
+    id: "0613",
+    text: "{W23H1} !!!"
+  },
+  {
+    id: "0614",
+    text: "{W136H2}{Eiko}\n“Where’s that old hag?”"
+  },
+  {
+    id: "0615",
+    text: "{W166H3}Lani\n“Oh, that’s it!\n Who are you calling a hag!?”"
+  },
+  {
+    id: "0616",
+    text: "{W39H2}{Widths 0,0,22,-1}{Eiko}\n“You!”"
+  },
+  {
+    id: "0617",
+    text: "{W215H3}{Zidane}\n“So, the tables turn!\n Now, hand over the jewel you stole!”"
+  },
+  {
+    id: "0618",
+    text: "{W116H3}Lani\n“What are you tryin’\n to do, Red!?”"
+  },
+  {
+    id: "0619",
+    text: "{W188H3}Lani\n“I thought you’re supposed to be\n the number one bandit!”"
+  },
+  {
+    id: "0620",
+    text: "{W145H2}{Dagger}\n“I’ve seen him before{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0621",
+    text: "{W147H3}{Dagger}\n“He’s the one with wanted\n posters all over Treno!”"
+  },
+  {
+    id: "0622",
+    text: "{W145H3}{UpperRightForce}Red-headed Man\n“I’m not here to help.\n I just want it to be fair.”"
+  },
+  {
+    id: "0623",
+    text: "{W158H1}{Center 158}What are you talking about?"
+  },
+  {
+    id: "0624",
+    text: "{W126H3}{UpperRightForce}Red-headed Man\n“Leave the jewel\n and get out of here.”"
+  },
+  {
+    id: "0625",
+    text: "{W166H3}Lani\n“What!?\n We’re partners on this job!”"
+  },
+  {
+    id: "0626",
+    text: "{W192H3}{UpperLeftForce}Red-headed Man\n“I don’t work with hostage-taking\n scumbags.  Now, get lost.”"
+  },
+  {
+    id: "0627",
+    text: "{W189H2}Red-headed Man\n“Or{Speed 2}...{Speed -1}would you rather fight me?”"
+  },
+  {
+    id: "0628",
+    text: "{W230H3}Lani\n“Mark my words!\n I’ll collect the bounty on YOU someday!”"
+  },
+  {
+    id: "0629",
+    text: "{W79H1}Now, fight me!"
+  },
+  {
+    id: "0630",
+    text: "{W119H3}{Zidane}\n“Just a second here.\n What’s going on?”"
+  },
+  {
+    id: "0631",
+    text: "{W216H3}Red-headed Man\n“I told you.  I’m not here to help.\n I just want to level the playing field.”"
+  },
+  {
+    id: "0632",
+    text: "{W154H2}{Zidane}\n“Fair enough.  Let’s do it.”"
+  },
+  {
+    id: "0633",
+    text: "{W5H1}{LowerRightForce}{Offset 10,50,0}{Widths 0,5,16,-1}{Zidane}!"
+  },
+  {
+    id: "0634",
+    text: "{W54H1}It’s okay."
+  },
+  {
+    id: "0635",
+    text: "{W158H3}{Zidane}\n“I was just looking for more\n ways to impress you!”"
+  },
+  {
+    id: "0636",
+    text: "{W42H1}I{Speed 2}...{Speed -1}lost?"
+  },
+  {
+    id: "0637",
+    text: "{W111H2}Red-headed Man\n“Go on.  Finish me!”"
+  },
+  {
+    id: "0638",
+    text: "{W85H1}{UpperLeft}Can you stand?"
+  },
+  {
+    id: "0639",
+    text: "{W97H3}{UpperLeft}{Zidane}\n“Give back\n what you stole.”"
+  },
+  {
+    id: "0640",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0641",
+    text: "{W97H2}{UpperLeft}{Widths 0,97,22,-1}{Zidane}\n“{Eiko}, I got it back!”"
+  },
+  {
+    id: "0642",
+    text: "{W96H2}Red-headed Man\n“Now, finish me!”"
+  },
+  {
+    id: "0643",
+    text: "{W144H3}{UpperLeft}{Zidane}\n“You wanna die that bad?\n I just spared your life.”"
+  },
+  {
+    id: "0644",
+    text: "{W193H2}Red-headed Man\n“So you want to banish me, then?”"
+  },
+  {
+    id: "0645",
+    text: "{W133H3}{UpperLeft}{Zidane}\n“You can go if ya want.\n I won’t follow you.”"
+  },
+  {
+    id: "0646",
+    text: "{W176H2}Red-headed Man\n“Aha!  Trying to trick me, eh?”"
+  },
+  {
+    id: "0647",
+    text: "{W60H1}{UpperLeft}Trick you?"
+  },
+  {
+    id: "0648",
+    text: "{W162H3}Red-headed Man\n“I tried to kill you!\n Why are you letting me go?”"
+  },
+  {
+    id: "0649",
+    text: "{W191H3}{UpperLeft}{Zidane}\n“The fight’s over, and we’re both\n still alive.  Good enough, right?”"
+  },
+  {
+    id: "0650",
+    text: "{W149H3}{UpperLeft}{Zidane}\n“We got back what was\n stolen from us, after all.”"
+  },
+  {
+    id: "0651",
+    text: "{W136H3}Red-headed Man\n“Listen to you.  I lost to\n some spineless thief.”"
+  },
+  {
+    id: "0652",
+    text: "{W121H3}{UpperLeft}{Zidane}\n“The sly eagle\n doesn’t kill at whim.”"
+  },
+  {
+    id: "0653",
+    text: "{W32H1} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0654",
+    text: "{W161H2}{Zidane}\n“Keep that in a safe place.”"
+  },
+  {
+    id: "0655",
+    text: "{W63H3}{Widths 0,0,22,-1,0,63,16,-1}{Eiko}\n“I will!\n Thanks, {Zidane}!”"
+  },
+  {
+    id: "0656",
+    text: "{W177H4}{Eiko}\n“Well!?  You’re not going to\n leave me alone after what just\n happened, are you!?”"
+  },
+  {
+    id: "0657",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0658",
+    text: "{W53H1}I’m going!"
+  },
+  {
+    id: "0659",
+    text: "{W32H1}{UpperRight} {Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0660",
+    text: "{W51H1}Shall we?"
+  },
+  {
+    id: "0661",
+    text: "{W152H3}Chimomo\n“Mog’s trying to apologize\n to {Eiko}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0662",
+    text: "{W148H3}Chimomo\n“But I guess she still can’t\n find the right words.”"
+  },
+  {
+    id: "0663",
+    text: "{W166H3}{Widths 0,149,22,-1}Chimomo\n“They were born on the same\n day, but {Eiko} came out first.”"
+  },
+  {
+    id: "0664",
+    text: "{W122H4}{Widths 0,69,22,-1}Chimomo\n“Maybe that’s why\n {Eiko} has always\n been the big sister.”"
+  },
+  {
+    id: "0665",
+    text: "{W113H2}{Widths 0,113,21,-1}Chimomo\n“{Quina} was fishing here.”"
+  },
+  {
+    id: "0666",
+    text: "{W171H4}Chimomo\n“But all the sudden, s/he said,\n ‘They no here!’  And then,\n ‘They leave me!’”"
+  },
+  {
+    id: "0667",
+    text: "{W198H3}Chimomo\n“S/he said ‘I swim home!’\n and jumped into the ocean, kupo.”"
+  },
+  {
+    id: "0668",
+    text: "{W194H2}{Offset 0,-64,0}{UpperLeftForce}{Vivi}\n“She’s been quiet the whole time.”"
+  },
+  {
+    id: "0669",
+    text: "{W165H2}{Widths 0,165,16,-1}{Eiko}\n“{Zidane}, let me ask you something.”"
+  },
+  {
+    id: "0670",
+    text: "{W177H4}{Eiko}\n“My grandfather told me not to\n leave the village until my\n sixteenth birthday{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0671",
+    text: "{W181H3}{Eiko}\n“But I want to go with you guys!\n I really do!”"
+  },
+  {
+    id: "0672",
+    text: "{W260H4}{PreChoose 2,1}{Instantly}{Eiko}\n“Do you think it’s okay if I leave the village?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0673",
+    text: "{W107H3}{Zidane}\n“I’ll agree if that’s\n what you want.”"
+  },
+  {
+    id: "0674",
+    text: "{W196H3}{Zidane}\n“‘{Eiko}, come with us.\n Forget what your grandpa said.’”"
+  },
+  {
+    id: "0675",
+    text: "{W150H3}{Zidane}\n“You want me to stop you?\n Fine.”"
+  },
+  {
+    id: "0676",
+    text: "{W269H3}{Zidane}\n“‘Stay here ’til you’re sixteen.\n Keep the promise you made to your grandpa.’”"
+  },
+  {
+    id: "0677",
+    text: "{W207H3}{Zidane}\n“It doesn’t matter what I say.\n You’ve already made up your mind.”"
+  },
+  {
+    id: "0678",
+    text: "{W189H3}{Zidane}\n“Don’t you have something to say\n to her, {Vivi}?”"
+  },
+  {
+    id: "0679",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0680",
+    text: "{W174H3}{Vivi}\n“Remember what you taught me\n at the Iifa Tree?”"
+  },
+  {
+    id: "0681",
+    text: "{W115H3}{Vivi}\n“You said I shouldn’t\n ever lie to myself.”"
+  },
+  {
+    id: "0682",
+    text: "{W217H3}{Widths 0,177,22,-1}{Vivi}\n“I’ll try to be more honest with my own\n feelings{Speed 2}...{Speed -1} You should, too, {Eiko}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0683",
+    text: "{W40H1}{UpperLeft}Hmmm{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0684",
+    text: "{W149H3}{UpperLeft}{Widths 0,149,17,-1}{Eiko}\n“I forgot my own advice, {Vivi}!\n Thanks!”"
+  },
+  {
+    id: "0685",
+    text: "{W192H3}{UpperLeft}{Widths 0,156,16,-1}{Eiko}\n“I’ll wear the jewel as an earring.\n It’ll be okay then, right, {Zidane}?”"
+  },
+  {
+    id: "0686",
+    text: "{W6H1}{Offset -10,80,0}{Widths 0,6,22,-1}{Eiko}?"
+  },
+  {
+    id: "0687",
+    text: "{W103H3}{Offset -10,80,0}{Dagger}\n“I think Mog wants\n to talk to you.”"
+  },
+  {
+    id: "0688",
+    text: "{W51H1}Ku-Kupo."
+  },
+  {
+    id: "0689",
+    text: "{W50H1}Kuuupoh!"
+  },
+  {
+    id: "0690",
+    text: "{W151H3}{UpperLeft}{Eiko}\n“What?\n You think I’m mad at you?”"
+  },
+  {
+    id: "0691",
+    text: "{W182H4}{UpperLeft}{Eiko}\n“I’m furious!\n You went off without me again!\n You promised me you wouldn’t!”"
+  },
+  {
+    id: "0692",
+    text: "{W176H3}{UpperLeft}{Eiko}\n“What would you do if you went\n off and got into trouble!?”"
+  },
+  {
+    id: "0693",
+    text: "{W39H1}Kupo{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0694",
+    text: "{W147H3}{UpperLeft}{Eiko}\n“Oh well.  Thank goodness\n we’re both alright.”"
+  },
+  {
+    id: "0695",
+    text: "{W159H3}{Vivi}\n“You’re always nice to Mog,\n aren’t you, {Eiko}?”"
+  },
+  {
+    id: "0696",
+    text: "{W176H3}{UpperLeft}{Eiko}\n“Well, yeah.\n We’re best friends, after all!”"
+  },
+  {
+    id: "0697",
+    text: "{W213H3}{UpperLeft}{Eiko}\n“We were born on the same day,\n and we have always been together!”"
+  },
+  {
+    id: "0698",
+    text: "{W170H3}{UpperLeft}{Eiko}\n“This is our friendship ribbon!\n Mog gave it to me!”"
+  },
+  {
+    id: "0699",
+    text: "{W168H3}{UpperLeft}{Eiko}\n“Mog, do you have the ribbon\n I gave you?”"
+  },
+  {
+    id: "0700",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0701",
+    text: "{W93H3}{UpperLeft}{Eiko}\n“This is the one\n I gave to Mog!”"
+  },
+  {
+    id: "0702",
+    text: "{W239H4}{UpperLeft}{Eiko}\n“It’s too big for her now,\n but once we’re both sophisticated ladies,\n we’ll wear them together!”"
+  },
+  {
+    id: "0703",
+    text: "{W32H1}Kupo!"
+  },
+  {
+    id: "0704",
+    text: "{W117H3}{UpperLeft}{Widths 0,117,16,-1}{Eiko}\n“Maybe then, {Zidane}, you’ll\n dance with me?”"
+  },
+  {
+    id: "0705",
+    text: "{W6H1}{UpperLeft}{Widths 0,6,16,-1}{Zidane}?"
+  },
+  {
+    id: "0706",
+    text: "{W140H3}{UpperRightForce}{Zidane}\n“I didn’t know Mog was a\n girl{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0707",
+    text: "{W130H3}{Vivi}\n“Do you think I need to\n stay here{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0708",
+    text: "{W185H4}{Eiko}\n“I’m thinking about something.{Wait 10}\n We’ll go pray at the Eidolon Wall\n later.  And then we’ll eat.”"
+  },
+  {
+    id: "0709",
+    text: "{W152H2}{Widths 0,152,18,-1}{Zidane}\n“I wonder where {Dagger} went{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0710",
+    text: "{W124H2}{Zidane}\n“I can hear a song{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0711",
+    text: "{W32H2}{Widths 0,0,16,-1,0,32,18,-1}{Zidane}\n“{Dagger}{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0712",
+    text: "{W114H2}{Zidane}\n“From down there?”"
+  },
+  {
+    id: "0713",
+    text: "{W83H2}{Widths 0,83,18,-1}{Zidane}\n“{Dagger}, you there?”"
+  },
+  {
+    id: "0714",
+    text: "{W12H1}{Widths 0,12,16,-1}{Zidane}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0715",
+    text: "{W164H3}{Zidane}\n“It’s okay.  Keep singing.\n ’Cause it’s our song, right?”"
+  },
+  {
+    id: "0716",
+    text: "{W138H3}{Zidane}\n“I’m surprised you found\n this place.”"
+  },
+  {
+    id: "0717",
+    text: "{W216H4}{Zidane}\n“You got the talent to be a bandit!\n How ’bout you and me team up?\n We’ll call ourselves ‘The Betrothed.’”"
+  },
+  {
+    id: "0718",
+    text: "{W138H3}{Dagger}\n“My talent’s up to snuff,\n but that name isn’t.”"
+  },
+  {
+    id: "0719",
+    text: "{W213H3}{Zidane}\n“Hehehe.\n You’re really something these days.”"
+  },
+  {
+    id: "0720",
+    text: "{W170H3}{Dagger}\n“If I am,\n I must’ve gotten it from you.”"
+  },
+  {
+    id: "0721",
+    text: "{W153H4}{Zidane}\n“Naw{Speed 2}...{Speed -1}\n It’s all because you\n made the effort to learn.”"
+  },
+  {
+    id: "0722",
+    text: "{W114H3}{Dagger}\n“No, it’s because\n you stuck with me.”"
+  },
+  {
+    id: "0723",
+    text: "{W275H3}{Dagger}\n“Without you, I couldn’t have made it to Lindblum,\n much less seen a whole new continent.”"
+  },
+  {
+    id: "0724",
+    text: "{W201H4}{Dagger}\n“Everything I tried to do on my own\n was a total failure.\n I couldn’t stop my mother{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0725",
+    text: "{W172H2}{Dagger}\n“At times I almost lost hope{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0726",
+    text: "{W145H3}{Dagger}\n“You helped me so much{Speed 2}...{Speed -1}\n Not just you, either.”{Signal 1}"
+  },
+  {
+    id: "0727",
+    text: "{W118H6}{Widths 0,74,17,-1,0,105,22,-1,0,90,21,-1}{Zidane}\n“Yeah{Speed 2}...{Speed -1} {Vivi} and\n {Eiko} helped out at the\n Iifa Tree.  {Quina} was\n real helpful when we\n left the continent.”"
+  },
+  {
+    id: "0728",
+    text: "{W280H3}{Zidane}\n“{Fraya}, {Steiner}{Speed 2}...{Speed -1}\n and even Beatrix, who I thought was our enemy.”"
+  },
+  {
+    id: "0729",
+    text: "{W214H4}{Dagger}\n“I haven’t forgotten{Speed 2}...{Speed -1}\n I want to believe everyone is alright,\n but sometimes I just can’t.”"
+  },
+  {
+    id: "0730",
+    text: "{W192H3}{Dagger}\n“I hope I can live up to the hopes\n of everyone who has helped me.”"
+  },
+  {
+    id: "0731",
+    text: "{W150H3}{Widths 0,88,18,-1}{Zidane}\n“You don’t have to feel so\n responsible, {Dagger}.”"
+  },
+  {
+    id: "0732",
+    text: "{W48H1}But I do!"
+  },
+  {
+    id: "0733",
+    text: "{W125H3}{Zidane}\n“Nobody wants you to\n feel that way.”"
+  },
+  {
+    id: "0734",
+    text: "{W209H3}{Zidane}\n“They didn’t do it all for you, either.\n Each was following his own path.”"
+  },
+  {
+    id: "0735",
+    text: "{W98H2}{Dagger}\n“His own{Speed 2}...{Speed -1}path?”"
+  },
+  {
+    id: "0736",
+    text: "{W135H2}{Dagger}\n“Well, what about you?”"
+  },
+  {
+    id: "0737",
+    text: "{W33H1} Huh?"
+  },
+  {
+    id: "0738",
+    text: "{W162H2}{Dagger}\n“Why did you come with me?”"
+  },
+  {
+    id: "0739",
+    text: "{W146H2}{Zidane}\n“Hey, that’s Ipsen’s line.”"
+  },
+  {
+    id: "0740",
+    text: "{W121H2}{Dagger}\n“Ipsen?  Who’s that?”"
+  },
+  {
+    id: "0741",
+    text: "{W254H4}{Zidane}\n“Ipsen is a character from a play,\n but he’s a real-life adventurer.\n I think the play is based on his adventures.”"
+  },
+  {
+    id: "0742",
+    text: "{W156H2}{Zidane}\n“It kind of goes like this{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0743",
+    text: "{W172H2}{Instantly}{Center 172}Ipsen and his good friend Colin\n{Center 165}worked at a tavern in Treno.{Time -1}"
+  },
+  {
+    id: "0744",
+    text: "{W205H3}{Instantly}{Center 157}One day, Ipsen got a letter.\n{Center 205}The letter was so wet from rain that\n{Center 181}most of the writing was illegible.{Time -1}"
+  },
+  {
+    id: "0745",
+    text: "{W298H4}{Instantly}{Center 298}The only part he could read said “Come back home.”\n{Center 0}\n{Center 217}Nowadays, we have airships and stuff,\n{Center 245}but back then, it was really hard to travel.{Time -1}"
+  },
+  {
+    id: "0746",
+    text: "{W256H3}{Instantly}{Center 218}He didn’t know why he had to go back,\n{Center 256}but he got some time off, gathered his things,\n{Center 183}and set out on his journey home.{Time -1}"
+  },
+  {
+    id: "0747",
+    text: "{W314H3}{Instantly}{Center 268}He walked a thousand leagues through the Mist.\n{Center 273}Sometimes he was attacked by vicious monsters,\n{Center 314}but he made it, because his friend Colin was by his side.{Time -1}"
+  },
+  {
+    id: "0748",
+    text: "{W224H1}{Instantly}And then, after much time on the road{Speed 2}...{Speed -1}{Time -1}"
+  },
+  {
+    id: "0749",
+    text: "{W170H1}{Instantly}He had to ask Colin something.{Time -1}"
+  },
+  {
+    id: "0750",
+    text: "{W162H1}{Instantly}“Why did you come with me?”{Time -1}"
+  },
+  {
+    id: "0751",
+    text: "{W189H2}{Dagger}\n“And?  What was Colin’s answer?”"
+  },
+  {
+    id: "0752",
+    text: "{W235H2}{Zidane}\n“‘Only because I wanted to go with you.’”"
+  },
+  {
+    id: "0753",
+    text: "{W26H2}{Widths 0,0,18,-1,0,26,16,-1}{Dagger}\n“{Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0754",
+    text: "{W29H2}{Widths 0,0,18,-1}{Dagger}\n“I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0755",
+    text: "{W20H1} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0756",
+    text: "{W20H2}{Widths 0,0,16,-1,0,20,18,-1}{Zidane}\n“{Dagger}?”"
+  },
+  {
+    id: "0757",
+    text: "{W152H3}{Dagger}\n“Can’t you{Speed 2}...{Speed -1}\n Can’t you hear the song?”"
+  },
+  {
+    id: "0758",
+    text: "{W30H1}Huh!?"
+  },
+  {
+    id: "0759",
+    text: "{W91H3}{Zidane}\n“Yeah{Speed 2}...{Speed -1}\n It’s that song!”"
+  },
+  {
+    id: "0760",
+    text: "{W107H3}{Dagger}\n“How come{Speed 2}...{Speed -1}\n Who’s singing it!?”"
+  },
+  {
+    id: "0761",
+    text: "{W15H1}{Center 15}!!!"
+  },
+  {
+    id: "0762",
+    text: "{W196H3}{Dagger}\n“The sunset makes the Eidolon Wall\n look like it’s on fire!”"
+  },
+  {
+    id: "0763",
+    text: "{W147H3}{Dagger}\n“I’ve seen this somewhere\n before{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0764",
+    text: "{W94H2}{Zidane}\n“What?  Where?”"
+  },
+  {
+    id: "0765",
+    text: "{W19H2}{Widths 0,0,16,-1,0,19,18,-1}{Zidane}\n“{Dagger}!”"
+  },
+  {
+    id: "0766",
+    text: "{W62H3}{Widths 0,0,16,-1,0,18,18,-1}{Zidane}\n“{Dagger}!?\n Wake up!”"
+  },
+  {
+    id: "0767",
+    text: "{W108H3}{Widths 0,51,22,-1}Momatose\n“Thanks for saving\n {Eiko}, kupo!”"
+  },
+  {
+    id: "0768",
+    text: "{W68H2}{Widths 0,0,16,-1,0,68,17,-1}{Zidane}\n“Where’s {Vivi}?”"
+  },
+  {
+    id: "0769",
+    text: "{W159H3}{Eiko}\n“He’s sleeping.\n I don’t wanna wake him up.”"
+  },
+  {
+    id: "0770",
+    text: "{W41H2}{Widths 0,0,16,-1}{Zidane}\n“Well?”"
+  },
+  {
+    id: "0771",
+    text: "{W120H3}{UpperLeftForce}{Dagger}\n“I have no memory of\n my early childhood.”"
+  },
+  {
+    id: "0772",
+    text: "{W130H3}{UpperLeftForce}{Dagger}\n“I never really thought\n about it.”"
+  },
+  {
+    id: "0773",
+    text: "{W130H3}{UpperLeftForce}{Dagger}\n“Besides, nobody ever\n told me.”"
+  },
+  {
+    id: "0774",
+    text: "{W206H3}{UpperLeftForce}{Dagger}\n“I was raised in Alexandria{Speed 2}...{Speed -1}\n but only from the age of six or so.”"
+  },
+  {
+    id: "0775",
+    text: "{W171H3}{Zidane}\n“Six!?\n So where were you till then?”"
+  },
+  {
+    id: "0776",
+    text: "{W115H3}{UpperLeftForce}{Dagger}\n“Until then{Speed 2}...{Speed -1}\n Until I turned six{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0777",
+    text: "{W227H2}{UpperLeftForce}{Dagger}\n“I must have been here, in Madain Sari.”"
+  },
+  {
+    id: "0778",
+    text: "{W266H3}{Dagger}\n“I still can’t remember everything.\n Some things are like they’re shrouded in fog.”"
+  },
+  {
+    id: "0779",
+    text: "{W168H1}But I do remember one thing{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0780",
+    text: "{W218H4}{Dagger}\n“About ten years ago, an unbelievably\n huge hurricane hit this village.\n That’s as far as I remember.”"
+  },
+  {
+    id: "0781",
+    text: "{W172H4}{Dagger}\n“That day, I{Speed 2}...{Speed -1}I was\n with my true mother on a little\n boat, far from the village.”"
+  },
+  {
+    id: "0782",
+    text: "{W184H4}{Widths 0,147,22,-1}{Dagger}\n“There’s a cove behind {Eiko}’s\n house, right?{Wait 10}  The boat I was on\n was just like the one there.”"
+  },
+  {
+    id: "0783",
+    text: "{W130H4}{Dagger}\n“It all came back to me\n when I heard that\n song on the boat.”"
+  },
+  {
+    id: "0784",
+    text: "{W213H3}{UpperLeft}{Zidane}\n“That song is from Madain Sari{Speed 2}...{Speed -1}\n So that’s why nobody else knows it.”"
+  },
+  {
+    id: "0785",
+    text: "{W113H3}{UpperLeft}{Eiko}\n“How did you get to\n Alexandria?”"
+  },
+  {
+    id: "0786",
+    text: "{W142H3}{UpperLeft}{Eiko}\n“How come you got to be\n a princess?”"
+  },
+  {
+    id: "0787",
+    text: "{W160H3}{UpperLeft}{Eiko}\n“How come you don’t have a\n summoner’s horn?”"
+  },
+  {
+    id: "0788",
+    text: "{W86H2}{UpperRight}{Dagger}\n“I don’t know.”"
+  },
+  {
+    id: "0789",
+    text: "{W154H3}{UpperRight}{Dagger}\n“But maybe Doctor Tot can\n tell me.”"
+  },
+  {
+    id: "0790",
+    text: "{W201H4}{UpperRight}{Dagger}\n“About the lady who protected me\n from the storm as the boat lurched\n about in the waves{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0791",
+    text: "{W151H3}{UpperRight}{Dagger}\n“My biological mother, who\n died on that boat.”"
+  },
+  {
+    id: "0792",
+    text: "{W223H4}{UpperRight}{Zidane}\n{White}(The woman she thought was her mother\n became someone else, and her true\n mother was already dead{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0793",
+    text: "{W142H2}{UpperRight}{Widths 0,142,18,-1}{Zidane}\n({Dagger} has lost two mothers{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0794",
+    text: "{W184H3}{UpperLeft}{Dagger}\n“I used to pray every day here,\n at the Eidolon Wall.”"
+  },
+  {
+    id: "0795",
+    text: "{W53H1}{UpperRight}You, too?"
+  },
+  {
+    id: "0796",
+    text: "{W122H1}{UpperLeft}{Widths 0,122,22,-1}You pray here, too, {Eiko}?"
+  },
+  {
+    id: "0797",
+    text: "{W166H2}{UpperLeft}{Dagger}\n“I’m so happy I remembered.”"
+  },
+  {
+    id: "0798",
+    text: "{W5H1}{UpperRight}{Widths 0,5,18,-1}{Dagger}!"
+  },
+  {
+    id: "0799",
+    text: "{W82H1}{UpperRight}Welcome home!"
+  },
+  {
+    id: "0800",
+    text: "{W112H1}{UpperLeft}So glad to be back."
+  },
+  {
+    id: "0801",
+    text: "{W37H1}{UpperRight}Ahaha."
+  },
+  {
+    id: "0802",
+    text: "{W32H1}{UpperLeft}What?"
+  },
+  {
+    id: "0803",
+    text: "{W137H3}{UpperRight}{Eiko}\n“I just realized\n I’m not alone anymore!”"
+  },
+  {
+    id: "0804",
+    text: "{W131H1}{UpperRight}Yep, I made up my mind!"
+  },
+  {
+    id: "0805",
+    text: "{W114H3}{Widths 0,19,16,18,-1}{Eiko}\n“{Zidane}, {Dagger},\n I’m going with you!”"
+  },
+  {
+    id: "0806",
+    text: "{W191H3}{Eiko}\n“I’ll be breaking my promise to my\n grandpa, but I wanna go!”"
+  },
+  {
+    id: "0807",
+    text: "{W207H3}{Eiko}\n“Besides, grandpa always told me to\n be honest with myself!”"
+  },
+  {
+    id: "0808",
+    text: "{W218H2}{Dagger}\n“I don’t know what the future holds{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0809",
+    text: "{W148H3}{Dagger}\n“But I want to finish what I\n came here for.”"
+  },
+  {
+    id: "0810",
+    text: "{W58H2}{Widths 0,0,16,-1}{Zidane}\n“So do I!”"
+  },
+  {
+    id: "0811",
+    text: "{W136H2}{Zidane}\n“Let’s all go together!”"
+  },
+  {
+    id: "0812",
+    text: "{W144H3}{Eiko}\n“Come on, {Dagger},\n let’s go pray together!”"
+  },
+  {
+    id: "0813",
+    text: "{W42H1}Alright!"
+  },
+  {
+    id: "0814",
+    text: "{W134H3}{Dagger}\n(I still don’t know what I\n should do{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0815",
+    text: "{W161H3}{Dagger}\n(By the time we defeat Kuja\n and return to Alexandria{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0816",
+    text: "{W167H2}{Eiko}\n“Grandpa, I’ll be back soon!”"
+  },
+  {
+    id: "0817",
+    text: "{W166H2}{Vivi}\n“Oh, you’re coming with us!?”"
+  },
+  {
+    id: "0818",
+    text: "{W122H3}{Eiko}\n“Hey!\n Why the long face!?”"
+  },
+  {
+    id: "0819",
+    text: "{W163H3}{Vivi}\n“Oh, nothing{Speed 2}...{Speed -1}\n My face is always like this.”"
+  },
+  {
+    id: "0820",
+    text: "{W119H2}{Eiko}\n“Mog’s coming, too!”"
+  },
+  {
+    id: "0821",
+    text: "{W37H1}Mog!!!"
+  },
+  {
+    id: "0822",
+    text: "{W36H1}{Widths 0,36,22,-1}Lady {Eiko}!"
+  },
+  {
+    id: "0823",
+    text: "{W149H4}Morrison\n“Now, don’t forget that\n you’ll always have a home\n in Madain Sari.”"
+  },
+  {
+    id: "0824",
+    text: "{W149H5}Morrison\n“Don’t let our\n memory become a burden.\n You must always be\n light-hearted and free.”"
+  },
+  {
+    id: "0825",
+    text: "{W139H4}Morrison\n“Thoughts of the Eidolon\n Wall will always\n lift your heart.”"
+  },
+  {
+    id: "0826",
+    text: "{W150H3}{Zidane}\n“What now?\n You want some more, eh?”"
+  },
+  {
+    id: "0827",
+    text: "{W203H3}{UpperRightForce}Red-headed Man\n“The victor lives, the defeated die.\n You know the rules.”"
+  },
+  {
+    id: "0828",
+    text: "{W176H3}{UpperRightForce}Red-headed Man\n“Your actions yesterday\n were incomprehensible to me.”"
+  },
+  {
+    id: "0829",
+    text: "{W141H3}{UpperRightForce}Red-headed Man\n“Tell me!\n Why didn’t you kill me!?”"
+  },
+  {
+    id: "0830",
+    text: "{W185H2}{Zidane}\n“Well, that’s a tough question{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0831",
+    text: "{W165H3}{Zidane}\n“Are you really that unhappy\n that I let you live?”"
+  },
+  {
+    id: "0832",
+    text: "{W158H3}{UpperRightForce}Red-headed Man\n“I’d rather die as a warrior\n than live as a beggar.”"
+  },
+  {
+    id: "0833",
+    text: "{W120H2}{Zidane}\n“Then come with me.”"
+  },
+  {
+    id: "0834",
+    text: "{W11H1}{Widths 0,11,16,-1}{NoFocus}{Zidane}!?{Time 30}"
+  },
+  {
+    id: "0835",
+    text: "{W37H1}{Offset 0,96,0}{NoFocus}What!?{Time 30}"
+  },
+  {
+    id: "0836",
+    text: "{W128H2}{UpperRightForce}Red-headed Man\n“What are you after?”"
+  },
+  {
+    id: "0837",
+    text: "{W123H3}{Zidane}\n“Follow me and maybe\n you’ll understand.”"
+  },
+  {
+    id: "0838",
+    text: "{W136H3}{Zidane}\n“Besides, you’re pretty\n good in a fight.”"
+  },
+  {
+    id: "0839",
+    text: "{W182H3}{Zidane}\n“We could use someone like you.\n We’re hunting a man down.”"
+  },
+  {
+    id: "0840",
+    text: "{W153H3}{UpperRightForce}Red-headed Man\n(Hmph.  His only constant is\n his unpredictability{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0841",
+    text: "{W152H2}{Zidane}\n“Huh?  You say somethin’?”"
+  },
+  {
+    id: "0842",
+    text: "{W225H3}{UpperRightForce}Red-headed Man\n“Very well.\n I’ll find out what makes you so strong.”"
+  },
+  {
+    id: "0843",
+    text: "{W117H2}{UpperLeftForce}{Zidane}\n“What’s your name?”"
+  },
+  {
+    id: "0844",
+    text: "{W131H2}{UpperRightForce}Red-headed Man\n“Call me what you will.”"
+  },
+  {
+    id: "0845",
+    text: "{W128H3}{UpperLeftForce}{Zidane}\n“Hmm{Speed 2}...{Speed -1} Lani called you\n ‘Red’, right?”"
+  },
+  {
+    id: "0846",
+    text: "{W99H3}{UpperRightForce}{Widths 0,59,23,-1}Red-headed Man\n“Some call me the\n Flaming {Amarant}.”"
+  },
+  {
+    id: "0847",
+    text: "{W115H3}{UpperLeftForce}{Zidane}\n“Fine.  We’ll call you\n {Amarant}.”"
+  },
+  {
+    id: "0848",
+    text: "{W198H3}{UpperLeftForce}{Zidane}\n“The more the merrier.\n Let’s decide our marching order.”"
+  },
+  {
+    id: "0849",
+    text: "{W83H3}{UpperLeftForce}{Zidane}\n“Alright.\n We’ll do fine.”"
+  },
+  {
+    id: "0850",
+    text: "{W97H2}{UpperLeftForce}{Zidane}\n“Just follow me!”"
+  },
+  {
+    id: "0851",
+    text: "{W153H2}{Zidane}\n“Next stop, the Iifa Tree!”"
+  },
+  {
+    id: "0852",
+    text: "{W180H3}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“It’s not much, but I found\n some goods for your journey.”"
+  },
+  {
+    id: "0853",
+    text: "{W189H4}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“I hate to say this, but our\n village could use some capital.\n I’ll have to charge you for this.”"
+  },
+  {
+    id: "0854",
+    text: "{W97H5}{UpperLeftForce}{Offset 0,-96,0}{PreChooseMask 3,2}{Widths 2,143,-1}{Instantly}Morrison\n“Is that alright?”\n{Choice}Trade\n{Tab}Switch party members\n{Tab}Cancel"
+  },
+  {
+    id: "0855",
+    text: "{W26H1}{UpperLeftForce}{Offset 0,-96,0}So{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0856",
+    text: "{W132H3}{UpperLeftForce}{Offset 0,-96,0}Morrison\n“I see.\n I’m sorry I can’t help.”"
+  },
+  {
+    id: "0857",
+    text: "{W64H5}{UpperLeftForce}{Offset 0,-96,0}{PreChooseMask 3,2}{Widths 2,143,-1}{Instantly}Morrison\n“Welcome.”\n{Choice}Trade\n{Tab}Switch party members\n{Tab}Cancel"
+  },
+  {
+    id: "0858",
+    text: "{W153H1}There’s writing on the wall."
+  },
+  {
+    id: "0859",
+    text: "{W99H3}{Widths 0,77,22,-1}{Center 77,22}{Eiko}, 3 years old.\n{Center 99}Mog, 3 years old.\n{Center 58}Same age!"
+  },
+  {
+    id: "0860",
+    text: "{W191H6}{Position 90,30}{Instantly}“Um{Speed 2}...{Speed -1} How many people\n do I need to account for, kupo?”\n{Tab}{Variable 6}{Variable 7} people\n{Up}{Mobile 276}{Down}{Mobile 275}: Select number\n{Left}{Mobile 267}{Right}{Mobile 269}: Select digit\n{Cross+}{Mobile 260}: Confirm  {Circle+}{Mobile 261}: Ask again{Signal 1}{Time -1}"
+  },
+  {
+    id: "0861",
+    text: "{W0H1}{Position 108,58}{NoAnimation}{Widths 0,0,64,6,-1}{Instantly}{Pink}{Variable 6}{Time -1}"
+  },
+  {
+    id: "0862",
+    text: "{W0H1}{Position 115,58}{NoAnimation}{Widths 0,0,64,7,-1}{Instantly}{Pink}{Variable 7}{Time -1}"
+  },
+  {
+    id: "0863",
+    text: "{W234H3}Chimomo\n“We rescued Lani because she was\n dying outside.  She’s with us now, kupo.”"
+  }
+]

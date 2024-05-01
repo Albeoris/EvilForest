@@ -1,0 +1,2822 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Opening a Mini-Theater\n{Tab}Narcissus From Lindblum\n{Tab}Eidolon Odin’s Power\n{Tab}Alexandria Destroyed\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W136H2}{UpperRight}{Widths 0,0,6,0,-1,0,136,16,-1}{Text 0,0}\n“There’s a letter for {Zidane}!”"
+  },
+  {
+    id: "0046",
+    text: "{W209H13}{Widths 0,55,6,1,16,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Zidane}{White}\n\n\nAin’t y’all comin’ back to Alexandria?\nI’m so lonely!\n\nJust kiddin’.  I’m openin’ a li’l\ntheater in an alley here.\n\n(A bartender pal o’ mine is\nquittin’ the saloon and gettin’ into\nshowbiz.  He asked me to help.)"
+  },
+  {
+    id: "0047",
+    text: "{W223H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Your friend is starting a mini-theater?\n Sounds like fun, kupo!”"
+  },
+  {
+    id: "0048",
+    text: "{W136H2}{UpperRight}{Widths 0,0,6,0,-1,0,136,16,-1}{Text 0,0}\n“There’s a letter for {Zidane}!”"
+  },
+  {
+    id: "0049",
+    text: "{W199H12}{Widths 0,55,6,1,16,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Zidane}{White}\n\n\nOh, I’m havin’ a terrible time finding\nactors!  I’m willing to take anyone\nwho can read at this point!\n\nWhat was his name?  That narcissist\nfrom Lindblum?  I’d even take him!\nGet him over to my mini-theater!\nWe need to get some business!"
+  },
+  {
+    id: "0050",
+    text: "{W190H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Does she mean Lowell?\n He’s a narcissist, alright, kupo!”"
+  },
+  {
+    id: "0051",
+    text: "{W235H3}{UpperRight}{Widths 0,0,6,0,-1,0,235,6,1,-1}{Text 0,0}\n“Ah, it’s a letter from the flying moogle, {Text 0,1}!\n Thanks for delivering the letter, kupo!”"
+  },
+  {
+    id: "0052",
+    text: "{W244H11}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI rode an airship called the Red Rose,\nbut I saw something horrible... Kupo.\n\nThe eidolon Odin’s power is terrifying.\nIt destroyed Cleyra completely.\n\nThere’s not even a trace of the city now..."
+  },
+  {
+    id: "0053",
+    text: "{W227H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Brahne’s Red Rose destroyed Cleyra!?\n Brahne is scary, kupo!”"
+  },
+  {
+    id: "0054",
+    text: "{W225H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, it’s a letter, kupo!  Yeah!\n It’s been a while since I received one.”"
+  },
+  {
+    id: "0055",
+    text: "{W248H10}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nAlexandria is in a horrible state right now...\nI wonder if Kupo and Mosh are okay?\n\nLet me know when you have more info!\nI heard that Stiltzkin was also in\nAlexandria!  Kupo!"
+  },
+  {
+    id: "0056",
+    text: "{W236H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That wasn’t a very happy letter... Kupo.\n I wonder what’s going to happen now?”"
+  },
+  {
+    id: "0057",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0058",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0059",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0060",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0061",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0062",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0063",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0064",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0065",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0066",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0067",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0068",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0069",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0070",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0071",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0072",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0073",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0074",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0075",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0076",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0077",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0078",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0079",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0080",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0081",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0082",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0083",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0084",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0085",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0086",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0087",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0088",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0089",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Mid Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0090",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Upper Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0091",
+    text: "{W121H4}{Position 150,70}{PreChoose 3,0}{Instantly}{Cyan}-{White}Lindblum Castle Lift{Cyan}-{White}\n{Choice}Don’t ride\n{Tab}{Cyan}【{White}Upper Level{Cyan}】{White}\n{Tab}{Cyan}【{White}Mid Level{Cyan}】{White}"
+  },
+  {
+    id: "0092",
+    text: "{W170H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Upper Level{Cyan}】{White}"
+  },
+  {
+    id: "0093",
+    text: "{W154H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Mid Level{Cyan}】{White}"
+  },
+  {
+    id: "0094",
+    text: "{W163H1}{NoAnimation}{LowerRight}{Instantly}Lindblum Castle  {Cyan}【{White}Base Level{Cyan}】{White}"
+  },
+  {
+    id: "0095",
+    text: "{W142H4}{PreChoose 3,2}{Widths 1,178,-1,2,154,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Base Level Station{Cyan}】{White}\n{Tab}Ride to {Cyan}【{White}Dragon’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0096",
+    text: "{W142H3}{PreChoose 2,1}{Widths 1,153,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Dragon’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0097",
+    text: "{W142H3}{PreChoose 2,1}{Widths 1,158,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Serpent’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0098",
+    text: "{W142H4}{PreChoose 3,2}{Widths 1,178,-1,2,159,-1}{Instantly}{Center 142}-{Cyan}Lindblum Castle Trolley{White}-\n{Choice}Ride to {Cyan}【{White}Base Level Station{Cyan}】{White}\n{Tab}Ride to {Cyan}【{White}Serpent’s Gate{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0099",
+    text: "{W240H5}{PreChoose 4,3}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0100",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0101",
+    text: "{W242H5}{PreChoose 4,3}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0102",
+    text: "{W242H4}{PreChoose 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0103",
+    text: "{W247H5}{PreChoose 4,3}{Instantly}{Center 247}-{Cyan}Lindblum Castle Air Cab/Industrial District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0104",
+    text: "{W247H4}{PreChoose 3,2}{Instantly}{Center 247}-{Cyan}Lindblum Castle Air Cab/Industrial District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0105",
+    text: "{W184H5}{PreChoose 4,3}{Widths 3,188,-1}{Instantly}{Center 184}-{Cyan}Lindblum Castle Air Cab/Castle{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Industrial District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0106",
+    text: "{W240H4}{PreChooseMask 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to 【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0107",
+    text: "{W242H4}{PreChooseMask 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to 【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0108",
+    text: "{W184H4}{PreChooseMask 3,2}{Instantly}{Center 184}-{Cyan}Lindblum Castle Air Cab/Castle{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the 【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0109",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0110",
+    text: "{W242H4}{PreChoose 3,2}{Instantly}{Center 242}-{Cyan}Lindblum Castle Air Cab/Business District{White}-\n{Choice}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Fly to {Cyan}【{White}Lindblum Castle{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0111",
+    text: "{W240H4}{PreChoose 3,2}{Instantly}{Center 240}-{Cyan}Lindblum Castle Air Cab/Theater District{White}-\n{Choice}Fly to the {Cyan}【{White}Business District{Cyan}】{White}\n{Tab}Fly to the {Cyan}【{White}Theater District{Cyan}】{White}\n{Tab}Don’t ride"
+  },
+  {
+    id: "0112",
+    text: "{W156H1}{Position 170,190}{NoFocus}Lindblum  {Cyan}【{White}Business District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0113",
+    text: "{W150H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Theater District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0114",
+    text: "{W157H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Industrial District{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0115",
+    text: "{W94H1}{Position 170,190}{NoFocus}Lindblum {Cyan}【{White}Castle{Cyan}】{White}{Time -1}"
+  },
+  {
+    id: "0116",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,190,-1,2,84,17,-1,3,94,-1,4,125,-1}{Instantly}Select event\n{Choice}Small-Town Knight in a Big City\n{Tab}{Vivi}’s Shopping\n{Tab}Steam Engine\n{Tab}Baku and His Crew\n{Tab}ATE-04\n{Tab}ATE-05\n{Tab}ATE-06\n{Tab}ATE-07\n{Tab}ATE-08\n{Tab}ATE-09\n{Tab}ATE-10\n{Tab}ATE-11\n{Tab}ATE-12\n{Tab}ATE-13\n{Tab}ATE-14\n{Tab}Cancel"
+  },
+  {
+    id: "0117",
+    text: "{W171H1}{Instantly}{Center 171}Small-Town Knight in a Big City"
+  },
+  {
+    id: "0118",
+    text: "{W64H1}{Widths 0,64,17,-1}{Instantly}{Center 64,17}{Vivi}’s Shopping"
+  },
+  {
+    id: "0119",
+    text: "{W73H1}{Instantly}{Center 73}Steam Engine"
+  },
+  {
+    id: "0120",
+    text: "{W103H1}{Instantly}{Center 103}Baku and His Crew"
+  },
+  {
+    id: "0121",
+    text: "{W149H2}{Instantly}{Center 111}Teach me, Mogster!\n{Center 149}(My first synthesis lesson)"
+  },
+  {
+    id: "0122",
+    text: "{W224H3}{Zidane}\n“I can’t stand the food at the castle.\n It’s way too high-class for my tastes.”"
+  },
+  {
+    id: "0123",
+    text: "{W141H3}{Zidane}\n“How can anyone get full\n on that stuff?”"
+  },
+  {
+    id: "0124",
+    text: "{W138H3}{Zidane}\n“The cheap food here is\n a lot better.”"
+  },
+  {
+    id: "0125",
+    text: "{W159H3}{Zidane}\n“Today’s special is{Speed 2}...{Speed -1}\n Soup du Silence.  Not bad.”"
+  },
+  {
+    id: "0126",
+    text: "{W163H3}{Zidane}\n“Yo, Pops.\n I’ll have the stupid special.”"
+  },
+  {
+    id: "0127",
+    text: "{W100H2}Bobo\n“Who said that!?”"
+  },
+  {
+    id: "0128",
+    text: "{W124H3}Bobo\n“{Zidane}...\n I figured it was you.”"
+  },
+  {
+    id: "0129",
+    text: "{W115H2}{Zidane}\n“How’ve you been?”"
+  },
+  {
+    id: "0130",
+    text: "{W110H2}Bobo\n“Alright, I guess...”"
+  },
+  {
+    id: "0131",
+    text: "{W199H3}Bobo\n“Have a seat.\n Your soup’ll be ready in a minute.”"
+  },
+  {
+    id: "0132",
+    text: "{W210H3}Lilian\n“Do you mind?\n You’re standing in everyone’s way.”"
+  },
+  {
+    id: "0133",
+    text: "{W35H1}Wow..."
+  },
+  {
+    id: "0134",
+    text: "{W25H1}{UpperLeftForce}{Center 25}Hey."
+  },
+  {
+    id: "0135",
+    text: "{W173H2}Lilian\n“Yeah?  {Wait 5}Do you want a drink?”"
+  },
+  {
+    id: "0136",
+    text: "{W221H3}{UpperLeftForce}{Zidane}\n“How about you and me go for a cruise\n on an airship?”"
+  },
+  {
+    id: "0137",
+    text: "{W133H2}Lilian\n“Really!?  An airship!?”"
+  },
+  {
+    id: "0138",
+    text: "{W225H4}{UpperLeftForce}{Zidane}\n“Sounds like you’ve never been on one.\n You know, Lindblum is quite a sight\n from high above.”"
+  },
+  {
+    id: "0139",
+    text: "{W230H3}Woman at the Counter\n“Hey, monkey-tail,\n you’re disturbing the other customers.”"
+  },
+  {
+    id: "0140",
+    text: "{W196H3}{UpperRightForce}{Zidane}\n“What the─\n{Wait 10} you’ve got a tail, too, rat-face!”"
+  },
+  {
+    id: "0141",
+    text: "{W98H3}{Widths 0,40,16,-1}Bobo\n“Hey, {Zidane},\n take it outside.”"
+  },
+  {
+    id: "0142",
+    text: "{W206H3}Woman at the Counter\n“Rat-face{Speed 2}...{Speed -1} {Wait 10}After I finish\n my drink, I’m gonna kick your butt.”"
+  },
+  {
+    id: "0143",
+    text: "{W15H1}{Center 15}!!!"
+  },
+  {
+    id: "0144",
+    text: "{W121H2}{UpperRightForce}{Widths 0,78,16,-1}Woman at the Counter\n“Long time, {Zidane}.”"
+  },
+  {
+    id: "0145",
+    text: "{W98H1}{UpperRightForce}Hey!  What’s up!?"
+  },
+  {
+    id: "0146",
+    text: "{W157H2}Bobo\n“Oh, you know each other.”"
+  },
+  {
+    id: "0147",
+    text: "{W98H2}{UpperRightForce}{Zidane}\n“Wait a minute{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0148",
+    text: "{W130H2}Woman at the Counter\n“You forgot my name?”"
+  },
+  {
+    id: "0149",
+    text: "{W87H1}No, I remember."
+  },
+  {
+    id: "0150",
+    text: "{W113H1}You’re Helga, right?"
+  },
+  {
+    id: "0151",
+    text: "{W38H1}Wrong."
+  },
+  {
+    id: "0152",
+    text: "{W81H2}{Zidane}\n“...Christine?”"
+  },
+  {
+    id: "0153",
+    text: "{W19H1}No!"
+  },
+  {
+    id: "0154",
+    text: "{W61H1}...Oh yeah!"
+  },
+  {
+    id: "0155",
+    text: "{W191H3}{Zidane}\n“You used to live next door\n to me.  How’s it going{Speed 2}...{Speed -1}Ratchel?”"
+  },
+  {
+    id: "0156",
+    text: "{W192H2}{Zidane}\n“Man, you’ve really gotten...{Wait 10}big.”"
+  },
+  {
+    id: "0157",
+    text: "{W121H2}Woman at the Counter\n“You nasty little─”"
+  },
+  {
+    id: "0158",
+    text: "{W212H3}{Zidane}\n“Come on.  I’m just kiddin’.  You know\n I never forget a pretty girl’s name.”"
+  },
+  {
+    id: "0159",
+    text: "{W119H3}{UpperRightForce}{Widths 0,119,20,-1}{Zidane}\n“So,\n how’ve you been, {Fraya}?”"
+  },
+  {
+    id: "0160",
+    text: "{W83H2}{UpperLeftForce}{Widths 0,83,16,-1}{Fraya}\n“...Same old {Zidane}.”"
+  },
+  {
+    id: "0161",
+    text: "{W135H2}{UpperRightForce}{Zidane}\n“How long has it been?”"
+  },
+  {
+    id: "0162",
+    text: "{W98H2}{UpperLeftForce}{Fraya}\n“About 3 years.”"
+  },
+  {
+    id: "0163",
+    text: "{W206H3}{UpperRightForce}{Zidane}\n“Hey, did you ever find out anything\n about your boyfriend?”"
+  },
+  {
+    id: "0164",
+    text: "{W40H2}{UpperLeftForce}{Widths 0,0,20,-1}{Fraya}\n“No{Speed 2}...”"
+  },
+  {
+    id: "0165",
+    text: "{W142H3}{UpperRightForce}{Zidane}\n“Oh{Speed 2}...{Speed -1} Well, I’m sure\n you’ll find him someday.”"
+  },
+  {
+    id: "0166",
+    text: "{W194H2}{UpperRightForce}{Zidane}\n“...Are you ever gonna go back?”"
+  },
+  {
+    id: "0167",
+    text: "{W238H2}{UpperLeftForce}{Fraya}\n“I have no reason to return to Burmecia.”"
+  },
+  {
+    id: "0168",
+    text: "{W132H3}{UpperLeftForce}{Fraya}\n“There is nothing there\n for me anymore.”"
+  },
+  {
+    id: "0169",
+    text: "{W126H3}{UpperRightForce}{Zidane}\n“So{Speed 2}...{Speed -1} What brings you\n to Lindblum?”"
+  },
+  {
+    id: "0170",
+    text: "{W213H4}{UpperLeftForce}{Fraya}\n“The Festival of the Hunt.  What else?\n It’s a good opportunity to test\n my skills.”"
+  },
+  {
+    id: "0171",
+    text: "{W156H2}{UpperLeftForce}{Fraya}\n“Aren’t you participating?”"
+  },
+  {
+    id: "0172",
+    text: "{W143H2}{UpperRightForce}{Zidane}\n“{Speed 2}...{Speed -1}Nah.  I think I’ll pass.”"
+  },
+  {
+    id: "0173",
+    text: "{W69H2}{UpperLeftForce}{Widths 0,0,20,-1}{Fraya}\n“Lazy bum.”"
+  },
+  {
+    id: "0174",
+    text: "{W92H2}{Vivi}\n“Good morning.”"
+  },
+  {
+    id: "0175",
+    text: "{W106H2}{Zidane}\n“You’re up early.”"
+  },
+  {
+    id: "0176",
+    text: "{W243H3}{Vivi}\n“Lindblum is really a busy place.\n I’ve never seen this many people before.”"
+  },
+  {
+    id: "0177",
+    text: "{W153H3}{Vivi}\n“I wonder where people go\n if they wanna be alone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0178",
+    text: "{W160H4}{Zidane}\n“Lindblum has always been\n like this.  People come here\n from all over the world.”"
+  },
+  {
+    id: "0179",
+    text: "{W227H3}{Zidane}\n“Some of them come here to become\n airship engineers, sculptors, actors{Speed 2}...”"
+  },
+  {
+    id: "0180",
+    text: "{W49H2}{Widths 0,0,17,-1}{Vivi}\n“Wow{Speed 2}...”"
+  },
+  {
+    id: "0181",
+    text: "{W178H3}{Zidane}\n“I don’t even remember\n why I came here my first time.”"
+  },
+  {
+    id: "0182",
+    text: "{W190H3}{Zidane}\n“Before I knew it, I was living\n here with my Tantalus brothers.”"
+  },
+  {
+    id: "0183",
+    text: "{W141H2}{Vivi}\n“Do they still live here?”"
+  },
+  {
+    id: "0184",
+    text: "{W158H3}{Zidane}\n“Yeah.  Our {Cyan}hideout{White} is in the\n {Cyan}Theater District{White}.”"
+  },
+  {
+    id: "0185",
+    text: "{W171H3}{Zidane}\n“I’m gonna go there right now.\n Do you wanna come along?”"
+  },
+  {
+    id: "0186",
+    text: "{W157H3}{Vivi}\n“Um, that’s okay.  I’m gonna\n go look around town.”"
+  },
+  {
+    id: "0187",
+    text: "{W142H3}{Zidane}\n“Okay.  Then I’ll give you\n a little tour.”"
+  },
+  {
+    id: "0188",
+    text: "{W117H3}{Vivi}\n“{Speed 2}...{Speed -1}No, that’s okay.\n I can go by myself.”"
+  },
+  {
+    id: "0189",
+    text: "{W215H3}{Zidane}\n“Ohhh{Speed 2}...{Speed -1}okay{Speed 2}...{Speed -1}{Wait 10}\n Go find yourself a cute girl, alright?”"
+  },
+  {
+    id: "0190",
+    text: "{W140H2}{Vivi}\n“I think I’ll go shopping.”"
+  },
+  {
+    id: "0191",
+    text: "{W158H3}{Zidane}\n“I figured there wouldn’t be\n anybody here{Speed 2}...”"
+  },
+  {
+    id: "0192",
+    text: "{W136H3}{Zidane}\n“It looks like no one’s\n been here for a while.”"
+  },
+  {
+    id: "0193",
+    text: "{W89H3}{Zidane}\n“What to do,\n what to do{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0194",
+    text: "{W178H3}{Widths 0,141,18,-1}{Zidane}\n“Geez.  It’s that late already{Speed 2}...{Speed -1}\n I wonder what {Dagger}’s doing.”"
+  },
+  {
+    id: "0195",
+    text: "{W81H1}{Instantly}{Center 81}What can I do?"
+  },
+  {
+    id: "0196",
+    text: "{W82H2}Bunce\n“There he is!”"
+  },
+  {
+    id: "0197",
+    text: "{W147H2}{UpperLeftForce}Lucella\n“I told you he’d be here.”"
+  },
+  {
+    id: "0198",
+    text: "{W229H4}Bunce\n“Why didn’t you tell us that\n you were back?  We’re in Tantalus, too,\n you know.”"
+  },
+  {
+    id: "0199",
+    text: "{W32H1}What?"
+  },
+  {
+    id: "0200",
+    text: "{W31H1}{UpperLeftForce}Yeah."
+  },
+  {
+    id: "0201",
+    text: "{W221H3}Lucella\n“Uncle Baku said if we find some\n treasure, we can be in Tantalus, too.”"
+  },
+  {
+    id: "0202",
+    text: "{W137H2}Bunce\n“Yeah.  Check this out.”"
+  },
+  {
+    id: "0203",
+    text: "{W225H4}{Zidane}\n“Wow, those are trick sparrow’s wings!\n That sure is some treasure\n you’ve found, alright!”"
+  },
+  {
+    id: "0204",
+    text: "{W26H1}{UpperLeftForce}Yay!"
+  },
+  {
+    id: "0205",
+    text: "{W36H1}{UpperRightForce}Yipee!"
+  },
+  {
+    id: "0206",
+    text: "{W140H2}{UpperLeftForce}Bunce\n“So, did the plan work?”"
+  },
+  {
+    id: "0207",
+    text: "{W148H3}{Zidane}\n“{Speed 2}...{Speed -1}Yeah.  Princess Garnet\n is at the castle.”"
+  },
+  {
+    id: "0208",
+    text: "{W102H2}{UpperLeftForce}Lucella\n“Really!?  Wow{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0209",
+    text: "{W118H3}{UpperLeftForce}Lucella\n“So, what’s she like?\n Is she cute?”"
+  },
+  {
+    id: "0210",
+    text: "{W95H3}Bunce\n“Did you ask her\n out yet?”"
+  },
+  {
+    id: "0211",
+    text: "{W191H4}{Zidane}\n“No{Speed 2}...{Speed -1} I think she’s pretty busy.\n Plus, she’s a princess and I’m a{Speed 2}...{Speed -1}\n you know, so{Speed 2}...{Speed -1}I don’t know.”"
+  },
+  {
+    id: "0212",
+    text: "{W130H2}{UpperLeftForce}Lucella\n“I bet she misses you.”"
+  },
+  {
+    id: "0213",
+    text: "{W105H3}Bunce\n“Yeah.  You should\n go see her.”"
+  },
+  {
+    id: "0214",
+    text: "{W60H1}{UpperLeftForce}Good luck!"
+  },
+  {
+    id: "0215",
+    text: "{W44H1}{UpperLeftForce}See ya!"
+  },
+  {
+    id: "0216",
+    text: "{W204H3}{Zidane}\n“I wonder if she got to talk to Cid{Speed 2}...{Speed -1}\n Maybe I should go see her{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0217",
+    text: "{W111H3}Grandma Pickle\n“Darn.  They’re not\n selling at all.”"
+  },
+  {
+    id: "0218",
+    text: "{W154H3}Grandma Pickle\n“Gysahl pickles are good,\n but they smell really bad.”"
+  },
+  {
+    id: "0219",
+    text: "{W233H4}Wimpy Guy\n“I’m getting sick.  The air is\n so bad here <hack-hack>.  It smells like\n I’m in a big oil refinery.”"
+  },
+  {
+    id: "0220",
+    text: "{W204H3}Wimpy Guy\n“I was watching the hunting festival.\n You sucked pretty bad.”"
+  },
+  {
+    id: "0221",
+    text: "{W156H3}Wimpy Guy\n“I could’ve easily scored\n 500 points <hack-hack>!”"
+  },
+  {
+    id: "0222",
+    text: "{W119H3}Tiny Chef\n“I’m the head chef at\n Lindblum Castle.”"
+  },
+  {
+    id: "0223",
+    text: "{W180H3}Tiny Chef\n“I demand the finest ingredients\n for all of my dishes.”"
+  },
+  {
+    id: "0224",
+    text: "{W210H3}Tiny Chef\n“I didn’t put in any sleeping medicine.\n It wasn’t me.”"
+  },
+  {
+    id: "0225",
+    text: "{W120H2}Yaup\n“Wake up, Grandma!”"
+  },
+  {
+    id: "0226",
+    text: "{W147H3}Yaup\n“I swear!\n She sleeps everywhere.”"
+  },
+  {
+    id: "0227",
+    text: "{W80H1}zzzZ...zzzZ..."
+  },
+  {
+    id: "0228",
+    text: "{W207H3}Old Man with a Cane\n“I can’t wait for the festival\n to start.  It’s going to be exciting.”"
+  },
+  {
+    id: "0229",
+    text: "{W143H3}Chet\n“Originally, the people of\n Lindblum were hunters.”"
+  },
+  {
+    id: "0230",
+    text: "{W142H4}Priest Theodore\n“The Festival of the Hunt\n is neither a joke nor a\n traditional pastime.”"
+  },
+  {
+    id: "0231",
+    text: "{W114H2}Priest Theodore\n“It is a way of life.”"
+  },
+  {
+    id: "0232",
+    text: "{W92H2}Priest Theodore\n“Be aware.”"
+  },
+  {
+    id: "0233",
+    text: "{W188H4}Theodore\n“Those who are awarded the\n ‘Master Hunter’ title must live up\n to the honor.”"
+  },
+  {
+    id: "0234",
+    text: "{W158H2}Locke\n“I wish I were young again.”"
+  },
+  {
+    id: "0235",
+    text: "{W154H3}Locke\n“I pulled some crazy stunts\n in my early days.”"
+  },
+  {
+    id: "0236",
+    text: "{W211H4}Locke\n“My buddies and I used to go to\n this forest northeast of here\n all the time to catch wild chocobos.”"
+  },
+  {
+    id: "0237",
+    text: "{W193H4}Locke\n“And we raced through the plains,\n like the wind, with the girls\n cheering us on.”"
+  },
+  {
+    id: "0238",
+    text: "{W177H3}Locke\n“Those were the happiest days\n of my life.”"
+  },
+  {
+    id: "0239",
+    text: "{W184H3}Locke\n“I wonder if there are chocobos\n still living in that forest{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0240",
+    text: "{W179H3}Marsha\n“Papa’s gone.\n I wonder when he’ll be back{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0241",
+    text: "{W208H3}Elena\n“He said it was some sort of\n emergency.  I hope he’ll be alright.”"
+  },
+  {
+    id: "0242",
+    text: "{W205H4}Baraki\n“A lot of stuff gets damaged during\n the festival, what with the monsters\n running around and all.”"
+  },
+  {
+    id: "0243",
+    text: "{W148H3}Baraki\n“It’s such a pain repairing\n everything afterwards.”"
+  },
+  {
+    id: "0244",
+    text: "{W172H3}Rosco\n“You were awesome!\n You kicked some major butt!”"
+  },
+  {
+    id: "0245",
+    text: "{W218H3}Gus\n“I’ve never seen anything like that.\n Monsters stampeding all over town...”"
+  },
+  {
+    id: "0246",
+    text: "{W141H3}Gus\n“I can’t wait to\n tell my kids back home.”"
+  },
+  {
+    id: "0247",
+    text: "{W155H3}Lady with an Apron\n“This church has been here\n for a long time.”"
+  },
+  {
+    id: "0248",
+    text: "{W184H4}Lady with an Apron\n“It’s been here since before the\n city was even built, when this\n entire area was a forest.”"
+  },
+  {
+    id: "0249",
+    text: "{W239H3}Lady with an Apron\n“I don’t know why, but this church\n began the Festival of the Hunt tradition.”"
+  },
+  {
+    id: "0250",
+    text: "{W188H2}Tiffany\n“I hate the Festival of the Hunt!”"
+  },
+  {
+    id: "0251",
+    text: "{W215H2}Tiffany\n“My father gets injured every year.”"
+  },
+  {
+    id: "0252",
+    text: "{W206H3}Grandma Potpourri\n“Would you like to buy a flower pot?\n You can use it as cookware, too.”"
+  },
+  {
+    id: "0253",
+    text: "{W123H3}Grandma Potpourri\n“I’m carrying a lot of\n nice pots right now.”"
+  },
+  {
+    id: "0254",
+    text: "{W177H3}Grandma Potpourri\n“I don’t make much selling pots,\n but I enjoy it.”"
+  },
+  {
+    id: "0255",
+    text: "{W218H3}Grandma Potpourri\n“How about you?\n Are you enjoying what you’re doing?”"
+  },
+  {
+    id: "0256",
+    text: "{W24H3}{PreChoose 2,0}{Widths 1,126,-1,2,130,-1}{Instantly}{Instantly}......\n{Choice}Yeah, I’m havin’ fun\n{Tab}No, this game sucks"
+  },
+  {
+    id: "0257",
+    text: "{W136H2}Grandma Potpourri\n“That’s what I thought.”"
+  },
+  {
+    id: "0258",
+    text: "{W133H3}Grandma Potpourri\n“Maybe you should\n go buy another game.”"
+  },
+  {
+    id: "0259",
+    text: "{W206H4}{UpperRightForce}Dragoos\n“If you wanna come out on top\n in the festival, you should definitely\n buy some weapons here.”"
+  },
+  {
+    id: "0260",
+    text: "{W209H4}{UpperLeftForce}Alice\n“I think you’re gonna need some\n medicine if you’re gonna participate\n in the festival.”"
+  },
+  {
+    id: "0261",
+    text: "{W218H3}Wayne\n“How’s it goin’?  Do you want me to\n make you something for the festival?”"
+  },
+  {
+    id: "0262",
+    text: "{W180H4}{Zidane}\n“Oh yeah!  Today’s the Festival\n of the Hunt!  I’m gonna win\n this year for sure!”"
+  },
+  {
+    id: "0263",
+    text: "{W159H2}{Zidane}\n“I’d better buy some stuff.”"
+  },
+  {
+    id: "0264",
+    text: "{W130H3}Soldier\n“This year’s festival is\n gonna be awesome.”"
+  },
+  {
+    id: "0265",
+    text: "{W175H3}Soldier\n“Who do you think’s gonna win?\n I’m puttin’ my money on Ivan.”"
+  },
+  {
+    id: "0266",
+    text: "{W167H4}Soldier\n“Yeah, he’s good, but I heard\n a female dragon knight’s\n participating this year.”"
+  },
+  {
+    id: "0267",
+    text: "{W173H2}I’ll bet you two cheeseburgers\nIvan’s gonna win!"
+  },
+  {
+    id: "0268",
+    text: "{W95H1}Okay, you’re on!"
+  },
+  {
+    id: "0269",
+    text: "{W170H3}Soldier\n“You’re entering the festival?\n Man, you’re so lucky.”"
+  },
+  {
+    id: "0270",
+    text: "{W138H3}Soldier\n“Soldiers aren’t allowed\n to participate.”"
+  },
+  {
+    id: "0271",
+    text: "{W104H3}Soldier\n“Are you ready\n for the festival?”"
+  },
+  {
+    id: "0272",
+    text: "{W209H4}Soldier\n“If you need to buy anything, you’d\n better take care of it now.  All the\n shops are closed during the event.”"
+  },
+  {
+    id: "0273",
+    text: "{W199H4}Dolf\n“The great thing about the festival\n is you get to take time off to be\n with your family.”"
+  },
+  {
+    id: "0274",
+    text: "{W120H3}Marsha\n“Hey, don’t you think\n my papa’s cool?”"
+  },
+  {
+    id: "0275",
+    text: "{W127H3}Marsha\n“He rides in an airship\n called the Viltgance.”"
+  },
+  {
+    id: "0276",
+    text: "{W165H3}Elena\n“I made a traditional Festival\n of the Hunt dish.”"
+  },
+  {
+    id: "0277",
+    text: "{W145H3}Elena\n“I don’t know if it’s good,\n but I made plenty of it!”"
+  },
+  {
+    id: "0278",
+    text: "{W248H3}Female Red Mage\n“I just came here to watch the festival,\n but I guess they’ll expect some souvenirs.”"
+  },
+  {
+    id: "0279",
+    text: "{W125H3}Female Red Mage\n“What a bummer.\n I hate buying gifts...”"
+  },
+  {
+    id: "0280",
+    text: "{W188H3}Female Red Mage\n“I was thinking of buying some\n oglop oil, but it’s so disgusting.”"
+  },
+  {
+    id: "0281",
+    text: "{W211H4}Grandma Pickle\n“I was counting on having more sales,\n what with all the people coming to\n the festival.”"
+  },
+  {
+    id: "0282",
+    text: "{W158H3}Grandma Pickle\n“I’ve only had one customer\n so far.  Only one.”"
+  },
+  {
+    id: "0283",
+    text: "{W113H3}Tiffany\n“His name is Koo.\n Isn’t he adorable?”"
+  },
+  {
+    id: "0284",
+    text: "{W26H1}ARF!"
+  },
+  {
+    id: "0285",
+    text: "{W89H3}{Vivi}\n“Is this food?\n It looks good.”"
+  },
+  {
+    id: "0286",
+    text: "{W168H3}{Vivi}\n“It looks like the sesame buns\n that Grandpa used to make.”"
+  },
+  {
+    id: "0287",
+    text: "{W115H3}{Vivi}\n“Wow, this nut smells\n really good.”"
+  },
+  {
+    id: "0288",
+    text: "{W133H3}{Vivi}\n“This place has a lot of\n unusual things.”"
+  },
+  {
+    id: "0289",
+    text: "{W219H5}{Center 0}{Instantly}\n{Center 116}={Cyan} Alice’s Item Shop {White}=\n\n{Center 219} Festival of the Hunt Sale ends today!"
+  },
+  {
+    id: "0290",
+    text: "{W204H2}{Vivi}\n“Wow, there’s gonna be a festival!”"
+  },
+  {
+    id: "0291",
+    text: "{W129H2}{Vivi}\n“Hi.  I wanna buy this.”"
+  },
+  {
+    id: "0292",
+    text: "{W116H3}{UpperLeftForce}Alice\n“Oh, are you friends\n with the moogles?”"
+  },
+  {
+    id: "0293",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0294",
+    text: "{W227H3}{UpperLeftForce}Alice\n“That item is called a {Cyan}Kupo Nut{White}.\n Kupo Nuts are moogles’ favorite food.”"
+  },
+  {
+    id: "0295",
+    text: "{W141H2}{Vivi}\n“Oh.  I didn’t know that.”"
+  },
+  {
+    id: "0296",
+    text: "{W100H3}{UpperLeftForce}Alice\n“I think that’s the\n last one{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0297",
+    text: "{W176H2}Alice\n“Go ahead, honey.  It’s on me.”"
+  },
+  {
+    id: "0298",
+    text: "{W115H1}Really!?  Thank you!"
+  },
+  {
+    id: "0299",
+    text: "{W152H3}{LowerRightForce}{Vivi}\n“Um, what is this\n Festival of the Hunt like?”"
+  },
+  {
+    id: "0300",
+    text: "{W133H3}Alice\n“Well, we let a bunch of\n animals loose and{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0301",
+    text: "{W122H3}{Vivi}\n(Oh, there’s gonna be\n a lot of animals.)"
+  },
+  {
+    id: "0302",
+    text: "{W184H2}{Vivi}\n“It sounds like fun!  Thank you!”"
+  },
+  {
+    id: "0303",
+    text: "{W190H4}Alice\n“What’s so fun about fighting\n savage beasts{Speed 2}...{Speed -1}?  {Wait 30}Wait a minute!\n Did I say ‘animals’ again!?”"
+  },
+  {
+    id: "0304",
+    text: "{W179H2}Phillipo\n“GO, Knights of Pluto!  Yeah!!!”"
+  },
+  {
+    id: "0305",
+    text: "{W142H2}Poncho\n“What are those things?”"
+  },
+  {
+    id: "0306",
+    text: "{W128H2}Poncho\n“They look so stupid.”"
+  },
+  {
+    id: "0307",
+    text: "{W167H3}Poncho\n“I’m gonna take Cid’s airships\n and destroy them.”"
+  },
+  {
+    id: "0308",
+    text: "{W234H2}Phillipo\n“HEY, cut it out!  {Wait 30}YOU BROKE MY KNIGHT!”"
+  },
+  {
+    id: "0309",
+    text: "{W175H2}Phillipo\n“I’m gonna go tell your mom!!!”"
+  },
+  {
+    id: "0310",
+    text: "{W96H2}Poncho\n“No, come on!!!”"
+  },
+  {
+    id: "0311",
+    text: "{W156H2}{Vivi}\n“‘Royal Action Figures’{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0312",
+    text: "{W210H3}{Vivi}\n“Those black mages were like toys{Speed 2}...{Speed -1}\n being controlled by someone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0313",
+    text: "{W47H2}{Widths 0,0,19,-1}{Steiner}\n“Hmm...”"
+  },
+  {
+    id: "0314",
+    text: "{W180H3}{UpperRightForce}{Steiner}\n“I never expected to find such\n fine armor in a place like this.”"
+  },
+  {
+    id: "0315",
+    text: "{W89H3}{UpperLeftForce}Customer\n“Yes, I’ll buy\n that one, too.”"
+  },
+  {
+    id: "0316",
+    text: "{W167H3}{UpperLeftForce}Customer\n“Who knows when that Brahne\n will start another war...”"
+  },
+  {
+    id: "0317",
+    text: "{W147H3}{UpperRightForce}{Steiner}\n“WHAT!?  The queen would\n never start a war!”"
+  },
+  {
+    id: "0318",
+    text: "{W109H3}{UpperRightForce}{Steiner}\n“You dare speak ill\n of the queen!?”"
+  },
+  {
+    id: "0319",
+    text: "{W134H2}{UpperRightForce}Customer\n“Who the hell are you?”"
+  },
+  {
+    id: "0320",
+    text: "{W174H2}{UpperRightForce}{Steiner}\n“I’m a{Speed 2}......{Speed -1}an armor collector!”"
+  },
+  {
+    id: "0321",
+    text: "{W180H3}{UpperRightForce}Customer\n“Oh.  Well, in that case, can you\n recommend some good armor?”"
+  },
+  {
+    id: "0322",
+    text: "{W69H1}{UpperLeftForce}I{Speed 2}...{Speed -1}I must go!"
+  },
+  {
+    id: "0323",
+    text: "{W150H2}{Fraya}\n“The sky looks ominous{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0324",
+    text: "{W179H2}{Fraya}\n“Something’s about to happen.”"
+  },
+  {
+    id: "0325",
+    text: "{W111H3}{Fraya}\n“Sir Fratley,\n where are you{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0326",
+    text: "{W84H2}{Fraya}\n“I need you{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0327",
+    text: "{W158H3}Officer\n“It may be tradition, but\n this is a dreadful festival.”"
+  },
+  {
+    id: "0328",
+    text: "{W180H3}Officer\n“So many lives lost every year,\n especially because of him{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0329",
+    text: "{W208H4}Captain\n“Hardly.  The festival is a test\n of manhood.  I tingle with excitement\n every year.”"
+  },
+  {
+    id: "0330",
+    text: "{W237H4}Soldier\n“This is the last carriage.  All the\n preparations for the Festival of the Hunt\n are complete.”"
+  },
+  {
+    id: "0331",
+    text: "{W237H2}Officer\n“Very good.  Now we wait for the signal.”"
+  },
+  {
+    id: "0332",
+    text: "{W61H2}{NoFocus}Captain\n“Yes, sir.”{Time -1}"
+  },
+  {
+    id: "0333",
+    text: "{W47H2}{UpperLeftForce}{NoFocus}Officer\n“Whoa!”{Time -1}"
+  },
+  {
+    id: "0334",
+    text: "{W54H2}{NoFocus}Soldier\n“Geez...”{Time -1}"
+  },
+  {
+    id: "0335",
+    text: "{W42H2}{NoFocus}Captain\n“{Speed 1}......”{Time -1}"
+  },
+  {
+    id: "0336",
+    text: "{W171H2}Soldier\n“The fangs have been freed.”"
+  },
+  {
+    id: "0337",
+    text: "{W199H3}Officer\n“What!?  We haven’t even received\n the minister’s authorization!”"
+  },
+  {
+    id: "0338",
+    text: "{W190H3}Soldier\n“We believe that they’re going to\n release ‘him’ any minute.”"
+  },
+  {
+    id: "0339",
+    text: "{W156H3}Officer\n“Alright, release the mus\n before they let him loose.”"
+  },
+  {
+    id: "0340",
+    text: "{W51H2}Officer\n“Hurry!”"
+  },
+  {
+    id: "0341",
+    text: "{W69H1}{UpperLeftForce}{Offset 1000,0,300}All is ready!"
+  },
+  {
+    id: "0342",
+    text: "{W114H2}Soldier\n“Alright.  Standby!”"
+  },
+  {
+    id: "0343",
+    text: "{W53H1}Ha ha ha!"
+  },
+  {
+    id: "0344",
+    text: "{W189H3}{LowerLeftForce}Breeder\n“This year’s specimen is perfect.\n Nothing can stop him!”"
+  },
+  {
+    id: "0345",
+    text: "{W145H2}Breeder\n“Ha ha ha!  What power!”"
+  },
+  {
+    id: "0346",
+    text: "{W180H3}Soldier\n“Hey, make him stop!\n It’s too early to let him loose!”"
+  },
+  {
+    id: "0347",
+    text: "{W107H3}Breeder\n“How?  I have no\n control over him.”"
+  },
+  {
+    id: "0348",
+    text: "{W41H1}Dammit!"
+  },
+  {
+    id: "0349",
+    text: "{W171H3}Soldier\n“Open the gate at once!\n The gate’s gonna fall apart!”"
+  },
+  {
+    id: "0350",
+    text: "{W89H2}Breeder\n“GO, ZAGHNOL!”"
+  },
+  {
+    id: "0351",
+    text: "{W187H4}Tim\n“The card game is really popular\n right now, especially in the\n Theater District.”"
+  },
+  {
+    id: "0352",
+    text: "{W175H2}Tim\n“Almost everyone here plays.”"
+  },
+  {
+    id: "0353",
+    text: "{W134H3}Pigeon Lover\n“I like to come here\n and feed the pigeons.”"
+  },
+  {
+    id: "0354",
+    text: "{W182H2}Thomas\n“My wife is a crazy Lowell fan.”"
+  },
+  {
+    id: "0355",
+    text: "{W177H3}Thomas\n“I tell you, she acts like a child\n when she talks about him.”"
+  },
+  {
+    id: "0356",
+    text: "{W86H1}Heh, heh, heh{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0357",
+    text: "{W191H3}Rita\n“I’m just a big fan.  That’s all.\n But my husband gets so jealous.”"
+  },
+  {
+    id: "0358",
+    text: "{W144H3}Thomas\n“This Festival of the Hunt\n is really interesting.”"
+  },
+  {
+    id: "0359",
+    text: "{W204H4}Thomas\n“I heard there are traditional\n Festival of the Hunt dishes.  Do you\n know where they serve them?”"
+  },
+  {
+    id: "0360",
+    text: "{W212H3}Rita\n“Oh, there are so many brave,\n powerful men here for the Festival!”"
+  },
+  {
+    id: "0361",
+    text: "{W182H1}<Thump-Thump, Thump-Thump...>"
+  },
+  {
+    id: "0362",
+    text: "{W131H3}Aspiring Artist Michael\n“I’m looking forward to\n the festival.”"
+  },
+  {
+    id: "0363",
+    text: "{W186H3}Aspiring Artist Michael\n“I’m gonna use the festival as\n the theme for my next painting.”"
+  },
+  {
+    id: "0364",
+    text: "{W179H2}Aspiring Artist Michael\n“The festival was great, huh!?”"
+  },
+  {
+    id: "0365",
+    text: "{W229H3}Aspiring Artist Michael\n“I was cheering so hard,\n I completely forgot about the painting.”"
+  },
+  {
+    id: "0366",
+    text: "{W125H2}Pigeon Lover\n“It finally ended, eh?”"
+  },
+  {
+    id: "0367",
+    text: "{W151H3}Pigeon Lover\n“I never liked the festival.\n It’s too violent.”"
+  },
+  {
+    id: "0368",
+    text: "{W203H3}Marian\n“Air cabs are convenient, but I wish\n they looked more stylish.”"
+  },
+  {
+    id: "0369",
+    text: "{W170H3}Marian\n“It looks so mundane, just like\n everything else in this town.”"
+  },
+  {
+    id: "0370",
+    text: "{W198H2}Attendant\n“Welcome to the Theater District!”"
+  },
+  {
+    id: "0371",
+    text: "{W185H3}Attendant\n“Just so you know, air cabs\n run nonstop, around the clock.”"
+  },
+  {
+    id: "0372",
+    text: "{W71H2}Attendant\n“Good day.”"
+  },
+  {
+    id: "0373",
+    text: "{W82H2}Member No. 28\n“She’s late!”"
+  },
+  {
+    id: "0374",
+    text: "{W142H2}Member No. 28\n“What’s Marissa doing!?”"
+  },
+  {
+    id: "0375",
+    text: "{W82H2}Member No. 28\n“Oh, hell!”"
+  },
+  {
+    id: "0376",
+    text: "{W201H4}{PreChoose 2,1}{Instantly}Member No. 36\n“You’re gonna go see Lowell, too?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0377",
+    text: "{W172H2}Member No. 36\n“You know, I’m not surprised.”"
+  },
+  {
+    id: "0378",
+    text: "{W184H3}Member No. 36\n“Even if I were a guy, I’d still be\n in his fan club.  He’s so great!”"
+  },
+  {
+    id: "0379",
+    text: "{W167H3}Member No. 36\n“Yeah, I don’t think\n he’d wanna see you, either.”"
+  },
+  {
+    id: "0380",
+    text: "{W191H3}Member No. 29\n“We were supposed to meet here.\n Where is she{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0381",
+    text: "{W210H3}Member No. 12\n“Oh, Lowell{Speed 2}...{Speed -1}\n I can’t believe his tour ends today.”"
+  },
+  {
+    id: "0382",
+    text: "{W117H3}Member No. 44\n“I wonder if he’ll eat\n my cookies.”"
+  },
+  {
+    id: "0383",
+    text: "{W90H2}Member No. 3\n“Oh, Lowell{Speed 2}...{Speed -1}♥”"
+  },
+  {
+    id: "0384",
+    text: "{W100H2}Fan Club Chairman\n“Stop pushing!”"
+  },
+  {
+    id: "0385",
+    text: "{W123H2}Fan Club Chairman\n“Hey, who are you!?”"
+  },
+  {
+    id: "0386",
+    text: "{W71H2}{Widths 0,0,16,-1}{Zidane}\n“Who am I!?”"
+  },
+  {
+    id: "0387",
+    text: "{W197H3}{Zidane}\n“I’m Sir {Zidane} of Tantalus,\n the greatest bandit in the world!”"
+  },
+  {
+    id: "0388",
+    text: "{W174H1}{Speed 2}...{Speed -1}Have you ever heard of him?"
+  },
+  {
+    id: "0389",
+    text: "{W27H1}{NoFocus}No～!{Time -1}"
+  },
+  {
+    id: "0390",
+    text: "{W27H1}No～!"
+  },
+  {
+    id: "0391",
+    text: "{W179H2}Fan Club Chairman\n“Go away!  Stop bothering us!”"
+  },
+  {
+    id: "0392",
+    text: "{W38H1}Ouch{Speed 2}..."
+  },
+  {
+    id: "0393",
+    text: "{W102H2}Member No. 44\n“Where’s Lowell?”"
+  },
+  {
+    id: "0394",
+    text: "{W100H2}Fan Club Chairman\n“Hurry up!”"
+  },
+  {
+    id: "0395",
+    text: "{W136H3}Member No. 12\n“How much longer do we\n have to wait!?”"
+  },
+  {
+    id: "0396",
+    text: "{W128H3}Staff\n“Please.  He’ll be here\n in a minute.”"
+  },
+  {
+    id: "0397",
+    text: "{W45H1}{NoFocus}LOWELL!{Time -1}"
+  },
+  {
+    id: "0398",
+    text: "{W49H1}{NoFocus}LOWELL♥{Time -1}"
+  },
+  {
+    id: "0399",
+    text: "{W68H1}{NoFocus}I LOVE YOU♥{Time -1}"
+  },
+  {
+    id: "0400",
+    text: "{W77H1}{NoFocus}Hold my hand!{Time -1}"
+  },
+  {
+    id: "0401",
+    text: "{W49H1}{NoFocus}Kiss me♥{Time -1}"
+  },
+  {
+    id: "0402",
+    text: "{W90H2}Lowell\n“Hi, everyone.”"
+  },
+  {
+    id: "0403",
+    text: "{W173H2}{Zidane}\n“What’s so special about him?”"
+  },
+  {
+    id: "0404",
+    text: "{W57H2}Lowell\n“Thanks.”"
+  },
+  {
+    id: "0405",
+    text: "{W103H2}Lowell\n“I love you guys.”"
+  },
+  {
+    id: "0406",
+    text: "{W115H2}Lowell\n“See you all again!”"
+  },
+  {
+    id: "0407",
+    text: "{W152H3}Member No. 44\n“Lowell!!!\n Please eat my cookies!!!”"
+  },
+  {
+    id: "0408",
+    text: "{W131H1}“Lowell, come back!!!”"
+  },
+  {
+    id: "0409",
+    text: "{W41H1}(Ouch!)"
+  },
+  {
+    id: "0410",
+    text: "{W155H1}(Damn.  I can’t see a thing.)"
+  },
+  {
+    id: "0411",
+    text: "{W178H3}Moogle Man\n“Thank you for coming to see\n ‘Moogle Wannabe 2’{Speed 2}...{Speed -1}k-kupo.”"
+  },
+  {
+    id: "0412",
+    text: "{W170H3}Fan Club Chairman\n“We don’t care about you and\n your stupid show!”"
+  },
+  {
+    id: "0413",
+    text: "{W144H2}Fan Club Chairman\n“We came to see Lowell!”"
+  },
+  {
+    id: "0414",
+    text: "{W32H1}Phew."
+  },
+  {
+    id: "0415",
+    text: "{W94H2}{Zidane}\n“Hey{Speed 2}...{Speed -1}you’re─”"
+  },
+  {
+    id: "0416",
+    text: "{W81H2}{UpperRightForce}Moogle Man\n“NO, I’M NOT!”"
+  },
+  {
+    id: "0417",
+    text: "{W60H1}YEOWWW!!!"
+  },
+  {
+    id: "0418",
+    text: "{W178H3}{Zidane}\n“Poor guy{Speed 2}...{Speed -1} It’s tough\n being popular.  I should know.”"
+  },
+  {
+    id: "0419",
+    text: "{W204H2}Fan Club Chairman\n“Do you think he’ll come out again?”"
+  },
+  {
+    id: "0420",
+    text: "{W134H3}Member No. 44\n“I still haven’t given him\n my cookies{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0421",
+    text: "{W176H2}Member No. 3\n“Oh, I’m sooo in love with him{Cyan}♥{White}”"
+  },
+  {
+    id: "0422",
+    text: "{W165H2}Member No. 12\n“I’m dying to see him again{Cyan}♥{White}”"
+  },
+  {
+    id: "0423",
+    text: "{W168H4}Member No. 56\n“A big moogle just walked by,\n heading towards the station.\n He looked kinda dizzy.”"
+  },
+  {
+    id: "0424",
+    text: "{W109H2}Gus\n“This is amazing...”"
+  },
+  {
+    id: "0425",
+    text: "{W243H3}Gus\n“You can’t find architecture like this\n anywhere.  This regency is so advanced.”"
+  },
+  {
+    id: "0426",
+    text: "{W192H3}Hunk\n“The regent built this statue when\n Cid VIII passed away.”"
+  },
+  {
+    id: "0427",
+    text: "{W155H3}Jacob\n“Most engineers are weird.\n Why is that?”"
+  },
+  {
+    id: "0428",
+    text: "{W148H4}{PreChoose 2,1}{Instantly}Marolo\n“Hey, what do you think?”\n{Choice}In the front\n{Tab}In the back"
+  },
+  {
+    id: "0429",
+    text: "{W152H3}Marolo\n“NO!  Putting it in the back\n is more effective!”"
+  },
+  {
+    id: "0430",
+    text: "{W230H3}Marolo\n“Putting the engine in the front provides\n more stability, but less power!”"
+  },
+  {
+    id: "0431",
+    text: "{W198H3}Marolo\n“That’s right!  You’re a smart guy!\n Nobody believes what I say!”"
+  },
+  {
+    id: "0432",
+    text: "{W175H3}Marolo\n“Putting the engine in the back\n results in more power!”"
+  },
+  {
+    id: "0433",
+    text: "{W130H3}Barry\n“UGH!!!  {Wait 15}What the heck\n was in that dish!?”"
+  },
+  {
+    id: "0434",
+    text: "{W82H2}Rupta\n“Guess what?”"
+  },
+  {
+    id: "0435",
+    text: "{W170H3}Rupta\n“When I grow up, I’m gonna\n become an airship engineer!”"
+  },
+  {
+    id: "0436",
+    text: "{W205H4}Rupta\n“I’m gonna build a really\n big airship, so I can go everywhere\n with all of my friends!”"
+  },
+  {
+    id: "0437",
+    text: "{W218H3}Widget\n“Cid VIII, who developed the first\n Mist-powered engine, had a pet cat.”"
+  },
+  {
+    id: "0438",
+    text: "{W184H4}Widget\n“Since then, a lot of engineers\n went out to get cats.  I have my\n own, too.  Her name is Gypsy.”"
+  },
+  {
+    id: "0439",
+    text: "{W221H4}Shig\n“Grandma’s been busy sellin’ her\n pickles lately, and she hasn’t given me\n any attention{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0440",
+    text: "{W212H3}Shig\n“Sometimes, I think she loves\n her pickles more than she loves me.”"
+  },
+  {
+    id: "0441",
+    text: "{W241H3}Rosco\n“Ahhh～, nothing like an icy\n cold root beer after a hard day’s work.”"
+  },
+  {
+    id: "0442",
+    text: "{W69H2}Cujo\n“<BELCH!>”"
+  },
+  {
+    id: "0443",
+    text: "{W89H2}Lilian\n“Oh, I’m sorry.”"
+  },
+  {
+    id: "0444",
+    text: "{W166H2}Lilian\n“We’re all out of {Cyan}dark stew{White}.”"
+  },
+  {
+    id: "0445",
+    text: "{W78H3}{Widths 0,40,16,-1}Bobo\n“Hey, {Zidane}.\n Good timing.”"
+  },
+  {
+    id: "0446",
+    text: "{W188H3}Bobo\n“I just came up with a\n new dish that I want you to try.”"
+  },
+  {
+    id: "0447",
+    text: "{W106H3}{UpperLeftForce}{Zidane}\n“Uhhh, no thanks.\n I’m full right now.”"
+  },
+  {
+    id: "0448",
+    text: "{W159H2}Bobo\n“Oh yeah?  That’s too bad.”"
+  },
+  {
+    id: "0449",
+    text: "{W139H2}Ludruff\n“You know what this is?”"
+  },
+  {
+    id: "0450",
+    text: "{W164H4}Ludruff\n“You’re not gonna believe it.{Wait 10}\n It’s a steam engine.  It’s still\n a prototype.”"
+  },
+  {
+    id: "0451",
+    text: "{W241H3}Ludruff\n“The house gets hot as hell while this\n baby’s running.  That’s the only problem.”"
+  },
+  {
+    id: "0452",
+    text: "{W140H3}Ludruff\n“I’m getting thin\n from sweating so much.”"
+  },
+  {
+    id: "0453",
+    text: "{W149H3}Nimitz\n“Making those air cabs\n required a lot of effort.”"
+  },
+  {
+    id: "0454",
+    text: "{W147H3}Nimitz\n“I nearly lost my arm\n during the construction.”"
+  },
+  {
+    id: "0455",
+    text: "{W244H4}Old Margaret\n“Transportation sure has come a long way.\n When I was young, we used to\n ride chocobos.”"
+  },
+  {
+    id: "0456",
+    text: "{W229H4}Old Margaret\n“They were much slower than these\n air cabs.  It used to take at least\n an hour to get to the Theater District.”"
+  },
+  {
+    id: "0457",
+    text: "{W138H2}Torres\n“The fire’s too strong!”"
+  },
+  {
+    id: "0458",
+    text: "{W235H4}Torres\n“How many times do I have to tell you?\n A few degrees can make the difference\n between a good weapon and a bad one.”"
+  },
+  {
+    id: "0459",
+    text: "{W118H2}Torres\n“Use a lower flame!”"
+  },
+  {
+    id: "0460",
+    text: "{W138H3}Wayne\n“Stop nagging!\n We’ve got a customer!”"
+  },
+  {
+    id: "0461",
+    text: "{W136H3}Torres\n“When is he gonna get it\n through his head{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0462",
+    text: "{W194H3}Wayne\n“My dad means well, but\n he gets on my nerves sometimes.”"
+  },
+  {
+    id: "0463",
+    text: "{W188H4}Wayne\n“I think the bottom line is\n he doesn’t want me to take over\n the shop.”"
+  },
+  {
+    id: "0464",
+    text: "{W179H3}Torres\n“He has the potential, but\n he doesn’t work hard enough.”"
+  },
+  {
+    id: "0465",
+    text: "{W169H3}Soldier\n“This synthesis shop is great!\n Get a load of this hammer!”"
+  },
+  {
+    id: "0466",
+    text: "{W122H3}Soldier\n“I had them make it\n out of a frying pan.”"
+  },
+  {
+    id: "0467",
+    text: "{W257H3}Hanna\n“We don’t have many items in stock\n today, because South Gate is under repair.”"
+  },
+  {
+    id: "0468",
+    text: "{W95H2}{UpperLeftForce}Heather\n“Rio, I’m bored.”"
+  },
+  {
+    id: "0469",
+    text: "{W163H2}{UpperLeftForce}Heather\n“Let’s go to another store.”"
+  },
+  {
+    id: "0470",
+    text: "{W50H1}{UpperLeftForce}Come on!"
+  },
+  {
+    id: "0471",
+    text: "{W76H2}{UpperRightForce}{Offset 200,0,0}Rio\n“In a minute.”"
+  },
+  {
+    id: "0472",
+    text: "{W40H1}{UpperLeftForce}Geez{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0473",
+    text: "{W218H3}Rio\n“Man, looking at all this stuff\n makes me wanna become a gladiator.”"
+  },
+  {
+    id: "0474",
+    text: "{W139H3}Uzu\n“I trained like crazy for\n this year’s festival.”"
+  },
+  {
+    id: "0475",
+    text: "{W141H2}Uzu\n“I’m gonna win for sure.”"
+  },
+  {
+    id: "0476",
+    text: "{W103H2}{Widths 0,103,16,-1}Uzu\n“Master Hunter {Zidane}!”"
+  },
+  {
+    id: "0477",
+    text: "{W149H3}Uzu\n“Sir, if you need anything,\n please let me know.”"
+  },
+  {
+    id: "0478",
+    text: "{W51H1}(Dammit!)"
+  },
+  {
+    id: "0479",
+    text: "{W232H3}Uzu\n“That was too easy.  I wish you guys\n would give me a little more competition.”"
+  },
+  {
+    id: "0480",
+    text: "{W120H2}Pricilla\n“Hey, did you hear?”"
+  },
+  {
+    id: "0481",
+    text: "{W157H3}Pricilla\n“A theater ship blew up and\n crashed in Alexandria.”"
+  },
+  {
+    id: "0482",
+    text: "{W184H3}Pricilla\n“There’s been a lot of\n commotion in Alexandria lately.”"
+  },
+  {
+    id: "0483",
+    text: "{W137H2}Locke\n“Air cabs are amazing.”"
+  },
+  {
+    id: "0484",
+    text: "{W214H3}Locke\n“Back in the old days, we had to walk\n all the way to the Theater District.”"
+  },
+  {
+    id: "0485",
+    text: "{W224H3}Locke\n“I don’t think I could ever walk that far\n anymore.  I’d probably croak if I did.”"
+  },
+  {
+    id: "0486",
+    text: "{W130H3}Marsha\n“Papa’s airship fighter\n is so cool.”"
+  },
+  {
+    id: "0487",
+    text: "{W143H3}Marsha\n“When I grow up,\n I’m gonna fly with Papa.”"
+  },
+  {
+    id: "0488",
+    text: "{W165H2}{UpperLeftForce}Elena\n“Papa should be back soon.”"
+  },
+  {
+    id: "0489",
+    text: "{W81H2}Marsha\n“I can’t wait.”"
+  },
+  {
+    id: "0490",
+    text: "{W152H3}Marsha\n“Hey, Papa.\n Where did you fly today?”"
+  },
+  {
+    id: "0491",
+    text: "{W138H2}Dolf\n“Just over the border.”"
+  },
+  {
+    id: "0492",
+    text: "{W180H2}Elena\n“Really?  How was South Gate?”"
+  },
+  {
+    id: "0493",
+    text: "{W163H3}Dolf\n“It was bad.  I think it’ll take\n a while to repair it.”"
+  },
+  {
+    id: "0494",
+    text: "{W69H2}Silly Old Man\n“Go away!”"
+  },
+  {
+    id: "0495",
+    text: "{W133H3}Silly Old Man\n“I’m trying to remember\n what I have to do!”"
+  },
+  {
+    id: "0496",
+    text: "{W69H2}Silly Old Man\n“Oh yeah!”"
+  },
+  {
+    id: "0497",
+    text: "{W158H2}Silly Old Man\n“I have to go take a dump.”"
+  },
+  {
+    id: "0498",
+    text: "{W180H4}Attendant\n“The air cab is like a\n mini airship.  The regent himself\n designed it.”"
+  },
+  {
+    id: "0499",
+    text: "{W213H4}Attendant\n“It flies to the Theater District\n and the Industrial District in a matter\n of seconds.”"
+  },
+  {
+    id: "0500",
+    text: "{W125H2}Attendant\n“Convenient, isn’t it?”"
+  },
+  {
+    id: "0501",
+    text: "{W139H1}Where was I gonna go{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0502",
+    text: "{W163H2}I wonder where dad’s airship\nis flying right now."
+  },
+  {
+    id: "0503",
+    text: "{W148H1}He’ll be home pretty soon."
+  },
+  {
+    id: "0504",
+    text: "{W206H3}{Steiner}\n“Such rudeness!  Princess, they are\n treating you like a commoner!”"
+  },
+  {
+    id: "0505",
+    text: "{W188H3}{Dagger}\n“Oh, hush.\n We get a great view from here.”"
+  },
+  {
+    id: "0506",
+    text: "{W156H3}{Steiner}\n“Hmm, {Wait 10}you’re right.\n I can see the entire town.”"
+  },
+  {
+    id: "0507",
+    text: "{W176H3}{Widths 0,176,17,-1}{Steiner}\n“Princess, look!\n Master {Vivi} is also participating!”"
+  },
+  {
+    id: "0508",
+    text: "{W173H3}{LowerLeftForce}{Dagger}\n“I can’t believe it.\n He seemed reluctant earlier.”"
+  },
+  {
+    id: "0509",
+    text: "{W186H3}{Widths 0,186,129,-1}{Steiner}\n“MASTER {Vivi}!!!  THE PRINCESS AND I\n ARE ROOTING FOR YOU!!!”"
+  },
+  {
+    id: "0510",
+    text: "{W84H2}{Widths 0,84,129,-1}{Dagger}\n“COME ON, {Vivi}!!!”"
+  },
+  {
+    id: "0511",
+    text: "{W97H2}{Dagger}\n“YOU CAN DO IT!”"
+  },
+  {
+    id: "0512",
+    text: "{W140H3}{LowerLeftForce}{Dagger}\n“Look out!  {Wait 5}Oh, gosh!\n{Wait 10} I can’t watch anymore!”"
+  },
+  {
+    id: "0513",
+    text: "{W89H2}{Widths 0,89,17,-1}{Steiner}\n“No!  Master {Vivi}!”"
+  },
+  {
+    id: "0514",
+    text: "{W244H3}{Steiner}\n“YOU CAN’T WIN JUST BY RUNNING!  A GOOD\n OFFENSE IS THE BEST DEFENSE!  ATTACK!”"
+  },
+  {
+    id: "0515",
+    text: "{W130H3}{Widths 0,61,16,-1}{Steiner}\n“You can’t lose to that\n monkey {Zidane}!”"
+  },
+  {
+    id: "0516",
+    text: "{W102H2}{NoFocus}{Steiner}\n“YES!{Wait 30}{Signal 1} THAT’S IT!{Wait 25}{Signal 2}”{Time -1}"
+  },
+  {
+    id: "0517",
+    text: "{W226H2}{Steiner}\n“NOW’S YOUR CHANCE!  ONE MORE TIME!”"
+  },
+  {
+    id: "0518",
+    text: "{W90H2}{Widths 0,90,129,-1}{Steiner}\n“{Vivi}, BEHIND YOU!”"
+  },
+  {
+    id: "0519",
+    text: "{W67H2}{Widths 0,0,19,-1}{Steiner}\n“YES!  GO!”"
+  },
+  {
+    id: "0520",
+    text: "{W156H2}Soldier\n“This is the Hunter’s Gate.”"
+  },
+  {
+    id: "0521",
+    text: "{W211H3}Soldier\n“You can enter Lindblum by foot here\n or through the Dragon’s Gate.”"
+  },
+  {
+    id: "0522",
+    text: "{W215H4}Soldier\n“Normally, we keep the Dragon’s Gate\n closed because it’s under the Mist,\n where a bunch of monsters lurk.”"
+  },
+  {
+    id: "0523",
+    text: "{W151H3}Soldier\n“That guy always acts like\n such a know-it-all.”"
+  },
+  {
+    id: "0524",
+    text: "{W235H3}Soldier\n“I don’t know why he became a soldier.\n He should’ve been a tour guide instead.”"
+  },
+  {
+    id: "0525",
+    text: "{W134H3}Village Sculptor\n“Wow{Speed 2}...{Speed -1} How did they\n carve stone like this?”"
+  },
+  {
+    id: "0526",
+    text: "{W181H3}Male Red Mage\n“Guess how long it takes\n to walk from here to the exit?”"
+  },
+  {
+    id: "0527",
+    text: "{W163H3}Male Red Mage\n“Thirty minutes!  Man, I can’t\n stand these walls!”"
+  },
+  {
+    id: "0528",
+    text: "{W151H2}Male Red Mage\n“If only I had an airship...”"
+  },
+  {
+    id: "0529",
+    text: "{W204H2}Young Lady\n“Did you come to Lindblum to shop?”"
+  },
+  {
+    id: "0530",
+    text: "{W209H3}Young Lady\n“There are so many more shops here\n than there are in my hometown.”"
+  },
+  {
+    id: "0531",
+    text: "{W150H3}{Zidane}\n“Hey{Speed 2}...{Speed -1}\n This one looks like Baku.”"
+  },
+  {
+    id: "0532",
+    text: "{W146H2}Card Freak Gon\n“The card game is deep.”"
+  },
+  {
+    id: "0533",
+    text: "{W90H2}Attendant\n“Good hunting!”"
+  },
+  {
+    id: "0534",
+    text: "{W82H1}{NoAnimation}{Position 7,195}{Widths 0,82,64,0,-1}{NoFocus}{Instantly}{Cyan}【Mu】 {Yellow}Value:{White} {Variable 0}Pt.{Time -1}"
+  },
+  {
+    id: "0535",
+    text: "{W150H1}{NoAnimation}{Position 7,195}{Widths 0,150,64,0,-1}{NoFocus}{Instantly}{Cyan}【Trick Sparrow】 {Yellow}Value:{White} {Variable 0}Pt.{Time -1}"
+  },
+  {
+    id: "0536",
+    text: "{W95H1}{NoAnimation}{Position 7,195}{Widths 0,95,64,0,-1}{NoFocus}{Instantly}{Cyan}【Fang】 {Yellow}Value:{White} {Variable 0}Pt.{Time -1}"
+  },
+  {
+    id: "0537",
+    text: "{W111H1}{Widths 0,111,64,0,-1}{Cyan}【Zaghnol】 {Yellow}Value:{White} {Variable 0}Pt.{Time -1}"
+  },
+  {
+    id: "0538",
+    text: "{W64H1}{NoAnimation}{Position 215,195}{Widths 0,64,64,1,-1}{NoFocus}{Instantly}{Yellow}Hunting Pt.{White} {Variable 1}{Time -1}"
+  },
+  {
+    id: "0539",
+    text: "{W128H1}{NoAnimation}{Position 65,5}{Instantly}We have a new leader!{Time -1}"
+  },
+  {
+    id: "0540",
+    text: "{W107H1}{NoAnimation}{Position 65,5}{Widths 0,107,16,64,7,-1}{NoFocus}{Instantly}{Zidane} leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0541",
+    text: "{W107H1}{NoAnimation}{Position 65,5}{Widths 0,107,17,64,7,-1}{NoFocus}{Instantly}{Vivi} leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0542",
+    text: "{W107H1}{NoAnimation}{Position 65,5}{Widths 0,107,20,64,7,-1}{NoFocus}{Instantly}{Fraya} leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0543",
+    text: "{W129H1}{NoAnimation}{Position 65,5}{Widths 0,129,64,7,-1}{NoFocus}{Instantly}Lani leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0544",
+    text: "{W215H1}{NoAnimation}{Position 65,5}{Widths 0,215,64,7,-1}{NoFocus}{Instantly}The Strange Gourmand leads with {Variable 7} Pt.!{Time -1}"
+  },
+  {
+    id: "0545",
+    text: "{W137H1}{NoAnimation}{Position 65,5}{Widths 0,137,64,7,-1}{NoFocus}{Instantly}Belna leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0546",
+    text: "{W147H1}{NoAnimation}{Position 65,5}{Widths 0,147,64,7,-1}{NoFocus}{Instantly}Genero leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0547",
+    text: "{W130H1}{NoAnimation}{Position 65,5}{Widths 0,130,64,7,-1}{NoFocus}{Instantly}Ivan leads with {Variable 7} points!{Time -1}"
+  },
+  {
+    id: "0548",
+    text: "{W164H3}Pigeon Lover\n“Where did these wild beasts\n come from!?”"
+  },
+  {
+    id: "0549",
+    text: "{W183H2}Pigeon Lover\n“I almost got devoured by one.”"
+  },
+  {
+    id: "0550",
+    text: "{W197H3}Attendant\n“Hey, you’re in the lead right now!\n I think you’re gonna win!”"
+  },
+  {
+    id: "0551",
+    text: "{W150H4}{Widths 0,121,17,-1}Attendant\n“{Vivi}’s leading right now.\n For such a little guy, he’s\n one heckuva magic user.”"
+  },
+  {
+    id: "0552",
+    text: "{W223H3}Attendant\n“He looks a little scared out there, but\n he’s steadily raising his score.”"
+  },
+  {
+    id: "0553",
+    text: "{W221H3}Attendant\n“{Fraya}’s leading right now.\n She’s a dragon knight from Burmecia.”"
+  },
+  {
+    id: "0554",
+    text: "{W203H3}Attendant\n“Now, she can fight!  Hell, I saw\n some monsters run away from her.”"
+  },
+  {
+    id: "0555",
+    text: "{W168H4}Attendant\n“Lani’s leading right now.\n She’s a beauty, they call her\n the ‘Hunter of Love.’”"
+  },
+  {
+    id: "0556",
+    text: "{W198H3}Attendant\n“I don’t know what that means, but\n I’d sure like to be hunted by her.”"
+  },
+  {
+    id: "0557",
+    text: "{W227H4}Attendant\n“The Strange Gourmand is on top\n right now.  He’s a self-styled gourmand\n who eats anything that moves.”"
+  },
+  {
+    id: "0558",
+    text: "{W186H4}Attendant\n“The judges can’t keep track of\n his score because he’s eating\n everything he catches.”"
+  },
+  {
+    id: "0559",
+    text: "{W197H3}Attendant\n“Belna’s on top right now.\n He’s Lindblum Castle’s head chef.”"
+  },
+  {
+    id: "0560",
+    text: "{W169H3}Attendant\n“He’s out there with his knife,\n chopping away.”"
+  },
+  {
+    id: "0561",
+    text: "{W221H3}Attendant\n“Genero’s on top right now.\n He’s the youngest of three brothers.”"
+  },
+  {
+    id: "0562",
+    text: "{W228H3}Attendant\n“He’s using scissors to fight the beasts.\n My, how original!”"
+  },
+  {
+    id: "0563",
+    text: "{W159H4}Attendant\n“Ivan’s on top right now.\n He’s a fisherman who works\n off the coast of Lindblum.”"
+  },
+  {
+    id: "0564",
+    text: "{W179H4}Attendant\n“He’s hunting with a fishing rod.\n He claims that he can catch\n anything with it.”"
+  },
+  {
+    id: "0565",
+    text: "{W85H3}{Zidane}\n“This is no time\n to relax{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0566",
+    text: "{W78H2}{Zidane}\n“It’s locked.”"
+  },
+  {
+    id: "0567",
+    text: "{W194H3}Judge\n“You’ll be disqualified if you leave\n town during the competition.”"
+  },
+  {
+    id: "0568",
+    text: "{W177H4}{Widths 0,165,18,-1}{Zidane}\n“I can’t get myself disqualified.\n Not with my dream date with {Dagger}\n at stake.”"
+  },
+  {
+    id: "0569",
+    text: "{W191H3}{Zidane}\n“I’ve got better things to do than\n hang out at the pub.”"
+  },
+  {
+    id: "0570",
+    text: "{W79H1}{UpperLeftForce}{NoFocus}GREAT SCOTT!{Time -1}"
+  },
+  {
+    id: "0571",
+    text: "{W43H1}{UpperRightForce}{NoFocus}Heeelp!{Time -1}"
+  },
+  {
+    id: "0572",
+    text: "{W29H1}Help!"
+  },
+  {
+    id: "0573",
+    text: "{W62H1}Thank you!"
+  },
+  {
+    id: "0574",
+    text: "{W5H1}{Center 5}!"
+  },
+  {
+    id: "0575",
+    text: "{W180H3}{Zidane}\n“Forget it.\n This is no time to be shopping.”"
+  },
+  {
+    id: "0576",
+    text: "{W183H2}Bunce\n“Man, why can’t I participate!?”"
+  },
+  {
+    id: "0577",
+    text: "{W82H2}{Widths 0,82,16,-1}Lucella\n“Good luck, {Zidane}!”"
+  },
+  {
+    id: "0578",
+    text: "{W171H2}{Zidane}\n“Hey, big boy!  Turn around!”"
+  },
+  {
+    id: "0579",
+    text: "{W104H1}Damn, you’re ugly!"
+  },
+  {
+    id: "0580",
+    text: "{W107H2}{Fraya}\n“Allow me to help.”"
+  },
+  {
+    id: "0581",
+    text: "{W165H4}{Widths 0,119,18,-1}{Zidane}\n“Okay, but I get to finish him!\n I’ve got a date with {Dagger}\n on the line!”"
+  },
+  {
+    id: "0582",
+    text: "{W118H3}{Fraya}\n“{Speed 2}...{Speed -1}You’re ridiculous.\n Fine.  As you wish.”"
+  },
+  {
+    id: "0583",
+    text: "{W81H1}{NoAnimation}The time is up!"
+  },
+  {
+    id: "0584",
+    text: "{W73H1}{NoAnimation}{Widths 0,73,16,-1}{Zidane} has retired!"
+  },
+  {
+    id: "0585",
+    text: "{W77H2}{NoAnimation}{Widths 0,28,16,20,-1}{Zidane} and {Fraya}\nhave retired!"
+  },
+  {
+    id: "0586",
+    text: "{W90H2}{NoAnimation}{Widths 0,90,16,-1,0,43,64,7,-1}The winner is{Speed 2}...{Speed -1}{Wait 30}{Signal 1}{Zidane}!\n{Variable 7} points!"
+  },
+  {
+    id: "0587",
+    text: "{W90H2}{Widths 0,90,20,-1,0,43,64,7,-1}The winner is{Speed 2}...{Speed -1}{Wait 30}{Signal 1}{Fraya}!\n{Variable 7} points!"
+  },
+  {
+    id: "0588",
+    text: "{W90H2}{Widths 0,90,17,-1,0,43,64,7,-1}The winner is{Speed 2}...{Speed -1}{Wait 30}{Signal 1}{Vivi}!\n{Variable 7} points!"
+  },
+  {
+    id: "0589",
+    text: "{W42H2}{UpperRightForce}Bunce\n“Wow!”"
+  },
+  {
+    id: "0590",
+    text: "{W105H3}{UpperLeftForce}{Widths 0,74,16,-1}Lucella\n“Gee!  Your friend\n is strong, {Zidane}!”"
+  },
+  {
+    id: "0591",
+    text: "{W93H2}{UpperLeftForce}Lucella\n“She’s so cool.”"
+  },
+  {
+    id: "0592",
+    text: "{W161H3}Bunce\n“Man, I could’ve beaten that\n monster on my own!”"
+  },
+  {
+    id: "0593",
+    text: "{W85H2}Bunce\n“Just kidding.”"
+  },
+  {
+    id: "0594",
+    text: "{W110H2}{Fraya}\n“How could I fail!?”"
+  },
+  {
+    id: "0595",
+    text: "{W201H2}{Fraya}\n“You can kiss your date goodbye.”"
+  },
+  {
+    id: "0596",
+    text: "{W161H3}{Fraya}\n“That monster might’ve been\n the clincher.”"
+  },
+  {
+    id: "0597",
+    text: "{W5H1}{UpperLeftForce}{Widths 0,5,16,-1}{Zidane}!"
+  },
+  {
+    id: "0598",
+    text: "{W32H1}{UpperRightForce}HELP!"
+  },
+  {
+    id: "0599",
+    text: "{W118H3}{Steiner}\n“What a huge town!\n I’m completely lost.”"
+  },
+  {
+    id: "0600",
+    text: "{W70H1}Pardon me{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0601",
+    text: "{W169H3}Female Red Mage\n“Geez{Speed 2}...{Speed -1}\n You’re dressed awful funny.”"
+  },
+  {
+    id: "0602",
+    text: "{W233H4}{Steiner}\n“{Speed 2}...{Speed -1}I am Captain Adelbert {Steiner}\n of Alexandria, and I humbly request your\n assistance to get back to the castle.”"
+  },
+  {
+    id: "0603",
+    text: "{W111H3}Female Red Mage\n“Ha-ha-ha!\n That’s a new one!”"
+  },
+  {
+    id: "0604",
+    text: "{W111H3}Female Red Mage\n“Nice try, but\n I don’t date bums.”"
+  },
+  {
+    id: "0605",
+    text: "{W174H3}Female Red Mage\n“You should really scrape that\n rust off.  It’s disgusting.”"
+  },
+  {
+    id: "0606",
+    text: "{W53H2}{Widths 0,0,19,-1}{Steiner}\n“Wha{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0607",
+    text: "{W25H1}{Center 25}Huh?"
+  },
+  {
+    id: "0608",
+    text: "{W135H3}Grandma Pickle\n“Do you always\n strike out that badly?”"
+  },
+  {
+    id: "0609",
+    text: "{W203H3}Grandma Pickle\n“I think you need a new line.\n A little shine wouldn’t hurt, either.”"
+  },
+  {
+    id: "0610",
+    text: "{W142H2}{Steiner}\n“What are these things?”"
+  },
+  {
+    id: "0611",
+    text: "{W184H2}Grandma Pickle\n“They’re called gysahl pickles.”"
+  },
+  {
+    id: "0612",
+    text: "{W222H2}Grandma Pickle\n“They’re one of Lindblum’s delicacies.”"
+  },
+  {
+    id: "0613",
+    text: "{W128H1}Do you wanna try one?"
+  },
+  {
+    id: "0614",
+    text: "{W123H2}{Steiner}\n“{Speed 2}...{Speed -1}It smells terrible!”"
+  },
+  {
+    id: "0615",
+    text: "{W137H3}Grandma Pickle\n“The worse they smell,\n the better they taste.”"
+  },
+  {
+    id: "0616",
+    text: "{W120H2}{Steiner}\n“I guess I’ll try one.”"
+  },
+  {
+    id: "0617",
+    text: "{W15H1}{UpperLeftForce}{NoFocus}{Center 15}!!!{Time -1}"
+  },
+  {
+    id: "0618",
+    text: "{W156H1}{LowerRightForce}{NoFocus}UGHUAAA!!!  {Wait 10}<HACK-HACK!>{Time -1}"
+  },
+  {
+    id: "0619",
+    text: "{W159H3}Grandma Pickle\n“Oh, my.  Even the locals\n don’t eat them in one bite.”"
+  },
+  {
+    id: "0620",
+    text: "{W145H3}{Steiner}\n“Phew{Speed 2}...{Speed -1} But you’re right.\n They are good.”"
+  },
+  {
+    id: "0621",
+    text: "{W163H5}{PreChoose 2,1}{Widths 0,148,64,0,-1}{Instantly}Innkeeper\n“Our rate is {Variable 0} Gil per night.\n Will you be staying with us?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0622",
+    text: "{W118H2}Innkeeper\n“That’s not enough.”"
+  },
+  {
+    id: "0623",
+    text: "{W143H4}{PreChoose 2,1}{Instantly}Card Freak Gon\n“You wanna play cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0624",
+    text: "{W191H2}Card Freak Gon\n“Tch, you don’t have any cards.”"
+  },
+  {
+    id: "0625",
+    text: "{W181H2}Marsha\n“You need more cards to play.”"
+  },
+  {
+    id: "0626",
+    text: "{W205H4}{PreChoose 2,1}{Instantly}Marsha\n“Do you wanna play cards with me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0627",
+    text: "{W148H4}{PreChoose 2,1}{Instantly}Old Margaret\n“Are you challenging me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0628",
+    text: "{W182H2}Old Margaret\n“You don’t have enough cards.”"
+  },
+  {
+    id: "0629",
+    text: "{W141H4}{PreChoose 2,1}{Instantly}Female Red Mage\n“You’re challenging me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0630",
+    text: "{W135H3}Female Red Mage\n“You don’t even have\n enough cards to play.”"
+  },
+  {
+    id: "0631",
+    text: "{W186H4}{PreChoose 2,1}{Instantly}Wimpy Guy\n“<Hack-Hack!>  Fine.  I’ll play.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0632",
+    text: "{W193H3}Wimpy Guy\n“Why did you bother asking me\n if you don’t have enough cards?”"
+  },
+  {
+    id: "0633",
+    text: "{W142H4}{PreChoose 2,1}{Instantly}Lady with an Apron\n“Sure.  I’d love to play.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0634",
+    text: "{W141H3}Lady with an Apron\n“You don’t have\n enough cards.  Oh well.”"
+  },
+  {
+    id: "0635",
+    text: "{W192H5}{PreChoose 2,1}{Instantly}Yaup\n“Grandma’s never gonna wake up.\n Let’s play cards.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0636",
+    text: "{W164H3}Yaup\n“Aw, shucks.  You don’t have\n enough cards.”"
+  },
+  {
+    id: "0637",
+    text: "{W114H5}{PreChoose 2,1}{Instantly}Attendant\n“I’m in the middle of\n work, but I’ll play.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0638",
+    text: "{W198H2}Attendant\n“Looks like you need more cards.”"
+  },
+  {
+    id: "0639",
+    text: "{W172H4}{PreChoose 2,1}{Instantly}Marian\n“Really?  You wanna play me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0640",
+    text: "{W175H3}Marian\n“You don’t have enough cards.\n What a shame{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0641",
+    text: "{W201H4}{PreChoose 2,1}{Instantly}Tim\n“Are you sure you wanna play me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0642",
+    text: "{W175H2}Tim\n“Darn.  You need more cards.”"
+  },
+  {
+    id: "0643",
+    text: "{W171H4}{PreChoose 2,1}{Instantly}Rita\n“I’d love to play.  Right now?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0644",
+    text: "{W153H3}Rita\n“I’m sorry.  We can’t play\n until you get more cards.”"
+  },
+  {
+    id: "0645",
+    text: "{W125H4}{PreChoose 2,1}{Instantly}Thomas\n“How about a match?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0646",
+    text: "{W172H3}Thomas\n“You’re short.  You need more\n cards to play.”"
+  },
+  {
+    id: "0647",
+    text: "{W107H4}{PreChoose 2,1}{Instantly}Pigeon Lover\n“Okay, let’s play.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0648",
+    text: "{W182H2}Pigeon Lover\n“You don’t have enough cards.”"
+  },
+  {
+    id: "0649",
+    text: "{W147H5}{PreChoose 2,1}{Instantly}Aspiring Artist Michael\n“I’m bored.  Do you wanna\n play some cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0650",
+    text: "{W212H2}Aspiring Artist Michael\n“Man, you don’t have enough cards!”"
+  },
+  {
+    id: "0651",
+    text: "{W131H5}{PreChoose 2,1}{Instantly}Member No. 29\n“Hey, would you like to\n play cards with me?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0652",
+    text: "{W156H3}Member No. 29\n“You need more cards.\n Oh well.  Maybe next time.”"
+  },
+  {
+    id: "0653",
+    text: "{W174H4}{PreChoose 2,1}{Instantly}Member No. 56\n“How about a game of cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0654",
+    text: "{W170H3}Member No. 56\n“Come on, you know the rules.\n That’s not enough cards.”"
+  },
+  {
+    id: "0655",
+    text: "{W156H5}{PreChoose 2,1}{Instantly}Gus\n“Excuse me.  Would you like\n to play cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0656",
+    text: "{W203H2}Gus\n“Oh, you don’t have enough cards.”"
+  },
+  {
+    id: "0657",
+    text: "{W135H4}{PreChoose 2,1}{Instantly}Lilian\n“Oh, why not.  I’ll play.”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0658",
+    text: "{W173H3}Lilian\n“Don’t ask me again\n until you have enough cards.”"
+  },
+  {
+    id: "0659",
+    text: "{W172H4}{Instantly}\n{Center 172} = {Cyan}Fuegert Memorial Theater{White} =\n{Center 69} Downstairs"
+  },
+  {
+    id: "0660",
+    text: "{W132H6}{Instantly}\n{Center 132} = {Cyan}Lucky Color & Co.{White} = \n\n{Center 114} We deliver lucky {Pink}♥{White} \n{Center 108} to you everyday!"
+  },
+  {
+    id: "0661",
+    text: "{W173H7}{Instantly}\n{Center 82} = {Cyan}SOLD OUT{White} = \n\n{Center 89} Lowell Bridges \n{Center 173} ‘Moogle Wannabe 2’ Sold Out!"
+  },
+  {
+    id: "0662",
+    text: "{W236H10}{Instantly}\n{Center 172} = {Cyan}Fuegert Memorial Theater{White} =\n\n{Center 236} We proudly present {Cyan}‘Moogle Wannabe 2’{White}: \n{Center 193} performed by Zalwicks Company, \n{Center 189} the company that gave a stellar \n{Center 222} rendition of {Cyan}‘I Wish I Were a Chocobo.’{White} \n\n{Center 162} Lowell Bridges plays Ubobo"
+  },
+  {
+    id: "0663",
+    text: "{W110H3}{Instantly}\n{Center 110} Pigeon turd alert!"
+  },
+  {
+    id: "0664",
+    text: "{W187H7}{Instantly}\n{Center 109}= {Cyan}Lindblum Exhibit{White} =\n\n{Center 187} The 50th Annual Lindblum Exhibit \n{Center 148}This year’s winner gets to\n{Center 144}paint on the church walls."
+  },
+  {
+    id: "0665",
+    text: "{W241H10}{Instantly}\n{Center 189}= {Cyan}Air Cabs Servicing 4 Districts{White} =\n\n{Center 193}Business District{Cyan}♦{White}Theater District\n{Center 191}Industrial District{Cyan}♦{White}Lindblum Castle\n\n Working to make your travels convenient!\n\n{Center 132}    {Cyan}Air Cab Management{White}"
+  },
+  {
+    id: "0666",
+    text: "{W202H9}{Instantly}\n{Center 157} = {Cyan}Attention All Engineers{White} = \n\n{Center 202} For the safety of the passengers, \n{Center 164} do not carry any equipment \n{Center 100} into the air cab. \n\n{Center 128}    Air Cab Management"
+  },
+  {
+    id: "0667",
+    text: "{W221H8}{Instantly}\n{Center 129} = {Cyan}Relocation Notice{White} = \n\n{Center 221} The store has moved to Falgar Plaza, \n{Center 140} in the Business District. \n\n{Center 163}           Shopkeeper Dragoos"
+  },
+  {
+    id: "0668",
+    text: "{W205H10}{Instantly}\n{Center 67} = {Cyan}Cid VIII{White} = \n\n{Center 200} Developed the first Mist-powered \n{Center 187} airship in 1762.  Led the airship \n{Center 205} armada in 1771 and brought peace \n{Center 170} to the continent.  Died 1780. \n\n{Center 182}     In honor of my father.  Cid IX"
+  },
+  {
+    id: "0669",
+    text: "{W193H7}{Instantly}\n{Center 120} = {Cyan}Today’s Special{White} = \n\n{Center 193} {Cyan}Dark Stew{White} (one of our classics!) \n\n{Center 100}      The Doom Pub"
+  },
+  {
+    id: "0670",
+    text: "{W225H7}{Instantly}\n{Center 99} = {Cyan}Roodle Faux{White} = \n\n{Center 185} Are you having airship trouble? \n{Center 225} Repairing Mist engines is my specialty! \n{Center 200} Fast, quality service guaranteed!"
+  },
+  {
+    id: "0671",
+    text: "{W227H10}{Instantly}\n{Center 195} = {Cyan}Airship Engineer Daily Report{White} = \n\n{Center 227} Hilda Garde 2 construction postponed! \n\n{Center 221} The prototype steam engine on board \n{Center 170} Hilda Garde 2 is inoperative. \n{Center 222} The engine problem stems from errors \n{Center 192} during the manufacturing period."
+  },
+  {
+    id: "0672",
+    text: "{W191H9}{Instantly}\n{Center 191} = {Cyan}Provisional Air Cab Schedule{White} = \n\n{Center 176} For the next 3 days, air cabs \n{Center 163} will operate on the Festival \n{Center 127} of the Hunt schedule. \n\n{Center 144}        Air Cab Management"
+  },
+  {
+    id: "0673",
+    text: "{W215H10}{Instantly}\n{Center 126} = {Cyan}Bobo Bird Statue{White} = \n\n{Center 188} Bobo Birds are symbols of good \n{Center 215} fortune, according to an Olgan myth. \n\n{Center 177} The founder of this inn bought \n{Center 204} the statue, and it has been passed \n{Center 133} down for generations."
+  },
+  {
+    id: "0674",
+    text: "{W212H11}{Instantly}\n{Center 155} = {Cyan}Comments/Suggestions{White} = \n\n{Center 136} The room was terrible. \n{Center 212} Also, that thing crying “Kupo-Kupo” \n{Center 121} kept me up all night. \n{Center 120} Throw him out ASAP, \n{Center 153} or I’m never coming back. \n\n{Center 66}         Lani"
+  },
+  {
+    id: "0675",
+    text: "{W154H5}{Instantly}\n{Center 127} = {Cyan}Ivan’s Fish Shack{White} = \n\n{Center 154} Fresh fish sold everyday."
+  },
+  {
+    id: "0676",
+    text: "{W230H8}{Instantly}\n{Center 112} = {Cyan}Milla’s Oil Shop{White} = \n\n{Center 230} Now carrying oglop oil, one of the most \n{Center 190} popular medicines in the market. \n\n{Center 188} Mountain oglop oil also in stock."
+  },
+  {
+    id: "0677",
+    text: "{W170H7}{Instantly}\n{Center 156} = {Cyan}Polom’s Action Figures{White} = \n\n{Center 127} Get your royal family \n{Center 129} action figures today! \n{Center 170} Brahne figures now in stock!"
+  },
+  {
+    id: "0678",
+    text: "{W173H4}{Instantly}\n{Center 154} This fire’s so hot, it could \n{Center 173} probably melt steel instantly."
+  },
+  {
+    id: "0679",
+    text: "{W190H7}{Instantly}\n{Center 124} = {Cyan}Pepe’s Milk Shop{White} = \n\n{Center 144} Offering farm-fresh milk \n{Center 190} delivered from Lindblum Plateau. \n{Center 113} Excellent in stews."
+  },
+  {
+    id: "0680",
+    text: "{W205H7}{Instantly}\n{Center 123} = {Cyan}Moucha’s Coffee{White} = \n\n{Center 171} We serve top-grade coffee! \n{Center 202} 10% of our coffee beans are from \n{Center 205} the coffee-rich heights of Nolrich!"
+  },
+  {
+    id: "0681",
+    text: "{W143H6}{Instantly}\n{Center 79} = {Cyan}Kupo Nut{White} = \n\n{Center 143} Moogle’s favorite food! \n{Center 76} 〜SOLD OUT〜"
+  },
+  {
+    id: "0682",
+    text: "{W177H3}{Zidane}\n“What a cheesy suit of armor{Speed 2}...{Speed -1}\n Who would buy this crap?”"
+  },
+  {
+    id: "0683",
+    text: "{W189H3}{Zidane}\n“I remember a guy with spiky hair\n who carried something like this.”"
+  },
+  {
+    id: "0684",
+    text: "{W228H11}{Instantly}\n{Center 146} = {Cyan}Card Collector No. 7{White} = \n\n{Center 228} Feature Article: Regarding Rare Cards \n\n{Center 157} Rare cards are priceless! \n{Center 159} The cards you’re carrying \n{Center 163} could become rare cards... \n\n{Center 141}       Fabool Publications"
+  },
+  {
+    id: "0685",
+    text: "{W107H3}Marian\n“No.  I didn’t see a\n big moogle.”"
+  },
+  {
+    id: "0686",
+    text: "{W170H4}Lowell\n“You were at the theater!\n Oh, please!  Don’t tell anyone\n about this!”"
+  },
+  {
+    id: "0687",
+    text: "{W158H2}Lowell\n“Please!  I’ll give you this!”"
+  },
+  {
+    id: "0688",
+    text: "{W165H2}Lowell\n“Thanks as always, Michael.”"
+  },
+  {
+    id: "0689",
+    text: "{W197H3}Aspiring Artist Michael\n“Geez.  I can’t finish my painting\n with you bothering me everyday!”"
+  },
+  {
+    id: "0690",
+    text: "{W160H3}Lowell\n“Come on.\n Forget about the painting.”"
+  },
+  {
+    id: "0691",
+    text: "{W177H4}Lowell\n“Let’s work together.  You can\n express your artistic talents\n on stage, too.”"
+  },
+  {
+    id: "0692",
+    text: "{W188H3}Aspiring Artist Michael\n“Don’t ever compare your acting\n with my art!”"
+  },
+  {
+    id: "0693",
+    text: "{W198H3}Aspiring Artist Michael\n“If you’re done with your business,\n get out of here.”"
+  },
+  {
+    id: "0694",
+    text: "{W180H3}Aspiring Artist Michael\n“I wouldn’t get involved with him\n if I were you.”"
+  },
+  {
+    id: "0695",
+    text: "{W150H3}Lowell\n“Fine{Speed 2}...{Speed -1}\n What a waste of talent{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0696",
+    text: "{W125H2}{Vivi}\n“I think I’ll buy one{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0697",
+    text: "{W128H3}Old Man with a Cane\n“Are you participating\n in the festival?”"
+  },
+  {
+    id: "0698",
+    text: "{W183H4}Old Man with a Cane\n“I heard this year’s contestants\n are all tough, so I don’t think\n you have much of a chance.”"
+  },
+  {
+    id: "0699",
+    text: "{W157H3}Old Man with a Cane\n“Ivan or Belna will probably\n win again this year.”"
+  },
+  {
+    id: "0700",
+    text: "{W212H3}Roch\n“The founder of Lindblum, Cid I,\n was the winner of the first festival.”"
+  },
+  {
+    id: "0701",
+    text: "{W218H3}Roch\n“Cid I built this church to\n pass on the tradition of the festival.”"
+  },
+  {
+    id: "0702",
+    text: "{W137H3}Old Man with a Cane\n“Even Ivan and Belna\n couldn’t beat Zaghnol.”"
+  },
+  {
+    id: "0703",
+    text: "{W165H3}Chet\n“The tradition of the festival\n began around that time.”"
+  },
+  {
+    id: "0704",
+    text: "{W196H3}Priest Theodore\n“It draws on your deepest\n strength and redefines courage.”"
+  }
+]

@@ -1,0 +1,13 @@
+﻿[
+  { id: "0", name: "OnInit" },
+  { id: "1", name: "OnLoop" },
+  { id: "2", name: "InRange" },
+  { id: "3", name: "OnSpeak" },
+  { id: "4", name: "BattleUnknown" },
+  { id: "5", name: "BattleAtb" },
+  { id: "6", name: "BattleCounter1" },
+  { id: "7", name: "BattleCounter2" },
+  { id: "8", name: "OnCard" },
+  { id: "9", name: "BattleDeath" },
+  { id: "10", name: "ReInit" }
+]

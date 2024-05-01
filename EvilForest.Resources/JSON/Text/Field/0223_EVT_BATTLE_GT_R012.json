@@ -1,0 +1,386 @@
+[
+  {
+    id: "0000",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0001",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0002",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0003",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0004",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0005",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0006",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0008",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0009",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0010",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0011",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0012",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0013",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0014",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0017",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0018",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0019",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0020",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0021",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0022",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0023",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0024",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0025",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0026",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0027",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0028",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0029",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0030",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0031",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0032",
+    text: "{W5H1}{NoFocus}{Center 5}!{Time 30}"
+  },
+  {
+    id: "0033",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0034",
+    text: "{W96H2}{Position 5,50}{Flash}{Speed 8}What in the world\nam I doing{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0035",
+    text: "{W127H2}{Position 5,50}{Flash}{Speed 8}I’m assisting thieves\nin committing a crime{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0036",
+    text: "{W97H2}{Position 5,50}{Flash}{Speed 8}No{Speed 2}... {Speed 8}\nI must be patient."
+  },
+  {
+    id: "0037",
+    text: "{W174H3}{Position 5,50}{Flash}{Speed 8}Protect the princess.\nEscort her back to the castle.\nFocus on your duties{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0038",
+    text: "{W132H3}{Position 5,50}{Flash}{Speed 8}Trust the queen.\nShe would never commit\nan atrocity."
+  },
+  {
+    id: "0039",
+    text: "{W169H1}{Position 5,50}{Flash}{Speed 8}There must be a good reason."
+  },
+  {
+    id: "0040",
+    text: "{W131H1}{Position 5,50}{Flash}No thoughts of my own?"
+  },
+  {
+    id: "0041",
+    text: "{W56H1}{Position 5,50}{Flash}{Speed 8}Nonsense."
+  },
+  {
+    id: "0042",
+    text: "{W185H2}{Position 5,50}{Flash}{Speed 8}How can I, a lowly knight,\nunderstand the queen’s thinking?"
+  },
+  {
+    id: "0043",
+    text: "{W151H2}{Position 5,50}{Flash}{Speed 8}I need not worry about\nthe ramblings of a criminal."
+  },
+  {
+    id: "0044",
+    text: "{W163H2}{Position 5,50}{Flash}{Speed 8}Just think about\nescorting the princess home."
+  },
+  {
+    id: "0045",
+    text: "{W105H2}{Position 5,50}{Flash}{Speed 8}I’ll probably never\nsee him again{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0046",
+    text: "{W167H3}{Position 5,20}{Flash}{Speed 8}He was the culprit{Speed 2}...\n{Speed 8}He pulled the princess and me\ninto his intrigues.{Time 60}"
+  },
+  {
+    id: "0047",
+    text: "{W137H3}{Position 112,95}{Widths 0,105,16,-1}{Flash}{Speed 8}It was your fault, {Zidane}.\n{Wait 3}If you hadn’t treated me\nlike a child{Speed 2}..."
+  },
+  {
+    id: "0048",
+    text: "{W180H3}{Position 112,95}{Flash}{Speed 2}...{Speed 8}I wouldn’t be here\nhunting after Supersoft to save\none of your friends."
+  },
+  {
+    id: "0049",
+    text: "{W122H1}{Position 112,95}{Flash}{Speed 8}Why am I doing this{Speed 2}...{Speed 8}?"
+  },
+  {
+    id: "0050",
+    text: "{W143H2}{Position 112,95}{Flash}{Speed 8}Because Blank saved me?\n{Wait 3}Yes, he saved me."
+  },
+  {
+    id: "0051",
+    text: "{W114H3}{Position 112,95}{Flash}{Speed 8}He saved my life{Speed 2}...{Speed 8}\nThe least I can do is\nreturn the favor{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0052",
+    text: "{W144H2}{Position 112,95}{Flash}{Speed 8}But I never thought about\nthings like this before{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0053",
+    text: "{W223H3}Tot\n“Two phrases are commonly found in\n documents more than 500 years old{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0054",
+    text: "{W149H3}Tot\n“One is ‘jewel.’  The other\n is ‘summoner tribe.’”"
+  },
+  {
+    id: "0055",
+    text: "{W219H3}Tot\n“But 500 years ago, the phrases\n mysteriously vanished from history{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0056",
+    text: "{W245H4}Tot\n“The archeologist Frederick Ash theorized\n that ‘jewel’ refers to the pendant\n passed down to the ruler of Alexandria.”"
+  },
+  {
+    id: "0057",
+    text: "{W199H4}Tot\n“But the pendant{Speed 2}...{Speed -1}\n It is much too small to be referring\n to the same ‘jewel.’”"
+  },
+  {
+    id: "0058",
+    text: "{W203H4}Tot\n“Other research suggests a\n relationship between ‘eidolons’ and\n magical ‘stones’{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0059",
+    text: "{W81H2}Garnet\n“Doctor Tot!”"
+  },
+  {
+    id: "0060",
+    text: "{W88H2}Tot\n“Ah, Princess!”"
+  },
+  {
+    id: "0061",
+    text: "{W212H2}Garnet\n“Were you reading big books again?”"
+  },
+  {
+    id: "0062",
+    text: "{W171H3}Tot\n“Ha ha ha{Speed 2}...{Speed -1} I’ve already read\n every book in this library.”"
+  },
+  {
+    id: "0063",
+    text: "{W135H4}Tot\n“But I think better\n when I’m surrounded by\n old books.”"
+  },
+  {
+    id: "0064",
+    text: "{W113H3}Garnet\n“Really?\n I don’t like books.”"
+  },
+  {
+    id: "0065",
+    text: "{W215H3}Tot\n“You are a person of dignity.\n It is imperative that you study hard.”"
+  },
+  {
+    id: "0066",
+    text: "{W161H4}{UpperLeftForce}Garnet\n“I know, I know{Speed 2}...{Speed -1}\n Oh, but I was quite taken by\n that book you gave me.”"
+  },
+  {
+    id: "0067",
+    text: "{W114H3}{UpperLeftForce}Garnet\n“What was it called?\n It was{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0068",
+    text: "{W197H3}Tot\n“Was it ‘I Want to Be Your Canary,’\n by Lord Avon?”"
+  },
+  {
+    id: "0069",
+    text: "{W140H4}Garnet\n“Oh yes, that’s the one!\n So there is a book I like\n after all.”"
+  },
+  {
+    id: "0070",
+    text: "{W49H1}{NoFocus}My, my{Speed 2}...{Speed -1}{Time 35}"
+  },
+  {
+    id: "0071",
+    text: "{W150H2}{UpperLeftForce}Garnet\n“What’s this, Doctor Tot?”"
+  },
+  {
+    id: "0072",
+    text: "{W157H3}{UpperRightForce}Tot\n“That is a globe of Gaia.\n It’s a model of our planet.”"
+  },
+  {
+    id: "0073",
+    text: "{W163H4}{UpperLeftForce}Garnet\n“A Gaia globe?\n I never knew our castle was\n shaped like a sphere.”"
+  },
+  {
+    id: "0074",
+    text: "{W154H3}Tot\n“Ha ha ha{Speed 2}...{Speed -1} We live\n on the surface, Princess.”"
+  },
+  {
+    id: "0075",
+    text: "{W6H1}{UpperLeftForce}{Center 6}?"
+  },
+  {
+    id: "0076",
+    text: "{W174H4}{Flash}Tot\n“Ah, yes, the stars!\n They inspired the theories\n relating stones and eidolons.”"
+  },
+  {
+    id: "0077",
+    text: "{W89H2}{LowerLeftForce}Tot\n“That is why{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0078",
+    text: "{W128H4}{LowerLeftForce}Tot\n“Oh!\n I’m sorry, I was lost in\n thought again.”"
+  },
+  {
+    id: "0079",
+    text: "{W68H2}Garnet\n“It’s okay.”"
+  },
+  {
+    id: "0080",
+    text: "{W103H3}Garnet\n“Where is my room\n on this globe?”"
+  },
+  {
+    id: "0081",
+    text: "{W181H3}{LowerLeftForce}Tot\n“Oh, your room is much too small\n to point out on this globe{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0082",
+    text: "{W143H2}Garnet\n“What about the castle?”"
+  },
+  {
+    id: "0083",
+    text: "{W104H2}{LowerLeftForce}Tot\n“That, I can do{Speed 2}...{Speed -1}”{Time 30}"
+  },
+  {
+    id: "0084",
+    text: "{W165H2}Garnet\n“Oh, and Uncle Cid’s castle?”{Time 60}"
+  },
+  {
+    id: "0085",
+    text: "{W128H3}{Dagger}\n“How long has it been?\n Eight years?”"
+  },
+  {
+    id: "0086",
+    text: "{W129H2}{UpperLeftForce}Tot\n“Time passes quickly.”"
+  },
+  {
+    id: "0087",
+    text: "{W141H4}{UpperLeftForce}Tot\n“But I haven’t changed.\n I continue to collect and\n research these items.”"
+  },
+  {
+    id: "0088",
+    text: "{W183H2}{Dagger}\n“Where did you find this globe?”"
+  },
+  {
+    id: "0089",
+    text: "{W182H4}{UpperLeftForce}Tot\n“It’s an antique.  It’s broken, as\n you can see, but I use it as an\n observation deck.”"
+  },
+  {
+    id: "0090",
+    text: "{W155H4}{UpperLeftForce}Tot\n“Ironic, isn’t it?\n Looking up at the sky from\n inside a globe.”"
+  },
+  {
+    id: "0091",
+    text: "{W76H2}{Dagger}\n“It sure is{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0092",
+    text: "{W173H3}{UpperLeftForce}Tot\n“Princess, I don’t mean to\n meddle in your affairs, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0093",
+    text: "{W109H3}{UpperLeftForce}Tot\n“I am on your side,\n now and forever.”"
+  },
+  {
+    id: "0094",
+    text: "{W156H3}{UpperLeftForce}Tot\n“Please tell me if\n there’s anything I can do.”"
+  },
+  {
+    id: "0095",
+    text: "{W88H2}{Dagger}\n“Doctor Tot{Speed 2}...{Speed -1}”"
+  }
+]

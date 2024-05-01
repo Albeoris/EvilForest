@@ -1,0 +1,1578 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}No More Pointy Hats!\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W150H3}{UpperRight}{Widths 0,0,6,0,-1,0,69,6,1,-1}{Text 0,0}\n“Thanks for delivering the\n mail from {Text 0,1}!”"
+  },
+  {
+    id: "0046",
+    text: "{W225H11}{Widths 0,55,6,1,6,0,-1,0,134,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nKupo!  Strange people came into town\nand destroyed the entire place!\nWhat the heck is going on?  Kupo!\nI don’t wanna see any more pointy hats!\n\n{Text 0,0} should be careful, too!\nMaybe you should move elsewhere..."
+  },
+  {
+    id: "0047",
+    text: "{W226H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Things are terrible in Burmecia!  Kupo!\n Are we gonna be okay here?  Kupo?”"
+  },
+  {
+    id: "0048",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Tantalus\n{Tab}I Have a Bad Feeling\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0049",
+    text: "{W136H2}{UpperRight}{Widths 0,0,6,0,-1,0,136,16,-1}{Text 0,0}\n“There’s a letter for {Zidane}!”"
+  },
+  {
+    id: "0050",
+    text: "{W217H15}{Widths 0,55,6,1,16,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Zidane}{White}\n\n\nI decided to start a small theater, but\nI ain’t had any luck finding actors...\n\nDo you know any good actors who are\nlooking for work?  Man, how I wish\ny’all were here!\n\nCome to think of it,\nyou Tantalus guys look like\na bunch of outlaws!\nJust kidding."
+  },
+  {
+    id: "0051",
+    text: "{W193H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  Is she looking for actors?\n I want to become an actor{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0052",
+    text: "{W181H3}{UpperRight}{Widths 0,0,6,0,-1,0,136,6,1,-1}{Text 0,0}\n“There’s a letter from {Text 0,1}!\n Kupo!  Let’s read it together!”"
+  },
+  {
+    id: "0053",
+    text: "{W216H12}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nPeople are climbing up to Cleyra since\nthe sandstorm disappeared... Kupo.\nI have a bad feeling about this.\nWhat’s going to happen!?\n\nWill Cleyra end up like Burmecia?\nIsn’t there anyone who can help us?\nKupo!"
+  },
+  {
+    id: "0054",
+    text: "{W234H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That sounds awful!  Kupo!!\n I’m gonna pack and leave with Stiltzkin!”"
+  },
+  {
+    id: "0055",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}In Danger\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0056",
+    text: "{W181H3}{UpperRight}{Widths 0,0,6,0,-1,0,169,6,1,-1}{Text 0,0}\n“A letter from {Text 0,1}?  How unusual!\n Kupo!  Let’s read it together!”"
+  },
+  {
+    id: "0057",
+    text: "{W232H13}{Widths 0,55,6,1,6,0,-1,0,181,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nBy the time this letter reaches {Text 0,0},\nCleyra may be destroyed...\nStiltzkin keeps saying,\n\n“I’ve been through stuff like this before.\n We’ll be fine.”\n\nBut what if we won’t be okay this time!?\nKupo!!!"
+  },
+  {
+    id: "0058",
+    text: "{W248H3}{UpperRight}{Widths 0,0,6,0,-1,0,211,6,1,-1}{Text 0,0}\n“Kupo!  So, that’s what the big sound was{Speed 2}...{Speed -1}\n I wonder if {Text 0,1} and Stiltzkin are okay?”"
+  },
+  {
+    id: "0059",
+    text: "{W132H3}Stiltzkin\n“Wh-What the{Speed 2}...{Speed -1}?\n What just happened!?”"
+  },
+  {
+    id: "0060",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0061",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0062",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0063",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0064",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0065",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0066",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0067",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0068",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0069",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0070",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0071",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0072",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0073",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0074",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0075",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0076",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0077",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0078",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0079",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0080",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0081",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0082",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0083",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0084",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0085",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0086",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0087",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0088",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0089",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0090",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0091",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0092",
+    text: "{W147H3}{Zidane}\n“I can’t believe the\n sandstorm disappeared.”"
+  },
+  {
+    id: "0093",
+    text: "{W116H2}{Zidane}\n“What happened{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0094",
+    text: "{W94H2}{Fraya}\n“I don’t know{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0095",
+    text: "{W188H3}{UpperRight}Cleyran High Priest\n“I have never witnessed anything\n like this since we settled here.”"
+  },
+  {
+    id: "0096",
+    text: "{W140H3}{UpperRight}Cleyran High Priest\n“On the harp,\n there is a magic stone.”"
+  },
+  {
+    id: "0097",
+    text: "{W198H4}{UpperRight}Cleyran High Priest\n“Since ancient times, we have used\n the power of the stone to control\n the sandstorm.”"
+  },
+  {
+    id: "0098",
+    text: "{W155H3}King of Burmecia\n“Perhaps someone is trying\n to invade Cleyra.”"
+  },
+  {
+    id: "0099",
+    text: "{W168H3}{UpperRight}Cleyran High Priest\n“I fear that you may be right,\n my lord.”"
+  },
+  {
+    id: "0100",
+    text: "{W157H3}King of Burmecia\n“I only hope our enemies\n don’t come up the trunk{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0101",
+    text: "{W158H2}{UpperLeftForce}{Zidane}\n“What are you doing here?”"
+  },
+  {
+    id: "0102",
+    text: "{W171H3}{Fraya}\n“Tell me.  Why do you think\n the sandstorm disappeared?”"
+  },
+  {
+    id: "0103",
+    text: "{W86H2}{UpperLeftForce}{Zidane}\n“I don’t know.”"
+  },
+  {
+    id: "0104",
+    text: "{W174H3}{UpperLeftForce}{Zidane}\n“I was surprised that\n there even was a sandstorm.”"
+  },
+  {
+    id: "0105",
+    text: "{W240H4}{Fraya}\n“Did you know the sandstorm was here for\n a thousand years{Speed 2}...{Speed -1}?  And in all that time,\n it never disappeared, not even once.”"
+  },
+  {
+    id: "0106",
+    text: "{W201H2}{Fraya}\n“Perhaps Brahne is behind all this.”"
+  },
+  {
+    id: "0107",
+    text: "{W38H5}{UpperLeftForce}{PreChoose 3,2}{Widths 0,0,16,-1,1,193,-1,2,258,-1,3,181,18,-1}{Instantly}{Zidane}\n“......”\n{Choice}No doubt; Brahne is behind this\n{Tab}What about that guy who was with Brahne?\n{Tab}Right now, my mind’s only on {Dagger}"
+  },
+  {
+    id: "0108",
+    text: "{W132H2}{UpperLeftForce}{Zidane}\n“It’s gotta be Brahne.”"
+  },
+  {
+    id: "0109",
+    text: "{W207H2}{Fraya}\n“I thought you’d feel the same way.”"
+  },
+  {
+    id: "0110",
+    text: "{W248H3}{UpperLeftForce}{Zidane}\n“Actually, I’m more concerned about\n who that guy with Brahne in Burmecia was.”"
+  },
+  {
+    id: "0111",
+    text: "{W138H3}{Fraya}\n“That man{Speed 2}...{Speed -1}\n I wonder who he was{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0112",
+    text: "{W169H3}{UpperLeftForce}{Widths 0,169,18,-1}{Zidane}\n“Who cares?  {Dagger}’s the only thing\n on my mind right now.”"
+  },
+  {
+    id: "0113",
+    text: "{W74H2}{Fraya}\n“That girl{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0114",
+    text: "{W156H2}{Fraya}\n“She’s Brahne’s daughter.”"
+  },
+  {
+    id: "0115",
+    text: "{W103H2}{UpperLeftForce}{Zidane}\n“Yeah.  So what?”"
+  },
+  {
+    id: "0116",
+    text: "{W38H2}{Widths 0,0,20,-1}{Fraya}\n“......”"
+  },
+  {
+    id: "0117",
+    text: "{W241H3}{Fraya}\n“{Zidane}, I’m going to head down to\n find out why the sandstorm disappeared.”"
+  },
+  {
+    id: "0118",
+    text: "{W111H3}{UpperLeftForce}{Zidane}\n“Hey, I was thinking\n the same thing!”"
+  },
+  {
+    id: "0119",
+    text: "{W118H2}{UpperLeftForce}{Zidane}\n“Let’s go together.”"
+  },
+  {
+    id: "0120",
+    text: "{W205H3}{UpperLeftForce}{Widths 0,137,17,21,-1}{Zidane}\n“I’m gonna go find {Vivi} and {Quina}.\n I’ll meet you at the town entrance.”"
+  },
+  {
+    id: "0121",
+    text: "{W205H3}{UpperLeftForce}{Zidane}\n“I’m gonna go find {Vivi}.\n I’ll meet you at the town entrance.”"
+  },
+  {
+    id: "0122",
+    text: "{W213H2}Flower Maiden Sharon\n“The view has completely changed{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0123",
+    text: "{W143H3}Water Maiden Shannon\n“A view devoid of sand{Speed 2}...{Speed -1}\n This troubles me.”"
+  },
+  {
+    id: "0124",
+    text: "{W205H3}Sand Oracle Satrea\n“I regret this happening during your\n stay in Cleyra{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0125",
+    text: "{W188H2}Star Maiden Nina\n“I still have some merchandise{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0126",
+    text: "{W204H3}Forest Oracle Kildea\n“With the weakened winds, even this\n windmill may come to a stop{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0127",
+    text: "{W198H2}Burmecian Soldier Din\n“I have a bad feeling about this{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0128",
+    text: "{W149H3}Burmecian Soldier Gidd\n“If it’s war they want,\n then it’s war they’ll get!”"
+  },
+  {
+    id: "0129",
+    text: "{W279H3}Tree Oracle Wylan\n“Could a magical force powerful enough to break\n the harp’s strings be aimed at us?”"
+  },
+  {
+    id: "0130",
+    text: "{W175H3}Sky Oracle Mylan\n“This is an act of someone with\n unspeakable powers!”"
+  },
+  {
+    id: "0131",
+    text: "{W150H2}Burmecian Soldier Gary\n“I knew they would come!”"
+  },
+  {
+    id: "0132",
+    text: "{W168H3}Burmecian Refugee Lorena\n“I wonder why they can’t\n just restart the sandstorm?”"
+  },
+  {
+    id: "0133",
+    text: "{W120H2}Tree Oracle Wylan\n“Who just ran by{Speed 2}...{Speed -1}?{IncreaseSignal+}”"
+  },
+  {
+    id: "0134",
+    text: "{W170H2}Tree Oracle Wylan\n“I hope you find this useful{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0135",
+    text: "{W120H2}Sand Oracle Satrea\n“Who just ran by{Speed 2}...{Speed -1}?{IncreaseSignal+}”"
+  },
+  {
+    id: "0136",
+    text: "{W176H2}Sand Oracle Satrea\n“I hope this is of use to you{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0137",
+    text: "{W121H2}Burmecian Kid Jack\n“What’s happening!?”"
+  },
+  {
+    id: "0138",
+    text: "{W133H2}Burmecian Kid Jack\n“Here, this is for you!”"
+  },
+  {
+    id: "0139",
+    text: "{W121H2}Burmecian Kid Adam\n“What’s happening!?”"
+  },
+  {
+    id: "0140",
+    text: "{W133H2}Burmecian Kid Adam\n“Here, this is for you!”"
+  },
+  {
+    id: "0141",
+    text: "{W203H2}Burmecian Refugee Learie\n“I just want to save the children{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0142",
+    text: "{W146H2}Burmecian Refugee Learie\n“Protect them with this.”"
+  },
+  {
+    id: "0143",
+    text: "{W123H2}Flower Maiden Sharon\n“We’re done for!”"
+  },
+  {
+    id: "0144",
+    text: "{W123H2}Flower Maiden Sharon\n“Please, take this.”"
+  },
+  {
+    id: "0145",
+    text: "{W124H2}Water Maiden Shannon\n“We’re done for!”"
+  },
+  {
+    id: "0146",
+    text: "{W147H2}Water Maiden Shannon\n“I hope you can use this.”"
+  },
+  {
+    id: "0147",
+    text: "{W214H3}Wind Maiden Eileen\n“The disappearance of the sandstorm\n heralds the coming of invaders.”"
+  },
+  {
+    id: "0148",
+    text: "{W195H2}Sun Oracle Flourin\n“This could be the end of Cleyra.”"
+  },
+  {
+    id: "0149",
+    text: "{W190H3}Cleyran High Priest\n“This stone has protected Cleyra\n since the days of old.”"
+  },
+  {
+    id: "0150",
+    text: "{W218H3}Cleyran High Priest\n“I hereby bestow it upon you, in hopes\n that you may learn to use it.”"
+  },
+  {
+    id: "0151",
+    text: "{W190H2}Cleyran High Priest\n“I fear that an attack is coming.”"
+  },
+  {
+    id: "0152",
+    text: "{W133H2}King of Burmecia\n“Have you seen Puck?”"
+  },
+  {
+    id: "0153",
+    text: "{W239H2}Moon Maiden Claire\n“The strings{Speed 2}...{Speed -1}breaking?  How forboding!”"
+  },
+  {
+    id: "0154",
+    text: "{W153H5}{PreChoose 2,1}{Instantly}Night Oracle Donnegan\n“You may rest here.\n You need pay me nothing.”\n{Choice}Thanks!\n{Tab}No thanks!"
+  },
+  {
+    id: "0155",
+    text: "{W141H3}Burmecian Soldier Dan\n“Just speak up if you\n need anything from me!”"
+  },
+  {
+    id: "0156",
+    text: "{W173H2}Burmecian Kid Jack\n“I’m worried!  I’m so worried!”"
+  },
+  {
+    id: "0157",
+    text: "{W167H2}Burmecian Kid Adam\n“At least it’s a lot quieter{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0158",
+    text: "{W161H3}Burmecian Refugee Learie\n“No matter what happens,\n I must protect my children.”"
+  },
+  {
+    id: "0159",
+    text: "{W164H2}{Zidane}\n“I gotta go save everyone!”"
+  },
+  {
+    id: "0160",
+    text: "{W92H3}{Zidane}\n“Hey, what took\n you so long?”"
+  },
+  {
+    id: "0161",
+    text: "{W212H3}{UpperRightForce}{Vivi}\n“I couldn’t find Puck{Speed 2}...{Speed -1}\n I wonder if he went down the trunk?”"
+  },
+  {
+    id: "0162",
+    text: "{W190H3}{UpperRightForce}{Quina}\n“This city have very yummy sand!\n This city delicious.”"
+  },
+  {
+    id: "0163",
+    text: "{W145H2}{Zidane}\n“Alright, let’s get going.”"
+  },
+  {
+    id: "0164",
+    text: "{W229H3}{Fraya}\n“I failed Burmecia{Speed 2}...{Speed -1}\n but I won’t fail Cleyra, no matter what.”"
+  },
+  {
+    id: "0165",
+    text: "{W27H1}{UpperLeftForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0166",
+    text: "{W27H1}{UpperLeftForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0167",
+    text: "{W174H2}Burmecian Soldier Dan\n“How dare you show up here!”"
+  },
+  {
+    id: "0168",
+    text: "{W38H1}{UpperLeftForce}Ungah!{Time 20}"
+  },
+  {
+    id: "0169",
+    text: "{W32H1}Kupo!{Time 20}"
+  },
+  {
+    id: "0170",
+    text: "{W123H2}Flower Maiden Sharon\n“Please save us!!!”{IncreaseSignal}"
+  },
+  {
+    id: "0171",
+    text: "{W163H2}Water Maiden Shannon\n“The town is full of demons!”{IncreaseSignal}"
+  },
+  {
+    id: "0172",
+    text: "{W175H2}{Zidane}\n“Are there really that many!?”"
+  },
+  {
+    id: "0173",
+    text: "{W145H2}Flower Maiden Sharon\n“They just keep coming!”"
+  },
+  {
+    id: "0174",
+    text: "{W27H1}{UpperRightForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0175",
+    text: "{W26H1}Aaa!{Time 20}"
+  },
+  {
+    id: "0176",
+    text: "{W226H2}Alexandrian Soldier\n“Foolish Cleyrans, your time has come!”"
+  },
+  {
+    id: "0177",
+    text: "{W76H2}{Zidane}\n“Over here!”"
+  },
+  {
+    id: "0178",
+    text: "{W133H2}{Zidane}\n“I’m the one you want!”"
+  },
+  {
+    id: "0179",
+    text: "{W221H2}{Zidane}\n“This must be the main attack force{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0180",
+    text: "{W172H2}{Zidane}\n“Ha!  They got nothin’ on me!”"
+  },
+  {
+    id: "0181",
+    text: "{W157H2}{Zidane}\n“But the town’s in trouble!”"
+  },
+  {
+    id: "0182",
+    text: "{W170H3}{Zidane}\n“Enemies are on their way up!\n How about your side?”"
+  },
+  {
+    id: "0183",
+    text: "{W199H3}Tree Oracle Wylan\n“The Burmecians are fighting back,\nbut the demons keep coming{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0184",
+    text: "{W228H2}Sand Oracle Satrea\n“We fled, unable to resist any longer{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0185",
+    text: "{W157H2}{Zidane}\n“Damn those Alexandrians!”"
+  },
+  {
+    id: "0186",
+    text: "{W135H2}Tree Oracle Wylan\n“What are we to do{Speed 2}...{Speed -1}?”{IncreaseSignal}"
+  },
+  {
+    id: "0187",
+    text: "{W135H2}Sand Oracle Satrea\n“What are we to do{Speed 2}...{Speed -1}?”{IncreaseSignal}"
+  },
+  {
+    id: "0188",
+    text: "{W115H4}{PreChoose 2,1}{Instantly}{Zidane}\n“We’re out of time!”\n{Choice}Let’s head up!\n{Tab}Let’s head right!"
+  },
+  {
+    id: "0189",
+    text: "{W95H2}{Zidane}\n“Let’s head up!”"
+  },
+  {
+    id: "0190",
+    text: "{W72H2}{Zidane}\n“Not again!”{Time 30}"
+  },
+  {
+    id: "0191",
+    text: "{W256H2}{Zidane}\n“They’re after the king and the high priest!”"
+  },
+  {
+    id: "0192",
+    text: "{W147H2}{Zidane}\n“Let’s head to the right!”"
+  },
+  {
+    id: "0193",
+    text: "{W166H3}Burmecian Refugee Learie\n“Excuse me{Speed 2}...{Speed -1}\n Have you seen my husband?”"
+  },
+  {
+    id: "0194",
+    text: "{W126H2}{UpperLeftForce}{Zidane}\n“No, I sure haven’t{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0195",
+    text: "{W81H1}Daddy’s gone!"
+  },
+  {
+    id: "0196",
+    text: "{W47H1}Waaaah!"
+  },
+  {
+    id: "0197",
+    text: "{W153H4}{PreChoose 2,1}{Widths 2,181,-1}{Instantly}{Zidane}\n“It’s too dangerous here!”\n{Choice}Let’s go left!\n{Tab}Climb the stairs on the right!"
+  },
+  {
+    id: "0198",
+    text: "{W89H2}{Zidane}\n“Let’s go left!”"
+  },
+  {
+    id: "0199",
+    text: "{W132H2}{UpperRightForce}{Zidane}\n“You won’t get by me!”"
+  },
+  {
+    id: "0200",
+    text: "{W152H3}{Zidane}\n“We gotta be fast, or we’ll\n lose them all!”"
+  },
+  {
+    id: "0201",
+    text: "{W175H2}{Zidane}\n“Climb the stairs on the right!”"
+  },
+  {
+    id: "0202",
+    text: "{W27H1}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0203",
+    text: "{W148H3}{Zidane}\n“We can’t go that way!\n Here, let’s try this way!”"
+  },
+  {
+    id: "0204",
+    text: "{W77H2}{Zidane}\n“Bring it on!”"
+  },
+  {
+    id: "0205",
+    text: "{W156H3}Burmecian Refugee Learie\n“Was my husband{Speed 2}...{Speed -1}\n killed by these demons{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0206",
+    text: "{W141H3}{Zidane}\n“Come on!\n Let’s get outta here!!!”"
+  },
+  {
+    id: "0207",
+    text: "{W146H3}Burmecian Refugee Learie\n“You did kill him,\n didn’t you!?”"
+  },
+  {
+    id: "0208",
+    text: "{W54H1}Look out!{Time 30}"
+  },
+  {
+    id: "0209",
+    text: "{W33H1}Aaaa!{Time 20}"
+  },
+  {
+    id: "0210",
+    text: "{W143H2}{Zidane}\n“Dammit!  You bastards!”"
+  },
+  {
+    id: "0211",
+    text: "{W164H3}{Zidane}\n“How the heck am I supposed\n to save these people!?”"
+  },
+  {
+    id: "0212",
+    text: "{W108H2}Burmecian Kid Jack\n“Hurry, tell us!”"
+  },
+  {
+    id: "0213",
+    text: "{W109H2}Burmecian Kid Adam\n“Which way now!?”"
+  },
+  {
+    id: "0214",
+    text: "{W78H5}{PreChoose 3,2}{Widths 1,97,-1,2,189,-1,3,175,-1}{Instantly}{Zidane}\n“Let’s see{Speed 2}...{Speed -1}”\n{Choice}Up the stairs!\n{Tab}Cross the bridge to the right!\n{Tab}Down the stairs to the left!"
+  },
+  {
+    id: "0215",
+    text: "{W92H2}{Zidane}\n“Up the stairs!”"
+  },
+  {
+    id: "0216",
+    text: "{W27H1}{UpperLeftForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0217",
+    text: "{W155H3}{Zidane}\n“I’ll hold them off!\n You guys run ahead, now!”"
+  },
+  {
+    id: "0218",
+    text: "{W146H3}Burmecian Refugee Learie\n“Please, see my children\n to safety{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0219",
+    text: "{W124H3}Moon Maiden Claire\n“You will save Cleyra,\n won’t you?”"
+  },
+  {
+    id: "0220",
+    text: "{W154H2}Moon Maiden Claire\n“I will slow their advance!”"
+  },
+  {
+    id: "0221",
+    text: "{W151H2}{LowerRightForce}{Zidane}\n“You’re out of your mind!”"
+  },
+  {
+    id: "0222",
+    text: "{W185H2}{LowerRightForce}{Zidane}\n“Wait!  You still have a chance!”"
+  },
+  {
+    id: "0223",
+    text: "{W45H1}{Instantly}For him!{Time 20}"
+  },
+  {
+    id: "0224",
+    text: "{W66H1}{Instantly}For Cleyra!{Time 20}"
+  },
+  {
+    id: "0225",
+    text: "{W151H2}{Zidane}\n“You heartless bastards!”"
+  },
+  {
+    id: "0226",
+    text: "{W239H2}{Zidane}\n“Don’t worry!  I’ll protect your children!”"
+  },
+  {
+    id: "0227",
+    text: "{W114H2}{Zidane}\n“Cross the bridge!”"
+  },
+  {
+    id: "0228",
+    text: "{W132H2}{Zidane}\n“Persistent bastards!”"
+  },
+  {
+    id: "0229",
+    text: "{W132H3}{Zidane}\n“We can’t hold them off\n forever!”"
+  },
+  {
+    id: "0230",
+    text: "{W106H2}{Zidane}\n“Down the stairs!”"
+  },
+  {
+    id: "0231",
+    text: "{W280H2}{Zidane}\n“Nothing’ll happen to Cleyra as long as I’m here!”"
+  },
+  {
+    id: "0232",
+    text: "{W161H3}{Zidane}\n“This area’s too dangerous!\n Let’s get out of here!”"
+  },
+  {
+    id: "0233",
+    text: "{W99H1}Are we safe now?"
+  },
+  {
+    id: "0234",
+    text: "{W105H1}No more monsters?"
+  },
+  {
+    id: "0235",
+    text: "{W47H4}{PreChoose 2,1}{Widths 0,0,16,-1,1,177,-1,2,126,-1}{Instantly}{Zidane}\n“Hmm{Speed 2}...{Speed -1}”\n{Choice}Yeah, they won’t come back\n{Tab}We’re not safe yet"
+  },
+  {
+    id: "0236",
+    text: "{W176H2}{Zidane}\n“Yeah, they won’t come back.”"
+  },
+  {
+    id: "0237",
+    text: "{W144H3}{Zidane}\n“We’re not safe yet{Speed 2}...{Speed -1}\n So stay alert for more!”"
+  },
+  {
+    id: "0238",
+    text: "{W32H1}Yeah!{IncreaseSignal}"
+  },
+  {
+    id: "0239",
+    text: "{W42H1}Alright!{IncreaseSignal}"
+  },
+  {
+    id: "0240",
+    text: "{W19H1}No!{IncreaseSignal}"
+  },
+  {
+    id: "0241",
+    text: "{W44H1}Waaa!!!{IncreaseSignal}"
+  },
+  {
+    id: "0242",
+    text: "{W226H2}{UpperRightForce}Flower Maiden Sharon\n“Have we really seen the last of them?”"
+  },
+  {
+    id: "0243",
+    text: "{W159H2}Flower Maiden Sharon\n“I knew it wasn’t over yet.”"
+  },
+  {
+    id: "0244",
+    text: "{W114H3}{Zidane}\n“Huh?  What are you\n guys doing here?”"
+  },
+  {
+    id: "0245",
+    text: "{W124H3}{UpperRightForce}Water Maiden Shannon\n“We like this place\n very much.”"
+  },
+  {
+    id: "0246",
+    text: "{W205H3}Flower Maiden Sharon\n“Even though we have lost the soul-\n soothing view of the sandstorm{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0247",
+    text: "{W177H2}{Zidane}\n“Yeah, I think it’s pretty, too.”"
+  },
+  {
+    id: "0248",
+    text: "{W159H2}{Zidane}\n“This whole town is pretty.”"
+  },
+  {
+    id: "0249",
+    text: "{W183H2}{Zidane}\n“And everyone here is so nice.”"
+  },
+  {
+    id: "0250",
+    text: "{W196H2}{Zidane}\n“That’s why I wanna protect you!”"
+  },
+  {
+    id: "0251",
+    text: "{W203H3}{Zidane}\n“C’mon, let’s head to the cathedral.\n We can make our stand there!”"
+  },
+  {
+    id: "0252",
+    text: "{W210H2}{Zidane}\n“So, these are the only survivors{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0253",
+    text: "{W153H2}Flower Maiden Sharon\n“Where is the high priest?”"
+  },
+  {
+    id: "0254",
+    text: "{W124H2}Water Maiden Shannon\n“Where is the king?”"
+  },
+  {
+    id: "0255",
+    text: "{W75H1}{UpperLeftForce}Where’s dad?"
+  },
+  {
+    id: "0256",
+    text: "{W34H1}{UpperLeftForce}Waaa!"
+  },
+  {
+    id: "0257",
+    text: "{W136H3}{Zidane}\n“I hope they’re all safe\n inside the cathedral{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0258",
+    text: "{W154H2}{Zidane}\n“Alright, everyone inside!”"
+  },
+  {
+    id: "0259",
+    text: "{W81H1}They’re back!{Time 20}"
+  },
+  {
+    id: "0260",
+    text: "{W41H1}{UpperLeftForce}Yeeow!{Time 20}"
+  },
+  {
+    id: "0261",
+    text: "{W81H2}{Zidane}\n“Over there!”{Time 20}"
+  },
+  {
+    id: "0262",
+    text: "{W168H2}{Zidane}\n“Dammit!  We’re surrounded!”"
+  },
+  {
+    id: "0263",
+    text: "{W27H1}{UpperLeftForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0264",
+    text: "{W27H1}{UpperRightForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0265",
+    text: "{W27H1}{LowerLeftForce}{Instantly}KILL!{Time 30}"
+  },
+  {
+    id: "0266",
+    text: "{W174H2}{Zidane}\n“Dammit!  I can’t save ’em all!”"
+  },
+  {
+    id: "0267",
+    text: "{W219H1}Minions of evil, you have gone too far!"
+  },
+  {
+    id: "0268",
+    text: "{W206H1}My spear will purge this land of you!"
+  },
+  {
+    id: "0269",
+    text: "{W206H3}Stranger\n“You shall fall like leaves in the wind\n under the force of my blade!”"
+  },
+  {
+    id: "0270",
+    text: "{W67H2}Stranger\n“Now, run!”"
+  },
+  {
+    id: "0271",
+    text: "{W231H2}{Zidane}\n“Dunno who you are, but I owe you one!”"
+  },
+  {
+    id: "0272",
+    text: "{W99H2}{UpperRightForce}{Fraya}\n“Sir Fratley, I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0273",
+    text: "{W171H2}{UpperRightForce}{Fraya}\n“I have missed you so much{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0274",
+    text: "{W214H3}{UpperRightForce}{Fraya}\n“I began my search for you\n immediately after you left Burmecia.”"
+  },
+  {
+    id: "0275",
+    text: "{W127H3}{UpperRightForce}{Fraya}\n“Where have you been\n all these years{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0276",
+    text: "{W173H3}{UpperRightForce}{Fraya}\n“To what corners of the world\n have you traveled?”"
+  },
+  {
+    id: "0277",
+    text: "{W118H2}{UpperRightForce}{Fraya}\n“My dear Fratley{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0278",
+    text: "{W208H3}{UpperRightForce}{Fraya}\n“I climbed the highest mountains only\n to hear rumors of your victories{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0279",
+    text: "{W210H3}{UpperRightForce}{Fraya}\n“I searched the deepest valleys only\n to find your footsteps.”"
+  },
+  {
+    id: "0280",
+    text: "{W139H2}{UpperRightForce}{Fraya}\n“But I never found you.”"
+  },
+  {
+    id: "0281",
+    text: "{W211H2}{UpperRightForce}{Fraya}\n“And in the end, I heard something{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0282",
+    text: "{W141H2}{UpperRightForce}{Fraya}\n“Something unbearable!”"
+  },
+  {
+    id: "0283",
+    text: "{W72H2}{UpperLeftForce}{Widths 0,72,20,-1}Fratley\n“{Fraya}, you say?”"
+  },
+  {
+    id: "0284",
+    text: "{W143H3}{UpperLeftForce}Fratley\n“I believe this is the first\n time we have met{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0285",
+    text: "{W149H2}{UpperRightForce}{Fraya}\n“What{Speed 2}...{Speed -1}did you just say?”"
+  },
+  {
+    id: "0286",
+    text: "{W190H3}{UpperLeftForce}Fratley\n“I’m sorry, but I cannot remember\n you for the life of me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0287",
+    text: "{W80H2}{UpperRightForce}{Fraya}\n“Y-You jest!”"
+  },
+  {
+    id: "0288",
+    text: "{W100H3}{UpperRightForce}{Fraya}\n“You cannot have\n forgotten me!”"
+  },
+  {
+    id: "0289",
+    text: "{W91H3}{UpperRightForce}{Widths 0,56,20,-1,0,91,20,-1}{Fraya}\n“It’s me, {Fraya}!\n {Fraya} of Burmecia!!”"
+  },
+  {
+    id: "0290",
+    text: "{W83H2}{UpperLeftForce}Fratley\n“I am sorry{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0291",
+    text: "{W40H2}{UpperRightForce}{Widths 0,0,20,-1}{Fraya}\n“No{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0292",
+    text: "{W120H2}{UpperRightForce}{Zidane}\n“Hey, wait a minute!”"
+  },
+  {
+    id: "0293",
+    text: "{W135H2}{UpperRightForce}{Zidane}\n“You can’t be serious!”"
+  },
+  {
+    id: "0294",
+    text: "{W128H2}{UpperRightForce}{Widths 0,128,20,-1}{Zidane}\n“It’s {Fraya}, your lost love!”"
+  },
+  {
+    id: "0295",
+    text: "{W169H2}{UpperRightForce}{Zidane}\n“How could you forget her!?”"
+  },
+  {
+    id: "0296",
+    text: "{W136H2}{UpperRightForce}{Zidane}\n“Well, say something!!!”"
+  },
+  {
+    id: "0297",
+    text: "{W115H2}{UpperRightForce}{Widths 0,115,16,-1}{Fraya}\n“That is enough, {Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0298",
+    text: "{W61H2}{UpperLeftForce}{Widths 0,0,16,-1}{Zidane}\n“What!!!?”"
+  },
+  {
+    id: "0299",
+    text: "{W212H3}{UpperLeftForce}{Zidane}\n“You’ve been searching for this guy\n for years, and now he’s right here!”"
+  },
+  {
+    id: "0300",
+    text: "{W93H2}{UpperRightForce}King of Burmecia\n“Fratley!”"
+  },
+  {
+    id: "0301",
+    text: "{W132H3}{UpperRightForce}King of Burmecia\n“Do you remember me,\n the King of Burmecia?”"
+  },
+  {
+    id: "0302",
+    text: "{W131H2}{UpperRightForce}Fratley\n“Not at all, I’m afraid.”"
+  },
+  {
+    id: "0303",
+    text: "{W187H3}{UpperRightForce}King of Burmecia\n“Impossible!  Have you forgotten\n everything that has passed!?”"
+  },
+  {
+    id: "0304",
+    text: "{W217H3}{UpperRightForce}King of Burmecia\n“Then let me ask you this:\n What brought you back to Burmecia?”"
+  },
+  {
+    id: "0305",
+    text: "{W282H3}{UpperRightForce}King of Burmecia\n“Is it not because you learned of the crisis\n here in Cleyra, whose people are our brothers?”"
+  },
+  {
+    id: "0306",
+    text: "{W135H2}{UpperRightForce}Fratley\n“As a matter of fact{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0307",
+    text: "{W175H1}As a matter of fact, I’ll tell ya!"
+  },
+  {
+    id: "0308",
+    text: "{W32H1}{UpperLeftForce}Puck!{IncreaseSignal}"
+  },
+  {
+    id: "0309",
+    text: "{W72H1}{UpperLeftForce}Prince Puck!{IncreaseSignal}"
+  },
+  {
+    id: "0310",
+    text: "{W32H1}{UpperLeftForce}Puck!{IncreaseSignal}"
+  },
+  {
+    id: "0311",
+    text: "{W62H1}{UpperLeftForce}Lord Puck!{IncreaseSignal}"
+  },
+  {
+    id: "0312",
+    text: "{W157H3}{UpperRightForce}Puck\n“I found Fratley during my\n travels around the world!”"
+  },
+  {
+    id: "0313",
+    text: "{W170H3}{UpperRightForce}Puck\n“And you guessed it, he didn’t\n know who I was!”"
+  },
+  {
+    id: "0314",
+    text: "{W130H2}{UpperRightForce}Puck\n“Or even who he was!”"
+  },
+  {
+    id: "0315",
+    text: "{W223H3}{UpperRightForce}Puck\n“But when Burmecia was attacked and\n he heard that Cleyra was in danger{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0316",
+    text: "{W179H3}{UpperRightForce}Puck\n“His faint memories as a dragon\n knight called him back here!”"
+  },
+  {
+    id: "0317",
+    text: "{W104H2}{UpperRightForce}Fratley\n“Dragon knight{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0318",
+    text: "{W178H2}{UpperRightForce}Fratley\n“Yes, I was once called that{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0319",
+    text: "{W219H2}{UpperRightForce}Fratley\n“But now, that is all I can remember{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0320",
+    text: "{W68H2}{UpperRightForce}{Widths 0,0,20,-1}{Fraya}\n“Fratley{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0321",
+    text: "{W67H2}{UpperRightForce}Fratley\n“I must go.”"
+  },
+  {
+    id: "0322",
+    text: "{W181H2}{UpperLeftForce}{Widths 0,181,20,-1}{Zidane}\n“{Fraya}, aren’t you gonna follow him?”"
+  },
+  {
+    id: "0323",
+    text: "{W40H2}{UpperRightForce}{Widths 0,0,20,-1}{Fraya}\n“No{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0324",
+    text: "{W158H3}{UpperRightForce}{Fraya}\n“I am happy simply knowing\n that Sir Fratley still lives.”"
+  },
+  {
+    id: "0325",
+    text: "{W76H2}{UpperRightForce}{Widths 0,76,20,-1}Puck\n“I’m sorry, {Fraya}.”"
+  },
+  {
+    id: "0326",
+    text: "{W223H3}{UpperRightForce}Puck\n“I knew you weren’t ready to see him,\nbut with Cleyra under attack and all{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0327",
+    text: "{W209H2}{UpperRightForce}{Fraya}\n“I need no such courtesy, Highness.”"
+  },
+  {
+    id: "0328",
+    text: "{W112H3}{UpperRightForce}Puck\n“Uh{Speed 2}...{Speed -1}well, I’m gonna\n go after Fratley!”"
+  },
+  {
+    id: "0329",
+    text: "{W36H1}{UpperRightForce}Later!{Time 20}"
+  },
+  {
+    id: "0330",
+    text: "{W170H3}{UpperRightForce}King of Burmecia\n“Wait, Puck!\n I have not seen you in ages!”"
+  },
+  {
+    id: "0331",
+    text: "{W98H3}{UpperRightForce}{Vivi}\n“Wh-What?\n That was Puck?”"
+  },
+  {
+    id: "0332",
+    text: "{W126H2}{UpperRightForce}{Vivi}\n“So, what happened?”"
+  },
+  {
+    id: "0333",
+    text: "{W120H3}{UpperRightForce}{Widths 0,120,20,-1}{Vivi}\n“What’s the matter, {Fraya}?\n Are you crying?”"
+  },
+  {
+    id: "0334",
+    text: "{W72H2}{UpperRightForce}{Fraya}\n“Ahahaha{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0335",
+    text: "{W77H2}{UpperRightForce}{Fraya}\n“What irony.”"
+  },
+  {
+    id: "0336",
+    text: "{W167H3}{UpperRightForce}{Fraya}\n“To find the man about whom I\n have dreamt endlessly{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0337",
+    text: "{W210H3}{UpperRightForce}{Fraya}\n“{Speed 2}...{Speed -1}only to discover that\n he cannot even remember who I am!”"
+  },
+  {
+    id: "0338",
+    text: "{W228H3}{UpperRightForce}{Fraya}\n“Come, {Zidane}!\n The enemy’s hand has not been stilled!”"
+  },
+  {
+    id: "0339",
+    text: "{W112H2}{UpperRightForce}{Fraya}\n“We must regroup!”"
+  },
+  {
+    id: "0340",
+    text: "{W12H1}{UpperLeftForce}{Widths 0,12,20,-1}{Fraya}{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0341",
+    text: "{W47H1}Eeeeek!"
+  },
+  {
+    id: "0342",
+    text: "{W140H2}Cleyran High Priest\n“Eeeeek!  Have mercy!”"
+  },
+  {
+    id: "0343",
+    text: "{W154H2}Beatrix\n“Hmph!  Pathetic rodents!”"
+  },
+  {
+    id: "0344",
+    text: "{W152H3}Beatrix\n“You fail to grasp the true\n power of this jewel!”"
+  },
+  {
+    id: "0345",
+    text: "{W108H2}Cleyran High Priest\n“Our magic stone!”"
+  },
+  {
+    id: "0346",
+    text: "{W166H3}Beatrix\n“Now that I have this jewel,\n I am through with your city!”"
+  },
+  {
+    id: "0347",
+    text: "{W28H1}Wait!{Time 20}"
+  },
+  {
+    id: "0348",
+    text: "{W67H1}Halt, villain!{Time 20}"
+  },
+  {
+    id: "0349",
+    text: "{W153H2}{Zidane}\n“I’m going the wrong way!”"
+  },
+  {
+    id: "0350",
+    text: "{W139H1}{Instantly}Think you can get away?{Time 25}"
+  },
+  {
+    id: "0351",
+    text: "{W58H1}{UpperRightForce}Get away?"
+  },
+  {
+    id: "0352",
+    text: "{W58H2}{UpperRightForce}Beatrix\n“Hahaha.”"
+  },
+  {
+    id: "0353",
+    text: "{W213H1}{UpperRightForce}You’re a bigger fool than I imagined{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0354",
+    text: "{W178H3}{UpperRightForce}Beatrix\n“Have you forgotten how badly\n I beat you back in Burmecia?”"
+  },
+  {
+    id: "0355",
+    text: "{W184H3}{Fraya}\n“So, you are more the fool for\n not finishing what you started!”"
+  },
+  {
+    id: "0356",
+    text: "{W118H2}{Vivi}\n“You’re gonna pay!”"
+  },
+  {
+    id: "0357",
+    text: "{W187H3}{Quina}\n“I find no tasties in this town,\n so we cook you for breakfast!”"
+  },
+  {
+    id: "0358",
+    text: "{W168H3}Beatrix\n“Then allow me to shatter\n your delusions of grandeur.”"
+  },
+  {
+    id: "0359",
+    text: "{W130H1}{UpperLeftForce}{Offset 0,200,0}She’s t-too powerful{Speed 2}...{Speed -1}{Time 20}"
+  },
+  {
+    id: "0360",
+    text: "{W213H3}{UpperRightForce}Beatrix\n“Black mages, our work here is done.\n Commence withdrawal immediately!”"
+  },
+  {
+    id: "0361",
+    text: "{W148H2}{Zidane}\n“Hey, they disappeared!”"
+  },
+  {
+    id: "0362",
+    text: "{W79H2}{Widths 0,79,20,-1}{Zidane}\n“What now, {Fraya}?”"
+  },
+  {
+    id: "0363",
+    text: "{W105H2}{UpperLeftForce}{Fraya}\n“Good question{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0364",
+    text: "{W145H2}{UpperLeftForce}{Widths 0,145,16,-1}{Fraya}\n“{Zidane}!  Look out behind you!”"
+  },
+  {
+    id: "0365",
+    text: "{W175H2}{Zidane}\n“There!  I’m gonna follow ’em!”"
+  },
+  {
+    id: "0366",
+    text: "{W128H2}{Zidane}\n“Everyone follow me!”"
+  },
+  {
+    id: "0367",
+    text: "{W87H2}{Widths 0,87,16,-1}{Vivi}\n“{Zidane}!  He’s gone!”"
+  },
+  {
+    id: "0368",
+    text: "{W141H3}{UpperLeftForce}{Fraya}\n“I highly doubt I will ever\n return to this place{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0369",
+    text: "{W223H3}{UpperLeftForce}{Fraya}\n“Besides, this may be your last chance\n to find the truth about who you are{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0370",
+    text: "{W141H3}{UpperLeftForce}{Fraya}\n“Come, {Vivi}!\n Show us your courage!”"
+  },
+  {
+    id: "0371",
+    text: "{W133H2}{Widths 0,133,20,-1}{Vivi}\n“Oh no{Speed 2}...{Speed -1} {Fraya}’s gone, too!”"
+  },
+  {
+    id: "0372",
+    text: "{W114H2}{Quina}\n“I no like heights{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0373",
+    text: "{W125H4}{PreChoose 2,1}{Instantly}Burmecian Soldier Dan\n“Cards!?  Right now?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0374",
+    text: "{W171H2}Burmecian Soldier Dan\n“You ain’t got enough cards!”"
+  },
+  {
+    id: "0375",
+    text: "{W211H4}{PreChoose 2,1}{Instantly}Burmecian Refugee Learie\n“I know how to play cards.  Do you?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0376",
+    text: "{W219H2}Burmecian Refugee Learie\n“I think you need more cards to play.”"
+  },
+  {
+    id: "0377",
+    text: "{W119H4}{PreChoose 2,1}{Instantly}Burmecian Kid Jack\n“Wanna play cards?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0378",
+    text: "{W165H2}Burmecian Kid Jack\n“You gotta get more cards!”"
+  },
+  {
+    id: "0379",
+    text: "{W163H4}{PreChoose 2,1}{Instantly}Burmecian Kid Adam\n“I love cards!  Wanna play?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0380",
+    text: "{W162H2}Burmecian Kid Adam\n“You need 5 cards to play!”"
+  },
+  {
+    id: "0381",
+    text: "{W194H3}Stiltzkin\n“This place is so dusty, you know!\n I can’t stand it!”"
+  },
+  {
+    id: "0382",
+    text: "{W204H6}{PreChoose 2,1}{Widths 0,44,14,1,14,2,14,3,-1}{Instantly}Stiltzkin\n“How about a three-piece combo of\n {Item 1}, {Item 2}, and {Item 3}\n for {Yellow}{Variable 0} Gil{White}?”\n{Choice}Sure!\n{Tab}No thanks"
+  },
+  {
+    id: "0383",
+    text: "{W256H4}{Widths 0,48,14,1,14,2,14,3,-1}{Instantly}Stiltzkin\n“I wanted to sell you a three-piece combo of\n {Item 1}, {Item 2}, and {Item 3},\n but it looks like you already have them.”"
+  },
+  {
+    id: "0384",
+    text: "{W246H2}{Instantly}Stiltzkin\n“Uh-oh, you don’t have enough cash, boy!”"
+  },
+  {
+    id: "0385",
+    text: "{W146H3}Stiltzkin\n“Thanks to you, kid, I can\n continue my journey!”"
+  },
+  {
+    id: "0386",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0387",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0388",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0389",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0390",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0391",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0392",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0393",
+    text: "{W34H1}debug"
+  }
+]

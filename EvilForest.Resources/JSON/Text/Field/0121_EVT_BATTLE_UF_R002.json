@@ -1,0 +1,666 @@
+[
+  {
+    id: "0000",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0001",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0002",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0003",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0004",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0005",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0006",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0008",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0009",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0010",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0011",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0012",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0013",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0014",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0017",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0018",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0019",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0020",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0021",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0022",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0023",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0024",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0025",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0026",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0027",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0028",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0029",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0030",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0031",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0032",
+    text: "{W11H1}{Center 11}!?"
+  },
+  {
+    id: "0033",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0034",
+    text: "{W138H3}{Zidane}\n“Are you gonna be okay\n by yourselves?”"
+  },
+  {
+    id: "0035",
+    text: "{W177H3}{Dagger}\n“You’re the one who suggested\n we split up.”"
+  },
+  {
+    id: "0036",
+    text: "{W132H3}{LowerLeftForce}{Offset 0,80,0}{Eiko}\n“What?  Don’t you trust\n me and {Dagger}?”"
+  },
+  {
+    id: "0037",
+    text: "{W114H3}{Zidane}\n“It’s not that I don’t\n trust you{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0038",
+    text: "{W153H3}{LowerLeftForce}{Offset 0,80,0}{Widths 0,86,18,-1}{Eiko}\n“Hmph!  You just wanted to\n pair up with {Dagger}!”"
+  },
+  {
+    id: "0039",
+    text: "{W245H3}{Dagger}\n“You better get going.\n We need to take all points simultaneously.”"
+  },
+  {
+    id: "0040",
+    text: "{W94H2}{Zidane}\n“You’re right{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0041",
+    text: "{W188H3}{Dagger}\n“Where are you going next, and\n who are you going to drop off?”"
+  },
+  {
+    id: "0042",
+    text: "{W239H4}{Widths 0,170,20,-1}{Zidane}\n“‘My power is protected high atop a fiery\n mountain.’  I think I’ll ask {Fraya} and\n {Amarant} to take that location.”"
+  },
+  {
+    id: "0043",
+    text: "{W157H3}{LowerLeftForce}{Offset 0,80,0}{Eiko}\n“Alright, now, get going!\n Don’t make us ladies wait!”"
+  },
+  {
+    id: "0044",
+    text: "{W205H2}{Zidane}\n“I’ll be back to get you guys soon!”"
+  },
+  {
+    id: "0045",
+    text: "{W210H3}{LowerLeftForce}{Offset 0,80,0}{Eiko}\n“Well, now that the men are gone,\n we can do all the girl talk we want!”"
+  },
+  {
+    id: "0046",
+    text: "{W77H2}{Dagger}\n“{Speed 2}...{Speed -1}Girl talk?”"
+  },
+  {
+    id: "0047",
+    text: "{W111H2}{Offset 0,100,-80}{LowerLeftForce}{Zidane}\n“Let’s get going{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0048",
+    text: "{W128H3}{Quina}\n“Ah, {Zidane}.\n You want go with me!”"
+  },
+  {
+    id: "0049",
+    text: "{W159H3}{Offset 0,100,-80}{LowerLeftForce}{Zidane}\n“Well{Speed 2}...{Speed -1} I sort of got\n stuck with the leftovers{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0050",
+    text: "{W140H3}{Quina}\n“You no have to explain!\n I so happy.”"
+  },
+  {
+    id: "0051",
+    text: "{W25H1}{Offset 0,100,-80}{LowerLeftForce}Huh?"
+  },
+  {
+    id: "0052",
+    text: "{W114H3}{Quina}\n“There old saying in\n my tribe{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0053",
+    text: "{W115H2}{Quina}\n“‘Leftovers good!’”"
+  },
+  {
+    id: "0054",
+    text: "{W149H3}{Offset 0,100,-80}{LowerLeftForce}{Zidane}\n“{Speed 2}...{Speed -1}Let’s hope we find\n good things in this cave.”"
+  },
+  {
+    id: "0055",
+    text: "{W182H2}{Quina}\n“Is probably full of good food!”"
+  },
+  {
+    id: "0056",
+    text: "{W99H3}{Quina}\n“Is no one here{Speed 2}...{Speed -1}\n Is empty.”"
+  },
+  {
+    id: "0057",
+    text: "{W53H2}{Widths 0,0,16,-1}{Zidane}\n“Yeah{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0058",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0059",
+    text: "{W84H2}{Quina}\n“What wrong?”"
+  },
+  {
+    id: "0060",
+    text: "{W177H2}{Zidane}\n“Did the ground just shake{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0061",
+    text: "{W106H3}{Zidane}\n“We need to jump\n at the right time.”"
+  },
+  {
+    id: "0062",
+    text: "{W184H2}{Quina}\n“We no make mistake next time!”"
+  },
+  {
+    id: "0063",
+    text: "{W96H2}{Zidane}\n“One more time!”"
+  },
+  {
+    id: "0064",
+    text: "{W133H2}{Eiko}\n“This place is empty{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0065",
+    text: "{W99H2}{LowerRightForce}{Dagger}\n“It’s too quiet{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0066",
+    text: "{W156H3}{Eiko}\n“They probably got scared\n of us and ran away!”"
+  },
+  {
+    id: "0067",
+    text: "{W77H2}{LowerRightForce}{Dagger}\n“I hope so{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0068",
+    text: "{W45H1}Aaargh!"
+  },
+  {
+    id: "0069",
+    text: "{W223H3}{Eiko}\n“I hate it when you fret like that!\n That’s why I always worry about you!”"
+  },
+  {
+    id: "0070",
+    text: "{W193H2}{LowerRightForce}{Dagger}\n“Wh-{Wait 3}What are you talking about?”"
+  },
+  {
+    id: "0071",
+    text: "{W186H3}{Eiko}\n“Oh, nothing.  I just have a lot of\n things on my mind{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0072",
+    text: "{W54H1}{Instantly}Look out!{Time 30}"
+  },
+  {
+    id: "0073",
+    text: "{W43H1}Aiyaaa!"
+  },
+  {
+    id: "0074",
+    text: "{W88H3}{UpperRightForce}{Quina}\n“We almost flat\n like pancake!”"
+  },
+  {
+    id: "0075",
+    text: "{W169H3}{Zidane}\n“I hope there aren’t too many\n more of those.”"
+  },
+  {
+    id: "0076",
+    text: "{W107H3}{Zidane}\n“{Dagger}{Speed 2}...{Speed -1}\n Please be safe{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0077",
+    text: "{W73H1}{UpperRightForce}W-What the─"
+  },
+  {
+    id: "0078",
+    text: "{W82H3}{LowerLeftForce}{Dagger}\n“It’s a trap!\n Be careful{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0079",
+    text: "{W32H1}{UpperRightForce}Aaah!"
+  },
+  {
+    id: "0080",
+    text: "{W73H2}{LowerLeftForce}{Widths 0,73,22,-1}{Dagger}\n“Let’s go, {Eiko}!”"
+  },
+  {
+    id: "0081",
+    text: "{W136H3}{Quina}\n“Aha!\n Is place to put mirror.”"
+  },
+  {
+    id: "0082",
+    text: "{W149H3}{Widths 0,105,16,-1}{Quina}\n“{Zidane}, what you doing?\n We late if you not hurry.”"
+  },
+  {
+    id: "0083",
+    text: "{W83H2}{Widths 0,83,16,-1}{Quina}\n“{Zidane}, put mirror.”"
+  },
+  {
+    id: "0084",
+    text: "{W196H2}{Zidane}\n“I’ll place the mirror right here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0085",
+    text: "{W153H1}I’ve been waiting for you{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0086",
+    text: "{W197H3}{UpperRightForce}{Offset 0,-40,0}{Fraya}\n“That was too easy{Speed 2}...{Speed -1} It must\n have been disappointing for you.”"
+  },
+  {
+    id: "0087",
+    text: "{W195H2}{UpperRightForce}{Offset 0,-40,0}{Fraya}\n“Now, I’ll place the mirror here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0088",
+    text: "{W90H2}{UpperLeftForce}{Widths 0,90,20,-1}{Amarant}\n“{Fraya}, stand back!”"
+  },
+  {
+    id: "0089",
+    text: "{W202H3}{UpperLeftForce}{Offset 40,-100,0}Fire Guard\n“It’s just as Kuja said{Speed 2}...{Speed -1}\n He said I should expect intruders.”"
+  },
+  {
+    id: "0090",
+    text: "{W196H2}{Zidane}\n“Are you under Kuja’s command!?”"
+  },
+  {
+    id: "0091",
+    text: "{W136H3}{Quina}\n“He not good person!\n Why you work for him?”"
+  },
+  {
+    id: "0092",
+    text: "{W229H2}{LowerLeftForce}{Offset -20,-255,0}Earth Guard\n“No{Speed 2}...{Speed -1} We are the guardians of Terra{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0093",
+    text: "{W140H2}{Zidane}\n“Guardians of Terra{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0094",
+    text: "{W226H3}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“Yes, we are the guardians of Terra.\n Filled with the power of Terra itself{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0095",
+    text: "{W101H2}{UpperRightForce}{Offset 0,-40,0}{Fraya}\n“What is Terra!?”"
+  },
+  {
+    id: "0096",
+    text: "{W170H3}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“We did not become guardians\n to chat with mortals{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0097",
+    text: "{W185H3}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“We derive pleasure from ending\n your worthless lives{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0098",
+    text: "{W229H2}{UpperLeftForce}{Amarant}\n“Just to prove how powerful you are{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0099",
+    text: "{W197H3}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“So you understand.\n But will that knowledge help you?”"
+  },
+  {
+    id: "0100",
+    text: "{W57H2}{UpperLeftForce}{Widths 0,0,23,-1}{Amarant}\n“Foolish.”"
+  },
+  {
+    id: "0101",
+    text: "{W60H2}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“What?”"
+  },
+  {
+    id: "0102",
+    text: "{W169H3}{UpperLeftForce}{Amarant}\n“Picking fights with strangers\n in a place like this{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0103",
+    text: "{W194H3}{UpperLeftForce}{Amarant}\n“I used to know someone like that.\n He was a loser{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0104",
+    text: "{W219H4}{UpperLeftForce}{Amarant}\n“He refused to find beneficial ways to\n use his power.  Instead, he’d seek out\n people to fight{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0105",
+    text: "{W26H2}{UpperLeftForce}{Offset 0,-40,0}{Widths 0,0,20,-1,0,26,23,-1}{Fraya}\n“{Amarant}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0106",
+    text: "{W180H2}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“What{Speed 2}...{Speed -1}are you talking about?”"
+  },
+  {
+    id: "0107",
+    text: "{W183H2}{UpperLeftForce}{Offset 0,-40,0}{Fraya}\n“We’ll show you what he means!”"
+  },
+  {
+    id: "0108",
+    text: "{W134H3}{UpperLeftForce}{Offset 40,-170,0}Fire Guard\n“Interesting{Speed 2}...{Speed -1}\n but you’ll regret this!”"
+  },
+  {
+    id: "0109",
+    text: "{W53H1}{NoFocus}{Speed 32}Grahhh!!!{Time 30}"
+  },
+  {
+    id: "0110",
+    text: "{W40H1}{NoFocus}{Speed 32}Ahhh!!!{Time 30}"
+  },
+  {
+    id: "0111",
+    text: "{W106H3}{Offset 0,-500,0}{UpperLeftForce}Wind Guard\n“Finished already?\n Such weaklings.”"
+  },
+  {
+    id: "0112",
+    text: "{W51H2}{Widths 0,0,19,-1}{Steiner}\n“You{Speed 2}...{Speed -1}!”"
+  },
+  {
+    id: "0113",
+    text: "{W191H3}{Vivi}\n“He’s too fast!\n I can’t target him with my magic.”"
+  },
+  {
+    id: "0114",
+    text: "{W148H3}{Vivi}\n“We can’t take him on with\n just the two of us{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0115",
+    text: "{W217H3}{Steiner}\n“Master {Vivi}!\n A true man never gives up in a fight!”"
+  },
+  {
+    id: "0116",
+    text: "{W44H2}{Widths 0,0,17,-1}{Vivi}\n“But{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0117",
+    text: "{W160H3}{Steiner}\n“We can defeat this monster\n if we work together!”"
+  },
+  {
+    id: "0118",
+    text: "{W129H3}{Offset 0,-500,0}{UpperLeftForce}Wind Guard\n“So?  Which one of you\n will perish first?”"
+  },
+  {
+    id: "0119",
+    text: "{W124H3}{Steiner}\n“Silence!\n I shall vanquish you!”"
+  },
+  {
+    id: "0120",
+    text: "{W37H1}What!?"
+  },
+  {
+    id: "0121",
+    text: "{W153H3}{Widths 0,102,17,-1}{Steiner}\n“{Speed 2}...{Speed -1}Master {Vivi}, I shall\n attempt to hold him down.”"
+  },
+  {
+    id: "0122",
+    text: "{W180H3}{Steiner}\n“You attack him with your magic\n while I hold him down!”"
+  },
+  {
+    id: "0123",
+    text: "{W114H3}{Vivi}\n“But{Speed 2}...{Speed -1}what if I\n miss the target{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0124",
+    text: "{W85H2}{Widths 0,85,17,-1}{Steiner}\n“I trust you, {Vivi}.”"
+  },
+  {
+    id: "0125",
+    text: "{W58H2}{Widths 0,0,17,-1}{Vivi}\n“{Speed 2}...{Speed -1}{Wait 15}Okay.”"
+  },
+  {
+    id: "0126",
+    text: "{W99H1}{NoFocus}{Speed 32}AAAAAAAAARGH!!!{Time 25}"
+  },
+  {
+    id: "0127",
+    text: "{W217H2}{LowerLeftForce}{Offset -20,-255,0}Earth Guard\n“Kuja told us there’d be eight rats{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0128",
+    text: "{W192H3}{UpperLeftForce}{Zidane}\n“Sorry, it’s just the two of us.\n Did you have a feast prepared?”"
+  },
+  {
+    id: "0129",
+    text: "{W118H3}{UpperRightForce}{Quina}\n“You no worry!\n We eat everything.”"
+  },
+  {
+    id: "0130",
+    text: "{W211H3}{LowerLeftForce}{Offset -20,-255,0}Earth Guard\n“Ah, so you’re attempting to conquer\n all 4 shrines at once{Speed 2}...{Speed -1} How futile.”"
+  },
+  {
+    id: "0131",
+    text: "{W131H2}{UpperLeftForce}{Zidane}\n“We’ll see about that!”"
+  },
+  {
+    id: "0132",
+    text: "{W212H2}{UpperRightForce}{Quina}\n“Must try eating before we give up!”"
+  },
+  {
+    id: "0133",
+    text: "{W173H3}{LowerLeftForce}{Offset -20,-255,0}Earth Guard\n“What will you lower life-forms\n do on Terra?”"
+  },
+  {
+    id: "0134",
+    text: "{W204H2}{UpperLeftForce}{Zidane}\n“We won’t know until we get there!”"
+  },
+  {
+    id: "0135",
+    text: "{W243H3}{UpperRightForce}{Quina}\n“Must eat to find out what taste good!\n Is my lesson from traveling around world.”"
+  },
+  {
+    id: "0136",
+    text: "{W245H3}{LowerLeftForce}{Offset -20,-255,0}Earth Guard\n“Good{Speed 2}...{Speed -1}\n I shall show you the true meaning of fear!”"
+  },
+  {
+    id: "0137",
+    text: "{W63H2}{UpperLeftForce}{Widths 0,0,16,-1}{Zidane}\n“All done!”"
+  },
+  {
+    id: "0138",
+    text: "{W170H2}{UpperRightForce}{Quina}\n“I wonder if everyone okay?”"
+  },
+  {
+    id: "0139",
+    text: "{W172H3}{UpperLeftForce}{Zidane}\n“Yeah, I’m pretty sure they’re\n waiting for us by now.”"
+  },
+  {
+    id: "0140",
+    text: "{W163H3}{UpperRightForce}{Quina}\n“Right!\n We go back to airship now.”"
+  },
+  {
+    id: "0141",
+    text: "{W120H2}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“Fresh air!  Finally!”"
+  },
+  {
+    id: "0142",
+    text: "{W228H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“{Zidane} is unbelievable{Speed 2}...{Speed -1} Asking\n us ladies to fight a monster like that{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0143",
+    text: "{W76H1}{UpperLeftForce}Oh my gosh!!!"
+  },
+  {
+    id: "0144",
+    text: "{W102H2}{Widths 0,102,22,-1}{Dagger}\n“What’s wrong, {Eiko}?”"
+  },
+  {
+    id: "0145",
+    text: "{W150H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“Oh, I completely forgot!\n And we’re all alone, too!”"
+  },
+  {
+    id: "0146",
+    text: "{W92H2}{Dagger}\n“Wh-What is it?”"
+  },
+  {
+    id: "0147",
+    text: "{W114H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“There’s a question\n I need to ask you!”"
+  },
+  {
+    id: "0148",
+    text: "{W191H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“I’ve been waiting for a chance\n to ask you for the longest time!”"
+  },
+  {
+    id: "0149",
+    text: "{W155H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“Give me an honest answer,\n okay?”"
+  },
+  {
+    id: "0150",
+    text: "{W188H3}{UpperLeftForce}{Dagger}\n“Well, you have to ask the\n question before I can answer{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0151",
+    text: "{W110H2}{LowerLeftForce}{Offset -10,60,0}{Widths 0,110,16,-1}{Eiko}\n“{Speed 2}...{Speed -1}Do you love{Speed 2}...{Speed -1}{Wait 10}{Zidane}?”"
+  },
+  {
+    id: "0152",
+    text: "{W60H3}{UpperLeftForce}{Widths 0,0,18,-1}{Dagger}\n“Wh-{Wait 5}What?\n Why{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0153",
+    text: "{W142H3}{LowerLeftForce}{Offset -10,60,0}{Eiko}\n“You have to answer me!\n Do you love him or not?”"
+  },
+  {
+    id: "0154",
+    text: "{W14H1}SE"
+  },
+  {
+    id: "0155",
+    text: "{W123H3}{UpperLeftForce}{Widths 0,58,16,-1}{Eiko}\n“Hey, it’s the airship!\n {Zidane}’s back!”"
+  },
+  {
+    id: "0156",
+    text: "{W177H2}{UpperLeftForce}{Widths 0,177,18,-1}{Eiko}\n“Did you just say something, {Dagger}?”"
+  },
+  {
+    id: "0157",
+    text: "{W73H2}{UpperLeftForce}{Widths 0,73,22,-1}{Dagger}\n“Let’s go, {Eiko}!”"
+  },
+  {
+    id: "0158",
+    text: "{W98H3}{UpperLeftForce}{Eiko}\n“H-Hey, wait!\n That’s not fair!”"
+  },
+  {
+    id: "0159",
+    text: "{W0H1}{Time -1}"
+  },
+  {
+    id: "0160",
+    text: "{W0H1}"
+  },
+  {
+    id: "0161",
+    text: "{W0H1}"
+  },
+  {
+    id: "0162",
+    text: "{W0H1}"
+  },
+  {
+    id: "0163",
+    text: "{W0H1}"
+  },
+  {
+    id: "0164",
+    text: "{W0H1}"
+  },
+  {
+    id: "0165",
+    text: "{W0H1}"
+  }
+]

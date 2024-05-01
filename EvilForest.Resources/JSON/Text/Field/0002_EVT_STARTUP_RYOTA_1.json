@@ -1,0 +1,1542 @@
+[
+  {
+    id: "0000",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0001",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0002",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0003",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0004",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0005",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0006",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0008",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0009",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0010",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0011",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0012",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0013",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0014",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0017",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0018",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0019",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0020",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0021",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0022",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0023",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0024",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0025",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0026",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0027",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0028",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0029",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0030",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0031",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0032",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0033",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0034",
+    text: "{W82H1}Sure is dark{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0035",
+    text: "{W152H1}Guess nobody’s here yet..."
+  },
+  {
+    id: "0036",
+    text: "{W0H2}{PreChoose 2,1}{Widths 1,109,-1,2,57,-1}{Instantly}{Choice}Light the candle\n{Tab}Cancel"
+  },
+  {
+    id: "0037",
+    text: "{W237H2}{UpperCenter}\nLight the candle in the middle of the room!{Time -1}"
+  },
+  {
+    id: "0038",
+    text: "{W229H2}{UpperCenter}\nPress the {Cross+}{Mobile 312} button when the ? appears.{Time -1}"
+  },
+  {
+    id: "0039",
+    text: "{W77H1}{UpperLeft}Who’s there!?{Time 20}"
+  },
+  {
+    id: "0040",
+    text: "{W191H10}{Instantly}\n{Center 191}= M.S. Prima Vista, Theater Ship =\n\n{Center 177}Class: Luxury liner with theater\n{Center 124}Tonnage: 8235 tonnes\n{Center 114}Guest Capacity: 288\n{Center 130}Propulsion: Veil energy\n{Center 162}Shipwright: Zebolt Shipyards\n{Center 146}Port of Registry: Lindblum"
+  },
+  {
+    id: "0041",
+    text: "{W63H2}{Widths 0,0,16,-1,0,63,16,-1}{Zidane}\n“It’s me, {Zidane}!”"
+  },
+  {
+    id: "0042",
+    text: "{W115H3}Blank\n“Hey, {Zidane}!\n You sure are late!”"
+  },
+  {
+    id: "0043",
+    text: "{W135H3}{Zidane}\n“Sorry.\n So, where’s the boss?”"
+  },
+  {
+    id: "0044",
+    text: "{W96H2}Cinna\n“Ain’t here yet.”"
+  },
+  {
+    id: "0045",
+    text: "{W61H1}{Widths 0,61,14,0,-1}Received {Item 0}!"
+  },
+  {
+    id: "0046",
+    text: "{W41H1}Whew...{Time 10}"
+  },
+  {
+    id: "0047",
+    text: "{W76H2}Baku\n“Hey, fools!”"
+  },
+  {
+    id: "0048",
+    text: "{W168H2}Baku\n“You’re lookin’ a lot better!”"
+  },
+  {
+    id: "0049",
+    text: "{W80H2}Baku\n“Gwahahaha!”"
+  },
+  {
+    id: "0050",
+    text: "{W195H3}Baku\n“Alright!\n Let’s start this meeting already!”"
+  },
+  {
+    id: "0051",
+    text: "{W105H2}Baku\n“Here’s the plan!”"
+  },
+  {
+    id: "0052",
+    text: "{W263H4}Baku\n“Tantalus, the infamous band of daring thieves\n (that’s us), is headin’ to the Kingdom\n of Alexandria{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0053",
+    text: "{W185H3}{UpperRightForce}{Offset 0,-80,0}Baku\n“Our mission: to kidnap the heir\nto the throne, Princess Garnet!”"
+  },
+  {
+    id: "0054",
+    text: "{W205H2}{UpperRightForce}{Offset 210,-80,0}Cinna\n“I’ll take it from here, so listen up!”"
+  },
+  {
+    id: "0055",
+    text: "{W131H3}{UpperRightForce}{Offset 210,-80,0}Cinna\n“Our ship’s about to\n dock at Alexandria{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0056",
+    text: "{W178H3}{UpperRightForce}{Offset 210,-80,0}Cinna\n“And when it does, we’re gonna\n put on our costumes{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0057",
+    text: "{W245H3}{UpperRightForce}{Offset 210,-80,0}Cinna\n“{Speed 2}...{Speed -1}and perform ‘I Want to Be Your Canary,’\n the most popular play in Alexandria!”"
+  },
+  {
+    id: "0058",
+    text: "{W185H3}{UpperRightForce}{Offset 210,-80,0}Cinna\n“Break a leg, Marcus!\n ’Cause you’re playin’ the lead!”"
+  },
+  {
+    id: "0059",
+    text: "{W254H3}Marcus\n“Leave the actin’ to me!  Of course, the real\n kidnappers’ll be Blank and {Zidane}!”"
+  },
+  {
+    id: "0060",
+    text: "{W40H2}Blank\n“Right!"
+  },
+  {
+    id: "0061",
+    text: "{W216H3}Blank\n“I’ll distract the audience from\n backstage with these little buggers.”"
+  },
+  {
+    id: "0062",
+    text: "{W65H1}Gwok-gwok"
+  },
+  {
+    id: "0063",
+    text: "{W138H2}Blank\n“I can’t stand oglops{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0064",
+    text: "{W136H3}Blank\n“But I ’ll manage, so\n don’t worry about me.”"
+  },
+  {
+    id: "0065",
+    text: "{W156H2}{Widths 0,156,16,-1}Blank\n“And that’ll be your cue, {Zidane}!”"
+  },
+  {
+    id: "0066",
+    text: "{W47H4}{Offset -150,0,0}{PreChoose 2,1}{Widths 0,0,16,-1,1,255,-1,2,269,-1}{Instantly}{Signal 0}{Zidane}\n“Okay!”\n{Choice}That’s when I kidnap Queen Brahne, right?\n{Tab}That’s when I kidnap Princess Garnet, right?"
+  },
+  {
+    id: "0067",
+    text: "{W200H4}{UpperLeftForce}{Offset -88,-500,0}Baku\n“You bet!  You’re gonna kidnap the\n fat-ass, butt-ugly Queen Br─{Wait 30}\n{Signal 1} What{Speed 2}...{Speed -1}what’m I sayin’!?”"
+  },
+  {
+    id: "0068",
+    text: "{W200H4}{UpperLeftForce}{Offset -88,-500,0}Baku\n“You bet!  You’re gonna kidnap the\n fat-ass, butt-ugly Queen...”{Wait 30}{Signal 1}"
+  },
+  {
+    id: "0069",
+    text: "{W164H2}Baku\n“Alright, quit jokin’ around!”"
+  },
+  {
+    id: "0070",
+    text: "{W200H4}{UpperRightForce}{Offset 88,-500,0}Baku\n“You bet!  You’re gonna kidnap the\n most babe-ilicious beauty in all of\n Alexandria, Princess Garnet!”"
+  },
+  {
+    id: "0071",
+    text: "{W176H3}{Widths 0,139,16,-1}Ruby\n“{Zidane}!  I reckon you’re more\n stubborn than a grumpy mule!”"
+  },
+  {
+    id: "0072",
+    text: "{W124H1}Ladies and Gentlemen!"
+  },
+  {
+    id: "0073",
+    text: "{W186H2}Tonight’s performance is a story\nthat takes place long, long ago."
+  },
+  {
+    id: "0074",
+    text: "{W188H2}Our heroine, Princess Cornelia, is\ntorn from her lover, Marcus."
+  },
+  {
+    id: "0075",
+    text: "{W226H2}She attempts to flee the castle, only\nto be captured by her father, King Leo."
+  },
+  {
+    id: "0076",
+    text: "{W249H2}When our story begins, Marcus, having\nheard of this, crosses swords with the king."
+  },
+  {
+    id: "0077",
+    text: "{W252H2}And now, Your Royal Majesty, Queen Brahne,\nYour Highness, Princess Garnet{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0078",
+    text: "{W235H3}{Speed 2}...{Speed -1}noble ladies and lords, and our rooftop\nviewers, Tantalus proudly presents\n‘I Want to Be Your Canary’!"
+  },
+  {
+    id: "0079",
+    text: "{W220H2}{UpperRightForce}{Instantly}Blank\n“Bereft of father!  Bereft of mother!”{Time -1}"
+  },
+  {
+    id: "0080",
+    text: "{W176H3}{UpperRightForce}{Instantly}Blank\n“Marcus!\n Thou hast lost even thy love!”{Time -1}"
+  },
+  {
+    id: "0081",
+    text: "{W169H2}{UpperLeftForce}{Instantly}Cinna\n“Fortune hath escap’d thee!”{Time -1}"
+  },
+  {
+    id: "0082",
+    text: "{W177H2}{UpperLeftForce}{Instantly}Cinna\n“For what end shalt thou live?”{Time -1}"
+  },
+  {
+    id: "0083",
+    text: "{W176H2}{UpperLeftForce}{Instantly}{Zidane}\n“For the sake of our friend...”{Time -1}"
+  },
+  {
+    id: "0084",
+    text: "{W196H3}{UpperLeftForce}{Instantly}{Zidane}\n“Let us bury our steel in the heart\n of the wretched King Leo!”{Time -1}"
+  },
+  {
+    id: "0085",
+    text: "{W26H1}{UpperRightForce}{Instantly}Aye!{Time -1}"
+  },
+  {
+    id: "0086",
+    text: "{W26H1}{UpperLeftForce}{Instantly}Aye!{Time -1}"
+  },
+  {
+    id: "0087",
+    text: "{W174H2}{UpperRightForce}{Instantly}Blank\n“We shall back thee, kinsman!”{Time -1}"
+  },
+  {
+    id: "0088",
+    text: "{W157H3}{UpperRightForce}{Instantly}Marcus\n“Pray, sheathe thy swords!\n This villain is mine alone!”{Time -1}"
+  },
+  {
+    id: "0089",
+    text: "{W90H2}{UpperRightForce}{Instantly}Cinna\n“Nay, kinsman!”{Time -1}"
+  },
+  {
+    id: "0090",
+    text: "{W132H3}{UpperRightForce}{Instantly}Cinna\n“For I, too, have lost a\n brother to this fiend!”{Time -1}"
+  },
+  {
+    id: "0091",
+    text: "{W120H3}{UpperLeftForce}{Instantly}King Leo\n“What ho?\n Out, vermin!  Away!”{Time -1}"
+  },
+  {
+    id: "0092",
+    text: "{W148H3}{UpperLeftForce}{Instantly}King Leo\n“Thou darest bare thy\n sword before the king!?”{Time -1}"
+  },
+  {
+    id: "0093",
+    text: "{W137H3}{UpperLeftForce}{Instantly}King Leo\n“All who stand in my way\n will be crush’d!”{Time -1}"
+  },
+  {
+    id: "0094",
+    text: "{W181H3}{UpperRightForce}{Instantly}{Zidane}\n“Treacherous Leo, my kinsman’s\n suffering shall not be in vain!”{Time -1}"
+  },
+  {
+    id: "0095",
+    text: "{W153H3}{UpperRightForce}{Instantly}{Zidane}\n“For I shall instruct thee in\n his incomparable pain!”{Time -1}"
+  },
+  {
+    id: "0096",
+    text: "{W87H2}King Leo\n“Arrg...{Wait 5} Grr...”{Time 15}"
+  },
+  {
+    id: "0097",
+    text: "{W65H1}{Instantly}Come back!{Time 15}"
+  },
+  {
+    id: "0098",
+    text: "{W254H2}King Leo\n“Thou hast not seen the last of me, Marcus!”"
+  },
+  {
+    id: "0099",
+    text: "{W139H2}{Zidane}\n“Out of the way, Blank!”{Time 20}"
+  },
+  {
+    id: "0100",
+    text: "{W264H4}{LowerRightForce}{Offset 0,100,0}Blank\n“Consider this, {Zidane}!  If Prince\n Schneider were to marry Princess Cornelia,\n peace would reign over both their kingdoms!”"
+  },
+  {
+    id: "0101",
+    text: "{W221H3}{Zidane}\n“’Tis foolishness!  If all were so easy,\n  why, none would suffer in this world!”"
+  },
+  {
+    id: "0102",
+    text: "{W78H1}{Instantly}Have at thee!{Time 10}"
+  },
+  {
+    id: "0103",
+    text: "{W25H1}{Instantly}Aha!{Time 10}"
+  },
+  {
+    id: "0104",
+    text: "{W26H1}{Instantly}Mph!{Time 10}"
+  },
+  {
+    id: "0105",
+    text: "{W70H2}{LowerRightForce}Blank\n“En garde!”{IncreaseSignal}"
+  },
+  {
+    id: "0106",
+    text: "{W171H2}{UpperLeftForce}{Zidane}\n“Expect no quarter from me!”{IncreaseSignal}"
+  },
+  {
+    id: "0107",
+    text: "{W152H2}{LowerRightForce}Blank\n“We shall finish this later!”{IncreaseSignal}"
+  },
+  {
+    id: "0108",
+    text: "{W109H2}{UpperLeftForce}{Zidane}\n“Come back here!”{IncreaseSignal}"
+  },
+  {
+    id: "0109",
+    text: "{W193H2}{LowerRightForce}Blank\n“Is that the best thou canst do!?”{IncreaseSignal}"
+  },
+  {
+    id: "0110",
+    text: "{W83H2}{UpperLeftForce}{Zidane}\n“Die, traitor!”{IncreaseSignal}"
+  },
+  {
+    id: "0111",
+    text: "{W233H5}{DialogPosition}{Instantly}{Center 233}To follow Blank’s lead, enter the correct\n{Center 209}commands from the following choices:\n{x88}{y6}{Up}{Mobile 268}{x132}{Triangle}{Mobile 272}\n{Center 77}{Left}{Mobile 267}{f6}{Right}{Mobile 269}{f13}{Square}{Mobile 271}{f6}{Circle}{Mobile 273}\n{x88}{y-6}{Down}{Mobile 270}{x132}{Cross}{Mobile 274}"
+  },
+  {
+    id: "0112",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Left}{Mobile 267} !{Time -1}"
+  },
+  {
+    id: "0113",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Right}{Mobile 269} !{Time -1}"
+  },
+  {
+    id: "0114",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Triangle}{Mobile 272} !{Time -1}"
+  },
+  {
+    id: "0115",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Down}{Mobile 270} !{Time -1}"
+  },
+  {
+    id: "0116",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Cross}{Mobile 274} !{Time -1}"
+  },
+  {
+    id: "0117",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Up}{Mobile 268} !{Time -1}"
+  },
+  {
+    id: "0118",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Circle}{Mobile 273} !{Time -1}"
+  },
+  {
+    id: "0119",
+    text: "{W54H1}{UpperRightForce}{Instantly}Press {Square}{Mobile 271} !{Time -1}"
+  },
+  {
+    id: "0120",
+    text: "{W156H2}{DialogPosition}{Widths 0,96,64,0,-1}{Instantly}Of the 100 nobles watching,\n{Variable 0} were impressed."
+  },
+  {
+    id: "0121",
+    text: "{W102H2}{DialogPosition}{Instantly}Queen Brahne was\nnot impressed."
+  },
+  {
+    id: "0122",
+    text: "{W134H2}{DialogPosition}{Widths 0,96,64,0,-1}{Instantly}Of 100 nobles watching,\n{Variable 0} were impressed."
+  },
+  {
+    id: "0123",
+    text: "{W102H2}{DialogPosition}{Instantly}Queen Brahne was\nquite impressed."
+  },
+  {
+    id: "0124",
+    text: "{W174H4}{DialogPosition}{PreChoose 2,1}{Instantly}The audience is booing...\nPerform the fight scene again?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0125",
+    text: "{W174H4}{DialogPosition}{PreChoose 2,1}{Instantly}The audience did not enjoy it.\nPerform the fight scene again?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0126",
+    text: "{W175H4}{DialogPosition}{PreChoose 2,1}{Instantly}The audience seemed to like it.\nPerform the fight scene again?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0127",
+    text: "{W174H4}{DialogPosition}{PreChoose 2,1}{Instantly}They demand an encore!\nPerform the fight scene again?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0128",
+    text: "{W147H1}{DialogPosition}{Widths 0,147,64,1,-1}{Instantly}They shower you with {Yellow}{Variable 1} Gil{White}!"
+  },
+  {
+    id: "0129",
+    text: "{W154H3}{Zidane}\n“Huh?\n Where’d the princess go?”"
+  },
+  {
+    id: "0130",
+    text: "{W27H1}{UpperLeftForce}{NoFocus}Woo!{Time 10}"
+  },
+  {
+    id: "0131",
+    text: "{W43H1}{LowerRightForce}{Offset 0,400,150}Owww{Speed 2}...{Speed -1}{Time 10}"
+  },
+  {
+    id: "0132",
+    text: "{W155H3}Conductor\n“Hey, {Zidane},\n what are you doing here?”"
+  },
+  {
+    id: "0133",
+    text: "{W219H2}Trumpeter\n“Well, I say! Wasn’t she a pretty one!”"
+  },
+  {
+    id: "0134",
+    text: "{W103H2}Cymbalist\n“Don’t interrupt!”"
+  },
+  {
+    id: "0135",
+    text: "{W210H3}Drummer\n“You can feel my drum reverberating\nin your gut, can’t you?”"
+  },
+  {
+    id: "0136",
+    text: "{W141H3}Violinist\n“Do you have a request?\n Waltz, polka, anything?”"
+  },
+  {
+    id: "0137",
+    text: "{W160H2}Ruby\n“Whoa!  Whut in tarnation!?”{Time 20}"
+  },
+  {
+    id: "0138",
+    text: "{W148H2}{UpperLeftForce}Ruby\n“Hold yer horses, there!”"
+  },
+  {
+    id: "0139",
+    text: "{W128H3}{UpperLeftForce}Ruby\n“Whut kinda cattle you\n chasin’, darlin’?”"
+  },
+  {
+    id: "0140",
+    text: "{W114H3}{UpperLeftForce}Ruby\n“You should at least\n say yer sorry!”"
+  },
+  {
+    id: "0141",
+    text: "{W162H3}Hooded Girl\n“Please pardon me.\n I was in a hurry, you see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0142",
+    text: "{W189H3}Ruby\n“And here I am, fixin’ to\n get ready fer my big entrance!”"
+  },
+  {
+    id: "0143",
+    text: "{W194H3}Ruby\n“Hey, {Zidane}!\n Did you see the way she hit me!?”"
+  },
+  {
+    id: "0144",
+    text: "{W150H3}Ruby\n“This cowgirl’s wilder than\n a buckin’ bronco!”"
+  },
+  {
+    id: "0145",
+    text: "{W179H2}{Zidane}\n“Just let me talk to her, Ruby!”"
+  },
+  {
+    id: "0146",
+    text: "{W141H2}Ruby\n“Come again, pardner!?”"
+  },
+  {
+    id: "0147",
+    text: "{W117H3}Ruby\n“Did you hear\n what I was sayin’!?”"
+  },
+  {
+    id: "0148",
+    text: "{W26H1}{UpperLeftForce}{Instantly}Hey!{Time 15}"
+  },
+  {
+    id: "0149",
+    text: "{W99H3}{Zidane}\n“Ruby!\n We’ll talk later!”"
+  },
+  {
+    id: "0150",
+    text: "{W163H2}Ruby\n“So who’s that damsel, huh?”"
+  },
+  {
+    id: "0151",
+    text: "{W190H3}Ruby\n“You hafta see my rootin’, tootin’\n Princess Cornelia scene!”"
+  },
+  {
+    id: "0152",
+    text: "{W160H3}Ruby\n“I rehearsed and rehearsed\n ’til the cows came home!”"
+  },
+  {
+    id: "0153",
+    text: "{W209H3}Ruby\n“Whut are you doin’ here backstage,\n {Zidane}?”"
+  },
+  {
+    id: "0154",
+    text: "{W197H3}{UpperLeftForce}{Offset 10,0,0}{Zidane}\n“Whew{Speed 2}...{Speed -1}{Wait 10} Well, it looks like\n you’ve finally made up your mind.”"
+  },
+  {
+    id: "0155",
+    text: "{W193H3}{UpperLeftForce}{Offset 10,0,0}{Zidane}\n(Wow.  We really had to improvise.\n But hey, we got her!)"
+  },
+  {
+    id: "0156",
+    text: "{W201H3}{UpperRight}Hooded Girl\n“Do you{Speed 2}...{Speed -1}{Wait 30}\n do you work on this theater ship?”"
+  },
+  {
+    id: "0157",
+    text: "{W157H3}{UpperLeftForce}{Offset 10,0,0}{Zidane}\n(Aww{Speed 2}...{Speed -1}\n So she figured it out, huh?)"
+  },
+  {
+    id: "0158",
+    text: "{W209H2}{UpperRight}Hooded Girl\n“As you have no doubt suspected{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0159",
+    text: "{W114H1}{UpperRight}{Speed 2}...{Speed -1}the truth is that{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0160",
+    text: "{W82H1}{UpperRight}I am actually{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0161",
+    text: "{W196H3}{UpperRight}Hooded Girl\n“Princess Garnet Til Alexandros,\n heir to the throne of Alexandria.”"
+  },
+  {
+    id: "0162",
+    text: "{W122H3}{UpperRight}Garnet\n“I have a favor I wish\n to ask of you...”"
+  },
+  {
+    id: "0163",
+    text: "{W145H3}{UpperRight}{Offset -110,-10,0}Garnet\n“I wish to be kidnapped{Speed 2}...{Speed -1}\n right away.”{IncreaseSignal}"
+  },
+  {
+    id: "0164",
+    text: "{W109H3}{LowerLeftForce}{Offset -40,40,0}{Zidane}\n“H-Huh!?\n I don’t... I mean{Speed 2}...{Speed -1}”{IncreaseSignal}"
+  },
+  {
+    id: "0165",
+    text: "{W154H1}{Offset 440,500,0}{UpperLeftForce}Princess!  Where are you!?{Time 30}"
+  },
+  {
+    id: "0166",
+    text: "{W189H2}{UpperRight}Garnet\n“Please{Speed 2}...{Speed -1} They’ve come for me!”"
+  },
+  {
+    id: "0167",
+    text: "{W165H3}{UpperLeftForce}{Offset 10,0,0}{Zidane}\n“Aha...\n So that’s what’s going on...”"
+  },
+  {
+    id: "0168",
+    text: "{W113H3}{UpperLeftForce}{Offset 10,0,0}{Zidane}\n“Alright!\n Leave them to me!”"
+  },
+  {
+    id: "0169",
+    text: "{W141H3}{UpperRight}Garnet\n“Thank you.\n You have my gratitude.”"
+  },
+  {
+    id: "0170",
+    text: "{W156H1}{UpperLeftForce}{Offset 0,80,0}Alright then, Your Highness!"
+  },
+  {
+    id: "0171",
+    text: "{W122H3}{UpperLeftForce}{Offset 0,80,0}{Zidane}\n“I shall hereby do my\n best to kidnap you!”"
+  },
+  {
+    id: "0172",
+    text: "{W135H3}Cinna\n“What’re you two doin’?\n Come on, this way!”"
+  },
+  {
+    id: "0173",
+    text: "{W32H1}{NoFocus}{Instantly}Aaah!{Time 15}"
+  },
+  {
+    id: "0174",
+    text: "{W134H3}{UpperLeftForce}{Zidane}\n“Don’t worry, Princess.\n It’s my friend Cinna!”"
+  },
+  {
+    id: "0175",
+    text: "{W74H2}{UpperLeftForce}Garnet\n“Oh, really?”"
+  },
+  {
+    id: "0176",
+    text: "{W103H3}{UpperLeftForce}Garnet\n“I am sorry.\n You startled me.”"
+  },
+  {
+    id: "0177",
+    text: "{W167H3}{UpperLeftForce}{Zidane}\n“Well, with a face like his,\n I’d be pretty shocked, too!”"
+  },
+  {
+    id: "0178",
+    text: "{W156H3}Cinna\n“Man, that hurts!  I wash up\n every morning, you know!”"
+  },
+  {
+    id: "0179",
+    text: "{W59H1}{UpperLeftForce}{NoFocus}{Instantly}Princess!?{Time 30}"
+  },
+  {
+    id: "0180",
+    text: "{W67H2}Cinna\n“This way!”"
+  },
+  {
+    id: "0181",
+    text: "{W102H3}{Zidane}\n“Alright,\n we’ll follow you!”"
+  },
+  {
+    id: "0182",
+    text: "{W54H1}Princess?"
+  },
+  {
+    id: "0183",
+    text: "{W60H1}Princess..."
+  },
+  {
+    id: "0184",
+    text: "{W53H1}Princess!"
+  },
+  {
+    id: "0185",
+    text: "{W66H1}Princess...?"
+  },
+  {
+    id: "0186",
+    text: "{W73H1}PRINCESS!!!?"
+  },
+  {
+    id: "0187",
+    text: "{W54H1}Princess?"
+  },
+  {
+    id: "0188",
+    text: "{W131H1}Where have you been!?"
+  },
+  {
+    id: "0189",
+    text: "{W107H1}Sir!  I’m sorry, sir!"
+  },
+  {
+    id: "0190",
+    text: "{W53H1}{UpperCenter}Princess!{Time 30}"
+  },
+  {
+    id: "0191",
+    text: "{W118H3}{Zidane}\n“Hey, Cinna!\n This is a dead end!”"
+  },
+  {
+    id: "0192",
+    text: "{W172H3}Cinna\n“Hehehe.\n I thought this might happen{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0193",
+    text: "{W32H1}{Instantly}Open!{Time 15}"
+  },
+  {
+    id: "0194",
+    text: "{W46H1}{Instantly}Sesame!{Time 15}"
+  },
+  {
+    id: "0195",
+    text: "{W92H3}Cinna\n“So I set up this\n escape hatch!”"
+  },
+  {
+    id: "0196",
+    text: "{W53H1}Princess!"
+  },
+  {
+    id: "0197",
+    text: "{W78H3}Cinna\n“Come on!\n Jump inside!”{Time 25}"
+  },
+  {
+    id: "0198",
+    text: "{W204H2}{Steiner}\n“The princess must be down there!”"
+  },
+  {
+    id: "0199",
+    text: "{W112H2}Pluto Knight\n“I-I’ll go first, sir!”"
+  },
+  {
+    id: "0200",
+    text: "{W239H2}{Steiner}\n“Hey!!! What do you think you’re doing!?”"
+  },
+  {
+    id: "0201",
+    text: "{W88H3}{Offset 500,300,0}Pluto Knight\n“Captain, sir!\n I’m stuck, sir!”"
+  },
+  {
+    id: "0202",
+    text: "{W113H2}{Steiner}\n“Grrrr!  Blast it!!!”"
+  },
+  {
+    id: "0203",
+    text: "{W84H3}{Offset 500,300,0}Pluto Knight\n“Hehehe.\n He bought it!”"
+  },
+  {
+    id: "0204",
+    text: "{W219H3}{UpperLeftForce}{Zidane}\n“Wow, you’re really athletic, Princess.\n I think I’m falling for you!”"
+  },
+  {
+    id: "0205",
+    text: "{W210H3}{UpperRightForce}Garnet\n“This is nothing.  I have been training\n to escape the castle, after all.”"
+  },
+  {
+    id: "0206",
+    text: "{W192H3}{UpperLeftForce}{Zidane}\n“What a waste.\n If only you weren’t a princess{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0207",
+    text: "{W188H3}{UpperRightForce}Garnet\n“We have no time for idle banter.\n Come, let us move on!”"
+  },
+  {
+    id: "0208",
+    text: "{W147H2}Garnet\n“What should we do now?”"
+  },
+  {
+    id: "0209",
+    text: "{W237H2}Garnet\n“We should withdraw into this room here!”"
+  },
+  {
+    id: "0210",
+    text: "{W168H3}Cinna\n“Let’s get the play over with\n and get the hell outta here!”"
+  },
+  {
+    id: "0211",
+    text: "{W0H3}{PreChoose 3,2}{Widths 1,141,-1,2,149,-1,3,58,-1}{Instantly}{Choice}Turn wheel to the left\n{Tab}Turn wheel to the right\n{Tab}Cancel"
+  },
+  {
+    id: "0212",
+    text: "{W162H1}The engine has slowed down!"
+  },
+  {
+    id: "0213",
+    text: "{W136H1}The engine has sped up!"
+  },
+  {
+    id: "0214",
+    text: "{W26H1}{UpperLeftForce}{Instantly}Hey!"
+  },
+  {
+    id: "0215",
+    text: "{W198H3}{UpperLeftForce}Cinna\n“If you reduce the engine’s power,\n you’ll crash the ship!”"
+  },
+  {
+    id: "0216",
+    text: "{W202H2}{UpperLeftForce}Cinna\n“Turn the wheel back to the right!”"
+  },
+  {
+    id: "0217",
+    text: "{W145H3}{UpperLeftForce}Cinna\n“If you rev it up too high,\n you’ll ruin the engine!”"
+  },
+  {
+    id: "0218",
+    text: "{W195H2}{UpperLeftForce}Cinna\n“Turn the wheel back to the left!”"
+  },
+  {
+    id: "0219",
+    text: "{W39H2}{Widths 0,0,19,-1}{Steiner}\n“Aha!”"
+  },
+  {
+    id: "0220",
+    text: "{W164H3}{Steiner}\n“Princess!  I, {Steiner},\n have come to your rescue!”"
+  },
+  {
+    id: "0221",
+    text: "{W209H2}Pluto Knight\n“You needn’t worry, Your Highness!”"
+  },
+  {
+    id: "0222",
+    text: "{W213H3}{Steiner}\n“Good work!  This will be remembered\n as the Pluto Knights’ finest hour!”"
+  },
+  {
+    id: "0223",
+    text: "{W45H1}{UpperRightForce}Hehehe!"
+  },
+  {
+    id: "0224",
+    text: "{W152H3}Pluto Knight\n“Just relax, Princess.\n We’ll get you outta here!”"
+  },
+  {
+    id: "0225",
+    text: "{W64H2}{Widths 0,0,19,-1}{Steiner}\n“WHAT!!!?”"
+  },
+  {
+    id: "0226",
+    text: "{W180H2}{Steiner}\n“You’re not one of my knights!”"
+  },
+  {
+    id: "0227",
+    text: "{W82H1}{UpperRightForce}{Instantly}You can just..."
+  },
+  {
+    id: "0228",
+    text: "{W129H1}{UpperRightForce}{Instantly}...leave the princess..."
+  },
+  {
+    id: "0229",
+    text: "{W45H1}{UpperLeftForce}{Instantly}...to us!{Time 30}"
+  },
+  {
+    id: "0230",
+    text: "{W45H1}{LowerLeftForce}{Instantly}...to us!{Time 30}"
+  },
+  {
+    id: "0231",
+    text: "{W45H1}{UpperRightForce}{Instantly}...to us!{Time 30}"
+  },
+  {
+    id: "0232",
+    text: "{W105H1}{Instantly}No!  I hate oglops!{Time 20}"
+  },
+  {
+    id: "0233",
+    text: "{W42H1}{Instantly}Oglops!{Time 20}"
+  },
+  {
+    id: "0234",
+    text: "{W146H1}{Instantly}Get these oglops offa me!{Time 20}"
+  },
+  {
+    id: "0235",
+    text: "{W124H1}{Instantly}Oglops are the worst!{Time 20}"
+  },
+  {
+    id: "0236",
+    text: "{W176H2}{UpperLeftForce}{Zidane}\n“Now’s our chance!  Come on!”"
+  },
+  {
+    id: "0237",
+    text: "{W181H3}Garnet\n“Why does everyone fear these\n cute little bugs so{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0238",
+    text: "{W236H3}{Offset 0,-55,0}{UpperLeftForce}King Leo\n“Tonight, I shall finally see my daughter\n Cornelia betroth’d to Prince Schneider!”"
+  },
+  {
+    id: "0239",
+    text: "{W198H3}{Offset 0,-55,0}{UpperLeftForce}King Leo\n“And then Prince Schneider and his\n kingdom will be mine!”"
+  },
+  {
+    id: "0240",
+    text: "{W93H2}{Offset 0,-55,0}{UpperLeftForce}King Leo\n“Gwahahahaha!”"
+  },
+  {
+    id: "0241",
+    text: "{W94H2}{UpperLeftForce}Zenero\n“Your Majesty!”{IncreaseSignal}"
+  },
+  {
+    id: "0242",
+    text: "{W174H2}{LowerRightForce}Benero\n“We have caught an intruder!”{IncreaseSignal}"
+  },
+  {
+    id: "0243",
+    text: "{W137H2}{UpperLeftForce}King Leo\n“Why, my poor Marcus!”"
+  },
+  {
+    id: "0244",
+    text: "{W181H3}{UpperLeftForce}{Offset 0,-70,0}King Leo\n“Hark, lad.  No matter how much\n thou dost treasure Cornelia{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0245",
+    text: "{W195H3}{UpperLeftForce}{Offset 0,-70,0}King Leo\n“...no matter how deeply she might\n believe she doth love thee{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0246",
+    text: "{W184H3}{UpperLeftForce}{Offset 0,-70,0}King Leo\n“...never shall I see her\n marry a peasant such as thee!”"
+  },
+  {
+    id: "0247",
+    text: "{W180H2}{UpperLeftForce}{Offset 0,-70,0}King Leo\n“When yon bell strikes three{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0248",
+    text: "{W174H2}{UpperLeftForce}{Offset 0,-70,0}King Leo\n“Under the axe thou shall be!”"
+  },
+  {
+    id: "0249",
+    text: "{W160H3}{UpperRightForce}Garnet\n“What now?\n We cannot go any further!”"
+  },
+  {
+    id: "0250",
+    text: "{W54H2}{UpperRightForce}{Widths 0,0,16,-1}{Zidane}\n“Hmmm{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0251",
+    text: "{W138H2}{Widths 0,138,16,-1}Cinna\n“{Zidane}!  Get on Number Two!”"
+  },
+  {
+    id: "0252",
+    text: "{W160H3}{UpperLeftForce}{Zidane}\n“Okay!\n Princess Garnet, this way!”"
+  },
+  {
+    id: "0253",
+    text: "{W31H1}{UpperLeftForce}{Instantly}Stop!{Time 30}"
+  },
+  {
+    id: "0254",
+    text: "{W27H1}{NoFocus}{Instantly}Yow!{Time 15}"
+  },
+  {
+    id: "0255",
+    text: "{W89H2}King Leo\n“Furthermore!”"
+  },
+  {
+    id: "0256",
+    text: "{W125H2}Baku\n{White}(P-Princess Garnet!?){Time 20}"
+  },
+  {
+    id: "0257",
+    text: "{W148H2}{Zidane}\n{White}“(Guys!  Just improvise!)”"
+  },
+  {
+    id: "0258",
+    text: "{W63H1}“(Roger!)”"
+  },
+  {
+    id: "0259",
+    text: "{W121H2}{UpperRightForce}{Steiner}\n“Ho?{Wait 20} What’s all this?”"
+  },
+  {
+    id: "0260",
+    text: "{W51H1}{UpperRightForce}Cornelia!"
+  },
+  {
+    id: "0261",
+    text: "{W36H1}{UpperRightForce}(Um{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0262",
+    text: "{W176H2}{Zidane}\n{White}“(Marcus is Cornelia’s lover!)”"
+  },
+  {
+    id: "0263",
+    text: "{W66H1}{UpperLeftForce}Oh, Marcus!"
+  },
+  {
+    id: "0264",
+    text: "{W171H2}{Zidane}\n{White}“(Yeah, you’re doing great!)”"
+  },
+  {
+    id: "0265",
+    text: "{W250H2}{UpperRightForce}Garnet\n{White}“(Ahaha.  I have studied drama, you know.)”"
+  },
+  {
+    id: "0266",
+    text: "{W199H3}Baku\n{White}“(Okay, guys.  Let’s keep going.\n Brahne’s still watchin’, after all!)”"
+  },
+  {
+    id: "0267",
+    text: "{W177H2}{UpperLeftForce}Garnet\n“Oh, Marcus!{Wait 20}  I missed you so!”"
+  },
+  {
+    id: "0268",
+    text: "{W72H2}{UpperRightForce}Marcus\n“Cornelia{Speed 2}...”{Speed -1}"
+  },
+  {
+    id: "0269",
+    text: "{W195H3}{UpperLeftForce}Garnet\n“I wish never to leave thy side.\n Prithee, lead me from this place!”"
+  },
+  {
+    id: "0270",
+    text: "{W220H3}{UpperRightForce}{Zidane}\n“See, King Leo?\n Thou shouldst give them thy blessing!”"
+  },
+  {
+    id: "0271",
+    text: "{W39H1}{UpperRightForce}Never!"
+  },
+  {
+    id: "0272",
+    text: "{W209H2}{UpperRightForce}King Leo\n“Never leave his side, thou sayest?”"
+  },
+  {
+    id: "0273",
+    text: "{W192H2}{UpperRightForce}King Leo\n“Foolish banter!  I’ll not allow it!”"
+  },
+  {
+    id: "0274",
+    text: "{W194H3}{UpperRightForce}King Leo\n“Cornelia shall marry none other\n than this man─Prince Schneider!”"
+  },
+  {
+    id: "0275",
+    text: "{W199H2}{UpperRightForce}King Leo\n“Is that not so, Prince Schneider?”"
+  },
+  {
+    id: "0276",
+    text: "{W177H2}{Steiner}\n“M-Marry the princess?  Me!?”"
+  },
+  {
+    id: "0277",
+    text: "{W150H3}{UpperRightForce}King Leo\n“Aye!  And this traitorous\n crew, I will put to death!”"
+  },
+  {
+    id: "0278",
+    text: "{W31H1}{UpperRightForce}{Instantly}Ooof!{Time 20}"
+  },
+  {
+    id: "0279",
+    text: "{W28H1}{UpperLeftForce}{Instantly}Oww!{Time 20}"
+  },
+  {
+    id: "0280",
+    text: "{W116H2}{UpperRightForce}{Instantly}Benero\n“Too many of them!”{Time 20}"
+  },
+  {
+    id: "0281",
+    text: "{W71H2}{UpperLeftForce}{Instantly}Zenero\n“Run away!”{Time 20}"
+  },
+  {
+    id: "0282",
+    text: "{W195H3}{LowerRightForce}{Offset 50,100,0}{Signal 0}King Leo\n“Pray, sweet daughter,\n come home to the castle with me.”"
+  },
+  {
+    id: "0283",
+    text: "{W97H3}Garnet\n“Nay, Father!\n{Signal 1} I shan’t return!”"
+  },
+  {
+    id: "0284",
+    text: "{W124H3}King Leo\n“Cornelia{Speed 2}...{Speed -1}\n Trouble me no more.”"
+  },
+  {
+    id: "0285",
+    text: "{W220H3}{LowerRightForce}{Offset 50,100,0}King Leo\n“This wedding is for thine own welfare.\n Be mindful of that.”"
+  },
+  {
+    id: "0286",
+    text: "{W130H2}Marcus\n“Not if I can help it!!!”"
+  },
+  {
+    id: "0287",
+    text: "{W259H3}{LowerRightForce}Marcus\n“Now is my moment of vengeance!\n For my parents, and for my love, Cornelia{Speed 2}...”{Speed -1}"
+  },
+  {
+    id: "0288",
+    text: "{W134H2}{LowerRightForce}Marcus\n“I shall cut thee down!”"
+  },
+  {
+    id: "0289",
+    text: "{W25H1}{UpperLeftForce}{Instantly}Ngh!{Time 20}"
+  },
+  {
+    id: "0290",
+    text: "{W105H2}{UpperRightForce}Marcus\n“No{Speed 2}...{Speed -1} Cornelia!!!”"
+  },
+  {
+    id: "0291",
+    text: "{W136H3}{UpperLeftForce}{Offset 220,250,0}Garnet\n“Mar{Speed 2}...{Speed -1}cus, {Wait 10}forgive me.{Wait 10}\n I still love {Wait 10}my father{Speed 2}...”{Speed -1}"
+  },
+  {
+    id: "0292",
+    text: "{W51H1}{UpperLeftForce}{Instantly}Cornelia!{Time 20}"
+  },
+  {
+    id: "0293",
+    text: "{W53H1}{UpperRightForce}{Instantly}Princess!{Time 20}"
+  },
+  {
+    id: "0294",
+    text: "{W231H3}{UpperLeftForce}{Offset 220,250,0}Garnet\n“Prithee, forgive my selfishness, Father,\n and spare my sweet Marcus{Speed 2}...”{Speed -1}"
+  },
+  {
+    id: "0295",
+    text: "{W255H3}{UpperRight}Marcus\n“What have I done!?\n Am I never to hear her loving voice again!?”"
+  },
+  {
+    id: "0296",
+    text: "{W184H3}{UpperRight}Marcus\n“Am I cursed never again to feel\n her soft touch!?”"
+  },
+  {
+    id: "0297",
+    text: "{W227H3}{UpperRightForce}Marcus\n“O, cruel fate!\n Thou hast robbed me of all I treasure!”"
+  },
+  {
+    id: "0298",
+    text: "{W32H1}{UpperRightForce}{Instantly}Ngah!{Time 20}"
+  },
+  {
+    id: "0299",
+    text: "{W45H1}{UpperLeftForce}{Instantly}Marcus!{Time 20}"
+  },
+  {
+    id: "0300",
+    text: "{W77H2}{Offset 0,-110,0}Queen Brahne\n“Oh, my!”"
+  },
+  {
+    id: "0301",
+    text: "{W176H2}{Offset 0,-110,0}Queen Brahne\n“This year’s show is splendid!”"
+  },
+  {
+    id: "0302",
+    text: "{W77H2}{Offset 0,-110,0}Queen Brahne\n“Waaaaaaa!”"
+  },
+  {
+    id: "0303",
+    text: "{W198H2}{Offset 0,-110,0}Queen Brahne\n“Why did she have to die!?  Why!?”"
+  },
+  {
+    id: "0304",
+    text: "{W174H2}{Offset 0,-110,0}Queen Brahne\n{White}(Now, where could Garnet be?)"
+  },
+  {
+    id: "0305",
+    text: "{W118H2}{Offset 0,-110,0}Queen Brahne\n“Boo-{Wait 5}hoo-{Wait 5}hoooo!!!”"
+  },
+  {
+    id: "0306",
+    text: "{W118H2}{UpperRightForce}Puck\n“Wow, what a show!”"
+  },
+  {
+    id: "0307",
+    text: "{W98H2}{UpperLeftForce}{Vivi}\n“Yeah, so sad...”"
+  },
+  {
+    id: "0308",
+    text: "{W191H3}{UpperRightForce}Puck\n“I’m glad we climbed all the way\n over here.  How ’bout you, huh?”"
+  },
+  {
+    id: "0309",
+    text: "{W114H2}{UpperRightForce}{Instantly}Puck\n“Uh-oh!  Look out!”{Time 10}"
+  },
+  {
+    id: "0310",
+    text: "{W135H2}{Instantly}Haagen, Pluto Knight VIII\n“Stop, you!”{Time 18}"
+  },
+  {
+    id: "0311",
+    text: "{W156H2}{Instantly}Weimar, Pluto Knight VII\n“Come back, trespassers!”{Time 18}"
+  },
+  {
+    id: "0312",
+    text: "{W134H2}{UpperLeftForce}{Instantly}Puck\n“Fool!  I’m outta here!”"
+  },
+  {
+    id: "0313",
+    text: "{W135H2}{Instantly}Haagen, Pluto Knight VIII\n“Fury!!!”{Time 30}"
+  },
+  {
+    id: "0314",
+    text: "{W129H2}{Instantly}Weimar, Pluto Knight VII\n“Come back here!”{Time 30}"
+  },
+  {
+    id: "0315",
+    text: "{W77H2}{Offset -100,100,0}{Steiner}\n“Princess!!!”"
+  },
+  {
+    id: "0316",
+    text: "{W91H2}{Offset 0,100,0}King Leo\n“Forgive me!!!”"
+  },
+  {
+    id: "0317",
+    text: "{W105H2}{Vivi}\n“Leave me alone!”"
+  },
+  {
+    id: "0318",
+    text: "{W31H1}{Instantly}Stop!{Time 18}"
+  },
+  {
+    id: "0319",
+    text: "{W95H1}{Instantly}Come back here!{Time 18}"
+  },
+  {
+    id: "0320",
+    text: "{W144H2}{Vivi}\n“Don’t come any closer!”"
+  },
+  {
+    id: "0321",
+    text: "{W90H1}Ow!  That’s hot!{Time 10}"
+  },
+  {
+    id: "0322",
+    text: "{W60H3}{Widths 0,12,16,-1}Baku\n“{Zidane}!\n It’s time!”"
+  },
+  {
+    id: "0323",
+    text: "{W131H3}{Zidane}\n“Princess Garnet!\n Let’s get outta here!”"
+  },
+  {
+    id: "0324",
+    text: "{W112H3}{Steiner}\n“What...\n What is going on!?”"
+  },
+  {
+    id: "0325",
+    text: "{W161H3}Haagen, Pluto Knight VIII\n“Captain, sir!\n We await your orders, sir!”"
+  },
+  {
+    id: "0326",
+    text: "{W86H3}{Widths 0,86,19,-1}Garnet\n“{Steiner}!  Don’t follow\n me anymore!”"
+  },
+  {
+    id: "0327",
+    text: "{W48H5}{UpperLeftForce}{Widths 0,0,19,-1}{Steiner}\n“Hmmm{Speed 2}...{Speed -1}\n Well{Speed 2}...{Speed -1}\n Umm{Speed 2}...{Speed -1}\n Errr{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0328",
+    text: "{W121H3}{UpperLeftForce}{Steiner}\n“Princess!  I’m afraid\n I cannot comply!”"
+  },
+  {
+    id: "0329",
+    text: "{W121H3}Garnet\n“Stubborn as always,\n aren’t you?”"
+  },
+  {
+    id: "0330",
+    text: "{W193H3}{UpperLeftForce}{Zidane}\n“Come on, Princess.  Let’s ditch\n Sir Rustalot and get outta here!”"
+  },
+  {
+    id: "0331",
+    text: "{W84H1}{UpperLeftForce}{Instantly}Princess, wait!"
+  },
+  {
+    id: "0332",
+    text: "{W74H3}{UpperLeftForce}{Zidane}\n“Hey, kid...\n You okay!?”"
+  },
+  {
+    id: "0333",
+    text: "{W156H3}{Vivi}\n“Y-Yeah.\n I just tripped, that’s all{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0334",
+    text: "{W203H3}{UpperRightForce}{Steiner}\n“Princess, I cannot allow you to go!\n Seize them at once!”"
+  },
+  {
+    id: "0335",
+    text: "{W145H2}Cinna\n“Stabilizers configured!”"
+  },
+  {
+    id: "0336",
+    text: "{W33H1}Good!"
+  },
+  {
+    id: "0337",
+    text: "{W165H2}Blank\n“Engine room is good to go!”{IncreaseSignal}"
+  },
+  {
+    id: "0338",
+    text: "{W42H1}Alright!{IncreaseSignal}"
+  },
+  {
+    id: "0339",
+    text: "{W111H2}Baku\n“We’re movin’ out!”{Time 20}"
+  },
+  {
+    id: "0340",
+    text: "{W66H1}{NoFocus}Roger that!{Time 20}"
+  },
+  {
+    id: "0341",
+    text: "{W92H1}{NoFocus}It’s about time!”{Time 20}"
+  },
+  {
+    id: "0342",
+    text: "{W134H2}Cinna\n“We’re gonna crash!!!”"
+  },
+  {
+    id: "0343",
+    text: "{W77H2}Queen Brahne\n“Garnet{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0344",
+    text: "{W212H4}Queen Brahne\n“I never imagined you would do\n such a thing.  Perhaps you’re not\n such a helpless little girl anymore{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0345",
+    text: "{W77H2}Queen Brahne\n“Zorn!”"
+  },
+  {
+    id: "0346",
+    text: "{W77H2}Queen Brahne\n“Thorn!”"
+  },
+  {
+    id: "0347",
+    text: "{W117H3}Queen Brahne\n“Is our little\n experiment ready?”"
+  },
+  {
+    id: "0348",
+    text: "{W121H3}{Offset 0,-200,0}Zorn\n“Yes, Your Majesty.\n It is combat-ready.”"
+  },
+  {
+    id: "0349",
+    text: "{W195H3}{Offset 0,-200,0}Thorn\n“Easily terminate Princess Garnet,\n it can, Your Majesty.”"
+  },
+  {
+    id: "0350",
+    text: "{W107H2}Queen Brahne\n“I need her alive!”"
+  },
+  {
+    id: "0351",
+    text: "{W91H3}Queen Brahne\n“Bring her back\n at once!”"
+  },
+  {
+    id: "0352",
+    text: "{W245H2}{UpperCenter}\n{Center 245}I don’t know why I was chasing her so hard."
+  },
+  {
+    id: "0353",
+    text: "{W193H3}{UpperCenter}\nI didn’t really care about our plan\nat that point."
+  },
+  {
+    id: "0354",
+    text: "{W149H3}{UpperCenter}\nAnd it wasn’t just because\nshe’s such a doll."
+  },
+  {
+    id: "0355",
+    text: "{W36H2}{UpperCenter}\n........."
+  },
+  {
+    id: "0356",
+    text: "{W96H2}{UpperCenter}\nI can’t explain it."
+  },
+  {
+    id: "0357",
+    text: "{W197H1}{UpperCenter}I’m just drawn to her so strongly{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0358",
+    text: "{W132H2}{UpperCenter}\n{Center 132}She looked kinda sad{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0359",
+    text: "{W194H2}{UpperCenter}\n{Center 194}Like she’s all alone or something{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0360",
+    text: "{W183H2}{UpperCenter}\n{Center 183}I wonder what’s troubling her{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0361",
+    text: "{W189H3}{UpperCenter}\n{Center 160}She didn’t look like the type\nthat would consult others, either."
+  },
+  {
+    id: "0362",
+    text: "{W24H2}{UpperCenter}\n{Center 24}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0363",
+    text: "{W214H2}{UpperCenter}\n{Center 214}Maybe we have something in common{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0364",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0365",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0366",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0367",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0368",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0369",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0370",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0371",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0372",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0373",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0374",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0375",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0376",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0377",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0378",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0379",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0380",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0381",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0382",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0383",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0384",
+    text: "{W34H1}debug"
+  }
+]

@@ -1,0 +1,610 @@
+[
+  {
+    id: "0000",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0001",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0002",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0003",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0004",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0005",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0006",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0008",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0009",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0010",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0011",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0012",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0013",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0014",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0017",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0018",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0019",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0020",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0021",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0022",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0023",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0024",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0025",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0026",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0027",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0028",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0029",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0030",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0031",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0032",
+    text: "{W24H1}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0033",
+    text: "{W24H1}{UpperLeftForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0034",
+    text: "{W6H1}{Center 6}?"
+  },
+  {
+    id: "0035",
+    text: "{W11H1}{Center 11}!?"
+  },
+  {
+    id: "0036",
+    text: "{W158H1}This place hasn’t changed{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0037",
+    text: "{W228H3}{Vivi}\n“This is where I fell{Speed 2}...{Speed -1}\n I was staring at something down there.”"
+  },
+  {
+    id: "0038",
+    text: "{W132H2}{Vivi}\n“Grandpa helped me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0039",
+    text: "{W131H3}{Vivi}\n“I haven’t liked heights\n ever since.”"
+  },
+  {
+    id: "0040",
+    text: "{W82H1}Wow{Speed 2}...{Speed -1} Dusty{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0041",
+    text: "{W200H3}{Vivi}\n“I guess that’s natural.\n It’s been a long time since I left{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0042",
+    text: "{W214H4}{Vivi}\n“Grandpa didn’t eat anything towards\n the end{Speed 2}...{Speed -1} His cooking tools\n are badly damaged now.”"
+  },
+  {
+    id: "0043",
+    text: "{W200H2}{Vivi}\n“Oh yeah, he said something like{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0044",
+    text: "{W144H2}{Widths 0,144,17,-1}{Vivi}!  I learn art of fulfillment\nwithout eating food!"
+  },
+  {
+    id: "0045",
+    text: "{W185H3}{Vivi}\n“{Speed 2}...{Speed -1}You know, {Quina}\n looks so much like my grandpa.”"
+  },
+  {
+    id: "0046",
+    text: "{W196H3}{Zidane}\n“Hmm?  There’s writing on the wall.\n Someone measured height here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0047",
+    text: "{W228H3}{Zidane}\n“Let’s see{Speed 2}...{Speed -1} ‘Six months since I adopted\n {Vivi}.  Still too small to eat’?”"
+  },
+  {
+    id: "0048",
+    text: "{W196H3}{Dagger}\n“Hmm?  There’s writing on the wall.\n Someone measured height here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0049",
+    text: "{W228H3}{Dagger}\n“Let’s see{Speed 2}...{Speed -1} ‘Six months since I adopted\n {Vivi}.  Still too small to eat’?”"
+  },
+  {
+    id: "0050",
+    text: "{W254H4}{Dagger}\n“The clock has stopped{Speed 2}...{Speed -1}\n It must’ve stopped recently{Speed 2}...{Speed -1} Oh, it\n stopped the week before I left Alexandria.”"
+  },
+  {
+    id: "0051",
+    text: "{W193H4}{Zidane}\n“The clock stopped{Speed 2}...{Speed -1}\n It stopped{Speed 2}...{Speed -1}about a week before\n we kidnapped {Dagger}.”"
+  },
+  {
+    id: "0052",
+    text: "{W155H3}{Zidane}\n“{Vivi}?\n What are you doing here?”"
+  },
+  {
+    id: "0053",
+    text: "{W127H3}{Vivi}\n“{Zidane}{Speed 2}...{Speed -1}\n How did you find me?”"
+  },
+  {
+    id: "0054",
+    text: "{W139H3}{Zidane}\n“What are you doing in a\n dump like this?”"
+  },
+  {
+    id: "0055",
+    text: "{W118H3}{Vivi}\n“I{Speed 2}...{Speed -1}\n I used to live here.”"
+  },
+  {
+    id: "0056",
+    text: "{W174H3}{Zidane}\n“Really?\n You used to live near Treno?”"
+  },
+  {
+    id: "0057",
+    text: "{W106H3}{Vivi}\n“Yeah,\n with my grandpa.”"
+  },
+  {
+    id: "0058",
+    text: "{W165H3}{Zidane}\n“So how did you end up living\n with your grandfather?”"
+  },
+  {
+    id: "0059",
+    text: "{W33H1}Well{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0060",
+    text: "{W55H1}{UpperLeftForce}{Speed 2}...{Speed -1}Hungry."
+  },
+  {
+    id: "0061",
+    text: "{W159H3}{UpperLeftForce}“Maybe is end of attempting\n to fish Mist from sky and\n eat it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0062",
+    text: "{W195H3}{UpperLeftForce}Quan\n“Is no possible to prove theory of\n nourishment with no eating{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0063",
+    text: "{W112H3}{UpperLeftForce}Quan\n“Hmm?\n I catch something.”"
+  },
+  {
+    id: "0064",
+    text: "{W114H2}{Zidane}\n“S-So, you were{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0065",
+    text: "{W169H3}{Vivi}\n“My grandpa{Speed 2}...{Speed -1}\n He fished me out of the sky.”"
+  },
+  {
+    id: "0066",
+    text: "{W104H3}{Vivi}\n“Maybe I fell off a\n cargo ship{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0067",
+    text: "{W165H3}{UpperLeftForce}Quan\n“I not know I catch something\n from Mist ocean!”"
+  },
+  {
+    id: "0068",
+    text: "{W168H2}{UpperLeftForce}Quan\n“You no need be so afraid{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0069",
+    text: "{W117H3}{UpperLeftForce}Quan\n(Maybe I eat him, but\n he still so small{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0070",
+    text: "{W224H4}{Vivi}\n“My grandpa was very kind to me.\n He used to worry that I wasn’t growing\n properly.”"
+  },
+  {
+    id: "0071",
+    text: "{W39H1}I see{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0072",
+    text: "{W193H3}{Vivi}\n“Let’s go, {Zidane}.\n There’s no reason to stay here.”"
+  },
+  {
+    id: "0073",
+    text: "{W40H1}Right{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0074",
+    text: "{W111H2}{Quina}\n“Something smell{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0075",
+    text: "{W190H3}{Zidane}\n“What’s wrong, {Quina}?\n You just came out of nowhere{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0076",
+    text: "{W167H3}{Quina}\n“You no smell?\n Something smell wonderful{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0077",
+    text: "{W175H3}{Zidane}\n“No, my nose doesn’t work like\n yours does{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0078",
+    text: "{W63H1}A-Aiyaaah!"
+  },
+  {
+    id: "0079",
+    text: "{W130H2}{Zidane}\n“Wh-What happened!?”"
+  },
+  {
+    id: "0080",
+    text: "{W87H3}{Widths 0,87,16,-1}{Quina}\n“I-Is amazing, {Zidane}!\n Is miracle!”"
+  },
+  {
+    id: "0081",
+    text: "{W68H1}It a feast!!!"
+  },
+  {
+    id: "0082",
+    text: "{W105H1}I-Is unbelievable{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0083",
+    text: "{W156H3}{Quina}\n“I not know where to start!\n What I eat first?”"
+  },
+  {
+    id: "0084",
+    text: "{W45H1}Hohoho!"
+  },
+  {
+    id: "0085",
+    text: "{W82H1}<Ng-ng-ng{Speed 2}...{Speed -1}>"
+  },
+  {
+    id: "0086",
+    text: "{W87H1}I-Is sooo good!"
+  },
+  {
+    id: "0087",
+    text: "{W77H1}Is delicious!!!"
+  },
+  {
+    id: "0088",
+    text: "{W61H1}{UpperRightForce}Delicious{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0089",
+    text: "{W55H2}{Widths 0,0,16,-1,0,55,21,-1}{Zidane}\n“Hey, {Quina}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0090",
+    text: "{W106H1}{UpperRightForce}I no eat anymore{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0091",
+    text: "{W67H2}{Widths 0,0,16,-1}{Zidane}\n“Oh, man{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0092",
+    text: "{W11H1}{UpperRightForce}{Center 11}!?"
+  },
+  {
+    id: "0093",
+    text: "{W109H3}{Quina}\n“Oh, what happen!?\n Feast is gone{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0094",
+    text: "{W178H3}{Widths 0,173,21,-1}{Zidane}\n“What are you talking about, {Quina}?\n I think you were hallucinating.”"
+  },
+  {
+    id: "0095",
+    text: "{W126H3}{Quina}\n“I-Is not true!\n I saw with own eyes!”"
+  },
+  {
+    id: "0096",
+    text: "{W151H3}{Zidane}\n“But you were just running\n around{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0097",
+    text: "{W157H3}{Quina}\n“Hmm!?\n I smell something this way!”"
+  },
+  {
+    id: "0098",
+    text: "{W48H2}{Widths 0,0,16,-1,0,48,21,-1}{Zidane}\n“Hey, {Quina}!”"
+  },
+  {
+    id: "0099",
+    text: "{W40H1}Geez{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0100",
+    text: "{W54H2}{Widths 0,5,21,-1}{Quina}!\nYou stop!"
+  },
+  {
+    id: "0101",
+    text: "{W83H1}{UpperLeftForce}{Offset 100,-100,0}I finally here{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0102",
+    text: "{W178H3}{UpperRightForce}{Offset -40,-80,0}{Quina}\n“Wh-Who you!?\n You the one show me illusion!?”"
+  },
+  {
+    id: "0103",
+    text: "{W46H1}{UpperLeftForce}{Offset 100,-100,0}I Quan{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0104",
+    text: "{W252H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“Is illusion only if you see illusion{Speed 2}...{Speed -1}\n You saw because you travel around world.”"
+  },
+  {
+    id: "0105",
+    text: "{W127H2}{UpperRightForce}{Offset -40,-80,0}{Quina}\n“Wh-What you mean!?”"
+  },
+  {
+    id: "0106",
+    text: "{W84H1}{UpperRightForce}Is cheap trick!"
+  },
+  {
+    id: "0107",
+    text: "{W134H3}{UpperRightForce}{Offset -40,-80,0}{Quina}\n“Master!?\n What you talk about!?”"
+  },
+  {
+    id: "0108",
+    text: "{W201H3}{UpperLeftForce}Quale\n“He my former master!\n He run away and escape training!”"
+  },
+  {
+    id: "0109",
+    text: "{W150H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“I no run from training{Speed 2}...{Speed -1}\n It you who make mistake.”"
+  },
+  {
+    id: "0110",
+    text: "{W37H1}{UpperLeftForce}What!?"
+  },
+  {
+    id: "0111",
+    text: "{W139H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“To eat everything not\n true way of gourmand!”"
+  },
+  {
+    id: "0112",
+    text: "{W160H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“Your student already start\n to realize!”"
+  },
+  {
+    id: "0113",
+    text: "{W205H4}{UpperLeftForce}{Offset 100,-100,0}Quan\n“{Quina}, what you saw,\n you used imagination{Speed 2}...{Speed -1}\n Is your imagination you use to eat.”"
+  },
+  {
+    id: "0114",
+    text: "{W161H3}{UpperRightForce}{Offset -40,-80,0}{Quina}\n“I-I not know{Speed 2}...{Speed -1}\n But it taste like real food!”"
+  },
+  {
+    id: "0115",
+    text: "{W184H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“Is all good{Speed 2}...{Speed -1} You travel around\n the world and gain imagination.”"
+  },
+  {
+    id: "0116",
+    text: "{W200H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“People who no have imagination no\n taste until they actually eat!”"
+  },
+  {
+    id: "0117",
+    text: "{W33H1}{UpperLeftForce}Mmm!?"
+  },
+  {
+    id: "0118",
+    text: "{W198H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“You use imagination, is possible to\n taste all food in world!”"
+  },
+  {
+    id: "0119",
+    text: "{W244H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“It no matter if it story somebody else tell.\n Is possible to eat with your imagination!”"
+  },
+  {
+    id: "0120",
+    text: "{W192H3}{UpperRightForce}{Offset -40,-80,0}{Quina}\n“H-How did Master’s master learn\n to do this{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0121",
+    text: "{W72H1}{UpperLeftForce}{Offset 100,-100,0}Is because{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0122",
+    text: "{W52H1}Grandpa!"
+  },
+  {
+    id: "0123",
+    text: "{W123H3}{UpperLeftForce}{Offset 100,-100,0}{Widths 0,73,17,-1}Quan\n“Ah, {Vivi}!  You{Speed 2}...{Speed -1}{Wait 10}\n no grow much at all.”"
+  },
+  {
+    id: "0124",
+    text: "{W153H3}{UpperLeftForce}{Offset 100,-100,0}{Widths 0,153,17,-1}Quan\n“Is thanks to {Vivi} I learn about\n imagination{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0125",
+    text: "{W240H4}{UpperLeftForce}{Offset 100,-100,0}{Widths 0,184,17,-1}Quan\n“I teach {Vivi}, who not know anything\n about world outside.  My imagination grow\n very big as I teach him!”"
+  },
+  {
+    id: "0126",
+    text: "{W73H2}{Vivi}\n“Grandpa{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0127",
+    text: "{W144H3}{UpperLeftForce}{Offset 100,-100,0}{Widths 0,112,17,-1}Quan\n“To eat same as to live{Speed 2}...{Speed -1}\n {Vivi}, you understand?”"
+  },
+  {
+    id: "0128",
+    text: "{W210H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“To see not only thing.\n To think and talk just as important.”"
+  },
+  {
+    id: "0129",
+    text: "{W194H4}{UpperLeftForce}{Offset 100,-100,0}Quan\n“Life end when you die.\n But imagination share with others,\n live forever.”"
+  },
+  {
+    id: "0130",
+    text: "{W177H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“My spirit almost gone.\n Is where my imagination end{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0131",
+    text: "{W217H3}{Vivi}\n“No{Speed 2}...{Speed -1}\n Are you going away again, Grandpa?”"
+  },
+  {
+    id: "0132",
+    text: "{W226H3}{UpperLeftForce}{Offset 100,-100,0}Quan\n“No need be sad{Speed 2}...{Speed -1} {Vivi},\n as long as you imagine, I by your side.”"
+  },
+  {
+    id: "0133",
+    text: "{W78H3}{UpperLeftForce}{Offset 100,-100,0}{Widths 0,78,21,-1}Quan\n“{Quina} and Quale{Speed 2}...{Speed -1}\n Good luck{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0134",
+    text: "{W63H1}{UpperLeftForce}M-MASTER!"
+  },
+  {
+    id: "0135",
+    text: "{W152H3}{Zidane}\n“Hey, who are you guys all\n talking to{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0136",
+    text: "{W32H1}What?"
+  },
+  {
+    id: "0137",
+    text: "{W175H3}{UpperLeftForce}Quale\n“{Quina}{Speed 2}...{Speed -1}\n I start over from beginning{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0138",
+    text: "{W65H2}{UpperRightForce}{Offset -40,-80,0}{Widths 0,0,21,-1}{Quina}\n“Master{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0139",
+    text: "{W167H2}{Zidane}\n“Who were you talking to{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0140",
+    text: "{W89H2}{UpperRightForce}{Offset -40,-80,0}{Widths 0,89,16,-1}{Quina}\n“You no see, {Zidane}?”"
+  },
+  {
+    id: "0141",
+    text: "{W196H3}{Zidane}\n“See what?  I saw you guys talking\n into space.”"
+  },
+  {
+    id: "0142",
+    text: "{W185H3}{UpperRightForce}{Offset -40,-80,0}{Widths 0,185,16,-1}{Quina}\n“I see{Speed 2}...{Speed -1}\n You still have long way to go, {Zidane}.”"
+  },
+  {
+    id: "0143",
+    text: "{W214H3}{Vivi}\n“Never mind, {Zidane}.\n I’ll tell you about it some other time.”"
+  },
+  {
+    id: "0144",
+    text: "{W186H3}{Vivi}\n“Let’s get going!  There are still\n so many things to understand!”"
+  },
+  {
+    id: "0145",
+    text: "{W53H1}Y-Yeah{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0146",
+    text: "{W201H4}{Widths 0,87,14,0,-1}{Zidane}\n“Hmm?\n There’s something under where the\n {Item 0} used to be{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0147",
+    text: "{W168H2}{DialogPosition}{Widths 0,79,14,0,-1,0,168,14,1,-1}{Speed 2}...{Speed -1}Did the {Item 0} and\nthe {Item 1} just sparkle in my hands?"
+  },
+  {
+    id: "0148",
+    text: "{W108H3}{Zidane}\n“Hmm?\n I see something{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0149",
+    text: "{W226H4}{UpperLeftForce}{Offset 0,50,0}{Zidane}\n“There’s something at the bottom of the\n ledge, in the ocean{Speed 2}...{Speed -1}\n Looks like foam{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0150",
+    text: "{W226H4}{UpperLeftForce}{Offset 0,50,0}{Dagger}\n“There’s something at the bottom of the\n ledge, in the ocean{Speed 2}...{Speed -1}\n Looks like foam{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0151",
+    text: "{W231H4}{PreChoose 2,1}{Instantly}{Zidane}\n“Maybe I can get there on a chocobo{Speed 2}...{Speed -1}”\n{Choice}Use {Item 0}\n{Tab}I don’t have the time right now"
+  }
+]

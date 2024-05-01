@@ -1,0 +1,750 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Favor\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W210H4}{Position 30,26}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n“I got a letter this morning, but\n I don’t know who sent it!\n I’m scared!  Kupo!  Read it with me.”"
+  },
+  {
+    id: "0046",
+    text: "{W219H11}{Widths 0,55,6,1,6,0,-1,0,97,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\n{Text 0,0}!  I’m in trouble...\n\nI used too much.\n\nDo you have more?  You don’t, do you?\n\nOh, what am I gonna do?"
+  },
+  {
+    id: "0047",
+    text: "{W129H2}{Position 30,26}{Widths 0,2,6,0,-1,0,129,6,1,-1}{Instantly}{f2}{Text 0,0}\n{f4}“I told {Text 0,1} not to use it!”"
+  },
+  {
+    id: "0048",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Problem\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0049",
+    text: "{W95H3}{Position 30,26}{Widths 0,2,6,0,-1,0,94,6,1,-1}{Instantly}{f2}{Text 0,0}\n{f4}“A letter from {Text 0,1}?\n Thanks!  Kupo!”"
+  },
+  {
+    id: "0050",
+    text: "{W208H11}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nArtemicion rubbed it all over himself!\nThe machine needs it to function\nproperly, kupo!\n\nI know how he must’ve felt.\nI used it on myself once, too.\nIt’s a wonderful thing, but..."
+  },
+  {
+    id: "0051",
+    text: "{W198H3}{Position 30,26}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“I see.  That’s why we haven’t\n been receiving mail lately.  Kupo.”"
+  },
+  {
+    id: "0052",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}Where Is Mognet Central?\n{Tab}Letter 01\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0053",
+    text: "{W197H2}{Position 30,26}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Thanks for the delivery!  Kupo!”"
+  },
+  {
+    id: "0054",
+    text: "{W199H11}{Widths 0,55,6,1,6,0,-1}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nArtemicion used the item on himself!\nKupo!\nI wanted to go to Mognet Central\nand complain, but where the heck\nis it located?  Kupo?\nI never even thought about it\nuntil now.  Kupo!"
+  },
+  {
+    id: "0055",
+    text: "{W227H3}{Position 30,26}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Come to think of it, I don’t really know\n much about Mognet Central{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0056",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0057",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0058",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0059",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0060",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0061",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0062",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0063",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0064",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0065",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0066",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0067",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0068",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0069",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0070",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0071",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0072",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0073",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0074",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0075",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0076",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0077",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0078",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0079",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0080",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0081",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0082",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0083",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0084",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0085",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0086",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0087",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0088",
+    text: "{W169H2}Bishop\n“What do you beggars want?”"
+  },
+  {
+    id: "0089",
+    text: "{W141H3}{UpperRightForce}Bishop\n“You are in a holy place.\n Keep the noise down.”"
+  },
+  {
+    id: "0090",
+    text: "{W226H3}Bishop\n“Hmph!  Just like the other pointy-hats!\n No manners at all.”"
+  },
+  {
+    id: "0091",
+    text: "{W205H4}{UpperLeftForce}{Zidane}\n“Hey, mister, what did you just say?\n Have you seen some guys that\n look like my friend here?”"
+  },
+  {
+    id: "0092",
+    text: "{W181H2}{UpperRightForce}Bishop\n“How dare you address me so!”"
+  },
+  {
+    id: "0093",
+    text: "{W194H4}Bishop\n“I am the priest of Esto Gaza,\n the holy place in which you stand.\n Mind your tongue, child.”"
+  },
+  {
+    id: "0094",
+    text: "{W131H3}Bishop\n“Are you in league with\n that brazen crew?”"
+  },
+  {
+    id: "0095",
+    text: "{W192H3}{UpperLeftForce}{Zidane}\n“Tell me where they went!\n Was there a little girl with them?”"
+  },
+  {
+    id: "0096",
+    text: "{W169H3}{UpperLeftForce}{Zidane}\n“My friend’s life is in danger!\n Tell me what you know, now!”"
+  },
+  {
+    id: "0097",
+    text: "{W201H3}Bishop\n“All life is equal.\n The living will return to the stars.”"
+  },
+  {
+    id: "0098",
+    text: "{W152H3}{UpperRightForce}Bishop\n“Through the Path of Souls\n of the Shimmering Island.”"
+  },
+  {
+    id: "0099",
+    text: "{W165H4}{UpperLeftForce}{Zidane}\n“What are you talking about?\n Didn’t the black mages have\n a girl with them?”"
+  },
+  {
+    id: "0100",
+    text: "{W253H4}{Vivi}\n“She’s our friend!\n Didn’t everyone from the black mage village\n come here?  Tell me!”"
+  },
+  {
+    id: "0101",
+    text: "{W20H1} {Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0102",
+    text: "{W165H3}{Steiner}\n“How dare a man of the cloth\n turn a blind eye to evil!”"
+  },
+  {
+    id: "0103",
+    text: "{W189H3}{Fraya}\n“What a wretched soul he has.\n Let me put it to rest, right now.”"
+  },
+  {
+    id: "0104",
+    text: "{W117H3}{Quina}\n“I no like him.\n I bet he taste bad.”"
+  },
+  {
+    id: "0105",
+    text: "{W136H2}{Amarant}\n“He’s making fun of us.”"
+  },
+  {
+    id: "0106",
+    text: "{W127H2}{UpperRightForce}Bishop\n“I just watched them.”"
+  },
+  {
+    id: "0107",
+    text: "{W237H2}{UpperRightForce}Bishop\n“Besides, they didn’t do anything wrong.”"
+  },
+  {
+    id: "0108",
+    text: "{W265H3}{UpperCenter}Bishop\n“They barged in, hundreds of them!\n So, that was the dreaded black mage army{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0109",
+    text: "{W219H3}{UpperCenter}Bishop\n“They headed straight for Mount Gulug\n without even looking at me.”"
+  },
+  {
+    id: "0110",
+    text: "{W85H2}{UpperCenter}{Zidane}\n“Mount Gulug?”"
+  },
+  {
+    id: "0111",
+    text: "{W181H3}{UpperCenter}Bishop\n“An enormous volcano that went\n extinct in the days of old.”"
+  },
+  {
+    id: "0112",
+    text: "{W214H3}{UpperCenter}Bishop\n“Legend has it that a race of great\n moles once lived within the caverns.”"
+  },
+  {
+    id: "0113",
+    text: "{W270H4}{UpperCenter}Bishop\n“But that was very long ago.\n No mortal has entered those depths ever since\n the entrance was mysteriously sealed.”"
+  },
+  {
+    id: "0114",
+    text: "{W199H3}{UpperCenter}Bishop\n“They passed through here\n and went straight to Mount Gulug.”"
+  },
+  {
+    id: "0115",
+    text: "{W124H3}{UpperLeftForce}{Zidane}\n“And?\n What about the girl?”"
+  },
+  {
+    id: "0116",
+    text: "{W191H3}{UpperRightForce}Bishop\n“Oh, yes.  One of the black mages\n carried a little girl, too.”"
+  },
+  {
+    id: "0117",
+    text: "{W111H2}{Widths 0,111,22,-1}{Vivi}\n“That’s gotta be {Eiko}!”"
+  },
+  {
+    id: "0118",
+    text: "{W121H3}{Steiner}\n“Fortune must be\n smiling on us today!”"
+  },
+  {
+    id: "0119",
+    text: "{W174H3}{Zidane}\n“Well, now we know!\n We gotta get to Mount Gulug!”"
+  },
+  {
+    id: "0120",
+    text: "{W94H2}{Vivi}\n“I’m going, too!”"
+  },
+  {
+    id: "0121",
+    text: "{W99H3}{Vivi}\n“I think everyone\n will understand.”"
+  },
+  {
+    id: "0122",
+    text: "{W164H3}{Zidane}\n“Yeah.  They can’t let\n Kuja control them forever!”"
+  },
+  {
+    id: "0123",
+    text: "{W141H2}Bishop\n“Welcome to Esto Gaza.”"
+  },
+  {
+    id: "0124",
+    text: "{W209H4}Bishop\n“The stars are the source of all life.\n We receive life from the stars\n and live our lives with them.”"
+  },
+  {
+    id: "0125",
+    text: "{W237H4}Bishop\n“This is the one place holy enough to\n worship the Path of Souls: the way of the\n Shimmering Island.”"
+  },
+  {
+    id: "0126",
+    text: "{W155H3}Bishop\n“Pilgrims come from afar to\n follow the Path of Souls.”"
+  },
+  {
+    id: "0127",
+    text: "{W260H2}{UpperRightForce}Bishop\n“The black mages were carrying a little girl.”"
+  },
+  {
+    id: "0128",
+    text: "{W92H2}Bishop\n“But you see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0129",
+    text: "{W202H3}Bishop\n“Soon after the black mages came,\n terrible monsters appeared here.”"
+  },
+  {
+    id: "0130",
+    text: "{W192H3}Bishop\n“Thanks to them, very few people\n come to visit nowadays.”"
+  },
+  {
+    id: "0131",
+    text: "{W223H4}{UpperRightForce}{PreChoose 2,1}{Widths 0,223,64,0,-1}{Instantly}Bishop\n“Would you care to rest here for {Variable 0} Gil?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0132",
+    text: "{W141H3}{UpperRightForce}Bishop\n“I see you’ve not enough\n Gil, my child.”"
+  },
+  {
+    id: "0133",
+    text: "{W169H2}Boy\n“They say this place is holy!”"
+  },
+  {
+    id: "0134",
+    text: "{W167H3}Boy\n“The bishop’ll get angry if ya\n talk too loud.”"
+  },
+  {
+    id: "0135",
+    text: "{W169H4}Boy\n“Gatz says we’re here to see\n the Path of Souls, but I don’t\n see it anywhere.”"
+  },
+  {
+    id: "0136",
+    text: "{W166H3}Boy\n“Did you hear what happened\n in Alexandria!?”"
+  },
+  {
+    id: "0137",
+    text: "{W203H2}Youth\n“I’ve never seen you here before.”"
+  },
+  {
+    id: "0138",
+    text: "{W211H3}Youth\n“People come from all over the world\n to see the Path of Souls.”"
+  },
+  {
+    id: "0139",
+    text: "{W167H3}Youth\n“Books from long ago mention\n the Path of Souls.”"
+  },
+  {
+    id: "0140",
+    text: "{W196H2}Youth\n“Everything’s so crazy recently.”"
+  },
+  {
+    id: "0141",
+    text: "{W179H3}Youth\n“I heard that a bunch of black\n mages headed to Mount Gulug.”"
+  },
+  {
+    id: "0142",
+    text: "{W239H3}Youth\n“I heard an eidolon destroyed Alexandria.\n Have you ever seen a real eidolon?”"
+  },
+  {
+    id: "0143",
+    text: "{W233H3}Youth\n“I always come here and gaze at the\n Shimmering Island when I’m feeling down.”"
+  },
+  {
+    id: "0144",
+    text: "{W230H3}Youth\n“This is only our second time here,\n but Grandpa’s been here twenty times!”"
+  },
+  {
+    id: "0145",
+    text: "{W201H3}Youth\n“I wonder why the Shimmering Island\n glows like that{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0146",
+    text: "{W192H3}Girl\n“Everyone comes here to worship\n the Path of Souls.”"
+  },
+  {
+    id: "0147",
+    text: "{W170H3}Girl\n“They say the bishop is really\n a great man.”"
+  },
+  {
+    id: "0148",
+    text: "{W157H3}Girl\n“I get cold so easily.\n I wish it was warmer here.”"
+  },
+  {
+    id: "0149",
+    text: "{W179H3}Girl\n“Once in a while I see a strange\n ship fly overhead.”"
+  },
+  {
+    id: "0150",
+    text: "{W185H3}Girl\n“This is the only place you can\n see the Shimmering Island from.”"
+  },
+  {
+    id: "0151",
+    text: "{W125H3}Girl\n“He’s the seventh in a\n long line of bishops.”"
+  },
+  {
+    id: "0152",
+    text: "{W131H2}Man\n“I come from Lindblum.”"
+  },
+  {
+    id: "0153",
+    text: "{W181H3}Man\n“The bishop sometimes hears\n voices from the Path of Souls.”"
+  },
+  {
+    id: "0154",
+    text: "{W249H3}Man\n“I wonder what sort of place the Shimmering\n Island is.  Someday I want to visit there!”"
+  },
+  {
+    id: "0155",
+    text: "{W259H3}Old Man\n“The glow of the Shimmering Island\n is proof that it is home to the Path of Souls.”"
+  },
+  {
+    id: "0156",
+    text: "{W228H3}Old Man\n“Ever since I started coming here,\n my back’s been as good as new.  See?”"
+  },
+  {
+    id: "0157",
+    text: "{W31H1}Ooof!"
+  },
+  {
+    id: "0158",
+    text: "{W220H2}Old Man\n“I’m still as strong as them young’uns!”"
+  },
+  {
+    id: "0159",
+    text: "{W242H3}Old Man\n“If the glow of the Shimmering Island stops,\n it means the Path of Souls is closed.”"
+  },
+  {
+    id: "0160",
+    text: "{W178H3}Old Woman\n“Young man, don’t you think the\n bishop is a right fine man?”"
+  },
+  {
+    id: "0161",
+    text: "{W161H3}Old Woman\n“The Shimmering Island is the\n Path of Souls, you know.”"
+  },
+  {
+    id: "0162",
+    text: "{W127H3}Old Woman\n“I feel a little younger\n whenever I visit.”"
+  },
+  {
+    id: "0163",
+    text: "{W205H2}Youth\n“Sometimes we meet here secretly.”"
+  },
+  {
+    id: "0164",
+    text: "{W170H2}{LowerRightForce}Gatz\n“What do you want with Lisa?”"
+  },
+  {
+    id: "0165",
+    text: "{W161H3}Girl\n“Hi.  Did you come to see\n the Shimmering Island, too?”"
+  },
+  {
+    id: "0166",
+    text: "{W112H4}{PreChoose 2,1}{Instantly}{Zidane}\n“Uh, I came here{Speed 2}...{Speed -1}”\n{Choice}To see you!\n{Tab}By chance"
+  },
+  {
+    id: "0167",
+    text: "{W170H4}Girl\n“Oh, you’re just saying that.\n My name’s Lisa, and I come\n here to see Gatz sometimes.”"
+  },
+  {
+    id: "0168",
+    text: "{W39H2}Lisa\n“Oh{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0169",
+    text: "{W85H2}{LowerRightForce}Gatz\n“Hey, beat it.”{Time -1}"
+  },
+  {
+    id: "0170",
+    text: "{W170H4}{Zidane}\n“Hey, Lisa.\n How about you and me go see\n the Shimmering Island?”"
+  },
+  {
+    id: "0171",
+    text: "{W206H2}{LowerRightForce}Gatz\n“I hope you get kicked by a horse.”{Time -1}"
+  },
+  {
+    id: "0172",
+    text: "{W79H2}Lisa\n“Umm{Speed 2}...{Speed -1}okay.”"
+  },
+  {
+    id: "0173",
+    text: "{W150H3}{LowerRightForce}Gatz\n“Will you just get the heck\n away from us!?”"
+  },
+  {
+    id: "0174",
+    text: "{W142H3}Lisa\n“Don’t let him get to you.\n I’ll see you around.”"
+  },
+  {
+    id: "0175",
+    text: "{W158H2}Lisa\n{White}“(Sorry!  We’ll talk later!)”"
+  },
+  {
+    id: "0176",
+    text: "{W124H2}Shopkeeper\n“How can I help you?”"
+  },
+  {
+    id: "0177",
+    text: "{W128H2}Shopkeeper\n“Thanks, come again!”"
+  },
+  {
+    id: "0178",
+    text: "{W132H3}Boy\n“I saw it!\n I saw the big ship fly!”"
+  },
+  {
+    id: "0179",
+    text: "{W139H2}Boy\n“The pigeon flew away.”"
+  },
+  {
+    id: "0180",
+    text: "{W211H2}Boy\n“I gotta go before mommy gets mad!”"
+  },
+  {
+    id: "0181",
+    text: "{W210H4}Girl\n“This star lives like we do.\n The Shimmering Island is proof of the\n Path of Souls.”"
+  },
+  {
+    id: "0182",
+    text: "{W202H4}Man\n“Once in a while, there’s a ship that\n flies around the Shimmering Island.\n I wonder where it comes from.”"
+  },
+  {
+    id: "0183",
+    text: "{W81H2}Old Man\n“It’s so cold.”"
+  },
+  {
+    id: "0184",
+    text: "{W237H3}Old Woman\n“Oh, so you’re here to see the Shimmering\n Island, too, eh?”"
+  },
+  {
+    id: "0185",
+    text: "{W4H1} {Time -1}"
+  },
+  {
+    id: "0186",
+    text: "{W4H1}"
+  }
+]

@@ -1,0 +1,778 @@
+[
+  {
+    id: "0000",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0001",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0002",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0003",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0004",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0005",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0006",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0007",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0008",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0009",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0010",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0011",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0012",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0013",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0014",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0016",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0017",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0018",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0019",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0020",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0021",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0022",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0023",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0024",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0025",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0026",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0027",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0028",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0029",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0030",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0031",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0032",
+    text: "{W209H9}{NoFocus}{Speed 4}The Iifa Tree could not be stopped...\n{Wait 10}\nGaia and Terra’s fusion\n\ncaused global chaos,\n{Wait 40}\ndestroying many cities and\n\ntaking many lives...{IncreaseSignal}"
+  },
+  {
+    id: "0033",
+    text: "{W146H3}{NoFocus}{Speed 4}Kuja...\n{Wait 70}\nWhat you did was wrong...{IncreaseSignal}"
+  },
+  {
+    id: "0034",
+    text: "{W174H3}{NoFocus}{Speed 4}But you gave us all one thing...{Wait 20}\n\n{Wait 10}Hope...{IncreaseSignal}"
+  },
+  {
+    id: "0035",
+    text: "{W243H3}{NoFocus}{Speed 4}We were all created for the wrong reason,{Wait 10}\n\nbut you alone defied our fate.{IncreaseSignal}"
+  },
+  {
+    id: "0036",
+    text: "{W170H5}{NoFocus}{Speed 4}We do not want to forget this.{Wait 80}\n\nWe want your memory\n\nto live on forever...{IncreaseSignal}"
+  },
+  {
+    id: "0037",
+    text: "{W181H5}{NoFocus}{Speed 4}...to remind us that we were not\n\ncreated for the wrong reason─{Wait 60}\n\n{Wait 10}that our life has meaning.{IncreaseSignal}"
+  },
+  {
+    id: "0038",
+    text: "{W98H1}{NoFocus}{Speed 4}{Center 98}Some time later{Speed 2}...{Speed -1}{IncreaseSignal}"
+  },
+  {
+    id: "0039",
+    text: "{W131H1}{LowerCenter}{Instantly}So, this is Alexandria...{Time 70}"
+  },
+  {
+    id: "0040",
+    text: "{W149H1}{LowerCenter}{Instantly}Pick up the pace, will ya!?{Time 70}"
+  },
+  {
+    id: "0041",
+    text: "{W26H1}{LowerCenter}{Instantly}Hey!{Time 60}"
+  },
+  {
+    id: "0042",
+    text: "{W111H1}{LowerCenter}{Widths 0,111,17,-1}{Instantly}I don’t believe it!  {Vivi}!{Time 60}"
+  },
+  {
+    id: "0043",
+    text: "{W6H1}{LowerCenter}{Widths 0,6,17,-1}{Instantly}{Vivi}?{Time 50}"
+  },
+  {
+    id: "0044",
+    text: "{W165H1}{LowerCenter}{Instantly}How do you know that name!?{Time 60}"
+  },
+  {
+    id: "0045",
+    text: "{W158H1}{LowerCenter}{Instantly}What are you talking about?{Time 50}"
+  },
+  {
+    id: "0046",
+    text: "{W234H1}{LowerCenter}{Instantly}It’s me, Puck!  How could you forget me!?{Time 70}"
+  },
+  {
+    id: "0047",
+    text: "{W45H1}{LowerCenter}{Instantly}Puck...?{Time 50}"
+  },
+  {
+    id: "0048",
+    text: "{W92H1}{LowerCenter}{Instantly}You know, Puck!{Time 70}"
+  },
+  {
+    id: "0049",
+    text: "{W161H1}{LowerCenter}{Instantly}Th-The Prince of Burmecia!?{Time 70}"
+  },
+  {
+    id: "0050",
+    text: "{W209H1}{LowerCenter}{Instantly}Oh, come on!  What’s wrong with you?{Time 70}"
+  },
+  {
+    id: "0051",
+    text: "{W191H1}{LowerCenter}{Widths 0,191,17,-1}{Instantly}If you’re not {Vivi}, then who are you!?{Time 80}"
+  },
+  {
+    id: "0052",
+    text: "{W26H1}{LowerCenter}{Instantly}I’m...{Time 60}"
+  },
+  {
+    id: "0053",
+    text: "{W38H1}{LowerCenter}{Widths 0,38,17,-1}{Instantly}{Vivi}’s son!{Time 70}"
+  },
+  {
+    id: "0054",
+    text: "{W55H1}{LowerCenter}{Instantly}{Instantly}Yeeeeow!{Time 50}"
+  },
+  {
+    id: "0055",
+    text: "{W97H1}{LowerCenter}{Widths 0,97,17,-1}{Instantly}{Instantly}Look at all the {Vivi}s!{Time 50}"
+  },
+  {
+    id: "0056",
+    text: "{W265H5}{NoFocus}{Speed 4}{Center 157,16}I always talked about you, {Zidane}.\n{Wait 20}\n{Center 243}How you were a very special person to us,\n{Wait 40}\n{Center 265}because you taught us all how important life is.{IncreaseSignal}"
+  },
+  {
+    id: "0057",
+    text: "{W199H1}{LowerCenter}{Widths 0,199,20,-1}{Instantly}{Fraya}, you’re leaving soon, are you not?{Time 100}"
+  },
+  {
+    id: "0058",
+    text: "{W228H1}{LowerCenter}{Instantly}Yes.  I can hardly wait to see everyone.{Time 120}"
+  },
+  {
+    id: "0059",
+    text: "{W241H1}{LowerCenter}{Instantly}Alexandria... I went there many years ago.{Time 100}"
+  },
+  {
+    id: "0060",
+    text: "{W243H1}{LowerCenter}{Instantly}How long will it take to rebuild Burmecia...?{Time 120}"
+  },
+  {
+    id: "0061",
+    text: "{W211H1}{LowerCenter}{Instantly}I don’t care, as long as I am with you.{Time 100}"
+  },
+  {
+    id: "0062",
+    text: "{W79H1}{LowerCenter}{Widths 0,79,20,-1}{Instantly}...I love you, {Fraya}.{Time 60}"
+  },
+  {
+    id: "0063",
+    text: "{W242H1}{LowerCenter}{Instantly}(...Yet he still doesn’t remember our past.){Time 150}"
+  },
+  {
+    id: "0064",
+    text: "{W229H1}{LowerCenter}{Instantly}I just want to cherish our time right now.{Time 150}"
+  },
+  {
+    id: "0065",
+    text: "{W219H5}{NoFocus}{Speed 4}{Center 127}You taught me that life\n{Center 120}doesn’t last forever.\n{Wait 40}\n{Center 219}That’s why we have to help each other{Wait 20}\n{Center 147}and{Wait 20} live life to the fullest.{IncreaseSignal}"
+  },
+  {
+    id: "0066",
+    text: "{W220H1}{LowerCenter}{Instantly}It’s time to say goodbye to this room...{Time 90}"
+  },
+  {
+    id: "0067",
+    text: "{W246H1}{LowerCenter}{Instantly}Save the Queen, you have served me well...{Time 120}"
+  },
+  {
+    id: "0068",
+    text: "{W138H1}{LowerCenter}{Instantly}My duty is finished here.{Time 110}"
+  },
+  {
+    id: "0069",
+    text: "{W128H1}{LowerCenter}{Instantly}Farewell, Alexandria...{Time 90}"
+  },
+  {
+    id: "0070",
+    text: "{W204H5}{NoFocus}{Speed 4}{Center 144}Even if you say goodbye,\n{Wait 30}\n{Center 171}you’ll always be in our hearts.\n{Wait 40}\n{Center 204}So, I know we’re not alone anymore.{IncreaseSignal}"
+  },
+  {
+    id: "0071",
+    text: "{W37H1}{LowerCenter}{Instantly}...Hey.{Time 60}"
+  },
+  {
+    id: "0072",
+    text: "{W189H1}{LowerCenter}{Instantly}Why are you going to Alexandria?{Time 100}"
+  },
+  {
+    id: "0073",
+    text: "{W99H1}{LowerCenter}{Instantly}You’re not going?{Time 90}"
+  },
+  {
+    id: "0074",
+    text: "{W109H1}{LowerCenter}{Instantly}I-I never said that!{Time 50}"
+  },
+  {
+    id: "0075",
+    text: "{W71H1}{LowerCenter}{Instantly}H-Hey, wait!{Time 60}"
+  },
+  {
+    id: "0076",
+    text: "{W193H5}{NoFocus}{Speed 4}{Center 95}Why I was born...\n{Wait 20}\n{Center 125}How I wanted to live...\n{Wait 40}\n{Center 193}Thanks for giving me time to think.{IncreaseSignal}"
+  },
+  {
+    id: "0077",
+    text: "{W165H1}{LowerCenter}{Instantly}Good food not only delicious!{Time 100}"
+  },
+  {
+    id: "0078",
+    text: "{W156H1}{LowerCenter}{Instantly}Good food made with heart!{Time 100}"
+  },
+  {
+    id: "0079",
+    text: "{W260H1}{LowerCenter}{Instantly}This very important when cooking for friends!{Time 100}"
+  },
+  {
+    id: "0080",
+    text: "{W250H5}{NoFocus}{Speed 2}{Center 250}To keep doing what you set your heart on...\n{Wait 10}\n{Center 159}It’s a very hard thing to do.\n{Wait 40}\n{Center 163}We were all so courageous...{IncreaseSignal}"
+  },
+  {
+    id: "0081",
+    text: "{W82H1}{LowerCenter}{Instantly}Hurry!  Hurry!{Time 50}"
+  },
+  {
+    id: "0082",
+    text: "{W246H1}{LowerCenter}{Instantly}We gotta get there before the play begins!{Time 130}"
+  },
+  {
+    id: "0083",
+    text: "{W193H1}{LowerCenter}{Instantly}Ha ha... There’s no need to hurry.{Time 100}"
+  },
+  {
+    id: "0084",
+    text: "{W254H1}{LowerCenter}{Instantly}The theater ship is no match for my new ship.{Time 100}"
+  },
+  {
+    id: "0085",
+    text: "{W251H1}{LowerCenter}{Instantly}My new Hilda Garde is the fastest ship ever!{Time 100}"
+  },
+  {
+    id: "0086",
+    text: "{W138H1}{LowerCenter}{Instantly}Do I have to remind you?{Time 60}"
+  },
+  {
+    id: "0087",
+    text: "{W267H1}{LowerCenter}{Instantly}You said the same thing about the theater ship!{Time 130}"
+  },
+  {
+    id: "0088",
+    text: "{W44H1}{LowerCenter}{Instantly}...Ahem!{Time 30}"
+  },
+  {
+    id: "0089",
+    text: "{W167H1}{LowerCenter}{Instantly}That’s what you said, Father!{Time 90}"
+  },
+  {
+    id: "0090",
+    text: "{W161H1}{LowerCenter}{Widths 0,161,22,-1}{Instantly}{Eiko}... What did you just call me?{Time 80}"
+  },
+  {
+    id: "0091",
+    text: "{W190H1}{LowerCenter}{Instantly}Darling, she called you ‘Father’...{Time 120}"
+  },
+  {
+    id: "0092",
+    text: "{W140H1}{LowerCenter}{Instantly}Father!  Mother!  Hurry!{Time 60}"
+  },
+  {
+    id: "0093",
+    text: "{W94H1}{LowerCenter}{Widths 0,94,22,-1}{Instantly}S-Say it again, {Eiko}!{Time 90}"
+  },
+  {
+    id: "0094",
+    text: "{W261H7}{NoFocus}{Speed 4}{Center 171}What to do when I felt lonely...\n{Wait 20}\n{Center 261}That was the only thing you couldn’t teach me.\n{Wait 50}\n{Center 144}But we need to figure out\n{Wait 20}\n{Center 155}the answer for ourselves...{IncreaseSignal}"
+  },
+  {
+    id: "0095",
+    text: "{W47H1}{LowerCenter}{Instantly}Beatrix!{Time 60}"
+  },
+  {
+    id: "0096",
+    text: "{W122H1}{LowerCenter}{Instantly}Where are you going?{Time 60}"
+  },
+  {
+    id: "0097",
+    text: "{W235H1}{LowerCenter}{Instantly}Please don’t ask.  My mind is already set.{Time 80}"
+  },
+  {
+    id: "0098",
+    text: "{W108H1}{LowerCenter}{Instantly}Wait!  Listen to me!{Time 80}"
+  },
+  {
+    id: "0099",
+    text: "{W186H1}{LowerCenter}{Instantly}<Thump-Thump...Thump-Thump...>{Time 60}"
+  },
+  {
+    id: "0100",
+    text: "{W35H1}{LowerCenter}{Instantly}I, uh...{Time 60}"
+  },
+  {
+    id: "0101",
+    text: "{W193H1}{LowerCenter}{Instantly}I-I never wish to lose you again!!!{Time 80}"
+  },
+  {
+    id: "0102",
+    text: "{W12H1}{LowerCenter}{Widths 0,12,19,-1}{Instantly}{Steiner}...{Time 60}"
+  },
+  {
+    id: "0103",
+    text: "{W200H1}{LowerCenter}{Instantly}Let us protect the queen together!{Time 120}"
+  },
+  {
+    id: "0104",
+    text: "{W169H7}{NoFocus}{Speed 4}{Center 169}I’m so happy I met everyone...{Wait 40}\n\n{Center 149}I wish we could’ve gone on\n{Center 99}more adventures.{Wait 60}\n\n{Center 168}But {Wait 40}I guess we all have to say\n{Center 105}goodbye someday.{IncreaseSignal}"
+  },
+  {
+    id: "0105",
+    text: "{W246H1}{LowerCenter}{Instantly}Alright, you scumbags!  We’re almost there!{Time 70}"
+  },
+  {
+    id: "0106",
+    text: "{W236H1}{LowerCenter}{Instantly}Been a long time since we saw Alexandria.{Time 70}"
+  },
+  {
+    id: "0107",
+    text: "{W229H1}{LowerCenter}{Instantly}Let’s give ’em a show they won’t forget!{Time 70}"
+  },
+  {
+    id: "0108",
+    text: "{W47H1}{LowerCenter}{Instantly}Yeehaw!{Time 50}"
+  },
+  {
+    id: "0109",
+    text: "{W117H1}{LowerCenter}{Instantly}Break a leg, people!{Time 50}"
+  },
+  {
+    id: "0110",
+    text: "{W88H5}{NoFocus}{Speed 4}Everyone...\n{Wait 40}\n{Tab}Thank you.\n{Wait 40}\n{Tab}{Tab}Fare{Wait 12}well.{Wait 20}{IncreaseSignal}"
+  },
+  {
+    id: "0111",
+    text: "{W211H1}{NoFocus}{Speed 4}{Center 211}{Speed 2}My memories will be{Wait 60} part of the sky...{IncreaseSignal}"
+  },
+  {
+    id: "0112",
+    text: "{W220H1}{LowerCenter}{Instantly}The theater ship will arrive any minute.{Time 90}"
+  },
+  {
+    id: "0113",
+    text: "{W105H1}{LowerCenter}{Instantly}It’s been so long...{Time 90}"
+  },
+  {
+    id: "0114",
+    text: "{W165H1}{LowerCenter}{Instantly}I can’t wait to see everyone.{Time 120}"
+  },
+  {
+    id: "0115",
+    text: "{W30H1}{LowerCenter}{Instantly}But...{Time 90}"
+  },
+  {
+    id: "0116",
+    text: "{W138H1}{LowerCenter}{Instantly}It’ll never be the same...{Time 140}"
+  },
+  {
+    id: "0117",
+    text: "{W166H1}{LowerCenter}{Instantly}I have to let go of the past...{Time 140}"
+  },
+  {
+    id: "0118",
+    text: "{W232H1}{LowerCenter}{Instantly}I have to move on, just like he taught me.{Time 140}"
+  },
+  {
+    id: "0119",
+    text: "{W124H1}{UpperRightForce}{Instantly}Ladies and Gentlemen!{Time 70}"
+  },
+  {
+    id: "0120",
+    text: "{W213H2}{UpperRightForce}{Instantly}Tonight’s performance is a story that\ntakes place long, long ago.{Time 120}"
+  },
+  {
+    id: "0121",
+    text: "{W188H2}{UpperRightForce}{Instantly}Our heroine, Princess Cornelia, is\ntorn from her lover, Marcus.{Time 120}"
+  },
+  {
+    id: "0122",
+    text: "{W226H2}{UpperRightForce}{Instantly}She attempts to flee the castle, only\nto be captured by her father, King Leo.{Time 120}"
+  },
+  {
+    id: "0123",
+    text: "{W225H2}{UpperRightForce}{Instantly}Tonight’s story begins when Marcus and\nCornelia decide to run away together.{Time 120}"
+  },
+  {
+    id: "0124",
+    text: "{W251H2}{UpperRightForce}{Instantly}And now, Your Royal Majesty, Queen Garnet,\nLord {Steiner}, Lady Beatrix...{Time 120}"
+  },
+  {
+    id: "0125",
+    text: "{W235H3}{UpperRightForce}{Instantly}...noble ladies and lords, and our rooftop\nviewers, Tantalus proudly presents\n‘I Want to Be Your Canary’!{Time 120}"
+  },
+  {
+    id: "0126",
+    text: "{W46H1}{UpperRightForce}{Instantly}Marcus?{Time 40}"
+  },
+  {
+    id: "0127",
+    text: "{W160H3}{UpperRightForce}{Instantly}Cornelia\n“Sweet Marcus, I fear I love\n thee more than I should!”{Time 100}"
+  },
+  {
+    id: "0128",
+    text: "{W241H3}{UpperLeftForce}{Instantly}Marcus\n“Princess... Wilt thou be happy, married to\n a lowly peasant such as I?”{Time 100}"
+  },
+  {
+    id: "0129",
+    text: "{W214H2}{UpperRightForce}{Instantly}Cornelia\n“Prithee, call me ‘princess’ no more!”{Time 100}"
+  },
+  {
+    id: "0130",
+    text: "{W200H3}{UpperRightForce}{Instantly}Cornelia\n“Marcus, wilt thou truly cherish me,\n the king’s only daughter?”{Time 115}"
+  },
+  {
+    id: "0131",
+    text: "{W136H3}{UpperRightForce}{Instantly}Cornelia\n“Or is such a desire too\n dear to wish for!?”{Time 85}"
+  },
+  {
+    id: "0132",
+    text: "{W225H3}{UpperRightForce}{Instantly}Cornelia\n“After our nuptials,\n shall I become no more than a puppet?”{Time 110}"
+  },
+  {
+    id: "0133",
+    text: "{W180H3}{UpperRightForce}{Instantly}Cornelia\n“A mindless puppet,\n never to laugh, never to cry?”{Time 110}"
+  },
+  {
+    id: "0134",
+    text: "{W239H3}{UpperRightForce}{Instantly}Cornelia\n“I wish to live my life under the sky.\n At times I shall laugh, at other times cry.”{Time 120}"
+  },
+  {
+    id: "0135",
+    text: "{W196H3}{UpperRightForce}{Instantly}Cornelia\n“For no life is more insincere\n than that lived as a masquerade.”{Time 90}"
+  },
+  {
+    id: "0136",
+    text: "{W177H3}{UpperLeftForce}{Instantly}Marcus\n“So much consideration thou\n hast given it!  But worry not!”{Time 110}"
+  },
+  {
+    id: "0137",
+    text: "{W256H3}{UpperLeftForce}{Instantly}Marcus\n“Cast away thy trappings of royalty, and\n I shall swaddle thee in a gown of pure love!”{Time 120}"
+  },
+  {
+    id: "0138",
+    text: "{W202H2}{UpperLeftForce}{Instantly}Marcus\n“Never again will I part from thee!”{Time 110}"
+  },
+  {
+    id: "0139",
+    text: "{W252H3}{UpperLeftForce}{Instantly}Marcus\n“Pray, my love, make me thy canary\n to keep forever in the cage of thy bosom!”{Time 110}"
+  },
+  {
+    id: "0140",
+    text: "{W241H3}{UpperLeftForce}{Instantly}Marcus\n“Let us embark on the first ship tomorrow,\n before dawn can tell of our elopement!”{Time 80}"
+  },
+  {
+    id: "0141",
+    text: "{W236H3}{UpperRightForce}{Instantly}Cornelia\n“All my fortunes at thy foot, I lay, and\n I shall follow thee throughout the world!”{Time 80}"
+  },
+  {
+    id: "0142",
+    text: "{W208H2}{UpperLeftForce}{Instantly}Marcus\n“No cloud, no squall shall hinder us!”{Time 80}"
+  },
+  {
+    id: "0143",
+    text: "{W159H3}{UpperRightForce}{Instantly}Cornelia\n“O, love is the sweetest joy\n and the wildest woe.”{Time 100}"
+  },
+  {
+    id: "0144",
+    text: "{W147H3}{UpperRightForce}{Instantly}Cornelia\n“All I wish is to be by\n my sweet Marcus’s side.”{Time 120}"
+  },
+  {
+    id: "0145",
+    text: "{W190H3}{UpperLeftForce}{Instantly}Blank\n“Fie!  It shall be war again\n unless this marriage is stopped.”{Time 80}"
+  },
+  {
+    id: "0146",
+    text: "{W131H3}{UpperLeftForce}{Instantly}Blank\n“Ne’er will I let their\n plan come to fruition.”{Time 80}"
+  },
+  {
+    id: "0147",
+    text: "{W224H3}{UpperLeftForce}{Instantly}Blank\n“Forgive me, Marcus, for thy dear love\n will not see thee at the docks.”{Time 139}"
+  },
+  {
+    id: "0148",
+    text: "{W161H2}{UpperLeftForce}{Instantly}Blank\n“Good day to ye, Highness.”{Time 79}"
+  },
+  {
+    id: "0149",
+    text: "{W79H2}{UpperLeftForce}{Instantly}Cornelia\n“Good day...”{Time 70}"
+  },
+  {
+    id: "0150",
+    text: "{W131H2}{UpperLeftForce}{Instantly}Blank\n“Wist thee of Marcus?”{Time 79}"
+  },
+  {
+    id: "0151",
+    text: "{W226H2}{UpperLeftForce}{Instantly}Cornelia\n“Marcus!?  What news dost thou bring?”{Time 79}"
+  },
+  {
+    id: "0152",
+    text: "{W27H1}{UpperLeftForce}{Instantly}This!{Time 30}"
+  },
+  {
+    id: "0153",
+    text: "{W25H1}{UpperLeftForce}{Instantly}Ugh!{Time 30}"
+  },
+  {
+    id: "0154",
+    text: "{W219H3}{UpperLeftForce}{Instantly}King Leo\n“Where is she!?\n Where has mine only daughter gone!?”{Time 80}"
+  },
+  {
+    id: "0155",
+    text: "{W150H3}{UpperLeftForce}{Instantly}King Leo\n“Blank, good man!\n Hast thou seen Cornelia?”{Time 70}"
+  },
+  {
+    id: "0156",
+    text: "{W127H2}{UpperRightForce}{Instantly}Blank\n“Worry not, Majesty.”{Time 60}"
+  },
+  {
+    id: "0157",
+    text: "{W212H3}{UpperRightForce}{Instantly}Blank\n“I shall make sure Cornelia marries\n Prince Schneider.  Be thou at ease.”{Time 85}"
+  },
+  {
+    id: "0158",
+    text: "{W223H3}{UpperLeftForce}{Instantly}King Leo\n“At ease, sayest thou?  How can I rest,\n not knowing she is safe?”{Time 85}"
+  },
+  {
+    id: "0159",
+    text: "{W144H3}{UpperLeftForce}{Instantly}King Leo\n“Could it be{Speed 2}...{Speed -1}\n thou hast betrayed me?”{Time 70}"
+  },
+  {
+    id: "0160",
+    text: "{W180H3}{UpperRightForce}{Instantly}Blank\n“By my troth, sir, I betrayed\n none other than poor Marcus!”{Time 70}"
+  },
+  {
+    id: "0161",
+    text: "{W162H3}{UpperLeftForce}{Instantly}King Leo\n“Thou had the gall to betray\n thy dearest friend.”{Time 70}"
+  },
+  {
+    id: "0162",
+    text: "{W142H3}{UpperLeftForce}{Instantly}King Leo\n“Wouldst thou not betray\n me as swiftly?”{Time 60}"
+  },
+  {
+    id: "0163",
+    text: "{W156H2}{UpperRightForce}{Instantly}Blank\n“Stay thy hand, I merely{Speed 2}...{Speed -1}”{Time 60}"
+  },
+  {
+    id: "0164",
+    text: "{W183H3}{UpperRightForce}{Instantly}Blank\n“I merely sought a lasting peace\n between the two kingdoms!”{Time 90}"
+  },
+  {
+    id: "0165",
+    text: "{W127H2}{UpperRightForce}{Instantly}Zenero\n“The traitor is dead!”{Time 60}"
+  },
+  {
+    id: "0166",
+    text: "{W91H2}{UpperLeftForce}{Instantly}Benero\n“O, cruel fate!”{Time 60}"
+  },
+  {
+    id: "0167",
+    text: "{W203H3}{UpperLeftForce}{Instantly}King Leo\n“You two{Speed 2}...{Speed -1} Quickly, find\n Cornelia and bring her before me!”{Time 90}"
+  },
+  {
+    id: "0168",
+    text: "{W253H3}{UpperLeftForce}{Instantly}King Leo\n“Wretched daughter!\n How dare she disobey her father’s wishes!”{Time 90}"
+  },
+  {
+    id: "0169",
+    text: "{W121H2}{LowerRightForce}{Instantly}Zenero\n“Yes, Your Majesty.”{Time 49}"
+  },
+  {
+    id: "0170",
+    text: "{W121H2}{UpperLeftForce}{NoFocus}{Instantly}Benero\n“Yes, Your Majesty.”{Time 49}"
+  },
+  {
+    id: "0171",
+    text: "{W240H2}{UpperLeftForce}{Instantly}Marcus\n“The time for our departure is long past.”{Time 109}"
+  },
+  {
+    id: "0172",
+    text: "{W117H2}{UpperLeftForce}{Instantly}Marcus\n“Where is Cornelia?”{Time 79}"
+  },
+  {
+    id: "0173",
+    text: "{W114H2}{UpperLeftForce}{Instantly}Marcus\n“Dawn comes anon.”{Time 65}"
+  },
+  {
+    id: "0174",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0175",
+    text: "{W192H2}{UpperRightForce}{Instantly}Cinna\n“Marcus, the ship soon embarks!”{Time 60}"
+  },
+  {
+    id: "0176",
+    text: "{W248H3}{UpperRightForce}{Instantly}Cinna\n“Board ye this boat alone, and peace could\n come to both kindgoms, as Blank so said.”{Time 120}"
+  },
+  {
+    id: "0177",
+    text: "{W102H2}{UpperRightForce}{Instantly}Cinna\n“Speak, Marcus!”{Time 69}"
+  },
+  {
+    id: "0178",
+    text: "{W155H3}{UpperLeftForce}{Instantly}Marcus\n“She told me that she could\n not live without me.”{Time 130}"
+  },
+  {
+    id: "0179",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0180",
+    text: "{W183H3}{UpperLeftForce}{Instantly}Marcus\n“So, the sun is our enemy, too.\n The eastern sky grows bright.”{Time 120}"
+  },
+  {
+    id: "0181",
+    text: "{W195H3}{UpperLeftForce}{Instantly}Marcus\n“Will we not spread our wings,\n as yonder birds in joyous flight?”{Time 120}"
+  },
+  {
+    id: "0182",
+    text: "{W176H3}{UpperRightForce}{Instantly}Cinna\n“Hark, Marcus!\n They cannot wait any longer!”{Time 77}"
+  },
+  {
+    id: "0183",
+    text: "{W100H1}{UpperRightForce}{Instantly}The ship departs!{Time 50}"
+  },
+  {
+    id: "0184",
+    text: "{W179H2}{UpperLeftForce}{Instantly}Marcus\n“Could she have betrayed me?”{Time 90}"
+  },
+  {
+    id: "0185",
+    text: "{W228H2}{UpperLeftForce}{Instantly}Marcus\n“Nay, ne’er would my love speak false.”{Time 90}"
+  },
+  {
+    id: "0186",
+    text: "{W111H2}{UpperLeftForce}{Instantly}Marcus\n“I must have faith!”{Time 69}"
+  },
+  {
+    id: "0187",
+    text: "{W204H2}{UpperLeftForce}{Instantly}Marcus\n“She shall appear if I only believe!”{Time 109}"
+  },
+  {
+    id: "0188",
+    text: "{W196H3}{UpperLeftForce}{Instantly}Marcus\n“As the sun lends me no ear,\n I pray instead to the twin moons!”{Time 90}"
+  },
+  {
+    id: "0189",
+    text: "{W210H3}{UpperLeftForce}{Instantly}Marcus\n“I beseech thee, wondrous moonlight,\n grant me my only wish!”{Time -1}"
+  },
+  {
+    id: "0190",
+    text: "{W153H2}{UpperLeftForce}{Widths 0,153,18,-1}{Instantly}{Zidane}\n“Bring my beloved {Dagger} to me!”{Time 60}"
+  },
+  {
+    id: "0191",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0192",
+    text: "{W34H1}debug"
+  },
+  {
+    id: "0193",
+    text: "{W18H2}{LowerRight}{Widths 0,18,64,6,-1,0,18,64,7,-1}"
+  }
+]

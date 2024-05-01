@@ -1,0 +1,362 @@
+[
+  {
+    id: "0000",
+    text: "{W148H13}{Table 61,122,128,146,157,169,180,196,202,213,224,235,246,257,268,289,294,305,316,336,345,352,369,389,400,415,438,447,463,476,490,505,516,535,546,558,570,596,622,632,649,661,671,682,691,704,717,732,743,761,771,783,802,808,814,822,830,851,872,893,914,935,}Dummy\nAlexandria Harbor\nAlexandria\nEvil Forest\nIce Cavern\nQuan’s Dwelling\nTreno\nSouth Gate\nSouth Gate\nSouth Gate\nSouth Gate\nSouth Gate\nIce Cavern\nObservatory Mountain\nDali\nNorth Gate\nNorth Gate\nGizamaluke’s Grotto\nBurmecia\nCleyra\nChocobo’s Forest\nGizamaluke’s Grotto\nQu’s Marsh\nPinnacle Rocks\nLindblum Dragon’s Gate\nLindblum\nLindblum Harbor\nEarth Shrine\nDesert Palace\nMognet Central\nQu’s Marsh\nBlack Mage Village\nFossil Roo\nConde Petie\nMadain Sari\nConde Petie Mountain Path\nConde Petie Mountain Path\nIifa Tree\nChocobo’s Lagoon\nWind Shrine\nDaguerreo\nQu’s Marsh\nOeilvert\nLanding Site\nWater Shrine\nIpsen’s Castle\nQu’s Marsh\nShimmering Island\nEsto Gaza\nFire Shrine\nChocobo’s Paradise\n  ?  \n  ?  \n  ???  \nMemoria\nChocobo’s Air Garden\nChocobo’s Air Garden\nChocobo’s Air Garden\nChocobo’s Air Garden\nChocobo’s Air Garden\nGizamaluke’s Grotto"
+  },
+  {
+    id: "0001",
+    text: "{W22H1}{UpperCenter}{NoFocus}{Center 0}  ?"
+  },
+  {
+    id: "0002",
+    text: "{W0H1}{UpperCenter}{Widths 0,0,6,0,-1}{NoFocus}{Text 0,0}"
+  },
+  {
+    id: "0003",
+    text: "{W0H1}{NoAnimation}{Position 40,9}{Widths 0,0,6,0,-1}{NoFocus}{Instantly}{Text 0,0}"
+  },
+  {
+    id: "0004",
+    text: "{W40H3}{NoAnimation}{PreChoose 2,1}{Widths 0,40,6,0,-1}{Instantly}{Center 40,6,0}Go to {Text 0,0}?\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0005",
+    text: "{W145H7}{NoAnimation}{PreChooseMask 6,5}{Widths 3,153,-1}{Instantly}{Center 145}Select navigation method:\n{Choice}Normal Navigation\n{Tab}Chocobo Navigation\n{Tab}Blue Narciss Navigation\n{Tab}Airship Navigation\n{Tab}Autopilot Navigation\n{Tab}Cancel"
+  },
+  {
+    id: "0006",
+    text: "{W145H4}{NoAnimation}{PreChoose 3,2}{Widths 1,160,-1,2,151,-1}{Instantly}{Center 145}Select navigation method:\n{Choice}Land Chocobo Navigation\n{Tab}Air Chocobo Navigation\n{Tab}Cancel"
+  },
+  {
+    id: "0007",
+    text: "{W145H4}{NoAnimation}{PreChoose 3,2}{Instantly}{Center 145}Select navigation method:\n{Choice}Airship Navigation\n{Tab}Autopilot Navigation\n{Tab}Cancel"
+  },
+  {
+    id: "0008",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0009",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0010",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0011",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0012",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0013",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0014",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0015",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0016",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0017",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0018",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0019",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0020",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0021",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0022",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0023",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0024",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0025",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0026",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0027",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0028",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0029",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0030",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0031",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0032",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0033",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0034",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0035",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0036",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0037",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0038",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0039",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0040",
+    text: "{W74H1}{LowerLeft}{NoAnimation}{NoFocus}{Instantly}Enter with {Cross+}{Mobile 260}"
+  },
+  {
+    id: "0041",
+    text: "{W74H1}{LowerLeft}{NoAnimation}{NoFocus}{Instantly}Enter with {Circle+}{Mobile 260}"
+  },
+  {
+    id: "0042",
+    text: "{W133H5}{UpperCenter}{PreChoose 3,2}{Instantly}Moguo\n“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0043",
+    text: "{W83H4}{UpperCenter}{PreChoose 2,1}{Instantly}Moguo\n“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0044",
+    text: "{W154H5}{UpperCenter}{PreChoose 2,1}{Widths 0,119,64,1,-1}{Instantly}Moguo\n“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 1})\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W99H1}{UpperCenter}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0046",
+    text: "{W181H1}{UpperCenter}{Instantly}You don’t have any tents, kupo!{Time 30}"
+  },
+  {
+    id: "0047",
+    text: "{W172H1}{UpperCenter}{Instantly}Really?  You’ll be sorry, kupo!{Time 27}"
+  },
+  {
+    id: "0048",
+    text: "{W158H1}{UpperCenter}{Instantly}Call me again anytime, kupo!{Time 27}"
+  },
+  {
+    id: "0049",
+    text: "{W209H1}{UpperCenter}{Instantly}STOP IT, STOP IT, STOP IT!  KU-PHEH!{Time 30}"
+  },
+  {
+    id: "0050",
+    text: "{W229H1}{UpperCenter}{Instantly}Don’t call me if you don’t need me, kupo!{Time 27}"
+  },
+  {
+    id: "0051",
+    text: "{W207H1}{UpperCenter}{Instantly}You’re starting to tick me off, kupo!{Time 27}"
+  },
+  {
+    id: "0052",
+    text: "{W168H1}{UpperCenter}{Instantly}I’m sharpening my knife, kupo.{Time 27}"
+  },
+  {
+    id: "0053",
+    text: "{W203H1}{DialogPosition}{Instantly}Maybe I’ll go to Chocobo’s Forest{Speed 2}...{Speed -1}{Time 40}"
+  },
+  {
+    id: "0054",
+    text: "{W34H1}{DialogPosition}{Instantly}Kweh?{Time 10}"
+  },
+  {
+    id: "0055",
+    text: "{W210H1}{DialogPosition}{Instantly}I’ll need a hint before I start looking.{Time 20}"
+  },
+  {
+    id: "0056",
+    text: "{W187H1}{DialogPosition}{Instantly}Let’s look for the next treasure.{Time 20}"
+  },
+  {
+    id: "0057",
+    text: "{W272H1}{DialogPosition}{Instantly}Now, I have all the Chocograph treasures, but{Speed 2}...{Speed -1}{Time 40}"
+  },
+  {
+    id: "0058",
+    text: "{W139H1}{DialogPosition}{Instantly}I should let Choco rest{Speed 2}...{Speed -1}{Time 40}"
+  },
+  {
+    id: "0059",
+    text: "{W193H1}{DialogPosition}{Instantly}I think I’ll walk on foot for a while.{Time 40}"
+  },
+  {
+    id: "0060",
+    text: "{W32H1}{DialogPosition}Kweh.{Time 5}"
+  },
+  {
+    id: "0061",
+    text: "{W39H1}{DialogPosition}Kweh!?{Time 6}"
+  },
+  {
+    id: "0062",
+    text: "{W72H1}{DialogPosition}K-KWEHHH!!!{Time 30}"
+  },
+  {
+    id: "0063",
+    text: "{W138H1}{DialogPosition}Found a treasure chest!"
+  },
+  {
+    id: "0064",
+    text: "{W0H3}{UpperCenter}{PreChooseMask 3,2}{Widths 1,147,-1,2,231,64,1,-1,3,58,-1}{Instantly}{Choice}Open Chocograph menu\n{Tab}Feed him a Dead Pepper (Remaining: {Variable 1})\n{Tab}Cancel"
+  },
+  {
+    id: "0065",
+    text: "{W241H1}{DialogPosition}The crack crumbled and opened up a hole!"
+  },
+  {
+    id: "0066",
+    text: "{W165H1}{DialogPosition}Found a treasure in the hole!"
+  },
+  {
+    id: "0067",
+    text: "{W260H1}{DialogPosition}Found a treasure on the bottom of the ocean!"
+  },
+  {
+    id: "0068",
+    text: "{W150H1}{UpperCenter}It’s higher than I thought{Speed 2}...{Speed -1}{Time 40}"
+  },
+  {
+    id: "0069",
+    text: "{W96H1}{UpperCenter}Oh... I get it now."
+  },
+  {
+    id: "0070",
+    text: "{W224H9}{Instantly}{y6}{Center 118}{Cyan}-{f2}Normal Navigation{f2}-\n{White}{y10}{f6}{Cross+}{Mobile 260}{f22}{x50}:{f2} Enter buildings\n{y10}{f6}{x56} Ride a vehicle\n{y10}{f6}{Square+}{Mobile 282}{f22}{x50}:{f2} Call moogle\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Toggle navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 284}{f22}{x50}:{f2} Lock/unlock camera rotation\n{y10}{f6}{R2+}{Mobile 285}{f22}{x50}:{f2} Switch perspective\n{x170}{Time -1}"
+  },
+  {
+    id: "0071",
+    text: "{W275H11}{Instantly}{y6}{Center 129}{Cyan}-{f2}Chocobo Navigation{f2}-{White}\n{y10}{f6}{Cross+}{Mobile 260}{f22}{x50}:{f2} Enter Chocobo’s Forest\n{y10}{f6}{x56} When you meet certain requirements...\n{y10}{f6}{Triangle+}{Mobile 289}{f22}{x50}:{f2} Open menu\n{y10}{f6}{Square+}{Mobile 311}{f22}{x50}:{f2} Look for treasures\n{y10}{f6}{Circle+}{Mobile 286}{f22}{x50}:{f2} Dismount\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Switch navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 284}{f22}{x50}:{f2} Lock/unlock camera rotation\n{y10}{f6}{R2+}{Mobile 285}{f22}{x50}:{f2} Switch perspective\n{x170}"
+  },
+  {
+    id: "0072",
+    text: "{W183H9}{Instantly}{y6}{Center 164}{Cyan}-{f2}Chocobo Flight Navigation{f2}-{White}\n{y10}{f6}{Cross+}{Mobile 263}{f22}{x50}:{f2} Forward\n{y10}{f6}{Triangle+}{Mobile 289}{f22}{x50}:{f2} Open menu\n{y10}{f6}{Square+}{Mobile 264}{f22}{x50}:{f2} Reverse\n{y10}{f6}{Circle+}{Mobile 260}{f22}{x50}:{f2} Land\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Switch navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 287}{f22}{x50}:{f2} Align camera\n{x170}"
+  },
+  {
+    id: "0073",
+    text: "{W183H10}{Instantly}{y6}{Center 138}{Cyan}-{f2}Blue Narciss Controls{f2}-{White}\n{y10}{f6}{Cross+}{Mobile 263}{f22}{x50}:{f2} Forward\n{y10}{f6}{Triangle+}{Mobile 296}{f22}{x50}:{f2} Return to the deck\n{y10}{f6}{Square+}{Mobile 264}{f22}{x50}:{f2} Reverse\n{y10}{f6}{Circle+}{Mobile 286}{f22}{x50}:{f2} Disembark\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Switch navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 287}{f22}{x50}:{f2} Align camera\n{y10}{f6}{R2+}{Mobile 285}{f22}{x50}:{f2} Switch perspective\n{x170}"
+  },
+  {
+    id: "0074",
+    text: "{W183H9}{Instantly}{y6}{Center 119}{Cyan}-{f2}Airship Navigation{f2}-{White}\n{y10}{f6}{Cross+}{Mobile 263}{f22}{x50}:{f2} Forward\n{y10}{f6}{Triangle+}{Mobile 296}{f22}{x50}:{f2} To the deck\n{y10}{f6}{Square+}{Mobile 264}{f22}{x50}:{f2} Reverse\n{y10}{f6}{Circle+}{Mobile 286}{f22}{x50}:{f2} Disembark\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Switch navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 287}{f22}{x50}:{f2} Align camera\n{x170}"
+  },
+  {
+    id: "0075",
+    text: "{W283H10}{Instantly}{y6}{Center 131}{Cyan}-{f2}Autopilot Navigation{f2}-{White}\n{y10}{f6}{Left}{Mobile 265}{Right}{Mobile 266}{f22}{x50}:{f2} Cancels autopilot\n{y10}{f6}{Cross+}{Mobile 263}{f22}{x50}:{f2} Forward\n{y10}{f6}{Square+}{Mobile 264}{f22}{x50}:{f2} Cancels autopilot\n{y10}{f6}{Triangle+}{Mobile 296}{f22}{x50}:{f2} Cancels autopilot\n{y10}{f6}{Circle+}{Mobile 286}{f22}{x50}:{f2} Cancels autopilot (when you disembark)\n{y10}{f6}{Select}{Mobile 281}{x50}:{f2} Switch navigation map\n{y10}{f6}{L1+}{R1+}{Mobile 280}{x50}:{f2} Camera control\n{y10}{f6}{L2+}{Mobile 287}{f22}{x50}:{f2} Align camera\n{x228}"
+  },
+  {
+    id: "0076",
+    text: "{W46H1}{DialogPosition}{Widths 0,46,64,1,14,0,-1}Found {Variable 1} {Item 0}!"
+  },
+  {
+    id: "0077",
+    text: "{W77H1}{DialogPosition}{Widths 0,77,64,1,14,0,-1}Found {Variable 1} {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0078",
+    text: "{W142H1}{DialogPosition}Discarded items over 99."
+  },
+  {
+    id: "0079",
+    text: "{W154H1}{DialogPosition}Discarded cards over 100."
+  },
+  {
+    id: "0080",
+    text: "{W147H1}{DialogPosition}Strange smoke appeared!"
+  },
+  {
+    id: "0081",
+    text: "{W106H1}{DialogPosition}{Speed 4}Getting {Wait 3}sle{Wait 4}e{Wait 4}e{Wait 4}e{Wait 5}e{Wait 6}py."
+  },
+  {
+    id: "0082",
+    text: "{W147H1}{DialogPosition}{NoFocus}Petrified.  Cannot enter{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0083",
+    text: "{W161H1}{DialogPosition}{NoFocus}The sandstorm is too fierce!"
+  },
+  {
+    id: "0084",
+    text: "{W135H3}{DialogPosition}Zorn\n“Where are you going?\n You need to go south!”"
+  },
+  {
+    id: "0085",
+    text: "{W230H3}{DialogPosition}Thorn\n“Finish the mission.  Then can you board.\n Anything you need, I sell.”"
+  },
+  {
+    id: "0086",
+    text: "{W199H1}{DialogPosition}{NoAnimation}{NoFocus}I can only get near it from above{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0087",
+    text: "{W285H1}{DialogPosition}{Instantly}Watched the waves around the world and relaxed!"
+  },
+  {
+    id: "0088",
+    text: "{W88H9}{PreChoose 8,7}{Widths 1,116,-1,2,121,-1,3,140,-1,4,127,-1,5,115,-1,6,156,-1,7,202,-1}{Instantly}Select chocobo\n{Choice}Land + All graphs\n{Tab}River + All graphs\n{Tab}Mountain + All graphs\n{Tab}Ocean + All graphs\n{Tab}Sky + All graphs\n{Tab}Found all the treasures\n{Tab}Haven’t found all the treasures\n{Tab}Cancel"
+  },
+  {
+    id: "0089",
+    text: "{W104H3}{PreChoose 2,1}{Instantly}Go to debug menu?\n{Choice}Yes\n{Tab}No"
+  }
+]

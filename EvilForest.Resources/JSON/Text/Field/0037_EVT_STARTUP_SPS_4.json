@@ -1,0 +1,1938 @@
+[
+  {
+    id: "0000",
+    text: "{W58H9}{Table 41,82,88,93,98,104,110,116,121,126,132,139,145,152,158,163,169,175,183,190,196,202,209,217,223,229,236,244,251,258,265,272,279,285,292,300,307,315,323,329,339,350,} Ruby\nKupo\nMosh\nMosco\nMonty\nMogpi\nMois\nGumo\nKumop\nMoodon\nMogki\nMoonte\nMogmi\nAtla\nGrimo\nNazna\nMogrich\nMochos\nMonev\nMopli\nSerino\nMogrody\nMozme\nKuppo\nMogryo\nMogmatt\nSuzuna\nMocchi\nMojito\nMogsam\nMimoza\nMooel\nMoolan\nMogtaka\nKumool\nMogrika\nMoorock\nNoggy\nStiltzkin\nArtemicion\nMogribs"
+  },
+  {
+    id: "0001",
+    text: "{W47H3}{Table 3,6,15,23,} table10\ntable11\ntable12"
+  },
+  {
+    id: "0002",
+    text: "{W47H3}{Table 3,6,15,23,} table20\ntable21\ntable22"
+  },
+  {
+    id: "0003",
+    text: "{W137H9}{Position 20,16}{PreChooseMask 7,6}{Widths 0,2,6,0,-1,5,146,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Can I help you, kupo?”\n{Choice}Save\n{Tab}Tent\n{Tab}Mognet\n{Tab}Mogshop\n{Tab}Switch party members\n{Tab}{Pink}Debug{White}\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0004",
+    text: "{W87H4}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Save, kupo?”\n{Choice}Save\n{Tab}Don’t save{Time -1}"
+  },
+  {
+    id: "0005",
+    text: "{W158H5}{Position 30,26}{PreChoose 2,1}{Widths 0,2,6,0,-1,0,123,64,7,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Rest inside a tent, kupo?”\n{f4}(Tent(s) Remaining={Variable 7}){f4}\n{Choice}Rest\n{Tab}Don’t rest{Time -1}"
+  },
+  {
+    id: "0006",
+    text: "{W195H2}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“You don’t have any tents, kupo!”"
+  },
+  {
+    id: "0007",
+    text: "{W99H1}{UpperRight}{Instantly}Let’s save, kupo!{Time 20}"
+  },
+  {
+    id: "0008",
+    text: "{W197H5}{Position 30,26}{PreChooseMask 3,2}{Widths 0,2,6,0,-1,1,95,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“What do you want to do?  Kupo?”\n{Choice}Give {Text 0,0} a letter\n{Tab}Read mail\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0009",
+    text: "{W110H1}{Instantly}{Pink}Error:Mog command"
+  },
+  {
+    id: "0010",
+    text: "{W88H2}{Instantly}{Pink}Old letter data.\nErasing..."
+  },
+  {
+    id: "0011",
+    text: "{W100H1}{LowerLeft}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0012",
+    text: "{W160H1}{LowerLeft}{Widths 0,160,6,2,6,3,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0013",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0014",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0015",
+    text: "{W100H1}{UpperRight}{Instantly}{f4}You have no mail{f4}{Time -1}"
+  },
+  {
+    id: "0016",
+    text: "{W160H1}{Widths 0,160,6,2,6,3,-1}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0017",
+    text: "{W160H2}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0018",
+    text: "{W160H3}{LowerLeft}{Widths 0,160,6,2,6,3,-1,0,160,6,4,6,5,-1,0,160,6,6,6,7,-1}{Instantly}{f4}You have a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}{f4}\n{f4}You have a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}{f4}{Time -1}"
+  },
+  {
+    id: "0019",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I want mail!  Kupo!”"
+  },
+  {
+    id: "0020",
+    text: "{W241H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I haven’t received any mail lately, kupo.”"
+  },
+  {
+    id: "0021",
+    text: "{W138H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Artemicion is delivering\n mail again, kupo.”"
+  },
+  {
+    id: "0022",
+    text: "{W159H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks for helping out with\n the mail, kupo!”"
+  },
+  {
+    id: "0023",
+    text: "{W60H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, no{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0024",
+    text: "{W155H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Oh, I love Mognet!  Kupo!”"
+  },
+  {
+    id: "0025",
+    text: "{W100H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?”"
+  },
+  {
+    id: "0026",
+    text: "{W93H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“Thanks, kupo!”"
+  },
+  {
+    id: "0027",
+    text: "{W167H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’ll give you this in exchange\n for delivery!”"
+  },
+  {
+    id: "0028",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I have a favor to ask, kupo!”"
+  },
+  {
+    id: "0029",
+    text: "{W204H4}{UpperRight}{PreChoose 2,1}{Widths 0,0,6,0,-1,0,204,6,1,-1}{Instantly}{Text 0,0}\n“I want you to deliver a letter to {Text 0,1}!”\n{Choice}Okay\n{Tab}No way"
+  },
+  {
+    id: "0030",
+    text: "{W205H3}{UpperRight}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I want you to deliver my letter, but\n you can’t hold any more, kupo.”"
+  },
+  {
+    id: "0031",
+    text: "{W121H5}{PreChoose 4,3}{Widths 1,187,6,2,6,3,-1,2,188,6,4,6,5,-1,3,189,6,6,6,7,-1}{Instantly}Throw away a letter?\n{Choice}Throw away a letter from {Cyan}{Text 0,2}{White} to {Cyan}{Text 0,3}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,4}{White} to {Cyan}{Text 0,5}{White}\n{Tab}Throw away a letter from {Cyan}{Text 0,6}{White} to {Cyan}{Text 0,7}{White}\n{Tab}Don’t throw away"
+  },
+  {
+    id: "0032",
+    text: "{W144H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“That’s too bad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0033",
+    text: "{W116H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I’m so sad, kupo{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0034",
+    text: "{W198H2}{Widths 0,0,6,0,-1}{Text 0,0}\n“Kupo!  I’ll tell you about Mognet!”"
+  },
+  {
+    id: "0035",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0036",
+    text: "{W153H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“Mognet is a mail delivery\n system between moogles!”"
+  },
+  {
+    id: "0037",
+    text: "{W191H4}{Widths 0,0,6,0,-1}{Text 0,0}\n“We can send and receive letters\n to and from moogles in other\n locations!  Kupo!”"
+  },
+  {
+    id: "0038",
+    text: "{W133H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“But delivery has been\n very sporadic lately!”"
+  },
+  {
+    id: "0039",
+    text: "{W163H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“So I want you to\n help us deliver mail!  Kupo!”"
+  },
+  {
+    id: "0040",
+    text: "{W104H5}{PreChoose 3,2}{Widths 0,0,6,0,-1,3,170,-1}{Instantly}{Text 0,0}\n“Will you help us?”\n{Choice}Sure\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0041",
+    text: "{W238H5}{PreChoose 3,2}{Widths 0,0,6,0,-1}{Instantly}{Text 0,0}\n“I’m begging you!  Please help us!  Kupo!”\n{Choice}Okay\n{Tab}No way\n{Tab}Explain Mognet once again"
+  },
+  {
+    id: "0042",
+    text: "{W159H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“What’s Mognet?  I’ve never\n even heard of it, kupo.”"
+  },
+  {
+    id: "0043",
+    text: "{W188H3}{Widths 0,0,6,0,-1}{Text 0,0}\n“It sounds interesting, kupo!\n I want you to deliver my letter!”"
+  },
+  {
+    id: "0044",
+    text: "{W210H2}{Position 30,26}{PreChooseMask 16,15}{Widths 0,2,6,0,-1}{Instantly}{f2}{Text 0,0}\n{f4}“Which letter do you want to read?”\n{Choice}To Conde Petie\n{Tab}That Special Something\n{Tab}Letter 02\n{Tab}Letter 03\n{Tab}Letter 04\n{Tab}Letter 05\n{Tab}Letter 06\n{Tab}Letter 07\n{Tab}Letter 08\n{Tab}Letter 09\n{Tab}Letter 10\n{Tab}Letter 11\n{Tab}Letter 12\n{Tab}Letter 13\n{Tab}Letter 14\n{Tab}Cancel{Time -1}"
+  },
+  {
+    id: "0045",
+    text: "{W181H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“It’s a letter from Stiltzkin!\n Let’s read it together!  Kupo!”"
+  },
+  {
+    id: "0046",
+    text: "{W243H13}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nI’m becoming familiar with the geography of\nthe Outer Continent.  My next destination\nis Conde Petie.\n\nThey exchange a special greeting\nwith each other before entering\nthe village... What was it?\n\nI think it was “Rally-ho!”"
+  },
+  {
+    id: "0047",
+    text: "{W166H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“It’s actually ‘Rally-Kupo!’\n Kupo!  Stiltzkin is so funny!”"
+  },
+  {
+    id: "0048",
+    text: "{W181H3}{UpperRight}{Widths 0,0,6,0,-1,0,60,6,1,-1}{Text 0,0}\n“Thanks for delivering mail from\n  {Text 0,1}!  Kupo!”"
+  },
+  {
+    id: "0049",
+    text: "{W250H11}{Widths 0,55,6,1,6,0,-1}{Speed 255}{y14}{Icon 27}{f18}{Speed 3}{Cyan}From {Text 0,1} to {Text 0,0}{White}\n\n\nWe haven’t been receiving mail, because the\nmachine in Mognet Central broke down.\n\nI wonder how we can fix it?  Kupo?\n\nDo you think there’s a special item\nthat will fix the machine?"
+  },
+  {
+    id: "0050",
+    text: "{W175H2}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“A special item?  Maybe it’s{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0051",
+    text: "{W152H3}{UpperRight}{Widths 0,0,6,0,-1}{Text 0,0}\n“I think I’m close to solving\n the mystery of Mognet!”"
+  },
+  {
+    id: "0052",
+    text: "{W25H1}Test"
+  },
+  {
+    id: "0053",
+    text: "{W19H1}Null"
+  },
+  {
+    id: "0054",
+    text: "{W167H5}{DialogPosition}{Widths 0,61,64,0,64,1,-1}{Instantly}{Brown}Error {Yellow}Set Scenario Counter()\n{Cyan}Old={Variable 0}, New={Variable 1}\nChoose Seq={Variable 2}{White}\n{Start}: Overwrite\n{Select}: Skip{Time -1}"
+  },
+  {
+    id: "0055",
+    text: "{W94H2}{DialogPosition}{Instantly}{Brown}Error {Yellow}Env Play()\n{Cyan}Slot={Variable 2}"
+  },
+  {
+    id: "0056",
+    text: "{W69H3}{DialogPosition}{Widths 0,69,14,0,-1}{Instantly}\n Received {Item 0}!"
+  },
+  {
+    id: "0057",
+    text: "{W100H3}{DialogPosition}{Widths 0,100,14,0,-1}{Instantly}\n Received {Item 0}{Yellow} Card{White}!"
+  },
+  {
+    id: "0058",
+    text: "{W86H3}{DialogPosition}{Widths 0,86,64,0,-1}{Instantly}\n Received {Yellow}{Variable 0} Gil{White}!"
+  },
+  {
+    id: "0059",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Cannot hold more Gil."
+  },
+  {
+    id: "0060",
+    text: "{W139H3}{DialogPosition}{Widths 0,139,14,0,-1}{Instantly}\n Cannot carry another {Item 0}."
+  },
+  {
+    id: "0061",
+    text: "{W145H3}{DialogPosition}{Instantly}\n Cannot hold more {Yellow}Cards{White}."
+  },
+  {
+    id: "0062",
+    text: "{W120H3}{DialogPosition}{Instantly}\n Nothing more inside."
+  },
+  {
+    id: "0063",
+    text: "{W125H3}{DialogPosition}{Instantly}\n Nothing more to find."
+  },
+  {
+    id: "0064",
+    text: "{W50H1}{LowerRight}{Center 50}{Pink}Skip FMV"
+  },
+  {
+    id: "0065",
+    text: "{W82H3}{Instantly}{Cyan}\n HP restored!"
+  },
+  {
+    id: "0066",
+    text: "{W83H3}{Instantly}{Cyan}\n MP restored!"
+  },
+  {
+    id: "0067",
+    text: "{W125H3}{Instantly}{Cyan}\n HP and MP restored!"
+  },
+  {
+    id: "0068",
+    text: "{W147H4}{Instantly}{Cyan}\n HP and MP restored! \n Status effects removed!"
+  },
+  {
+    id: "0069",
+    text: "{W211H6}{Instantly}{Brown}\nParty Del Error\nYou don’t have anyone in your party.\nSwitch all members, or use\nParty Set or Party Macro."
+  },
+  {
+    id: "0070",
+    text: "{W37H1}Zidane"
+  },
+  {
+    id: "0071",
+    text: "{W36H1}??????"
+  },
+  {
+    id: "0072",
+    text: "{W38H1}Garnet"
+  },
+  {
+    id: "0073",
+    text: "{W41H1}Dagger"
+  },
+  {
+    id: "0074",
+    text: "{W20H1}Vivi"
+  },
+  {
+    id: "0075",
+    text: "{W41H1}Steiner"
+  },
+  {
+    id: "0076",
+    text: "{W34H1}Freya"
+  },
+  {
+    id: "0077",
+    text: "{W30H1}Quina"
+  },
+  {
+    id: "0078",
+    text: "{W24H1}Eiko"
+  },
+  {
+    id: "0079",
+    text: "{W45H1}Amarant"
+  },
+  {
+    id: "0080",
+    text: "{W29H1}Cinna"
+  },
+  {
+    id: "0081",
+    text: "{W40H1}Marcus"
+  },
+  {
+    id: "0082",
+    text: "{W30H1}Blank"
+  },
+  {
+    id: "0083",
+    text: "{W42H1}Beatrix"
+  },
+  {
+    id: "0084",
+    text: "{W72H1}{PreChooseMask 16,15}{Widths 1,104,-1,2,128,-1,3,132,-1,4,116,-1,5,103,-1,6,80,-1}{Instantly}Select event\n{Choice}Life On The Run\n{Tab}Different Language\n{Tab}Visitor, Not Invader\n{Tab}Gourmand’s Nose\n{Tab}Everyday Life\n{Tab}Life Cycle\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Dummy\n{Tab}Cancel"
+  },
+  {
+    id: "0085",
+    text: "{W85H1}{Instantly}{Center 85}Life On The Run"
+  },
+  {
+    id: "0086",
+    text: "{W108H1}{Instantly}{Center 108}Different Language"
+  },
+  {
+    id: "0087",
+    text: "{W111H1}{Instantly}{Center 111}Visitor, Not Invader"
+  },
+  {
+    id: "0088",
+    text: "{W94H1}{Instantly}{Center 94}Gourmand’s Nose"
+  },
+  {
+    id: "0089",
+    text: "{W80H1}{Instantly}{Center 80}Everyday Life"
+  },
+  {
+    id: "0090",
+    text: "{W56H1}{Instantly}{Center 56}Life Cycle"
+  },
+  {
+    id: "0091",
+    text: "{W64H1}It’s locked."
+  },
+  {
+    id: "0092",
+    text: "{W209H4}{PreChoose 2,1}{Instantly}Black Mage No. {Variable 0}\n“Oh, you want to play a card game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0093",
+    text: "{W161H2}Black Mage No. {Variable 0}\n“You need 5 cards to play.”"
+  },
+  {
+    id: "0094",
+    text: "{W148H3}{Widths 0,90,64,0,-1}Black Mage No. {Variable 0}\n“{Speed 2}...{Speed -1}I don’t feel like\n playing cards right now.”"
+  },
+  {
+    id: "0095",
+    text: "{W152H5}{PreChoose 2,1}{Widths 0,90,64,0,-1}{Instantly}Black Mage No. {Variable 0}\n“I know how to play cards.\n Do you want to play?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0096",
+    text: "{W161H2}Black Mage No. {Variable 0}\n“You need 5 cards to play.”"
+  },
+  {
+    id: "0097",
+    text: "{W151H3}{Widths 0,90,64,0,-1}Black Mage No. {Variable 0}\n“I’m sorry, I don’t feel like\n playing right now{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0098",
+    text: "{W217H4}{PreChoose 2,1}{Instantly}Black Mage No. {Variable 0}\n“Would you like to play a card game?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0099",
+    text: "{W106H3}{Widths 0,90,64,0,-1}Black Mage No. {Variable 0}\n“You need at least\n 5 cards to play.”"
+  },
+  {
+    id: "0100",
+    text: "{W201H3}Black Mage No. {Variable 0}\n“I’m really sorry.\n I don’t feel like playing right now.”"
+  },
+  {
+    id: "0101",
+    text: "{W22H1}MBG"
+  },
+  {
+    id: "0102",
+    text: "{W5H1}{NoFocus}{Center 5}!{Time 30}"
+  },
+  {
+    id: "0103",
+    text: "{W5H1}{Center 5}!"
+  },
+  {
+    id: "0104",
+    text: "{W5H1}{LowerRightForce}{Center 5}!{Time 30}"
+  },
+  {
+    id: "0105",
+    text: "{W6H1}{UpperRightForce}{Center 6}?"
+  },
+  {
+    id: "0106",
+    text: "{W11H1}{Center 11}!?"
+  },
+  {
+    id: "0107",
+    text: "{W233H3}{Zidane}\n“I think they live ‘so deep in the\n forest that owls don’t even live there.’”"
+  },
+  {
+    id: "0108",
+    text: "{W119H4}{DialogPosition}  \n    This road leads    \n    to a dead end."
+  },
+  {
+    id: "0109",
+    text: "{W172H4}{DialogPosition}  \n  ←Where there are owls\n    Where there are no owls→"
+  },
+  {
+    id: "0110",
+    text: "{W156H4}{DialogPosition}  \n  ←Where there are no owls\n    Where there are owls→"
+  },
+  {
+    id: "0111",
+    text: "{W80H1}{UpperRightForce}What’s wrong?"
+  },
+  {
+    id: "0112",
+    text: "{W24H1}Ahh!{Time 30}"
+  },
+  {
+    id: "0113",
+    text: "{W79H1}{UpperLeftForce}{NoFocus}H-{Wait 30}H-{Wait 30}Humans{Speed 2}...{Speed -1}{Time 30}"
+  },
+  {
+    id: "0114",
+    text: "{W86H1}{LowerLeftForce}Humans!  Run!!!{Time 50}"
+  },
+  {
+    id: "0115",
+    text: "{W50H1}{UpperRightForce}W-Wait{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0116",
+    text: "{W119H2}{UpperRightForce}{Vivi}\n“Did you see them!?”"
+  },
+  {
+    id: "0117",
+    text: "{W53H1}Y-{Wait 3}Yeah{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0118",
+    text: "{W157H3}{Vivi}\n“They were talking!\n There ARE others like me!”"
+  },
+  {
+    id: "0119",
+    text: "{W202H3}{Dagger}\n“Why would anyone build a village in\n the middle of a dying forest{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0120",
+    text: "{W62H1}Beats me{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0121",
+    text: "{W54H1}{Widths 0,54,17,-1}Where’s {Vivi}?"
+  },
+  {
+    id: "0122",
+    text: "{W116H3}{Flash}{Zidane}\n“He went that way{Speed 2}...{Speed -1}\n but I{Speed 2}...{Speed -1}{Wait 5} Hey!”"
+  },
+  {
+    id: "0123",
+    text: "{W180H4}{Quina}\n“A village!\n Village always have good food.\n I go find!”"
+  },
+  {
+    id: "0124",
+    text: "{W85H3}{Zidane}\n“Geez,\n you people{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0125",
+    text: "{W145H3}{Zidane}\n“It’s too dangerous to go\n out by myself{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0126",
+    text: "{W122H3}{Zidane}\n“I can’t leave without\n {Vivi}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0127",
+    text: "{W111H2}Black Mage No. 239\n“Welcome{Speed 2}...{Speed -1} Huh?”"
+  },
+  {
+    id: "0128",
+    text: "{W111H3}Black Mage No. 239\n“U-{Wait 3}Um{Speed 2}...{Speed -1}\n C-{Wait 3}Can I help you?”"
+  },
+  {
+    id: "0129",
+    text: "{W224H3}Black Mage No. 78\n“This is supposed to be a weapon shop.\n What’s a weapon, anyway?”"
+  },
+  {
+    id: "0130",
+    text: "{W121H1}The humans are here!{Time 30}"
+  },
+  {
+    id: "0131",
+    text: "{W5H1}{Widths 0,5,17,-1}{Vivi}!{Time 30}"
+  },
+  {
+    id: "0132",
+    text: "{W119H2}{LowerLeftForce}{Dagger}\n“What’s going on{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0133",
+    text: "{W11H1}{LowerLeftForce}{Center 11}!?"
+  },
+  {
+    id: "0134",
+    text: "{W30H1}{LowerLeftForce}{Center 30}{Speed 2}......{Speed -1}?{Time 60}"
+  },
+  {
+    id: "0135",
+    text: "{W48H2}{Widths 0,0,16,-1,0,48,17,-1}{Zidane}\n“Hey, {Vivi}!”"
+  },
+  {
+    id: "0136",
+    text: "{W131H2}{Zidane}\n“What’s up with him{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0137",
+    text: "{W190H3}Black Mage No. 44\n“I’ve been gaining weight lately{Speed 2}...{Speed -1}\n I wonder if I’m overeating?”"
+  },
+  {
+    id: "0138",
+    text: "{W208H4}{Offset 0,50,0}Black Mage No. 189\n“We’ve each been gaining distinctive\n personality traits since we arrived\n in this village.”"
+  },
+  {
+    id: "0139",
+    text: "{W209H4}{Offset 0,50,0}Black Mage No. 189\n“Mr. 44, for instance, got bigger.\n The others are also starting to look\n and act differently.”"
+  },
+  {
+    id: "0140",
+    text: "{W194H3}{Offset 0,50,0}Black Mage No. 189\n“Mr. 288 told us that this is called\n individuality.  He’s really smart.”"
+  },
+  {
+    id: "0141",
+    text: "{W199H3}{Offset 0,50,0}Black Mage No. 189\n“But I think Mr. 44 is gaining weight\n because he likes to eat!”"
+  },
+  {
+    id: "0142",
+    text: "{W120H2}{Quina}\n“Why you run away?”"
+  },
+  {
+    id: "0143",
+    text: "{W113H3}{Quina}\n“I not do anything{Speed 2}...{Speed -1}\n What you hiding?”"
+  },
+  {
+    id: "0144",
+    text: "{W36H1}Ooo!!!"
+  },
+  {
+    id: "0145",
+    text: "{W116H3}{Quina}\n“Is aroma{Speed 2}...{Speed -1}\n Is delicious aroma!”"
+  },
+  {
+    id: "0146",
+    text: "{W132H3}{UpperLeftForce}{Offset -100,-200,0}{Quina}\n“A-ha!\n I know you hide food!”"
+  },
+  {
+    id: "0147",
+    text: "{W111H2}Black Mage No. 111\n“Get out!”"
+  },
+  {
+    id: "0148",
+    text: "{W108H2}Black Mage No. 33\n“This egg is ours!”"
+  },
+  {
+    id: "0149",
+    text: "{W174H4}{UpperLeftForce}{Offset -100,-200,0}{Quina}\n“Is chocobo egg!\n Chocobo egg super-delicious!\n We share and eat it!”"
+  },
+  {
+    id: "0150",
+    text: "{W145H2}Black Mage No. 111\n“We’re not gonna eat it!”"
+  },
+  {
+    id: "0151",
+    text: "{W182H3}Black Mage No. 33\n“A chocobo mother left it for us\n before she stopped moving!”"
+  },
+  {
+    id: "0152",
+    text: "{W175H3}Black Mage No. 111\n“That’s right!\n We’re gonna raise it for her!”"
+  },
+  {
+    id: "0153",
+    text: "{W76H2}{UpperLeftForce}{Offset -100,-200,0}{Quina}\n“You crazy.”"
+  },
+  {
+    id: "0154",
+    text: "{W121H3}{UpperLeftForce}{Offset -100,-200,0}{Quina}\n“You never raise any\n animal before.”"
+  },
+  {
+    id: "0155",
+    text: "{W104H3}Black Mage No. 33\n“Shut up!\n We can so do it!”"
+  },
+  {
+    id: "0156",
+    text: "{W174H3}{UpperLeftForce}{Offset -100,-200,0}{Quina}\n“I not believe you.\n You eat egg behind my back!”{Time 45}"
+  },
+  {
+    id: "0157",
+    text: "{W45H1}No way!{Time 30}"
+  },
+  {
+    id: "0158",
+    text: "{W203H3}Black Mage No. 111\n“Is s/he with you?\n Can you take him somewhere else?”"
+  },
+  {
+    id: "0159",
+    text: "{W172H3}{Widths 0,126,16,-1}{Quina}\n“{Zidane}!  You want eat, too?\n Chocobo egg very delicious.”"
+  },
+  {
+    id: "0160",
+    text: "{W113H3}Black Mage No. 33\n“We’re never gonna\n give it to you!”"
+  },
+  {
+    id: "0161",
+    text: "{W157H3}Black Mage No. 33\n“I wonder when it’ll hatch?\n I keep it warm constantly.”"
+  },
+  {
+    id: "0162",
+    text: "{W179H2}Black Mage No. 111\n“I’m thinking of a name for it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0163",
+    text: "{W197H3}{UpperRightForce}Black Mage No. 55\n“We built this shack to\n accommodate our baby chocobo.”"
+  },
+  {
+    id: "0164",
+    text: "{W176H2}{UpperRightForce}Black Mage No. 55\n“Pretty nice, don’t you think?”"
+  },
+  {
+    id: "0165",
+    text: "{W249H2}Black Mage No. 192\n“Welcome to the Black Cat Synthesis Shop!”"
+  },
+  {
+    id: "0166",
+    text: "{W81H3}{Dagger}\n“Um{Speed 2}...{Speed -1}\n Excuse me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0167",
+    text: "{W124H2}Black Mage No. 32\n“Why are you here!?”"
+  },
+  {
+    id: "0168",
+    text: "{W118H2}Black Mage No. 192\n“This is our village!”"
+  },
+  {
+    id: "0169",
+    text: "{W104H2}Black Mage No. 32\n“Yeah!”"
+  },
+  {
+    id: "0170",
+    text: "{W170H3}Black Mage No. 192\n“You forced the little guy to\n guide you here, didn’t you!?”"
+  },
+  {
+    id: "0171",
+    text: "{W156H3}Black Mage No. 192\n“That’s all you humans ever\n think about: using us!”"
+  },
+  {
+    id: "0172",
+    text: "{W111H2}{Widths 0,111,17,-1}{Dagger}\n“You mean about {Vivi}?”"
+  },
+  {
+    id: "0173",
+    text: "{W234H4}{Dagger}\n“That’s not true!  It’s just that I was\n surprised to see black mages other than\n {Vivi} who could talk, so{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0174",
+    text: "{W230H3}{Dagger}\n“Besides, I’m here to stop the\n person who is sending you off to fight!”"
+  },
+  {
+    id: "0175",
+    text: "{W170H2}Black Mage No. 32\n“A-{Wait 3}Are you telling the truth?”{Time 30}"
+  },
+  {
+    id: "0176",
+    text: "{W111H2}Black Mage No. 192\n“Lies!”"
+  },
+  {
+    id: "0177",
+    text: "{W120H3}Black Mage No. 192\n“All humans are liars!\n You’re lying!”"
+  },
+  {
+    id: "0178",
+    text: "{W87H2}{Dagger}\n“But it’s true!”"
+  },
+  {
+    id: "0179",
+    text: "{W154H4}{Dagger}\n“I can’t just sit here and\n watch while horrible things\n are happening!”"
+  },
+  {
+    id: "0180",
+    text: "{W47H2}{Widths 0,0,18,-1,0,47,16,-1}{Dagger}\n“Oh, {Zidane}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0181",
+    text: "{W81H2}{Widths 0,81,18,-1}{Zidane}\n“What’s up, {Dagger}?”"
+  },
+  {
+    id: "0182",
+    text: "{W102H3}{Dagger}\n“I was telling them\n why we’re here.”"
+  },
+  {
+    id: "0183",
+    text: "{W114H2}{Zidane}\n“Why are we here?”"
+  },
+  {
+    id: "0184",
+    text: "{W19H2}{Widths 0,0,18,-1,0,19,16,-1}{Dagger}\n“{Zidane}!”"
+  },
+  {
+    id: "0185",
+    text: "{W128H3}{Zidane}\n“It’s just a joke!\n Geez, don’t get mad.”"
+  },
+  {
+    id: "0186",
+    text: "{W157H3}{Dagger}\n“Can’t you see, I’m trying\n to make them understand?”"
+  },
+  {
+    id: "0187",
+    text: "{W104H3}Black Mage No. 32\n“What’s a ‘joke’?\n Is it scary?”"
+  },
+  {
+    id: "0188",
+    text: "{W122H3}{Widths 0,53,18,-1}{Zidane}\n“It’s something funny!\n Right, {Dagger}?”"
+  },
+  {
+    id: "0189",
+    text: "{W144H2}Black Mage No. 192\n“You don’t seem so bad.”"
+  },
+  {
+    id: "0190",
+    text: "{W161H3}Black Mage No. 32\n“’Cause you’re here to fight\n the bad guys!”"
+  },
+  {
+    id: "0191",
+    text: "{W85H2}{Zidane}\n“That’s right!”"
+  },
+  {
+    id: "0192",
+    text: "{W122H3}{Dagger}\n“You’re unbelievable,{Wait 3}\n you know that?”"
+  },
+  {
+    id: "0193",
+    text: "{W97H2}{Widths 0,97,17,-1}{Dagger}\n“Hey, {Wait 3}where’s {Vivi}?”"
+  },
+  {
+    id: "0194",
+    text: "{W104H3}{Zidane}\n“I don’t know\n where he went{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0195",
+    text: "{W116H2}{Dagger}\n“That worries me{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0196",
+    text: "{W153H2}{Dagger}\n“I’m going to look for him!”"
+  },
+  {
+    id: "0197",
+    text: "{W62H2}{Widths 0,0,16,-1,0,62,18,-1}{Zidane}\n“H-Hey,{Wait 3} {Dagger}!”"
+  },
+  {
+    id: "0198",
+    text: "{W79H2}{Zidane}\n“Not again{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0199",
+    text: "{W149H3}{Zidane}\n“Huh?\n I hear someone talking{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0200",
+    text: "{W152H2}{UpperLeftForce}{Offset -100,0,400}I heard Mr. 163 ask for\n‘the usual’ the other day{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0201",
+    text: "{W107H2}{UpperRightForce}{Offset -150,0,-500}What did he mean?\nWhat is ‘the usual’?"
+  },
+  {
+    id: "0202",
+    text: "{W191H2}{UpperLeftForce}{Offset -100,0,400}I don’t know.\nIt must be something very special."
+  },
+  {
+    id: "0203",
+    text: "{W214H2}{UpperRightForce}{Offset -150,0,-500}I see{Speed 2}...{Speed -1}\nRunning a shop is a tough job, isn’t it?"
+  },
+  {
+    id: "0204",
+    text: "{W228H2}{UpperRightForce}{Offset -150,0,-500}Why does Mr. 192 call his synthesis shop\n‘Black Cat’?  His cat isn’t black."
+  },
+  {
+    id: "0205",
+    text: "{W226H3}{UpperLeftForce}{Offset -100,0,400}Mr. 32 wanted to call it the ‘Black Mage\nand Cat’s Synthesis Shop,’ but Mr. 192\nthought the name was too long."
+  },
+  {
+    id: "0206",
+    text: "{W193H4}{UpperRightForce}{Offset -150,0,-500}Oh, I get it now!\n‘Black Cat Synthesis Shop’ is much\neasier to say and remember!\nWow, Mr. 192 is really smart!"
+  },
+  {
+    id: "0207",
+    text: "{W200H3}Black Mage No. 163\n“According to the book I picked up\n last week{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0208",
+    text: "{W192H4}Black Mage No. 163\n“{Speed 2}...{Speed -1}the customer says\n ‘Give me the usual’ when he wants\n to buy something special.”"
+  },
+  {
+    id: "0209",
+    text: "{W208H4}Black Mage No. 163\n“What would I do if a customer\n asked for ‘the usual’{Speed 2}...{Speed -1}?\n Being a shopkeeper is really hard!”"
+  },
+  {
+    id: "0210",
+    text: "{W117H3}Black Mage No. 163\n“What are humans{Speed 2}...{Speed -1}?\n I forgot{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0211",
+    text: "{W156H2}Black Mage No. 163\n“Are they a type of food?”"
+  },
+  {
+    id: "0212",
+    text: "{W30H1}{UpperRightForce}Huh!?"
+  },
+  {
+    id: "0213",
+    text: "{W111H2}{UpperRightForce}Black Mage No. 163\n“A {Wait 3}human?”"
+  },
+  {
+    id: "0214",
+    text: "{W111H2}{UpperRightForce}Black Mage No. 163\n“Um{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0215",
+    text: "{W140H2}{UpperRightForce}Black Mage No. 163\n“I forgot what to say{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0216",
+    text: "{W169H4}{UpperRightForce}Black Mage No. 163\n“Um, I guess shopkeepers say\n ‘Welcome’ when a customer\n approaches the counter.”"
+  },
+  {
+    id: "0217",
+    text: "{W179H5}{UpperRightForce}{PreChooseMask 3,2}{Instantly}Black Mage No. 163\n“Um, welcome!  Can I help you?”\n{Choice}Buy/Sell\n{Tab}Give me the usual\n{Tab}Nothing"
+  },
+  {
+    id: "0218",
+    text: "{W111H3}{UpperRightForce}Black Mage No. 163\n“Th-The usual?\n Um{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0219",
+    text: "{W128H2}{UpperRightForce}Black Mage No. 163\n“Where did I put it{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0220",
+    text: "{W166H3}Black Mage No. 288\n“Is he the one who came here\n with that group of humans?”"
+  },
+  {
+    id: "0221",
+    text: "{W148H4}Black Mage No. 288\n“He’s alright.\n Look into his eyes.\n He’s aware, just like us.”"
+  },
+  {
+    id: "0222",
+    text: "{W172H3}{Offset 0,100,0}{LowerRightForce}{Vivi}\n“Th-{Wait 3}Thanks{Speed 2}...{Speed -1} Um{Speed 2}...{Speed -1}\n What are you all doing here?”"
+  },
+  {
+    id: "0223",
+    text: "{W191H3}Black Mage No. 288\n“We escaped together from\n Alexandria and the cargo ships.”"
+  },
+  {
+    id: "0224",
+    text: "{W69H2}{Offset 0,100,0}{LowerRightForce}{Widths 0,0,17,-1}{Vivi}\n“This far!?”"
+  },
+  {
+    id: "0225",
+    text: "{W240H4}Black Mage No. 288\n“That’s right.  We wanted to live\n in a world where there were no humans.\n To find that, we had to cross the ocean.”"
+  },
+  {
+    id: "0226",
+    text: "{W53H2}{Widths 0,0,17,-1}{Vivi}\n“I see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0227",
+    text: "{W132H2}{Vivi}\n“So{Speed 2}...{Speed -1} Um, what’s this?”"
+  },
+  {
+    id: "0228",
+    text: "{W119H3}Black Mage No. 56\n“This is a{Speed 2}...uh...{Speed -1}\n What’s the word{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0229",
+    text: "{W111H2}Black Mage No. 288\n“It’s a cemetery.”"
+  },
+  {
+    id: "0230",
+    text: "{W104H3}Black Mage No. 56\n“Right.\n A cemetery.”"
+  },
+  {
+    id: "0231",
+    text: "{W96H2}{Vivi}\n“A cemetery{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0232",
+    text: "{W150H3}{Vivi}\n“So{Speed 2}...{Speed -1}\n Underneath the ground─”"
+  },
+  {
+    id: "0233",
+    text: "{W149H3}Black Mage No. 288\n“Yes, our friends\n are buried under here{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0234",
+    text: "{W71H2}{Widths 0,0,17,-1}{Vivi}\n“But{Speed 2}...{Speed -1}why?”"
+  },
+  {
+    id: "0235",
+    text: "{W112H2}{UpperRightForce}Black Mage No. 288\n“That’s because{Speed 2}...{Speed -1}”{Time 40}"
+  },
+  {
+    id: "0236",
+    text: "{W157H3}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“I{Speed 2}...{Speed -1}I came here with Mr. 36.{Wait 3}\n We escaped together.”"
+  },
+  {
+    id: "0237",
+    text: "{W184H4}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“We had so many things to learn.\n It was really scary at first,\n but we helped each other.”"
+  },
+  {
+    id: "0238",
+    text: "{W221H4}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“Then one day, Mr. 36 stopped moving.\n He just stopped{Speed 2}...{Speed -1} Wouldn’t move or\n say anything.”"
+  },
+  {
+    id: "0239",
+    text: "{W201H4}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“My friend who knows lots of things\n told me that this was what ‘death’\n was, and we had to bury him.”"
+  },
+  {
+    id: "0240",
+    text: "{W226H3}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“Mr. 36 is buried under the ground now.\n But I don’t understand why.”"
+  },
+  {
+    id: "0241",
+    text: "{W222H4}{Offset -10,100,0}{LowerLeftForce}Black Mage No. 56\n“He’s going to come out again one day,\n right?  When he does, I’m going to\n wash him off in the pond.”"
+  },
+  {
+    id: "0242",
+    text: "{W184H2}{Vivi}\n“Wh-{Wait 3}What’s he talking about{Speed 2}...{Speed -1}?”"
+  },
+  {
+    id: "0243",
+    text: "{W104H3}{Vivi}\n“Was it a disease?\n Or was he hurt?”"
+  },
+  {
+    id: "0244",
+    text: "{W92H2}{Vivi}\n“Tell me!{Wait 3}  Why?”"
+  },
+  {
+    id: "0245",
+    text: "{W24H1}{UpperRightForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0246",
+    text: "{W24H1}{LowerLeftForce}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0247",
+    text: "{W204H3}{UpperLeftForce}Black Mage No. 56\n“I wonder what it’s like down there?\n Is it warm or cold?”"
+  },
+  {
+    id: "0248",
+    text: "{W231H4}{UpperRightForce}Black Mage No. 288\n“Many of our friends stopped moving\n recently.  The ones that were produced\n earlier stopped first{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0249",
+    text: "{W118H3}{UpperRightForce}Black Mage No. 288\n“Maybe our life span\n is limited{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0250",
+    text: "{W113H3}{LowerRightForce}{Zidane}\n“Hey, how come you\n guys can all talk?”"
+  },
+  {
+    id: "0251",
+    text: "{W191H3}{UpperLeftForce}Black Mage No. 288\n“We became aware one day, each\n under different circumstances.”"
+  },
+  {
+    id: "0252",
+    text: "{W137H2}{LowerRightForce}{Zidane}\n“Became aware?  How?”"
+  },
+  {
+    id: "0253",
+    text: "{W180H2}{UpperLeftForce}Black Mage No. 288\n“Do you remember being born?”"
+  },
+  {
+    id: "0254",
+    text: "{W95H2}{LowerRightForce}{Zidane}\n“No, not really.”"
+  },
+  {
+    id: "0255",
+    text: "{W151H3}{UpperLeftForce}Black Mage No. 288\n“It was the same with me.\n I just woke up one day{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0256",
+    text: "{W178H3}{UpperLeftForce}Black Mage No. 288\n“{Speed 2}...{Speed -1}and there was a human body\n lying next to me.”"
+  },
+  {
+    id: "0257",
+    text: "{W191H2}{UpperLeftForce}Black Mage No. 288\n“His body was covered in blood.”"
+  },
+  {
+    id: "0258",
+    text: "{W164H3}{UpperLeftForce}Black Mage No. 288\n“It scared me{Speed 2}...{Speed -1}\n I didn’t know what it meant.”"
+  },
+  {
+    id: "0259",
+    text: "{W214H4}{UpperLeftForce}Black Mage No. 288\n“I ran as fast as I could.\n When I looked around, I was far away\n from the front line.”"
+  },
+  {
+    id: "0260",
+    text: "{W218H3}{UpperLeftForce}Black Mage No. 288\n“There were many others like me,\n and we decided to escape together.”"
+  },
+  {
+    id: "0261",
+    text: "{W194H4}{UpperLeftForce}Black Mage No. 288\n“We heard about this village after\n roaming around for a while.\n That’s how I ended up here.”"
+  },
+  {
+    id: "0262",
+    text: "{W53H2}{LowerRightForce}{Widths 0,0,16,-1}{Zidane}\n“I see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0263",
+    text: "{W210H3}{UpperLeftForce}Black Mage No. 288\n“Please take good care of him.\n We’ll be waiting to hear his stories.”"
+  },
+  {
+    id: "0264",
+    text: "{W181H4}{LowerCenter}\n    “A Walk in a Forest”    \n        by  Black Mage No. 234"
+  },
+  {
+    id: "0265",
+    text: "{W181H4}{LowerCenter}\n    “Our Village”    \n        by  Black Mage No. 123"
+  },
+  {
+    id: "0266",
+    text: "{W162H3}Black Mage No. 234\n“Th-This is an inn, but we’re\n not ready to check you in.”"
+  },
+  {
+    id: "0267",
+    text: "{W197H4}{PreChoose 2,1}{Instantly}Black Mage No. 234\n“W-Will you be staying overnight?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0268",
+    text: "{W193H4}Black Mage No. 123\n“This thing plays ‘music.’\n Is it true that music makes people\n happy and want to dance?”"
+  },
+  {
+    id: "0269",
+    text: "{W111H3}Black Mage No. 123\n“Tell me,\n what is ‘music’?”"
+  },
+  {
+    id: "0270",
+    text: "{W175H2}Black Mage No. 234\n“M-Make yourselves at home.”"
+  },
+  {
+    id: "0271",
+    text: "{W111H2}Black Mage No. 234\n“B-{Wait 3}Bye bye.”"
+  },
+  {
+    id: "0272",
+    text: "{W165H2}Black Mage No. 234\n“Please come visit us again.”"
+  },
+  {
+    id: "0273",
+    text: "{W91H3}{Widths 0,25,17,-1}{Zidane}\n“{Speed 2}...{Speed -1}{Vivi}?\n What’s wrong?”"
+  },
+  {
+    id: "0274",
+    text: "{W25H1}Huh?"
+  },
+  {
+    id: "0275",
+    text: "{W111H3}{Widths 0,40,16,-1}{Vivi}\n“Oh, {Zidane}{Speed 2}...{Speed -1}\n It’s{Speed 2}...{Speed -1}{Wait 3} It’s nothing.”"
+  },
+  {
+    id: "0276",
+    text: "{W157H4}{Zidane}\n“Did something bad happen?\n All the black mages seem\n pretty nice.”"
+  },
+  {
+    id: "0277",
+    text: "{W125H2}{NoFocus}{Vivi}\n“Nothing happened{Speed 2}...{Speed -1}”{Time 30}"
+  },
+  {
+    id: "0278",
+    text: "{W99H2}{UpperRightForce}{Quina}\n“Grr{Speed 2}...{Speed -1} I hungry!”"
+  },
+  {
+    id: "0279",
+    text: "{W112H3}{Quina}\n“This village people\n eat terrible food.”"
+  },
+  {
+    id: "0280",
+    text: "{W84H3}{Widths 0,32,17,-1}{Dagger}\n“Oh, {Vivi}.\n You’re back.”"
+  },
+  {
+    id: "0281",
+    text: "{W103H3}{Dagger}\n“Where were you?\n You look very{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0282",
+    text: "{W121H3}{UpperRightForce}{Zidane}\n“You got tired, right,\n {Vivi}?”"
+  },
+  {
+    id: "0283",
+    text: "{W67H2}{Widths 0,0,17,-1}{Vivi}\n“Y-Yeah{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0284",
+    text: "{W215H4}{UpperLeftForce}{Offset 0,-20,0}{Dagger}\n“I don’t blame you.\n We’ve been walking around non-stop.\n We should call it a day.”"
+  },
+  {
+    id: "0285",
+    text: "{W108H3}{UpperLeftForce}{Offset 0,-20,0}{Quina}\n“I go to forest and\n look for food.”"
+  },
+  {
+    id: "0286",
+    text: "{W114H4}{PreChoose 2,1}{Widths 0,114,16,-1}{Instantly}{Dagger}\n“What about you, {Zidane}?”\n{Choice}Rest\n{Tab}Not yet"
+  },
+  {
+    id: "0287",
+    text: "{W109H2}{UpperRightForce}{Zidane}\n“I’m not tired yet.”"
+  },
+  {
+    id: "0288",
+    text: "{W150H2}{UpperRightForce}{Zidane}\n“Yeah, we’ll call it a day.”"
+  },
+  {
+    id: "0289",
+    text: "{W132H4}{PreChoose 2,1}{Instantly}{Dagger}\n“Do you want to rest?”\n{Choice}Rest\n{Tab}Not yet"
+  },
+  {
+    id: "0290",
+    text: "{W114H3}Black Mage No. 123\n“Your little friend is\n waiting inside.”"
+  },
+  {
+    id: "0291",
+    text: "{W106H3}{UpperRightForce}{Offset 0,-30,0}{Widths 0,106,17,-1}{Dagger}\n“{Zidane}{Speed 2}...{Speed -1}\n {Vivi} just walked out.”"
+  },
+  {
+    id: "0292",
+    text: "{W162H3}{UpperLeftForce}{Offset 0,50,180}{Zidane}\n“Maybe he’s letting us have\n a little romantic quiet time.”"
+  },
+  {
+    id: "0293",
+    text: "{W64H1}{UpperRightForce}{Offset 0,-30,0}I’m serious!"
+  },
+  {
+    id: "0294",
+    text: "{W174H2}{UpperLeftForce}{Offset 0,50,180}{Zidane}\n“{Speed 2}...{Speed -1}I wouldn’t worry too much.”"
+  },
+  {
+    id: "0295",
+    text: "{W44H2}{UpperRightForce}{Offset 0,-30,0}{Widths 0,0,18,-1}{Dagger}\n“But{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0296",
+    text: "{W154H3}{UpperLeftForce}{Offset 0,50,180}{Zidane}\n“He’s trying to figure\n something out for himself.”"
+  },
+  {
+    id: "0297",
+    text: "{W89H1}{Position 90,140}{Flash}Think about it{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0298",
+    text: "{W143H2}{Position 90,140}{Widths 0,143,17,-1}{Flash}{Vivi}’s never met black mages\nlike himself before."
+  },
+  {
+    id: "0299",
+    text: "{W118H3}{Position 120,30}{Flash}But {Wait 3}what if they’re\nbeing mean to him,{Wait 5} or\nsaying nasty things?"
+  },
+  {
+    id: "0300",
+    text: "{W170H3}{Position 70,140}{Flash}Do you really think the people\nof this village gathered to do\nsomething like that?"
+  },
+  {
+    id: "0301",
+    text: "{W24H1}{Position 130,30}{Flash}{Speed 2}......{Speed -1}"
+  },
+  {
+    id: "0302",
+    text: "{W175H2}{Position 90,130}{Flash}Maybe{Speed 2}...{Speed -1} Just maybe,{Wait 5}\nhe’ll find what he’s looking for."
+  },
+  {
+    id: "0303",
+    text: "{W71H1}{Position 120,30}{Flash}{Speed 2}...{Speed -1}Find what?"
+  },
+  {
+    id: "0304",
+    text: "{W117H1}{Position 90,140}{Flash}A place to call home."
+  },
+  {
+    id: "0305",
+    text: "{W46H1}{Position 120,30}{Flash}Home{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0306",
+    text: "{W156H2}{Position 90,140}{Flash}Yeah{Speed 2}...{Speed -1}{Wait 5}\nA place where he belongs{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0307",
+    text: "{W121H2}{Position 140,30}{Flash}{Speed -1}Hey, {Zidane}{Speed 2}...{Speed -1}\nWhen you said home{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0308",
+    text: "{W105H2}{Position 150,150}{Flash}What’s the matter?{Wait 15}\nCan’t fall asleep?"
+  },
+  {
+    id: "0309",
+    text: "{W174H2}{Position 120,150}{Flash}How about a bedtime story?\nLet’s see{Speed 2}...{Speed -1} Once upon a time{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0310",
+    text: "{W113H2}{Position 140,30}{UpperRightForce}{Offset -200,200,0}{Flash}There you go again,\nteasing me{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0311",
+    text: "{W156H2}{Position 120,150}{LowerLeftForce}{Offset -300,300,0}{Flash}Once upon a time{Speed 2}...{Speed -1}\n{Speed 2}...{Speed -1}there was a man.{NewPage}There was a man who didn’t\nknow where he came from{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0312",
+    text: "{W18H1}{Position 130,30}{UpperRightForce}{Offset -200,200,0}{Widths 0,18,16,-1}{Flash}{Speed 2}...{Speed -1}{Zidane}?"
+  },
+  {
+    id: "0313",
+    text: "{W152H3}{Position 90,160}{Flash}This man had longed to find\nhis birthplace ever since\nhe was a small child."
+  },
+  {
+    id: "0314",
+    text: "{W176H2}{Position 90,160}{Flash}His birthplace.  A place he only\nremembered in his dreams{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0315",
+    text: "{W39H1}{Position 190,20}{Flash}Why{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0316",
+    text: "{W218H3}{Position 80,160}{Flash}He wanted to know more about himself,\nmaybe.  About his parents, the house\nwhere he was born{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0317",
+    text: "{W179H3}{Position 90,150}{Flash}One day, the man left the home\nof his adoptive father and went\non a quest to find the answer."
+  },
+  {
+    id: "0318",
+    text: "{W172H2}{Position 90,160}{Flash}His only clue was the blue light\nhe saw in his dreams{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0319",
+    text: "{W68H1}{Position 190,20}{Flash}A blue light?"
+  },
+  {
+    id: "0320",
+    text: "{W161H3}{Position 80,150}{Flash}Yeah.{Wait 3}  He thought it might be\na memory of his birthplace.\nAn ocean, maybe{Speed 2}...{Speed -1}?"
+  },
+  {
+    id: "0321",
+    text: "{W77H1}{Position 130,30}{Flash}{Speed -1}Did he find it?"
+  },
+  {
+    id: "0322",
+    text: "{W223H2}{Position 70,150}{Flash}{Speed -1}Hey, {Wait 3}you’re jumping ahead.\nA lot of things happened along the way."
+  },
+  {
+    id: "0323",
+    text: "{W161H2}{Position 80,140}{Flash}{Speed -1}Alright, we can skip ahead{Speed 2}...{Speed -1}{Wait 5}\nNo, {Wait 3}he never found it."
+  },
+  {
+    id: "0324",
+    text: "{W186H2}{Position 80,140}{Flash}{Speed -1}How could he?{Wait 5}\nHis only clue was a colored light."
+  },
+  {
+    id: "0325",
+    text: "{W162H2}{Position 80,140}{Flash}{Speed -1}So he went back to the home\nof his adoptive father{Speed 2}...{Speed -1}{Wait 3}"
+  },
+  {
+    id: "0326",
+    text: "{W174H2}{Position 70,120}{Flash}{Speed -1}What do you think his\nfather did when he came home?"
+  },
+  {
+    id: "0327",
+    text: "{W122H1}{Position 120,30}{Flash}{Speed -1}{Speed 2}...{Speed -1}Welcomed him home?"
+  },
+  {
+    id: "0328",
+    text: "{W191H3}{Position 80,140}{Flash}{Speed -1}No way!{NewPage}The father raised\nhis fist and beat the son\nhe had worked so hard to raise{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0329",
+    text: "{W49H1}{UpperRight}{NoFocus}<Wham!>{Time 30}"
+  },
+  {
+    id: "0330",
+    text: "{W43H1}{Offset 50,100,0}{LowerLeft}{NoFocus}<Pow!>{Time 30}"
+  },
+  {
+    id: "0331",
+    text: "{W56H1}{Offset -100,-200,0}{UpperLeftForce}{NoFocus}<Whack!>{Time 30}"
+  },
+  {
+    id: "0332",
+    text: "{W42H1}{Offset 50,100,0}{LowerRight}{NoFocus}<Bam!>{Time 30}"
+  },
+  {
+    id: "0333",
+    text: "{W27H1}{Position 120,30}{Flash}{Speed -1}Why?"
+  },
+  {
+    id: "0334",
+    text: "{W80H1}{Position 110,160}{Flash}{Speed -1}I don’t know{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0335",
+    text: "{W162H2}{Position 120,160}{Flash}{Speed -1}But you know what surprised\nhim even more?"
+  },
+  {
+    id: "0336",
+    text: "{W177H2}{Position 120,160}{Flash}{Speed -1}The father smiled, after\nbeating up his son!{NewPage}Can you believe that?\nHe just gave his son a beating.{NewPage}{Wait 3}But this is what the man thought\nwhen he saw his father smile{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0337",
+    text: "{W158H2}{Position 100,100}{Flash}{Speed -1}This is my home.\nThis is the place I call home."
+  },
+  {
+    id: "0338",
+    text: "{W222H3}{Position 60,100}{Flash}{Speed -1}The man is still looking for his\nbirthplace.  But he already has a home.\nMaybe{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0339",
+    text: "{W211H2}{Position 80,150}{Flash}{Speed -1}{Speed 2}...{Speed -1}it’s the same for {Vivi}.\nHe’s looking for a place to call home."
+  },
+  {
+    id: "0340",
+    text: "{W109H2}{Position 100,20}{Widths 0,85,17,-1}{Flash}{Speed -1}I wonder if {Vivi} will\nstay in this village?"
+  },
+  {
+    id: "0341",
+    text: "{W139H2}{Position 80,150}{Flash}{Speed -1}Who knows{Speed 2}...{Speed -1}\nThat’s for him to decide."
+  },
+  {
+    id: "0342",
+    text: "{W179H2}{UpperLeftForce}Black Mage No. 288\n“Hello.  Nice to see you again.”"
+  },
+  {
+    id: "0343",
+    text: "{W184H3}{UpperRightForce}{Vivi}\n“Um{Speed 2}...{Speed -1}\n I wanted to ask you something.”"
+  },
+  {
+    id: "0344",
+    text: "{W111H2}{UpperLeftForce}Black Mage No. 288\n“What is it?”"
+  },
+  {
+    id: "0345",
+    text: "{W225H3}{UpperRightForce}{Vivi}\n“I was wondering how many people have\n {Speed 2}...{Speed -1}stopped{Speed 2}...{Speed -1}moving.”"
+  },
+  {
+    id: "0346",
+    text: "{W213H2}{UpperLeftForce}Black Mage No. 288\n“You’re very kind to use our words.”"
+  },
+  {
+    id: "0347",
+    text: "{W169H3}{UpperLeftForce}Black Mage No. 288\n“But you already know what\n it means to live{Speed 2}...{Speed -1}{Wait 5}and to die.”"
+  },
+  {
+    id: "0348",
+    text: "{W212H3}{UpperLeftForce}Black Mage No. 288\n“You’re asking about our friends who\n have ‘died,’ not ‘stopped.’”"
+  },
+  {
+    id: "0349",
+    text: "{W40H2}{UpperRightForce}{Widths 0,0,17,-1}{Vivi}\n“Um{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0350",
+    text: "{W174H3}{UpperLeftForce}Black Mage No. 288\n“Seven of our friends stopped\n functioning recently{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0351",
+    text: "{W129H3}{UpperLeftForce}Black Mage No. 288\n“I think our life span is\n limited{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0352",
+    text: "{W200H3}{UpperLeftForce}Black Mage No. 288\n“I’ve suspected this ever since the\n first one came to a stop.”"
+  },
+  {
+    id: "0353",
+    text: "{W186H4}{UpperLeftForce}Black Mage No. 288\n“It varies a little, but\n most of us stop moving one year\n after production.”"
+  },
+  {
+    id: "0354",
+    text: "{W40H2}{UpperRightForce}{Widths 0,0,17,-1}{Vivi}\n“No{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0355",
+    text: "{W225H3}{UpperLeftForce}Black Mage No. 288\n“I haven’t told anyone else about this.\n If I did, they’d feel the same way I do.”"
+  },
+  {
+    id: "0356",
+    text: "{W114H2}{UpperRightForce}{Vivi}\n“What do you feel?”"
+  },
+  {
+    id: "0357",
+    text: "{W186H4}{UpperLeftForce}Black Mage No. 288\n“I don’t know{Speed 2}...{Speed -1} Fear?\n I don’t want to stop.  And maybe\n I want to run away from it all.”"
+  },
+  {
+    id: "0358",
+    text: "{W160H3}{UpperLeftForce}Black Mage No. 288\n“But living in the village with\n everyone fills me with joy.”"
+  },
+  {
+    id: "0359",
+    text: "{W176H3}{UpperLeftForce}Black Mage No. 288\n“The joy of living with them far\n outweighs the fear of death.”"
+  },
+  {
+    id: "0360",
+    text: "{W191H4}{UpperLeftForce}Black Mage No. 288\n“Isn’t it the same for you?\n Traveling with your friends gives\n your life meaning.”"
+  },
+  {
+    id: "0361",
+    text: "{W29H2}{UpperRightForce}{Widths 0,0,17,-1}{Vivi}\n“I{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0362",
+    text: "{W54H2}{Widths 0,0,18,-1}{Dagger}\n“Really?”"
+  },
+  {
+    id: "0363",
+    text: "{W143H3}Black Mage No. 144\n“Yeah, I think that’s what\n you’re looking for.”"
+  },
+  {
+    id: "0364",
+    text: "{W62H1}Thank you!"
+  },
+  {
+    id: "0365",
+    text: "{W81H2}{Widths 0,81,18,-1}{Zidane}\n“What’s up, {Dagger}?”"
+  },
+  {
+    id: "0366",
+    text: "{W203H4}{Dagger}\n“{Zidane}!\n Someone saw a silver dragon in the\n northwest part of this continent.”"
+  },
+  {
+    id: "0367",
+    text: "{W243H4}{Dagger}\n“The people of {Cyan}Conde Petie{White} said there was\n a place called {Cyan}Sanctuary{White}, where\n entrance is restricted{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0368",
+    text: "{W235H3}Black Mage No. 144\n“I think this ‘Kuja’ said something about\n a secret being hidden on this continent.”"
+  },
+  {
+    id: "0369",
+    text: "{W148H2}{Zidane}\n“You heard him say that?”"
+  },
+  {
+    id: "0370",
+    text: "{W202H3}Black Mage No. 144\n“Yeah.  Something about the source\n of the Mist{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0371",
+    text: "{W234H3}{Dagger}\n“Maybe we can find out more if we\n go there.  And maybe save my mother{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0372",
+    text: "{W54H2}{Widths 0,0,16,-1}{Zidane}\n“Right{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0373",
+    text: "{W65H3}{Widths 0,0,18,-1,0,65,17,-1}{Dagger}\n“Oh,\n where’s {Vivi}?”"
+  },
+  {
+    id: "0374",
+    text: "{W180H2}{Widths 0,180,17,-1}{Dagger}\n“If {Vivi} says he’s staying behind{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0375",
+    text: "{W82H2}{Vivi}\n“Wait for me!”"
+  },
+  {
+    id: "0376",
+    text: "{W6H1}{Widths 0,6,17,-1}{Vivi}?"
+  },
+  {
+    id: "0377",
+    text: "{W193H4}{Vivi}\n“Everyone in the village asked me\n to see the outside world and\n tell them all about it.”"
+  },
+  {
+    id: "0378",
+    text: "{W53H2}{Widths 0,0,18,-1}{Dagger}\n“I see{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0379",
+    text: "{W240H3}{Zidane}\n“Oh, man!  I thought {Dagger} and I’d\n get to spend some quality time together.”"
+  },
+  {
+    id: "0380",
+    text: "{W94H2}{Quina}\n“What you say?”"
+  },
+  {
+    id: "0381",
+    text: "{W155H3}{Quina}\n“You no can leave me here.\n I starve.”"
+  },
+  {
+    id: "0382",
+    text: "{W182H2}{Zidane}\n“Oh yeah, I forgot about you{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0383",
+    text: "{W127H2}{Dagger}\n“Let’s go, everyone!”"
+  },
+  {
+    id: "0384",
+    text: "{W191H3}{Dagger}\n“To Conde Petie!  And to\n the {Cyan}Sanctuary{White} that lies beyond!”"
+  },
+  {
+    id: "0385",
+    text: "{W166H3}Black Mage No. 24\n“I don’t like the sun, because\n it makes me hot.”"
+  },
+  {
+    id: "0386",
+    text: "{W182H3}Black Mage No. 24\n“But the light is pretty, isn’t it?\n Especially through the leaves.”"
+  },
+  {
+    id: "0387",
+    text: "{W172H2}{Vivi}\n“{Speed 2}...{Speed -1}Looks like nobody’s here.”"
+  },
+  {
+    id: "0388",
+    text: "{W122H2}{Zidane}\n“Where did they go?”"
+  },
+  {
+    id: "0389",
+    text: "{W158H2}{Vivi}\n“I’m gonna go look around.”"
+  },
+  {
+    id: "0390",
+    text: "{W130H2}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“Where is everyone!?”"
+  },
+  {
+    id: "0391",
+    text: "{W249H4}Black Mage No. 288\n“They went away with Kuja{Speed 2}...{Speed -1}\n Two other guys stayed behind.\n They’re probably at the chocobo shack{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0392",
+    text: "{W157H3}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“Why!?\n Why did they go with him!?”"
+  },
+  {
+    id: "0393",
+    text: "{W203H4}Black Mage No. 288\n“They learned about our lifespan{Speed 2}...{Speed -1}\n We can live only for a given amount\n of time.”"
+  },
+  {
+    id: "0394",
+    text: "{W227H3}Black Mage No. 288\n“Kuja said he knew how to extend our\n life spans, so everyone followed him{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0395",
+    text: "{W99H3}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“He’s lying!\n I bet he’s lying!”"
+  },
+  {
+    id: "0396",
+    text: "{W221H3}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“Look what he’s done to us.  He’s been\n using us, treating us like puppets.”"
+  },
+  {
+    id: "0397",
+    text: "{W177H3}Black Mage No. 288\n“{Speed 2}...{Speed -1}Maybe we are just puppets,\n created to serve humans.”"
+  },
+  {
+    id: "0398",
+    text: "{W165H2}{Zidane}\n“Come on.  That’s nonsense.”"
+  },
+  {
+    id: "0399",
+    text: "{W134H2}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“{Speed 2}...{Speed -1}Where did they go?”"
+  },
+  {
+    id: "0400",
+    text: "{W132H3}Black Mage No. 288\n“{Speed 2}...{Speed -1}I can’t tell you that.\n I can’t betray them.”"
+  },
+  {
+    id: "0401",
+    text: "{W204H2}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“Then why didn’t you go with them?”"
+  },
+  {
+    id: "0402",
+    text: "{W189H3}{LowerLeftForce}{Offset 0,20,0}{Vivi}\n“You said the two other guys are\n in the chocobo shack, right?”"
+  },
+  {
+    id: "0403",
+    text: "{W19H2}{Widths 0,0,16,-1,0,19,17,-1}{Zidane}\n“{Vivi}!”"
+  },
+  {
+    id: "0404",
+    text: "{W147H2}{Vivi}\n“Hello.  Is anyone there?”"
+  },
+  {
+    id: "0405",
+    text: "{W26H2}{Widths 0,0,16,-1,0,26,17,-1}{Zidane}\n“{Vivi}{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0406",
+    text: "{W149H2}{Vivi}\n“Please!  Open the door!”"
+  },
+  {
+    id: "0407",
+    text: "{W64H1}Kweeeeh!!!"
+  },
+  {
+    id: "0408",
+    text: "{W63H1}It’s born!!!"
+  },
+  {
+    id: "0409",
+    text: "{W25H1}Oh{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0410",
+    text: "{W42H2}{Widths 0,0,17,-1}{Vivi}\n“Wait!”"
+  },
+  {
+    id: "0411",
+    text: "{W48H1}{Offset 0,-80,0}Finally{Speed 2}...{Speed -1}"
+  },
+  {
+    id: "0412",
+    text: "{W54H1}{Offset 0,-80,0}Hurray!!!"
+  },
+  {
+    id: "0413",
+    text: "{W143H2}{Offset 0,-80,0}Black Mage No. 111\n“I still can’t believe it{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0414",
+    text: "{W104H2}{Offset 0,-80,0}Black Mage No. 33\n“Yeah{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0415",
+    text: "{W116H3}{Vivi}\n“I don’t understand.\n Why are you here?”"
+  },
+  {
+    id: "0416",
+    text: "{W119H3}{Offset 0,-80,0}Black Mage No. 33\n“We’re here to look\n after the chocobo.”"
+  },
+  {
+    id: "0417",
+    text: "{W246H4}{Offset 0,-80,0}Black Mage No. 111\n“At first, we were gonna go with everyone,\n but someone had to stay behind to look\n after the chocobo egg, so we stayed.”"
+  },
+  {
+    id: "0418",
+    text: "{W185H3}{Offset 0,-80,0}Black Mage No. 33\n“We kept the egg nice and warm\n by putting a lot of hay over it.”"
+  },
+  {
+    id: "0419",
+    text: "{W136H3}{Offset 0,-80,0}Black Mage No. 111\n“I can’t wait to\n show him to everyone.”"
+  },
+  {
+    id: "0420",
+    text: "{W172H2}{Offset 0,-80,0}Black Mage No. 33\n“They’re gonna be so happy.”"
+  },
+  {
+    id: "0421",
+    text: "{W197H2}{Offset 0,-80,0}Black Mage No. 111\n“We have to come up with a name.”"
+  },
+  {
+    id: "0422",
+    text: "{W180H3}{Offset 0,-80,0}Black Mage No. 33\n“Hey{Speed 2}...{Speed -1} What’s happening to me?\n I feel strange{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0423",
+    text: "{W111H2}{Offset 0,-80,0}Black Mage No. 111\n“M-Me, too{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0424",
+    text: "{W229H3}{Offset 0,-90,0}{Vivi}\n“{Speed 2}...{Speed -1}You stayed behind because you were\n worried about the chocobo egg.”"
+  },
+  {
+    id: "0425",
+    text: "{W111H2}{Offset 0,-90,0}Black Mage No. 288\n“{Speed 2}...{Speed -1}I don’t know.”"
+  },
+  {
+    id: "0426",
+    text: "{W205H3}{Offset 0,-90,0}Black Mage No. 288\n“I wanted to follow Kuja\n because I was so scared of dying.”"
+  },
+  {
+    id: "0427",
+    text: "{W210H3}{Offset 0,-90,0}Black Mage No. 288\n“But I couldn’t{Speed 2}...{Speed -1} I felt like I was\n leaving something important behind.”"
+  },
+  {
+    id: "0428",
+    text: "{W165H2}{Offset 0,-90,0}{Flash}{Vivi}\n“I wanna ask you something.”"
+  },
+  {
+    id: "0429",
+    text: "{W111H2}{Offset 0,-90,0}Black Mage No. 288\n“What is it?”"
+  },
+  {
+    id: "0430",
+    text: "{W111H3}{Offset 0,-90,0}{Flash}{Vivi}\n“A-Am I gonna stop\n pretty soon, too?”"
+  },
+  {
+    id: "0431",
+    text: "{W111H2}{Offset 0,-90,0}Black Mage No. 288\n“I don’t know{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0432",
+    text: "{W143H4}{Offset 0,-90,0}Black Mage No. 288\n“Kuja said the prototype\n built before us would\n last longer.”"
+  },
+  {
+    id: "0433",
+    text: "{W102H3}{Offset 0,-90,0}{Vivi}\n“But{Speed 2}...{Speed -1}I am gonna\n stop eventually.”"
+  },
+  {
+    id: "0434",
+    text: "{W139H3}{Offset 0,-90,0}{Vivi}\n“{Speed 2}...{Speed -1}I was really confused\n when my grandpa died.”"
+  },
+  {
+    id: "0435",
+    text: "{W187H3}{Offset 0,-90,0}{Widths 0,179,17,-1}{Vivi}\n“He told me, ‘{Vivi}, no need be sad.’\n So I told myself, I can’t be sad.”"
+  },
+  {
+    id: "0436",
+    text: "{W237H4}{Offset 0,-90,0}{Vivi}\n“That’s why I felt confused again\n when I heard that everyone was stopping\n around here.”"
+  },
+  {
+    id: "0437",
+    text: "{W142H3}{Offset 0,-90,0}{Vivi}\n“I didn’t know what to do\n or what to feel{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0438",
+    text: "{W164H4}{Offset 0,-90,0}{Widths 0,132,18,-1}{Vivi}\n“But when I saw {Dagger} crying\n when her mom died,\n I wasn’t confused anymore.”"
+  },
+  {
+    id: "0439",
+    text: "{W78H2}{Offset 0,-90,0}{Vivi}\n“I was sad{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0440",
+    text: "{W185H3}{Offset 0,-90,0}{Vivi}\n“If I were just a puppet,\n I never would’ve felt that way.”"
+  },
+  {
+    id: "0441",
+    text: "{W111H4}{Offset 0,-90,0}{Vivi}\n“Mr. 288{Speed 2}...{Speed -1}{Wait 5}\n we aren’t puppets.{Wait 5}\n I know we aren’t.”"
+  },
+  {
+    id: "0442",
+    text: "{W68H1}{UpperRightForce}{Offset 0,-90,0}{Speed 2}...{Speed -1}I hate him."
+  },
+  {
+    id: "0443",
+    text: "{W175H4}{Offset 0,-90,0}{Vivi}\n“I hate Kuja!!!{Wait 10}\n He’s turning everyone into\n puppets just to kill people!!!”"
+  },
+  {
+    id: "0444",
+    text: "{W223H3}{Offset 0,-90,0}{Vivi}\n“If it weren’t for him, I know\n everyone would understand someday.”"
+  },
+  {
+    id: "0445",
+    text: "{W91H2}{Offset 0,-90,0}{Vivi}\n“It’s not fair{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0446",
+    text: "{W190H3}{Offset 0,-90,0}Black Mage No. 288\n“{Speed 2}...{Speed -1}Kuja’s secret palace is on the\n eastern side of this continent.”"
+  },
+  {
+    id: "0447",
+    text: "{W187H3}{Offset 0,-90,0}Black Mage No. 288\n“It’s buried under quicksand.\n You’ll need a ship to get there.”"
+  },
+  {
+    id: "0448",
+    text: "{W65H2}{Offset 0,-90,0}{Widths 0,0,17,-1}{Vivi}\n“Thanks{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0449",
+    text: "{W160H3}{Offset 0,-90,0}Black Mage No. 288\n“I hope we can become\n strong like you someday{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0450",
+    text: "{W155H1}{Widths 0,155,17,-1}({Vivi} has so much on his mind{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0451",
+    text: "{W197H1}(Unlike me, he’s fighting so hard{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0452",
+    text: "{W152H2}({Speed 2}...{Speed -1}I thought I would change\n after I met {Zidane}.)"
+  },
+  {
+    id: "0453",
+    text: "{W187H2}({Speed 2}...{Speed -1}Once I acceded to the throne,\n I knew I had to change.)"
+  },
+  {
+    id: "0454",
+    text: "{W158H2}(But nothing has changed{Speed 2}...{Speed -1}!\n I’m so helpless{Speed 2}...{Speed -1})"
+  },
+  {
+    id: "0455",
+    text: "{W49H2}{Widths 0,0,22,-1}{Eiko}\n“Wow{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0456",
+    text: "{W157H2}{Widths 0,157,18,-1}{Eiko}\n“{Dagger}, were you listening, too?”"
+  },
+  {
+    id: "0457",
+    text: "{W169H3}{Eiko}\n“That crybaby sure has come\n a long way, don’t you think?”"
+  },
+  {
+    id: "0458",
+    text: "{W20H2}{Widths 0,0,22,-1,0,20,18,-1}{Eiko}\n“{Dagger}?”"
+  },
+  {
+    id: "0459",
+    text: "{W105H2}{Eiko}\n“Are you alright?”"
+  },
+  {
+    id: "0460",
+    text: "{W197H4}{Widths 0,174,17,-1}{Eiko}\n“{Speed 2}...{Speed -1}Don’t worry too much.  {Vivi} has\n his own way of dealing with things,\n and you have yours.”"
+  },
+  {
+    id: "0461",
+    text: "{W190H4}{Eiko}\n“Come on, cheer up!\n We’ll beat up Kuja, and you’ll get\n your voice back in no time.”"
+  },
+  {
+    id: "0462",
+    text: "{W18H2}{Widths 0,0,22,-1,0,18,16,-1}{Eiko}\n“{Zidane}.”"
+  },
+  {
+    id: "0463",
+    text: "{W125H2}{Zidane}\n“Is something wrong?”"
+  },
+  {
+    id: "0464",
+    text: "{W100H3}{Zidane}\n“Okay.\n Let’s get going.”"
+  },
+  {
+    id: "0465",
+    text: "{W184H3}{Vivi}\n“Mr. 288 said Kuja’s palace is\n buried under quicksand, right?”"
+  },
+  {
+    id: "0466",
+    text: "{W254H3}{Zidane}\n“Yeah.  We’re taking the ship to the\n eastern side of the continent to get there.”"
+  },
+  {
+    id: "0467",
+    text: "{W111H2}Black Mage No. 111\n“Look at him{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0468",
+    text: "{W104H2}Black Mage No. 33\n“He’s so cute.”"
+  },
+  {
+    id: "0469",
+    text: "{W160H2}Black Mage No. 24\n“I’m glad to be back, but{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0470",
+    text: "{W172H3}Black Mage No. 24\n“The sun looks different to me\n somehow{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0471",
+    text: "{W111H2}Black Mage No. 239\n“{Speed 2}...{Speed -1}Welcome.”"
+  },
+  {
+    id: "0472",
+    text: "{W244H4}Black Mage No. 78\n“I never knew weapons were used to hurt\n people.  But we have magic.  Why would we\n need weapons?”"
+  },
+  {
+    id: "0473",
+    text: "{W241H4}Black Mage No. 55\n“Do you think weapons will disappear when\n everyone is happy?  Does that mean\n we won’t need magic, either?”"
+  },
+  {
+    id: "0474",
+    text: "{W111H2}Black Mage No. 192\n“{Speed 2}...{Speed -1}Welcome.”"
+  },
+  {
+    id: "0475",
+    text: "{W111H5}{UpperRightForce}{PreChooseMask 3,2}{Widths 2,116,-1}{Instantly}Black Mage No. 163\n“{Speed 2}...{Speed -1}Welcome.”\n{Choice}Buy/Sell\n{Tab}Give me the usual\n{Tab}Cancel"
+  },
+  {
+    id: "0476",
+    text: "{W212H3}{UpperRightForce}Black Mage No. 55\n“I wonder how long we can look after\n this chocobo shack{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0477",
+    text: "{W242H4}Black Mage No. 44\n“They{Speed 2}...{Speed -1} They made me pilot an airship{Speed 2}...{Speed -1}\n I felt horrible{Speed 2}...{Speed -1} It reminded me of the\n time they carried me on the cargo ship{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0478",
+    text: "{W230H5}{Speed 64}    \n    The Gift of Magical Music for You...    \n            \n                by Music House"
+  },
+  {
+    id: "0479",
+    text: "{W153H4}{PreChoose 2,1}{Instantly}Black Mage No. 234\n“Oh{Speed 2}...{Speed -1} Will you be staying?”\n{Choice}Yes\n{Tab}No"
+  },
+  {
+    id: "0480",
+    text: "{W229H3}Black Mage No. 123\n“I wonder why I feel the need to listen\n to music if I’m going to stop someday{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0481",
+    text: "{W241H4}{LowerLeftForce}Black Mage No. 56\n“The fear of death made me run away\n from this village, but in the end, I realized\n that this is my favorite place{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0482",
+    text: "{W261H2}Black Mage No. 288\n“We’re all perplexed about what happened{Speed 2}...{Speed -1}”"
+  },
+  {
+    id: "0483",
+    text: "{W164H3}Black Mage No. 288\n“But life goes on, even while\n we try to make sense of it.”"
+  }
+]
