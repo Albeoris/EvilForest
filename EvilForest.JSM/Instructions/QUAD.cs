@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EvilForest.Resources;
+using FF8.JSM.Format;
 
 namespace FF8.JSM.Instructions
 {
@@ -13,7 +15,7 @@ namespace FF8.JSM.Instructions
     /// Negative args: -1
     /// QUAD = 0x29
     /// </summary>
-    internal sealed class QUAD : JsmInstruction
+    internal sealed class QUAD : JsmInstruction, INameProvider
     {
         public Vertex[] Vertices { get; }
 
@@ -55,6 +57,12 @@ namespace FF8.JSM.Instructions
             }
 
             public override String ToString() => $"({X}, {Z})";
+        }
+        
+        Boolean INameProvider.TryGetDisplayName(IScriptFormatterContext formatterContext, out String displayName)
+        {
+            displayName = "Area";
+            return true;
         }
     }
 }

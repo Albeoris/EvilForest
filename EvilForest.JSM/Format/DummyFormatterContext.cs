@@ -13,12 +13,7 @@
         }
 
         public static IScriptFormatterContext Instance { get; } = new DummyFormatterContext();
-
-        public String GetObjectName(Int32 id, EVScript[] scripts)
-        {
-            return $"ObjectId_{id:D2}";
-        }
-
+        
         public String GetScriptName(DBScriptName.Id id)
         {
             return $"Script_{(Int32)id:D2}";

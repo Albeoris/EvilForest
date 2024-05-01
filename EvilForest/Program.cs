@@ -42,7 +42,7 @@ namespace EvilForest
                 for (int i = 0; i < objects.Length; i++)
                 {
                     EVObject obj = objects[i];
-                    String typeName = context.GetObjectName(obj.Id, obj.Scripts);
+                    String typeName = obj.GetObjectName(context);
                     String fileName = Path.Combine(directory, $"{obj.Id:D2}_{typeName}.cs");
                     
                     obj.FormatType(sw, typeName, context, StatelessServices.Instance);
@@ -126,20 +126,6 @@ namespace EvilForest
             public FormatterContext(DBEvent evt)
             {
                 Event = evt;
-            }
-
-            public String GetObjectName(Int32 id, EVScript[] scripts)
-            {
-                foreach (EVScript script in scripts)
-                {
-                    if (script.Id == 0) // Init
-                    {
-                        foreach (INameProvider instruction in script.Segment.EnumerateNameProviders())
-                            return $"{instruction.GetAsciiName(this)}";
-                    }
-                }
-
-                return $"ObjectId_{id:D2}";
             }
 
             public String GetScriptName(DBScriptName.Id id)

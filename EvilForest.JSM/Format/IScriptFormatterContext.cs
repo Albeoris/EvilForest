@@ -8,7 +8,6 @@
     {
         DBEvent Event { get; }
         
-        String GetObjectName(Int32 id, EVScript[] scripts);
         String GetScriptName(DBScriptName.Id id);
         String GetMessage(DBFieldMessage.Id messageIndex);
         DBModel GetModel(DBModel.Id modelId);

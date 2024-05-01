@@ -53,9 +53,10 @@ namespace FF8.JSM.Instructions
             return $"{nameof(MODEL)}({nameof(_modelId)}: {_modelId}, {nameof(_height)}: {_height})";
         }
 
-        String INameProvider.GetDisplayName(IScriptFormatterContext formatterContext)
+        Boolean INameProvider.TryGetDisplayName(IScriptFormatterContext formatterContext, out String displayName)
         {
-            return formatterContext.GetModel((DBModel.Id) _modelId.Int32()).DisplayName;
+            displayName = formatterContext.GetModel((DBModel.Id) _modelId.Int32()).DisplayName;
+            return true;
         }
     }
 }

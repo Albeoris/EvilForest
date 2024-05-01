@@ -313,7 +313,19 @@ using Memoria.EventEngine.EV;
 
     public interface INameProvider
     {
-        public String GetDisplayName(IScriptFormatterContext formatterContext);
-        public String GetAsciiName(IScriptFormatterContext formatterContext) => new String(GetDisplayName(formatterContext).Where(Char.IsLetterOrDigit).ToArray());
+        public Boolean TryGetDisplayName(IScriptFormatterContext formatterContext, out String displayName);
+        
+        public Boolean TryGetAsciiName(IScriptFormatterContext formatterContext, out String displayName)
+        {
+            if (TryGetDisplayName(formatterContext, out displayName))
+            {
+                displayName = new String(displayName.Where(Char.IsLetterOrDigit).ToArray());
+                return true;
+            }
+
+            displayName = default;
+            return false;
+
+        }
     }
 }

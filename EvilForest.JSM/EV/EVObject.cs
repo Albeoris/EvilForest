@@ -2,6 +2,7 @@
 using System.Linq;
 using FF8.Core;
 using FF8.JSM.Format;
+using FF8.JSM.Instructions;
 
 namespace Memoria.EventEngine.EV
 {
@@ -18,6 +19,32 @@ namespace Memoria.EventEngine.EV
             VariableCount = variableCount;
             Flags = flags;
             Scripts = scripts;
+        }
+
+        public String GetObjectName(IScriptFormatterContext context)
+        {
+            foreach (EVScript script in Scripts)
+            {
+                if (script.Id == 0)
+                {
+                    foreach (INameProvider instruction in script.Segment.EnumerateNameProviders())
+                    {
+                        if (instruction.TryGetAsciiName(context, out String displayName))
+                            return $"{displayName}_{Id:D2}";
+                    }
+                }
+
+                if (Id != 0 && script.Id == 1) // OnLoop
+                {
+                    foreach (IJsmInstruction instruction in script.Segment.EnumerateAllInstruction())
+                    {
+                        if (instruction is BGLCOLOR)
+                            return $"Background_{Id:D2}";
+                    }
+                }
+            }
+
+            return $"ObjectId_{Id:D2}";
         }
 
         public void FormatType(ScriptWriter sw, String typeName, IScriptFormatterContext formatterContext, IServices executionContext)
