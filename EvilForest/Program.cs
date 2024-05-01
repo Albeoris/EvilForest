@@ -57,8 +57,9 @@ namespace EvilForest
                 String eventType = sw.Release();
                 File.WriteAllText(eventFile, eventType);
 
-                 if ((Int32) id == 50)
-                     break;
+                // TODO: For tests, if you need to export only the first field (Cargo)
+                // if ((Int32) id == 50) 
+                //     break;
             }
 
             String systemType = sw.Release();
