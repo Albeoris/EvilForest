@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Albeoris.Framework" Version="1.1.6" />
+      <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.10.0-3.final" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EvilForest.JSM\EvilForest.JSM.csproj" />
+    </ItemGroup>
+
+</Project>

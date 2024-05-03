@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvilForest.JSM", "EvilFores
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvilForest.Resources", "EvilForest.Resources\EvilForest.Resources.csproj", "{4C782414-2E47-4D9F-9154-1FF6A0AEE637}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EveilForest.CSharp", "EveilForest.CSharp\EveilForest.CSharp.csproj", "{6F783F7E-DF08-49B0-9299-B762901C6779}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{4C782414-2E47-4D9F-9154-1FF6A0AEE637}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C782414-2E47-4D9F-9154-1FF6A0AEE637}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C782414-2E47-4D9F-9154-1FF6A0AEE637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F783F7E-DF08-49B0-9299-B762901C6779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F783F7E-DF08-49B0-9299-B762901C6779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F783F7E-DF08-49B0-9299-B762901C6779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F783F7E-DF08-49B0-9299-B762901C6779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
