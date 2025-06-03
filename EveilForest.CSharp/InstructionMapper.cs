@@ -12,6 +12,19 @@ namespace EveilForest.CSharp
             ["Messages.ShowAndWait"] = Jsm.Opcode.MES,
             ["Messages.Show"] = Jsm.Opcode.MESN,
             ["Messages.Wait"] = Jsm.Opcode.WAITMES,
+            
+            // Character/Actor service mappings (examples)
+            ["Actor.Move"] = Jsm.Opcode.MOVE,
+            ["Actor.Turn"] = Jsm.Opcode.TURN,
+            ["Actor.Wait"] = Jsm.Opcode.WAIT,
+            ["Actor.Stop"] = Jsm.Opcode.STOP,
+            ["Actor.Sleep"] = Jsm.Opcode.ASLEEP,
+            
+            // System service mappings
+            ["System.Jump"] = Jsm.Opcode.JMP,
+            ["System.Return"] = Jsm.Opcode.Return,
+            
+            // Add more mappings as needed for other common instructions
         };
 
         public static bool TryGetOpcode(string serviceName, string methodName, out Jsm.Opcode opcode)
@@ -40,6 +53,30 @@ namespace EveilForest.CSharp
                 {
                     new ArgumentInfo("windowId", ArgumentType.Byte)
                 },
+                Jsm.Opcode.MOVE => new[]
+                {
+                    new ArgumentInfo("x", ArgumentType.Int16),
+                    new ArgumentInfo("y", ArgumentType.Int16),
+                    new ArgumentInfo("z", ArgumentType.Int16)
+                },
+                Jsm.Opcode.TURN => new[]
+                {
+                    new ArgumentInfo("direction", ArgumentType.Byte)
+                },
+                Jsm.Opcode.WAIT => new[]
+                {
+                    new ArgumentInfo("frames", ArgumentType.Byte)
+                },
+                Jsm.Opcode.STOP => Array.Empty<ArgumentInfo>(),
+                Jsm.Opcode.ASLEEP => new[]
+                {
+                    new ArgumentInfo("frames", ArgumentType.Byte)
+                },
+                Jsm.Opcode.JMP => new[]
+                {
+                    new ArgumentInfo("offset", ArgumentType.Int16)
+                },
+                Jsm.Opcode.Return => Array.Empty<ArgumentInfo>(),
                 _ => throw new NotSupportedException($"Opcode {opcode} is not supported for compilation")
             };
         }

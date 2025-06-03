@@ -214,6 +214,15 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   "mes" => "Messages",
                   "system" => "System", 
                   "variables" => "Variables",
+                  "actor" => "Actor",
+                  "player" => "Actor", // player is often an alias for actor
+                  "character" => "Actor",
+                  "sound" => "Sound",
+                  "music" => "Music",
+                  "bg" => "Background",
+                  "background" => "Background",
+                  "camera" => "Camera",
+                  "field" => "Field",
                   _ => char.ToUpper(name[0]) + name.Substring(1) // Capitalize first letter
               };
           }
