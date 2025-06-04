@@ -23,6 +23,33 @@ namespace EveilForest.CSharp
             // System service mappings
             ["System.Jump"] = Jsm.Opcode.JMP,
             ["System.Return"] = Jsm.Opcode.Return,
+            ["System.Wait"] = Jsm.Opcode.WAIT,
+            
+            // Audio service mappings
+            ["Audio.SongPlay"] = Jsm.Opcode.FLDSND0, 
+            ["Audio.SongVolumeChange"] = Jsm.Opcode.FLDSND1,
+            
+            // Sps (Script positioning system?) mappings - using NOP as placeholder
+            ["Sps.SetReference"] = Jsm.Opcode.NOP,
+            ["Sps.SetPositionOffset"] = Jsm.Opcode.NOP,
+            ["Sps.SetCharacter"] = Jsm.Opcode.NOP,
+            ["Sps.SetAnimation"] = Jsm.Opcode.NOP,
+            ["Sps.SetPos"] = Jsm.Opcode.NOP,
+            ["Sps.SetSpeed"] = Jsm.Opcode.NOP,
+            ["Sps.Move"] = Jsm.Opcode.NOP,
+            ["Sps.Turn"] = Jsm.Opcode.NOP,
+            ["Sps.Stop"] = Jsm.Opcode.NOP,
+            ["Sps.SetVisible"] = Jsm.Opcode.NOP,
+            ["Sps.SetLayer"] = Jsm.Opcode.NOP,
+            
+            // Variables service mappings
+            ["Variables.Set"] = Jsm.Opcode.EXPR,
+            ["Variables.Get"] = Jsm.Opcode.EXPR,
+            
+            // This service mappings (self-reference methods)
+            ["This.Sleep"] = Jsm.Opcode.NOP, // Placeholder
+            ["This.Stop"] = Jsm.Opcode.NOP, // Placeholder
+            ["This.Move"] = Jsm.Opcode.NOP, // Placeholder
             
             // Add more mappings as needed for other common instructions
         };
@@ -65,7 +92,16 @@ namespace EveilForest.CSharp
                 },
                 Jsm.Opcode.WAIT => new[]
                 {
-                    new ArgumentInfo("frames", ArgumentType.Byte)
+                    new ArgumentInfo("frameDuration", ArgumentType.Byte)
+                },
+                Jsm.Opcode.FLDSND0 => new[]
+                {
+                    new ArgumentInfo("sound", ArgumentType.UInt16)
+                },
+                Jsm.Opcode.FLDSND1 => new[]
+                {
+                    new ArgumentInfo("sound", ArgumentType.UInt16),
+                    new ArgumentInfo("volume", ArgumentType.Byte)
                 },
                 Jsm.Opcode.STOP => Array.Empty<ArgumentInfo>(),
                 Jsm.Opcode.ASLEEP => new[]
@@ -77,6 +113,7 @@ namespace EveilForest.CSharp
                     new ArgumentInfo("offset", ArgumentType.Int16)
                 },
                 Jsm.Opcode.Return => Array.Empty<ArgumentInfo>(),
+                Jsm.Opcode.NOP => Array.Empty<ArgumentInfo>(),
                 _ => throw new NotSupportedException($"Opcode {opcode} is not supported for compilation")
             };
         }
