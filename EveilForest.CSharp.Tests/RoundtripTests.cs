@@ -36,12 +36,36 @@ public class RoundtripTests : IDisposable
         // Step 1: Read original .eb.bytes file and convert to C# files
         EVObject[] originalObjects = ConvertEbBytesToCSharpFiles(testDataFile);
         
+        // Debug: Print first few instructions
+        if (originalObjects.Length > 0 && originalObjects[0].Scripts.Length > 0)
+        {
+            var instructions = originalObjects[0].Scripts[0].Segment.EnumerateAllInstruction().ToArray();
+            Console.WriteLine($"\nOriginal first script has {instructions.Length} instructions:");
+            for (int i = 0; i < Math.Min(5, instructions.Length); i++)
+            {
+                var instr = instructions[i];
+                Console.WriteLine($"[{i}] = {{{instr.GetType().Name}}} {instr}");
+            }
+        }
+        
         // Verify files were generated
         var generatedFiles = Directory.GetFiles(_testDirectory, "*.cs");
         Assert.Equal(originalObjects.Length, generatedFiles.Length);
         
         // Step 2: Compile the C# files back to EVObjects
         EVObject[] recompiledObjects = _compiler.CompileDirectory(_testDirectory);
+        
+        // Debug: Print recompiled instructions
+        if (recompiledObjects.Length > 0 && recompiledObjects[0].Scripts.Length > 0)
+        {
+            var instructions = recompiledObjects[0].Scripts[0].Segment.EnumerateAllInstruction().ToArray();
+            Console.WriteLine($"\nRecompiled first script has {instructions.Length} instructions:");
+            for (int i = 0; i < Math.Min(5, instructions.Length); i++)
+            {
+                var instr = instructions[i];
+                Console.WriteLine($"[{i}] = {{{instr.GetType().Name}}} {instr}");
+            }
+        }
         
         // Step 3: Write recompiled objects to a new .eb.bytes file
         string recompiledFile = Path.Combine(_testDirectory, "recompiled.eb.bytes");
