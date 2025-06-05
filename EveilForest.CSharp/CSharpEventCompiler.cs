@@ -439,20 +439,71 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
      private static void ProcessWhileLoop(WhileStatementSyntax whileStatement, List<IJsmInstruction> instructions)
      {
-          // Skip while loops for now - they require complex control flow logic
-          Console.WriteLine($"Warning: While loop skipped in new instruction mode");
+          // For now, process while loops by extracting their body statements and processing them directly
+          // This won't preserve the loop logic but will extract the instructions contained within
+          // TODO: Implement proper loop jump logic
+          
+          Console.WriteLine($"Warning: While loop simplified - processing body without loop logic");
+          
+          if (whileStatement.Statement is BlockSyntax block)
+          {
+              foreach (var statement in block.Statements)
+              {
+                  ProcessStatement(statement, instructions);
+              }
+          }
+          else
+          {
+              ProcessStatement(whileStatement.Statement, instructions);
+          }
      }
 
      private static void ProcessIfStatement(IfStatementSyntax ifStatement, List<IJsmInstruction> instructions)
      {
-          // Skip if statements for now - they require complex control flow logic
-          Console.WriteLine($"Warning: If statement skipped in new instruction mode");
+          // For now, process if statements by extracting their body statements and processing them directly
+          // This won't preserve the conditional logic but will extract the instructions contained within
+          // TODO: Implement proper conditional jump (JMP_IF) support
+          
+          Console.WriteLine($"Warning: If statement simplified - processing body without conditional logic");
+          
+          if (ifStatement.Statement is BlockSyntax block)
+          {
+              foreach (var statement in block.Statements)
+              {
+                  ProcessStatement(statement, instructions);
+              }
+          }
+          else
+          {
+              ProcessStatement(ifStatement.Statement, instructions);
+          }
+          
+          // Also process else clause if present
+          if (ifStatement.Else != null)
+          {
+              ProcessStatement(ifStatement.Else.Statement, instructions);
+          }
      }
 
      private static void ProcessSwitchStatement(SwitchStatementSyntax switchStatement, List<IJsmInstruction> instructions)
      {
-          // Skip switch statements for now - they require complex control flow logic
-          Console.WriteLine($"Warning: Switch statement skipped in new instruction mode");
+          // For now, process switch statements by extracting all case statements and processing them directly
+          // This won't preserve the switch logic but will extract the instructions contained within
+          // TODO: Implement proper switch/case jump logic
+          
+          Console.WriteLine($"Warning: Switch statement simplified - processing all cases without switch logic");
+          
+          foreach (var section in switchStatement.Sections)
+          {
+              foreach (var statement in section.Statements)
+              {
+                  // Skip break statements as they don't correspond to JSM instructions
+                  if (statement is BreakStatementSyntax)
+                      continue;
+                      
+                  ProcessStatement(statement, instructions);
+              }
+          }
      }
 
      private static void ProcessInvocation(InvocationExpressionSyntax invocation, List<IJsmInstruction> instructions)
