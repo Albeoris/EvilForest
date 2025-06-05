@@ -712,14 +712,14 @@ public sealed class CSharpEventCompiler : IEventCompiler
           {
               var leftSide = assignment.Left.ToString();
               
-              // Only process assignments to event object variables that look like they 
-              // correspond to actual JSM SET instructions
-              if (leftSide.StartsWith("@evt.") && (leftSide.Contains("Byte_") || leftSide.Contains("Int16_") || leftSide.Contains("UInt16_") || leftSide.Contains("Int32_")))
+              // Process assignments to event object variables AND global variables
+              if ((leftSide.StartsWith("@evt.") || leftSide.StartsWith("@var.")) && 
+                  (leftSide.Contains("Byte_") || leftSide.Contains("Int16_") || leftSide.Contains("UInt16_") || leftSide.Contains("Int32_")))
               {
                   var rightValue = ExtractConstantValue(assignment.Right);
                   
-                  // Only process assignments with literal values - skip complex expressions
-                  if (IsLiteralValue(rightValue))
+                  // Process assignments with literal values and simple boolean values
+                  if (IsLiteralValue(rightValue) || rightValue is bool)
                   {
                       // Create proper Let instruction
                       var variableExpression = CreateVariableExpression(leftSide);
@@ -878,9 +878,17 @@ public sealed class CSharpEventCompiler : IEventCompiler
           {
               return new Jsm.Expression.ValueExpression(longValue, Jsm.Expression.VariableType.Int24);
           }
+          else if (value is bool boolValue)
+          {
+              return new Jsm.Expression.ValueExpression(boolValue ? 1 : 0, Jsm.Expression.VariableType.Byte);
+          }
           else if (value is string stringValue && int.TryParse(stringValue, out int parsedValue))
           {
               return new Jsm.Expression.ValueExpression(parsedValue, Jsm.Expression.VariableType.Int24);
+          }
+          else if (value is string stringValue2 && bool.TryParse(stringValue2, out bool parsedBool))
+          {
+              return new Jsm.Expression.ValueExpression(parsedBool ? 1 : 0, Jsm.Expression.VariableType.Byte);
           }
           else
           {
