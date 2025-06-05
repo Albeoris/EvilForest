@@ -236,7 +236,11 @@ public sealed class CSharpEventCompiler : IEventCompiler
           }
 
           // Add return instruction at the end if not already present
-          instructions.Add(new SimpleReturnInstruction());
+          var returnInstruction = CreateJsmInstruction(Jsm.Opcode.Return, "System", "Return", new Dictionary<string, object>());
+          if (returnInstruction != null)
+          {
+              instructions.Add(returnInstruction);
+          }
 
           // Create a proper executable segment from the instructions
           var segment = CreateExecutableSegmentFromInstructions(instructions);
@@ -261,7 +265,11 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   
               case YieldStatementSyntax yieldStatement when yieldStatement.ReturnOrBreakKeyword.IsKind(SyntaxKind.BreakKeyword):
                   // yield break; -> Return instruction
-                  instructions.Add(new SimpleReturnInstruction());
+                  var returnInstruction = CreateJsmInstruction(Jsm.Opcode.Return, "System", "Return", new Dictionary<string, object>());
+                  if (returnInstruction != null)
+                  {
+                      instructions.Add(returnInstruction);
+                  }
                   break;
                   
               case WhileStatementSyntax whileStatement:
@@ -1527,19 +1535,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
 
 
-     // Simple Return instruction implementation
-     private sealed class SimpleReturnInstruction : IJsmInstruction
-     {
-          public override string ToString()
-          {
-              return "yield break;";
-          }
-          
-          public void Format(ScriptWriter sw, IScriptFormatterContext formatterContext, IServices services)
-          {
-              sw.AppendLine("yield break;");
-          }
-     }
+
 
      private static IJsmInstruction CreateJsmInstruction(Jsm.Opcode opcode, string serviceName, string methodName, Dictionary<string, object> actualArgs)
      {
