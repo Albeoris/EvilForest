@@ -29,6 +29,9 @@ public sealed class CSharpEventCompiler : IEventCompiler
                objects.Add(evObject);
           }
 
+          // Sort objects by ID to maintain consistent ordering
+          objects.Sort((a, b) => a.Id.CompareTo(b.Id));
+
           return objects.ToArray();
      }
 
@@ -49,24 +52,67 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
      private static Byte ParseVariables(CompilationUnitSyntax root)
      {
-          // Count class-level fields/properties to determine variable count
-          var classes = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
-          int variableCount = 0;
+          // Analyze the C# code to determine the original variable count by looking at
+          // public properties that represent object variables (like Int32_0, Byte_1, etc.)
+          // and also @evt variable access patterns
           
+          var variableIndexes = new HashSet<int>();
+          
+          // Find public properties that represent object variables
+          var classes = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
           foreach (var classDecl in classes)
           {
-              var fields = classDecl.Members.OfType<FieldDeclarationSyntax>();
-              foreach (var field in fields)
-              {
-                  // Count each variable declared in the field
-                  variableCount += field.Declaration.Variables.Count;
-              }
+              var properties = classDecl.Members.OfType<PropertyDeclarationSyntax>()
+                  .Where(p => p.Modifiers.Any(SyntaxKind.PublicKeyword));
               
-              var properties = classDecl.Members.OfType<PropertyDeclarationSyntax>();
-              variableCount += properties.Count();
+              foreach (var property in properties)
+              {
+                  var propName = property.Identifier.ValueText;
+                  if (TryExtractVariableIndex(propName, out int index))
+                  {
+                      variableIndexes.Add(index);
+                  }
+              }
           }
           
-          return (byte)Math.Min(variableCount, 255);
+          // Also look for @evt variable access patterns like @evt.Byte_18[1]
+          var memberAccesses = root.DescendantNodes()
+              .OfType<MemberAccessExpressionSyntax>()
+              .Where(ma => ma.Expression is IdentifierNameSyntax id && id.Identifier.ValueText == "@evt");
+          
+          foreach (var memberAccess in memberAccesses)
+          {
+              var memberName = memberAccess.Name.Identifier.ValueText;
+              if (TryExtractVariableIndex(memberName, out int index))
+              {
+                  variableIndexes.Add(index);
+              }
+          }
+          
+          // The variable count is the highest index + 1 (since variables are 0-indexed)
+          return variableIndexes.Count > 0 ? (byte)(variableIndexes.Max() + 1) : (byte)0;
+     }
+     
+     private static bool TryExtractVariableIndex(string memberName, out int index)
+     {
+          index = 0;
+          
+          // Check for patterns like Byte_X, SByte_X, UInt16_X, UInt32_X, Int32_X
+          var patterns = new[] { "Byte_", "SByte_", "UInt16_", "UInt32_", "Int32_" };
+          
+          foreach (var pattern in patterns)
+          {
+              if (memberName.StartsWith(pattern))
+              {
+                  var indexPart = memberName.Substring(pattern.Length);
+                  if (int.TryParse(indexPart, out index))
+                  {
+                      return true;
+                  }
+              }
+          }
+          
+          return false;
      }
 
      private static EVScript[] ParseScripts(CompilationUnitSyntax root)
