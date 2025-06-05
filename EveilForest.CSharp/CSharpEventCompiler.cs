@@ -464,13 +464,24 @@ public sealed class CSharpEventCompiler : IEventCompiler
           Console.WriteLine($"Processing if statement with condition: {ifStatement.Condition}");
           
           // For now, let's try to create a JMP_IF instruction for simple conditions
+          BinaryExpressionSyntax? binaryCondition = null;
+          
           if (ifStatement.Condition is ParenthesizedExpressionSyntax parenthesized &&
               parenthesized.Expression is BinaryExpressionSyntax binary)
+          {
+              binaryCondition = binary;
+          }
+          else if (ifStatement.Condition is BinaryExpressionSyntax directBinary)
+          {
+              binaryCondition = directBinary;
+          }
+          
+          if (binaryCondition != null)
           {
               try
               {
                   // Try to create a JMP_IF instruction
-                  var jmpIfInstruction = CreateJmpIfInstruction(binary);
+                  var jmpIfInstruction = CreateJmpIfInstruction(binaryCondition);
                   if (jmpIfInstruction != null)
                   {
                       instructions.Add(jmpIfInstruction);
@@ -478,7 +489,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
               }
               catch (Exception ex)
               {
-                  Console.WriteLine($"Warning: Failed to create JMP_IF for condition {binary}: {ex.Message}");
+                  Console.WriteLine($"Warning: Failed to create JMP_IF for condition {binaryCondition}: {ex.Message}");
               }
           }
           
@@ -504,57 +515,87 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
      private static IJsmInstruction? CreateJmpIfInstruction(BinaryExpressionSyntax binary)
      {
-          // Create a JMP_IF instruction from a binary expression like (@var.Byte_23[0] == true)
+          // Create a JMP_IF instruction from a binary expression like (@var.Byte_23[0] == 1)
           
-          var leftSide = binary.Left.ToString();
-          var rightValue = ExtractConstantValue(binary.Right);
-          var operatorKind = binary.OperatorToken.Kind();
-          
-          // Convert boolean values
-          if (rightValue is bool boolValue)
-          {
-              rightValue = boolValue ? 1 : 0;
-          }
-          
-          // For now, create a simple JMP_IF instruction using basic bytecode generation
           try
           {
+              // Extract the variable and value from the binary expression
+              var leftVariableExpression = CreateVariableExpression(binary.Left.ToString());
+              var rightValue = ExtractConstantValue(binary.Right);
+              var operatorKind = binary.OperatorToken.Kind();
+              
+              // Convert boolean values to numbers
+              if (rightValue is bool boolValue)
+              {
+                  rightValue = boolValue ? 1 : 0;
+              }
+              
+              // Create the value expression for the right side
+              var rightValueExpression = CreateValueExpression(rightValue);
+              
+              // Create a comparison expression using the evaluator pattern
+              var evaluatorStack = new MockStack();
+              evaluatorStack.Push(leftVariableExpression);  // Push left operand first
+              evaluatorStack.Push(rightValueExpression);    // Push right operand second
+              
+              // Create a fake evaluator that will create our comparison
               var bytecode = new List<byte>();
-              
-              // JMP_IF typically needs:
-              // 1. Jump target (we'll use a placeholder for now)
-              // 2. Condition data
-              
-              // Add placeholder jump index
-              bytecode.Add(5); // Placeholder jump index
-              
-              // Add condition type and operands
-              if (operatorKind == SyntaxKind.EqualsEqualsToken)
-              {
-                  // Add equality comparison data
-                  bytecode.Add(1); // Comparison type: equality
-              }
-              else
-              {
-                  bytecode.Add(0); // Generic comparison
-              }
-              
-              // Add the right side value
-              if (rightValue is int intValue)
-              {
-                  bytecode.Add((byte)intValue);
-              }
-              else
-              {
-                  bytecode.Add(0);
-              }
-              
-              // Create the instruction using the JSM factory
+              bytecode.AddRange(BitConverter.GetBytes((short)5)); // Placeholder jump offset
               var segment = new Albeoris.Framework.Collections.ByteSegment(bytecode.ToArray());
               var maker = new EVScriptMaker(segment);
-              var stack = new MockStack();
+              var evaluator = new JsmExpressionEvaluator(maker, evaluatorStack, StatelessServices.Instance);
               
-              var instruction = JsmInstruction.TryMake(Jsm.Opcode.JMP_IF, maker, stack);
+              // Create the comparison based on the operator type
+              switch (operatorKind)
+              {
+                  case SyntaxKind.EqualsEqualsToken:
+                      Jsm.Expression.Comparison.Equal(evaluator);
+                      break;
+                  case SyntaxKind.ExclamationEqualsToken:
+                      Jsm.Expression.Comparison.NotEqual(evaluator);
+                      break;
+                  case SyntaxKind.LessThanToken:
+                      Jsm.Expression.Comparison.LessStrict(evaluator);
+                      break;
+                  case SyntaxKind.LessThanEqualsToken:
+                      Jsm.Expression.Comparison.LessOrEqual(evaluator);
+                      break;
+                  case SyntaxKind.GreaterThanToken:
+                      Jsm.Expression.Comparison.GreatStrict(evaluator);
+                      break;
+                  case SyntaxKind.GreaterThanEqualsToken:
+                      Jsm.Expression.Comparison.GreatOrEqual(evaluator);
+                      break;
+                  default:
+                      Console.WriteLine($"Warning: Unsupported comparison operator {operatorKind}, defaulting to equality");
+                      Jsm.Expression.Comparison.Equal(evaluator);
+                      break;
+              }
+              
+              // Now the comparison expression should be on the evaluator stack
+              // Create a new stack with just the comparison for the JMP_IF instruction
+              var jmpIfStack = new MockStack();
+              if (evaluatorStack.Count > 0)
+              {
+                  var comparison = evaluatorStack.Pop();
+                  jmpIfStack.Push(comparison);
+              }
+              else
+              {
+                  Console.WriteLine("Warning: No comparison expression created on stack");
+                  return null;
+              }
+              
+              // Reset bytecode for JMP_IF with proper offset
+              bytecode.Clear();
+              bytecode.AddRange(BitConverter.GetBytes((short)5)); // Placeholder jump offset
+              
+              var jmpIfSegment = new Albeoris.Framework.Collections.ByteSegment(bytecode.ToArray());
+              var jmpIfMaker = new EVScriptMaker(jmpIfSegment);
+              
+              // Create the JMP_IF instruction (JMP_IFN = not inverted, JMP_IF = inverted)
+              var instruction = JsmInstruction.TryMake(Jsm.Opcode.JMP_IFN, jmpIfMaker, jmpIfStack);
+              
               return instruction;
           }
           catch (Exception ex)
