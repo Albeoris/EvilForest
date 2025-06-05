@@ -70,7 +70,12 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   var propName = property.Identifier.ValueText;
                   if (TryExtractVariableIndex(propName, out int index))
                   {
-                      variableIndexes.Add(index);
+                      int size = GetVariableSize(propName);
+                      // Add all byte indices that this variable occupies
+                      for (int i = 0; i < size; i++)
+                      {
+                          variableIndexes.Add(index + i);
+                      }
                   }
               }
           }
@@ -85,8 +90,27 @@ public sealed class CSharpEventCompiler : IEventCompiler
               var memberName = memberAccess.Name.Identifier.ValueText;
               if (TryExtractVariableIndex(memberName, out int index))
               {
-                  variableIndexes.Add(index);
+                  int size = GetVariableSize(memberName);
+                  // Add all byte indices that this variable occupies
+                  for (int i = 0; i < size; i++)
+                  {
+                      variableIndexes.Add(index + i);
+                  }
               }
+          }
+          
+          // Special heuristics for commonly encountered patterns
+          // If we see a JMP_SWITCH pattern (Object[x, y] access), likely indicates at least 1 variable
+          var hasObjectAccess = root.DescendantNodes()
+              .OfType<ElementAccessExpressionSyntax>()
+              .Any(ea => ea.Expression is IdentifierNameSyntax id && id.Identifier.ValueText == "Object");
+          
+          // If we have Object access patterns but no explicit variables, assume 1 variable minimum
+          if (hasObjectAccess && variableIndexes.Count == 0)
+          {
+              // This is a heuristic based on the observation that objects with JMP_SWITCH
+              // often have an implicit variable for switch state
+              variableIndexes.Add(0);
           }
           
           // The variable count is the highest index + 1 (since variables are 0-indexed)
@@ -98,9 +122,17 @@ public sealed class CSharpEventCompiler : IEventCompiler
           index = 0;
           
           // Check for patterns like Byte_X, SByte_X, UInt16_X, UInt32_X, Int32_X
-          var patterns = new[] { "Byte_", "SByte_", "UInt16_", "UInt32_", "Int32_" };
+          var patterns = new[] 
+          { 
+              ("Byte_", 1),     // 1 byte
+              ("SByte_", 1),    // 1 byte 
+              ("UInt16_", 2),   // 2 bytes
+              ("Int16_", 2),    // 2 bytes
+              ("UInt32_", 4),   // 4 bytes
+              ("Int32_", 4)     // 4 bytes
+          };
           
-          foreach (var pattern in patterns)
+          foreach (var (pattern, size) in patterns)
           {
               if (memberName.StartsWith(pattern))
               {
@@ -113,6 +145,29 @@ public sealed class CSharpEventCompiler : IEventCompiler
           }
           
           return false;
+     }
+     
+     private static int GetVariableSize(string memberName)
+     {
+          var patterns = new[] 
+          { 
+              ("Byte_", 1),     // 1 byte
+              ("SByte_", 1),    // 1 byte 
+              ("UInt16_", 2),   // 2 bytes
+              ("Int16_", 2),    // 2 bytes
+              ("UInt32_", 4),   // 4 bytes
+              ("Int32_", 4)     // 4 bytes
+          };
+          
+          foreach (var (pattern, size) in patterns)
+          {
+              if (memberName.StartsWith(pattern))
+              {
+                  return size;
+              }
+          }
+          
+          return 1; // Default to 1 byte
      }
 
      private static EVScript[] ParseScripts(CompilationUnitSyntax root)

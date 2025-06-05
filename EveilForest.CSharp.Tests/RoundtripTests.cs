@@ -127,6 +127,13 @@ public class RoundtripTests : IDisposable
             var actualObj = actual[i];
 
             Assert.Equal(expectedObj.Id, actualObj.Id);
+            
+            // Add debug information for variable count mismatch
+            if (expectedObj.VariableCount != actualObj.VariableCount)
+            {
+                Console.WriteLine($"Variable count mismatch for object {expectedObj.Id}: Expected = {expectedObj.VariableCount}, Actual = {actualObj.VariableCount}");
+            }
+            
             Assert.Equal(expectedObj.VariableCount, actualObj.VariableCount);
             Assert.Equal(expectedObj.Flags, actualObj.Flags);
             Assert.Equal(expectedObj.Scripts.Length, actualObj.Scripts.Length);
