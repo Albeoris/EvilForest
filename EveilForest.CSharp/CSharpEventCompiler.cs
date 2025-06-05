@@ -12,6 +12,7 @@ using FF8.JSM.Instructions;
 using FF8.Core;
 using Memoria.EventEngine.Execution;
 using FF8.JSM.Format;
+using Albeoris.Framework.Collections;
 
 namespace EveilForest.CSharp;
 
@@ -448,8 +449,68 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
      private static void ProcessInvocation(InvocationExpressionSyntax invocation, List<IJsmInstruction> instructions)
      {
-          // Skip method invocations for now - focus on assignments first
-          Console.WriteLine($"Warning: Method invocation skipped in new instruction mode");
+          // Parse member access like @mes.ShowAndWait
+          if (invocation.Expression is MemberAccessExpressionSyntax memberAccess)
+          {
+              string serviceName = ExtractServiceName(memberAccess.Expression);
+              string methodName = memberAccess.Name.Identifier.ValueText;
+
+              if (InstructionMapper.TryGetOpcode(serviceName, methodName, out Jsm.Opcode opcode))
+              {
+                  var actualArgs = ParseArguments(invocation.ArgumentList);
+                  var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
+                  if (instruction != null)
+                  {
+                      instructions.Add(instruction);
+                  }
+                  else
+                  {
+                      Console.WriteLine($"Warning: Could not create JSM instruction for {serviceName}.{methodName} (opcode {opcode})");
+                  }
+              }
+              else
+              {
+                  Console.WriteLine($"Warning: Method {serviceName}.{methodName} is not supported, skipping");
+              }
+          }
+          // Handle standalone method calls like NOP() or DELETE()
+          else if (invocation.Expression is IdentifierNameSyntax identifierName)
+          {
+              string methodName = identifierName.Identifier.ValueText;
+              
+              // Map standalone methods to opcodes
+              var opcode = methodName switch
+              {
+                  "NOP" => Jsm.Opcode.NOP,
+                  "DELETE" => Jsm.Opcode.DELETE,
+                  "WAIT" => Jsm.Opcode.WAIT,
+                  "STOP" => Jsm.Opcode.STOP,
+                  "RETURN" => Jsm.Opcode.Return,
+                  _ => (Jsm.Opcode?)null
+              };
+              
+              if (opcode.HasValue)
+              {
+                  var actualArgs = ParseArguments(invocation.ArgumentList);
+                  var instruction = CreateJsmInstruction(opcode.Value, "Standalone", methodName, actualArgs);
+                  if (instruction != null)
+                  {
+                      instructions.Add(instruction);
+                  }
+                  else
+                  {
+                      Console.WriteLine($"Warning: Could not create JSM instruction for standalone method '{methodName}' (opcode {opcode})");
+                  }
+              }
+              else
+              {
+                  Console.WriteLine($"Warning: Standalone method '{methodName}' is not supported, skipping");
+              }
+          }
+          else
+          {
+              Console.WriteLine($"Warning: Method invocation type {invocation.Expression.GetType().Name} is not supported, skipping");
+          }
      }
      private static void ProcessLocalDeclaration(LocalDeclarationStatementSyntax localDeclaration, EVScriptWriter writer)
      {
@@ -1464,96 +1525,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
           }
      }
 
-     private static Jsm.ExecutableSegment CreateExecutableSegmentFromBytecode(byte[] bytecode)
-     {
-          // Create a simple executable segment that holds our compiled bytecode
-          // For now, we'll create an empty segment and extend it later if needed
-          return new BasicExecutableSegment(0, bytecode.Length, bytecode);
-     }
 
-     // Simple implementation of ExecutableSegment for compiled bytecode
-     private class BasicExecutableSegment : Jsm.ExecutableSegment
-     {
-          private readonly byte[] _bytecode;
-
-          public BasicExecutableSegment(int from, int to) : base(from, to)
-          {
-              _bytecode = new byte[to - from];
-          }
-
-          public BasicExecutableSegment(int from, int to, byte[] bytecode) : base(from, to)
-          {
-              _bytecode = bytecode ?? throw new ArgumentNullException(nameof(bytecode));
-          }
-
-          // Override EnumerateAllInstruction to parse bytecode into instruction-like objects
-          public override IEnumerable<IJsmInstruction> EnumerateAllInstruction()
-          {
-              if (_bytecode.Length == 0)
-                  yield break;
-                  
-              // For a simple implementation, create placeholder instructions based on opcodes in bytecode
-              for (int i = 0; i < _bytecode.Length; i++)
-              {
-                  byte opcodeByte = _bytecode[i];
-                  if (Enum.IsDefined(typeof(Jsm.Opcode), (int)opcodeByte))
-                  {
-                      Jsm.Opcode opcode = (Jsm.Opcode)opcodeByte;
-                      yield return new SimpleOpcodeInstruction(opcode);
-                      
-                      // Skip ahead based on known opcode argument lengths
-                      i += GetOpcodeArgumentLength(opcode);
-                  }
-              }
-          }
-
-          private static int GetOpcodeArgumentLength(Jsm.Opcode opcode)
-          {
-              // Return the number of bytes used by arguments for common opcodes
-              return opcode switch
-              {
-                  Jsm.Opcode.SPS => 8,      // 1 + 1 + 2 + 2 + 2 = 8 bytes for arguments
-                  Jsm.Opcode.SPS2 => 8,     // Similar structure
-                  Jsm.Opcode.MES => 4,      // 1 + 1 + 2 = 4 bytes
-                  Jsm.Opcode.EXPR => 2,     // Varies, but let's assume 2 for now
-                  Jsm.Opcode.Return => 0,   // No arguments
-                  Jsm.Opcode.NOP => 0,      // No arguments
-                  _ => 0  // Unknown opcodes, assume no arguments
-              };
-          }
-
-          // Override GetExecuter to provide basic execution capability
-          public override IScriptExecuter GetExecuter()
-          {
-              // Return a basic executer that doesn't do anything for now
-              // In a full implementation, this would execute the compiled bytecode
-              return new NullExecuter();
-          }
-
-          private class NullExecuter : IScriptExecuter
-          {
-              public IEnumerable<IAwaitable> Execute(IServices services)
-              {
-                  // Return empty enumerable - no operations to execute
-                  return Enumerable.Empty<IAwaitable>();
-              }
-          }
-          
-          private class SimpleOpcodeInstruction : IJsmInstruction
-          {
-              private readonly Jsm.Opcode _opcode;
-              
-              public SimpleOpcodeInstruction(Jsm.Opcode opcode)
-              {
-                  _opcode = opcode;
-              }
-              
-              public override string ToString()
-              {
-                  return _opcode.ToString();
-              }
-          }
-     }
 
      // Simple Return instruction implementation
      private sealed class SimpleReturnInstruction : IJsmInstruction
@@ -1568,6 +1540,248 @@ public sealed class CSharpEventCompiler : IEventCompiler
               sw.AppendLine("yield break;");
           }
      }
+
+     private static IJsmInstruction CreateJsmInstruction(Jsm.Opcode opcode, string serviceName, string methodName, Dictionary<string, object> actualArgs)
+     {
+          try
+          {
+              // Create bytecode data for the instruction arguments
+              var bytecodeData = CreateInstructionBytecode(opcode, serviceName, methodName, actualArgs);
+              
+              // Create EVScriptMaker from the bytecode
+              var segment = new Albeoris.Framework.Collections.ByteSegment(bytecodeData.ToArray());
+              var maker = new EVScriptMaker(segment);
+              var stack = new MockStack();
+              
+              // Use the factory to create the instruction
+              var instruction = JsmInstruction.TryMake(opcode, maker, stack);
+              if (instruction != null)
+              {
+                  return instruction;
+              }
+              else
+              {
+                  Console.WriteLine($"Warning: JSM factory could not create instruction for opcode {opcode}");
+                  return null;
+              }
+          }
+          catch (Exception ex)
+          {
+              Console.WriteLine($"Warning: Failed to create JSM instruction for {opcode}: {ex.Message}");
+              return null;
+          }
+     }
+
+     private static List<byte> CreateInstructionBytecode(Jsm.Opcode opcode, string serviceName, string methodName, Dictionary<string, object> actualArgs)
+     {
+          var bytecode = new List<byte>();
+          
+          switch (opcode)
+          {
+              case Jsm.Opcode.NOP:
+                  // NOP takes no arguments
+                  break;
+                  
+              case Jsm.Opcode.WAIT:
+                  var frameDuration = ConvertToNumericValue(actualArgs.GetValueOrDefault("frameDuration", 1));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)frameDuration);
+                  break;
+                  
+              case Jsm.Opcode.STOP:
+                  // STOP takes no arguments
+                  break;
+                  
+              case Jsm.Opcode.DELETE:
+                  var continueValue = ConvertToNumericValue(actualArgs.GetValueOrDefault("_continue", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)continueValue);
+                  break;
+                  
+              case Jsm.Opcode.Return:
+                  // Return takes no arguments
+                  break;
+                  
+              case Jsm.Opcode.MODEL:
+                  var modelId = ConvertToNumericValue(actualArgs.GetValueOrDefault("model", 0));
+                  var height = ConvertToNumericValue(actualArgs.GetValueOrDefault("height", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)modelId));
+                  bytecode.Add((byte)height);
+                  break;
+                  
+              case Jsm.Opcode.POS:
+                  var x = ConvertToNumericValue(actualArgs.GetValueOrDefault("x", 0));
+                  var y = ConvertToNumericValue(actualArgs.GetValueOrDefault("y", 0));
+                  var z = ConvertToNumericValue(actualArgs.GetValueOrDefault("z", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)x));
+                  bytecode.AddRange(BitConverter.GetBytes((short)y));
+                  bytecode.AddRange(BitConverter.GetBytes((short)z));
+                  break;
+                  
+              case Jsm.Opcode.DIRE:
+                  var angle = ConvertToNumericValue(actualArgs.GetValueOrDefault("angle", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)angle);
+                  break;
+                  
+              case Jsm.Opcode.AIDLE:
+                  var animationId = ConvertToNumericValue(actualArgs.GetValueOrDefault("animationId", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)animationId));
+                  break;
+                  
+              case Jsm.Opcode.RADIUS:
+                  var radius = ConvertToNumericValue(actualArgs.GetValueOrDefault("radius", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)radius);
+                  break;
+                  
+              case Jsm.Opcode.ASPEED:
+                  var speed = ConvertToNumericValue(actualArgs.GetValueOrDefault("speed", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)speed);
+                  break;
+                  
+              case Jsm.Opcode.SPS:
+              case Jsm.Opcode.SPS2:
+                  var sps = ConvertToNumericValue(actualArgs.GetValueOrDefault("index", 0));
+                  var operationCode = InstructionMapper.GetSpsOperationCode(methodName);
+                  var parameter1 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 1));
+                  var parameter2 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 2));
+                  var parameter3 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 3));
+                  
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)sps);
+                  bytecode.Add(operationCode);
+                  bytecode.AddRange(BitConverter.GetBytes((short)parameter1));
+                  bytecode.AddRange(BitConverter.GetBytes((short)parameter2));
+                  bytecode.AddRange(BitConverter.GetBytes((short)parameter3));
+                  break;
+                  
+              case Jsm.Opcode.FLDSND0:
+                  var songId = ConvertToNumericValue(actualArgs.GetValueOrDefault("songId", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)songId));
+                  break;
+                  
+              case Jsm.Opcode.FLDSND1:
+                  var volume = ConvertToNumericValue(actualArgs.GetValueOrDefault("volume", 0));
+                  var time = ConvertToNumericValue(actualArgs.GetValueOrDefault("time", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)volume));
+                  bytecode.AddRange(BitConverter.GetBytes((short)time));
+                  break;
+                  
+              default:
+                  // For unknown opcodes, don't add any arguments
+                  break;
+          }
+          
+          return bytecode;
+     }
+
+     private static int ConvertToNumericValue(object value)
+     {
+          if (value is int intValue)
+              return intValue;
+          if (value is string stringValue)
+          {
+              // Try to parse as number first
+              if (int.TryParse(stringValue, out int parsedValue))
+                  return parsedValue;
+              
+              // Try to extract numeric value from variable references like "@evt.Int16_6" or "@var.Byte_8"
+              return ExtractNumericFromString(stringValue);
+          }
+          if (value is byte byteValue)
+              return byteValue;
+          if (value is short shortValue)
+              return shortValue;
+          if (value is bool boolValue)
+              return boolValue ? 1 : 0;
+          
+          // Default to 0 for unknown types
+          return 0;
+     }
+
+     // Mock implementation of stack for JSM expressions
+     private class MockStack : IStack<IJsmExpression>
+     {
+          private readonly Stack<IJsmExpression> _stack = new Stack<IJsmExpression>();
+
+          public int Count => _stack.Count;
+          public IJsmExpression Pop() => _stack.Count > 0 ? _stack.Pop() : new Jsm.Expression.ValueExpression(0, Jsm.Expression.VariableType.Int24);
+          public void Push(IJsmExpression item) => _stack.Push(item);
+          public IJsmExpression Peek() => _stack.Count > 0 ? _stack.Peek() : new Jsm.Expression.ValueExpression(0, Jsm.Expression.VariableType.Int24);
+          public void Clear() => _stack.Clear();
+     }
+
+     private static object GetSpsParameter(string methodName, Dictionary<string, object> actualArgs, int parameterNumber)
+     {
+          return methodName switch
+          {
+              "SetReference" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("referenceIndex", 0),
+                  _ => 0
+              },
+              "SetRotation" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("x", 0),
+                  2 => actualArgs.GetValueOrDefault("y", 0),
+                  3 => actualArgs.GetValueOrDefault("z", 0),
+                  _ => 0
+              },
+              "SetPosition" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("x", 0),
+                  2 => actualArgs.GetValueOrDefault("y", 0),
+                  3 => actualArgs.GetValueOrDefault("z", 0),
+                  _ => 0
+              },
+              "SetScale" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("scale", 0),
+                  _ => 0
+              },
+              "SetFade" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("fade", 0),
+                  _ => 0
+              },
+              "SetAnimationRate" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("rate", 0),
+                  _ => 0
+              },
+              "SetFrameRate" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("rate", 0),
+                  _ => 0
+              },
+              "SetDepthOffset" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("offset", 0),
+                  _ => 0
+              },
+              "SetCharacter" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("characterIndex", 0),
+                  2 => actualArgs.GetValueOrDefault("boneIndex", 0),
+                  _ => 0
+              },
+              "SetPositionOffset" => parameterNumber switch
+              {
+                  1 => actualArgs.GetValueOrDefault("offset", 0),
+                  _ => 0
+              },
+              _ => 0
+          };
+     }
+
+
 
      private static Int32 ParseObjectId(String objectPath)
      {
