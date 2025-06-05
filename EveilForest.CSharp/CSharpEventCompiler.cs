@@ -1512,7 +1512,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
           // Override EnumerateAllInstruction to return our proper JSM instructions
           public override IEnumerable<IJsmInstruction> EnumerateAllInstruction()
           {
-              return _instructions;
+              return _instructions.Where(i => i != null);
           }
 
           // Override GetExecuter to provide basic execution capability
