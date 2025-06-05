@@ -662,9 +662,37 @@ public sealed class CSharpEventCompiler : IEventCompiler
               {
                   "NOP" => Jsm.Opcode.NOP,
                   "DELETE" => Jsm.Opcode.DELETE,
+                  "NECKID" => Jsm.Opcode.NECKID,
+                  "POS3" => Jsm.Opcode.POS3,
+                  "AJUMP" => Jsm.Opcode.AJUMP,
+                  "SHADOWOFF" => Jsm.Opcode.SHADOWOFF,
+                  "CHRSCALE" => Jsm.Opcode.CHRSCALE,
+                  "CFLAG" => Jsm.Opcode.CFLAG,
+                  "NECKFLAG" => Jsm.Opcode.NECKFLAG,
+                  "MESHHIDE" => Jsm.Opcode.MESHHIDE,
+                  "FICON" => Jsm.Opcode.FICON,
+                  "MSPEED" => Jsm.Opcode.MSPEED,
+                  "CLRDIST" => Jsm.Opcode.CLRDIST,
+                  "MOVE" => Jsm.Opcode.MOVE,
+                  "MESHSHOW" => Jsm.Opcode.MESHSHOW,
                   "WAIT" => Jsm.Opcode.WAIT,
                   "STOP" => Jsm.Opcode.STOP,
                   "RETURN" => Jsm.Opcode.Return,
+                  "REQEW" => Jsm.Opcode.REQEW,
+                  "TURN" => Jsm.Opcode.TURN,
+                  "DIRE" => Jsm.Opcode.DIRE,
+                  "AIDLE" => Jsm.Opcode.AIDLE,
+                  "ANIM" => Jsm.Opcode.ANIM,
+                  "WAITANIM" => Jsm.Opcode.WAITANIM,
+                  "ENDANIM" => Jsm.Opcode.ENDANIM,
+                  "AFRAME" => Jsm.Opcode.AFRAME,
+                  "ASPEED" => Jsm.Opcode.ASPEED,
+                  "RADIUS" => Jsm.Opcode.RADIUS,
+                  "ATTACH" => Jsm.Opcode.ATTACH,
+                  "DETACH" => Jsm.Opcode.DETACH,
+                  "LOCATE" => Jsm.Opcode.LOCATE,
+                  "MODEL" => Jsm.Opcode.MODEL,
+                  "POS" => Jsm.Opcode.POS,
                   _ => (Jsm.Opcode?)null
               };
               
@@ -1852,6 +1880,55 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   bytecode.Add(0); // argument mask
                   bytecode.AddRange(BitConverter.GetBytes((short)volume));
                   bytecode.AddRange(BitConverter.GetBytes((short)time));
+                  break;
+                  
+              case Jsm.Opcode.NECKID:
+              case Jsm.Opcode.POS3:
+              case Jsm.Opcode.SHADOWOFF:
+              case Jsm.Opcode.CFLAG:
+              case Jsm.Opcode.NECKFLAG:
+              case Jsm.Opcode.MESHHIDE:
+              case Jsm.Opcode.MESHSHOW:
+              case Jsm.Opcode.FICON:
+              case Jsm.Opcode.MSPEED:
+              case Jsm.Opcode.CLRDIST:
+              case Jsm.Opcode.MOVE:
+              case Jsm.Opcode.REQEW:
+              case Jsm.Opcode.WAITANIM:
+              case Jsm.Opcode.ENDANIM:
+              case Jsm.Opcode.ATTACH:
+              case Jsm.Opcode.DETACH:
+              case Jsm.Opcode.LOCATE:
+                  // These instructions take no arguments or have default parameter handling
+                  break;
+                  
+              case Jsm.Opcode.TURN:
+                  var turnAngle = ConvertToNumericValue(actualArgs.GetValueOrDefault("angle", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)turnAngle);
+                  break;
+                  
+              case Jsm.Opcode.ANIM:
+              case Jsm.Opcode.AFRAME:
+                  var animId = ConvertToNumericValue(actualArgs.GetValueOrDefault("animationId", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)animId));
+                  break;
+                  
+              case Jsm.Opcode.AJUMP:
+                  var jumpHeight = ConvertToNumericValue(actualArgs.GetValueOrDefault("height", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.Add((byte)jumpHeight);
+                  break;
+                  
+              case Jsm.Opcode.CHRSCALE:
+                  var scaleX = ConvertToNumericValue(actualArgs.GetValueOrDefault("x", 0));
+                  var scaleY = ConvertToNumericValue(actualArgs.GetValueOrDefault("y", 0));
+                  var scaleZ = ConvertToNumericValue(actualArgs.GetValueOrDefault("z", 0));
+                  bytecode.Add(0); // argument mask
+                  bytecode.AddRange(BitConverter.GetBytes((short)scaleX));
+                  bytecode.AddRange(BitConverter.GetBytes((short)scaleY));
+                  bytecode.AddRange(BitConverter.GetBytes((short)scaleZ));
                   break;
                   
               default:
