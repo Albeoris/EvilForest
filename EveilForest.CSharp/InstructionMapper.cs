@@ -29,18 +29,19 @@ namespace EveilForest.CSharp
             ["Audio.SongPlay"] = Jsm.Opcode.FLDSND0, 
             ["Audio.SongVolumeChange"] = Jsm.Opcode.FLDSND1,
             
-            // Sps (Script positioning system?) mappings - using NOP as placeholder
-            ["Sps.SetReference"] = Jsm.Opcode.NOP,
-            ["Sps.SetPositionOffset"] = Jsm.Opcode.NOP,
-            ["Sps.SetCharacter"] = Jsm.Opcode.NOP,
-            ["Sps.SetAnimation"] = Jsm.Opcode.NOP,
-            ["Sps.SetPos"] = Jsm.Opcode.NOP,
-            ["Sps.SetSpeed"] = Jsm.Opcode.NOP,
-            ["Sps.Move"] = Jsm.Opcode.NOP,
-            ["Sps.Turn"] = Jsm.Opcode.NOP,
-            ["Sps.Stop"] = Jsm.Opcode.NOP,
-            ["Sps.SetVisible"] = Jsm.Opcode.NOP,
-            ["Sps.SetLayer"] = Jsm.Opcode.NOP,
+            // Sps (Special effect positioning system) mappings
+            ["Sps.SetReference"] = Jsm.Opcode.SPS,
+            ["Sps.SetAttribute"] = Jsm.Opcode.SPS,
+            ["Sps.SetPosition"] = Jsm.Opcode.SPS,
+            ["Sps.SetRotation"] = Jsm.Opcode.SPS,
+            ["Sps.SetScale"] = Jsm.Opcode.SPS,
+            ["Sps.SetCharacter"] = Jsm.Opcode.SPS2,
+            ["Sps.SetFade"] = Jsm.Opcode.SPS,
+            ["Sps.SetAnimationRate"] = Jsm.Opcode.SPS,
+            ["Sps.SetFrameRate"] = Jsm.Opcode.SPS,
+            ["Sps.SetCurrentFrame"] = Jsm.Opcode.SPS,
+            ["Sps.SetPositionOffset"] = Jsm.Opcode.SPS,
+            ["Sps.SetDepthOffset"] = Jsm.Opcode.SPS,
             
             // Variables service mappings
             ["Variables.Set"] = Jsm.Opcode.EXPR,
@@ -58,6 +59,26 @@ namespace EveilForest.CSharp
         {
             string key = $"{serviceName}.{methodName}";
             return ServiceMethodToOpcode.TryGetValue(key, out opcode);
+        }
+
+        public static byte GetSpsOperationCode(string methodName)
+        {
+            return methodName switch
+            {
+                "SetReference" => 130,
+                "SetAttribute" => 131,
+                "SetPosition" => 135,
+                "SetRotation" => 140,
+                "SetScale" => 145,
+                "SetCharacter" => 150,
+                "SetFade" => 155,
+                "SetAnimationRate" => 156,
+                "SetFrameRate" => 160,
+                "SetCurrentFrame" => 161,
+                "SetPositionOffset" => 165,
+                "SetDepthOffset" => 170,
+                _ => 0 // Default fallback
+            };
         }
 
         public static ArgumentInfo[] GetArgumentInfo(Jsm.Opcode opcode)
@@ -113,6 +134,22 @@ namespace EveilForest.CSharp
                     new ArgumentInfo("offset", ArgumentType.Int16)
                 },
                 Jsm.Opcode.Return => Array.Empty<ArgumentInfo>(),
+                Jsm.Opcode.SPS => new[]
+                {
+                    new ArgumentInfo("index", ArgumentType.Byte),
+                    new ArgumentInfo("code", ArgumentType.Byte),
+                    new ArgumentInfo("parameter1", ArgumentType.Int16),
+                    new ArgumentInfo("parameter2", ArgumentType.Int16),
+                    new ArgumentInfo("parameter3", ArgumentType.Int16)
+                },
+                Jsm.Opcode.SPS2 => new[]
+                {
+                    new ArgumentInfo("index", ArgumentType.Byte),
+                    new ArgumentInfo("code", ArgumentType.Byte),
+                    new ArgumentInfo("characterIndex", ArgumentType.Int16),
+                    new ArgumentInfo("boneIndex", ArgumentType.Int16),
+                    new ArgumentInfo("parameter3", ArgumentType.Int16)
+                },
                 Jsm.Opcode.NOP => Array.Empty<ArgumentInfo>(),
                 _ => throw new NotSupportedException($"Opcode {opcode} is not supported for compilation")
             };

@@ -8,6 +8,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using FF8.JSM;
+using FF8.JSM.Instructions;
 using FF8.Core;
 
 namespace EveilForest.CSharp;
@@ -678,37 +679,46 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
               if (InstructionMapper.TryGetOpcode(serviceName, methodName, out Jsm.Opcode opcode))
               {
-                  // Get expected arguments for this opcode
-                  var expectedArgs = InstructionMapper.GetArgumentInfo(opcode);
-                  var actualArgs = ParseArguments(invocation.ArgumentList);
-
-                  // Write arguments in the correct order
-                  foreach (var expectedArg in expectedArgs)
+                  // Special handling for SPS and SPS2 opcodes
+                  if (opcode == Jsm.Opcode.SPS || opcode == Jsm.Opcode.SPS2)
                   {
-                      if (actualArgs.TryGetValue(expectedArg.Name, out object value))
-                      {
-                          WriteArgument(writer, value, expectedArg.Type);
-                      }
-                      else
-                      {
-                          // For missing arguments, write a default value instead of failing
-                          Console.WriteLine($"Warning: Missing argument '{expectedArg.Name}' for {opcode}, using default value");
-                          object defaultValue = expectedArg.Type switch
-                          {
-                              ArgumentType.Byte => (byte)0,
-                              ArgumentType.SByte => (sbyte)0,
-                              ArgumentType.Int16 => (short)0,
-                              ArgumentType.UInt16 => (ushort)0,
-                              ArgumentType.Int24 => 0,
-                              ArgumentType.Int32 => 0,
-                              _ => (byte)0
-                          };
-                          WriteArgument(writer, defaultValue, expectedArg.Type);
-                      }
+                      ProcessSpsMethod(serviceName, methodName, invocation.ArgumentList, writer, opcode);
                   }
+                  else
+                  {
+                      // Standard opcode processing
+                      // Get expected arguments for this opcode
+                      var expectedArgs = InstructionMapper.GetArgumentInfo(opcode);
+                      var actualArgs = ParseArguments(invocation.ArgumentList);
 
-                  // Write the opcode
-                  writer.WriteOpcode(opcode);
+                      // Write arguments in the correct order
+                      foreach (var expectedArg in expectedArgs)
+                      {
+                          if (actualArgs.TryGetValue(expectedArg.Name, out object value))
+                          {
+                              WriteArgument(writer, value, expectedArg.Type);
+                          }
+                          else
+                          {
+                              // For missing arguments, write a default value instead of failing
+                              Console.WriteLine($"Warning: Missing argument '{expectedArg.Name}' for {opcode}, using default value");
+                              object defaultValue = expectedArg.Type switch
+                              {
+                                  ArgumentType.Byte => (byte)0,
+                                  ArgumentType.SByte => (sbyte)0,
+                                  ArgumentType.Int16 => (short)0,
+                                  ArgumentType.UInt16 => (ushort)0,
+                                  ArgumentType.Int24 => 0,
+                                  ArgumentType.Int32 => 0,
+                                  _ => (byte)0
+                              };
+                              WriteArgument(writer, defaultValue, expectedArg.Type);
+                          }
+                      }
+
+                      // Write the opcode
+                      writer.WriteOpcode(opcode);
+                  }
               }
               else
               {
@@ -1020,6 +1030,118 @@ public sealed class CSharpEventCompiler : IEventCompiler
           return 0;
      }
 
+     private static void ProcessSpsMethod(string serviceName, string methodName, ArgumentListSyntax argumentList, EVScriptWriter writer, Jsm.Opcode opcode)
+     {
+         var actualArgs = ParseArguments(argumentList);
+         byte operationCode = InstructionMapper.GetSpsOperationCode(methodName);
+         
+         // Write the index argument (first argument for all SPS methods)
+         if (actualArgs.TryGetValue("index", out object indexValue))
+         {
+             writer.WriteByte(Convert.ToByte(indexValue));
+         }
+         else
+         {
+             writer.WriteByte(0); // Default index
+         }
+         
+         // Write the operation code
+         writer.WriteByte(operationCode);
+         
+         // Write method-specific arguments
+         switch (methodName)
+         {
+             case "SetReference":
+                 if (actualArgs.TryGetValue("referenceIndex", out object refValue))
+                 {
+                     writer.WriteInt16(Convert.ToInt16(refValue));
+                 }
+                 else
+                 {
+                     writer.WriteInt16(0);
+                 }
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetRotation":
+                 WriteInt16Argument(writer, actualArgs, "x", 0);
+                 WriteInt16Argument(writer, actualArgs, "y", 0);
+                 WriteInt16Argument(writer, actualArgs, "z", 0);
+                 break;
+                 
+             case "SetScale":
+                 WriteInt16Argument(writer, actualArgs, "scale", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetFade":
+                 WriteInt16Argument(writer, actualArgs, "fade", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetAnimationRate":
+                 WriteInt16Argument(writer, actualArgs, "rate", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetFrameRate":
+                 WriteInt16Argument(writer, actualArgs, "rate", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetDepthOffset":
+                 WriteInt16Argument(writer, actualArgs, "offset", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetCharacter":
+                 WriteInt16Argument(writer, actualArgs, "characterIndex", 0);
+                 WriteInt16Argument(writer, actualArgs, "boneIndex", 0);
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             case "SetPosition":
+                 WriteInt16Argument(writer, actualArgs, "x", 0);
+                 WriteInt16Argument(writer, actualArgs, "y", 0);
+                 WriteInt16Argument(writer, actualArgs, "z", 0);
+                 break;
+                 
+             case "SetPositionOffset":
+                 WriteInt16Argument(writer, actualArgs, "offset", 0);
+                 writer.WriteInt16(0); // parameter2
+                 writer.WriteInt16(0); // parameter3
+                 break;
+                 
+             default:
+                 // Default case - write zeros for unknown methods
+                 writer.WriteInt16(0);
+                 writer.WriteInt16(0);
+                 writer.WriteInt16(0);
+                 break;
+         }
+         
+         // Write the opcode
+         writer.WriteOpcode(opcode);
+     }
+
+     private static void WriteInt16Argument(EVScriptWriter writer, Dictionary<string, object> actualArgs, string argName, short defaultValue)
+     {
+         if (actualArgs.TryGetValue(argName, out object value))
+         {
+             writer.WriteInt16(Convert.ToInt16(value));
+         }
+         else
+         {
+             writer.WriteInt16(defaultValue);
+         }
+     }
+
      private static Jsm.ExecutableSegment CreateExecutableSegmentFromBytecode(byte[] bytecode)
      {
           // Create a simple executable segment that holds our compiled bytecode
@@ -1042,6 +1164,42 @@ public sealed class CSharpEventCompiler : IEventCompiler
               _bytecode = bytecode ?? throw new ArgumentNullException(nameof(bytecode));
           }
 
+          // Override EnumerateAllInstruction to parse bytecode into instruction-like objects
+          public override IEnumerable<IJsmInstruction> EnumerateAllInstruction()
+          {
+              if (_bytecode.Length == 0)
+                  yield break;
+                  
+              // For a simple implementation, create placeholder instructions based on opcodes in bytecode
+              for (int i = 0; i < _bytecode.Length; i++)
+              {
+                  byte opcodeByte = _bytecode[i];
+                  if (Enum.IsDefined(typeof(Jsm.Opcode), (int)opcodeByte))
+                  {
+                      Jsm.Opcode opcode = (Jsm.Opcode)opcodeByte;
+                      yield return new SimpleOpcodeInstruction(opcode);
+                      
+                      // Skip ahead based on known opcode argument lengths
+                      i += GetOpcodeArgumentLength(opcode);
+                  }
+              }
+          }
+
+          private static int GetOpcodeArgumentLength(Jsm.Opcode opcode)
+          {
+              // Return the number of bytes used by arguments for common opcodes
+              return opcode switch
+              {
+                  Jsm.Opcode.SPS => 8,      // 1 + 1 + 2 + 2 + 2 = 8 bytes for arguments
+                  Jsm.Opcode.SPS2 => 8,     // Similar structure
+                  Jsm.Opcode.MES => 4,      // 1 + 1 + 2 = 4 bytes
+                  Jsm.Opcode.EXPR => 2,     // Varies, but let's assume 2 for now
+                  Jsm.Opcode.Return => 0,   // No arguments
+                  Jsm.Opcode.NOP => 0,      // No arguments
+                  _ => 0  // Unknown opcodes, assume no arguments
+              };
+          }
+
           // Override GetExecuter to provide basic execution capability
           public override IScriptExecuter GetExecuter()
           {
@@ -1056,6 +1214,21 @@ public sealed class CSharpEventCompiler : IEventCompiler
               {
                   // Return empty enumerable - no operations to execute
                   return Enumerable.Empty<IAwaitable>();
+              }
+          }
+          
+          private class SimpleOpcodeInstruction : IJsmInstruction
+          {
+              private readonly Jsm.Opcode _opcode;
+              
+              public SimpleOpcodeInstruction(Jsm.Opcode opcode)
+              {
+                  _opcode = opcode;
+              }
+              
+              public override string ToString()
+              {
+                  return _opcode.ToString();
               }
           }
      }
