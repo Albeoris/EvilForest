@@ -660,7 +660,17 @@ public sealed class CSharpEventCompiler : IEventCompiler
               if (leftSide.StartsWith("@evt.") && (leftSide.Contains("Byte_") || leftSide.Contains("Int16_") || leftSide.Contains("UInt16_") || leftSide.Contains("Int32_")))
               {
                   var rightValue = ExtractConstantValue(assignment.Right);
-                  writer.WriteVariableAssignment(leftSide, rightValue);
+                  
+                  // Only process assignments with literal values - skip complex expressions
+                  if (IsLiteralValue(rightValue))
+                  {
+                      writer.WriteVariableAssignment(leftSide, rightValue);
+                  }
+                  else
+                  {
+                      // Skip assignments with complex expressions (like @evt.Byte_26-1)
+                      Console.WriteLine($"Warning: Assignment {leftSide} = {rightValue} skipped (complex expression)");
+                  }
               }
               else
               {
@@ -672,6 +682,18 @@ public sealed class CSharpEventCompiler : IEventCompiler
           {
               throw new NotSupportedException($"Assignment operator {assignment.OperatorToken.Kind()} is not supported");
           }
+     }
+
+     private static bool IsLiteralValue(object value)
+     {
+         // Check if a value is a simple literal (number, bool, etc.) rather than a complex expression
+         return value is not string || (value is string str && IsNumericString(str));
+     }
+
+     private static bool IsNumericString(string str)
+     {
+         // Check if a string represents a simple number
+         return int.TryParse(str, out _) || double.TryParse(str, out _);
      }
 
      private static void ProcessInvocation(InvocationExpressionSyntax invocation, EVScriptWriter writer)
@@ -803,6 +825,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   "variables" => "Variables",
                   "var" => "Variables",
                   "actor" => "Actor",
+                  "act" => "Actor", // @act is commonly used for actor service
                   "player" => "Actor", // player is often an alias for actor
                   "character" => "Actor",
                   "sound" => "Audio",

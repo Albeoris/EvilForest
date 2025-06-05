@@ -19,6 +19,12 @@ namespace EveilForest.CSharp
             ["Actor.Wait"] = Jsm.Opcode.WAIT,
             ["Actor.Stop"] = Jsm.Opcode.STOP,
             ["Actor.Sleep"] = Jsm.Opcode.ASLEEP,
+            ["Actor.SetModel"] = Jsm.Opcode.MODEL,
+            ["Actor.SetPosition"] = Jsm.Opcode.POS,
+            ["Actor.SetAngle"] = Jsm.Opcode.DIRE,
+            ["Actor.SetAnimation"] = Jsm.Opcode.AIDLE, // Default to AIDLE, will be determined by context
+            ["Actor.SetRadius"] = Jsm.Opcode.RADIUS,
+            ["Actor.SetIdleSpeed"] = Jsm.Opcode.ASPEED,
             
             // System service mappings
             ["System.Jump"] = Jsm.Opcode.JMP,
@@ -151,6 +157,40 @@ namespace EveilForest.CSharp
                     new ArgumentInfo("parameter3", ArgumentType.Int16)
                 },
                 Jsm.Opcode.NOP => Array.Empty<ArgumentInfo>(),
+                Jsm.Opcode.MODEL => new[]
+                {
+                    new ArgumentInfo("modelId", ArgumentType.Int16),
+                    new ArgumentInfo("height", ArgumentType.Byte)
+                },
+                Jsm.Opcode.POS => new[]
+                {
+                    new ArgumentInfo("positionX", ArgumentType.Int16),
+                    new ArgumentInfo("positionY", ArgumentType.Int16)
+                },
+                Jsm.Opcode.DIRE => new[]
+                {
+                    new ArgumentInfo("angle", ArgumentType.Int16)
+                },
+                Jsm.Opcode.AIDLE => new[]
+                {
+                    new ArgumentInfo("animation", ArgumentType.Int16)
+                },
+                Jsm.Opcode.AWALK => new[]
+                {
+                    new ArgumentInfo("animation", ArgumentType.Int16)
+                },
+                Jsm.Opcode.ARUN => new[]
+                {
+                    new ArgumentInfo("animation", ArgumentType.Int16)
+                },
+                Jsm.Opcode.RADIUS => new[]
+                {
+                    new ArgumentInfo("radius", ArgumentType.Byte)
+                },
+                Jsm.Opcode.ASPEED => new[]
+                {
+                    new ArgumentInfo("speed", ArgumentType.Byte)
+                },
                 _ => throw new NotSupportedException($"Opcode {opcode} is not supported for compilation")
             };
         }
