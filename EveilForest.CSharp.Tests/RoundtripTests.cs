@@ -36,85 +36,19 @@ public class RoundtripTests : IDisposable
         // Step 1: Read original .eb.bytes file and convert to C# files
         EVObject[] originalObjects = ConvertEbBytesToCSharpFiles(testDataFile);
         
-        // Output information about what was generated
+        // Verify files were generated
         var generatedFiles = Directory.GetFiles(_testDirectory, "*.cs");
-        Console.WriteLine($"Generated {generatedFiles.Length} C# files in {_testDirectory}");
-        
-        // Let's examine several files to see what syntax we need to support
-        for (int i = 0; i < Math.Min(3, generatedFiles.Length); i++)
-        {
-            var fileToExamine = generatedFiles[i];
-            var content = File.ReadAllText(fileToExamine);
-            Console.WriteLine($"=== Full content of {Path.GetFileName(fileToExamine)} ===");
-            Console.WriteLine(content);
-            Console.WriteLine("=== End of file ===\n");
-        }
-
-        Console.WriteLine($"Original objects count: {originalObjects.Length}");
-        Console.WriteLine($"Generated files count: {generatedFiles.Length}");
-        
-        // Let's also examine the original scripts to understand what we should be generating
-        Console.WriteLine("=== Original Scripts Analysis ===");
-        for (int i = 0; i < Math.Min(3, originalObjects.Length); i++)
-        {
-            var obj = originalObjects[i];
-            Console.WriteLine($"Object {obj.Id}: Scripts={obj.Scripts.Length}, Variables={obj.VariableCount}");
-            
-            for (int j = 0; j < Math.Min(2, obj.Scripts.Length); j++)
-            {
-                var script = obj.Scripts[j];
-                Console.WriteLine($"  Script {script.Id}: From={script.Segment.From}, To={script.Segment.To}, Length={script.Segment.To - script.Segment.From}");
-                
-                // Try to see if we can get the instructions
-                var instructions = script.Segment.EnumerateAllInstruction().ToArray();
-                Console.WriteLine($"    Instructions: {instructions.Length}");
-                if (instructions.Length > 0)
-                {
-                    foreach (var instr in instructions.Take(3))
-                    {
-                        Console.WriteLine($"      {instr.GetType().Name}: {instr}");
-                    }
-                    if (instructions.Length > 3)
-                    {
-                        Console.WriteLine($"      ... and {instructions.Length - 3} more instructions");
-                    }
-                }
-            }
-        }
+        Assert.Equal(originalObjects.Length, generatedFiles.Length);
         
         // Step 2: Compile the C# files back to EVObjects
-        EVObject[] recompiledObjects;
-        try 
-        {
-            recompiledObjects = _compiler.CompileDirectory(_testDirectory);
-            Console.WriteLine($"Successfully compiled {recompiledObjects.Length} objects from C# files");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Compilation failed with error: {ex.Message}");
-            Console.WriteLine($"Exception type: {ex.GetType().Name}");
-            if (ex.InnerException != null)
-            {
-                Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
-            }
-            
-            // For now, we'll continue with basic validation since compilation extension is in progress
-            Assert.Equal(originalObjects.Length, generatedFiles.Length);
-            return;
-        }
+        EVObject[] recompiledObjects = _compiler.CompileDirectory(_testDirectory);
         
         // Step 3: Write recompiled objects to a new .eb.bytes file
         string recompiledFile = Path.Combine(_testDirectory, "recompiled.eb.bytes");
         WriteEVObjectsToFile(recompiledObjects, recompiledFile);
         
         // Step 4: Compare the results
-        Console.WriteLine($"Comparing {originalObjects.Length} original objects with {recompiledObjects.Length} recompiled objects");
-        
-        // For now, do basic structural comparison
-        // In a full implementation, this would do detailed bytecode comparison
         AssertObjectsAreEquivalent(originalObjects, recompiledObjects);
-        
-        Console.WriteLine("Roundtrip test completed successfully!");
     }
 
     private EVObject[] ConvertEbBytesToCSharpFiles(string ebBytesPath)
@@ -157,13 +91,6 @@ public class RoundtripTests : IDisposable
             var actualObj = actual[i];
 
             Assert.Equal(expectedObj.Id, actualObj.Id);
-            
-            // Add debug information for variable count mismatch
-            if (expectedObj.VariableCount != actualObj.VariableCount)
-            {
-                Console.WriteLine($"Variable count mismatch for object {expectedObj.Id}: Expected = {expectedObj.VariableCount}, Actual = {actualObj.VariableCount}");
-            }
-            
             Assert.Equal(expectedObj.VariableCount, actualObj.VariableCount);
             Assert.Equal(expectedObj.Flags, actualObj.Flags);
             Assert.Equal(expectedObj.Scripts.Length, actualObj.Scripts.Length);
@@ -183,34 +110,31 @@ public class RoundtripTests : IDisposable
 
     private void CompareScriptBytecode(EVScript expected, EVScript actual, int objectId, int scriptIndex)
     {
-        try
+        // Get instructions from both scripts to compare
+        var expectedInstructions = expected.Segment.EnumerateAllInstruction().ToArray();
+        var actualInstructions = actual.Segment.EnumerateAllInstruction().ToArray();
+        
+        // Both scripts should have the same number of instructions
+        Assert.Equal(expectedInstructions.Length, actualInstructions.Length);
+        
+        // If both are empty, that's fine
+        if (expectedInstructions.Length == 0 && actualInstructions.Length == 0)
         {
-            // Get instructions from both scripts to compare
-            var expectedInstructions = expected.Segment.EnumerateAllInstruction().ToArray();
-            var actualInstructions = actual.Segment.EnumerateAllInstruction().ToArray();
-            
-            Console.WriteLine($"Object {objectId}, Script {scriptIndex}: Expected instructions = {expectedInstructions.Length}, Actual instructions = {actualInstructions.Length}");
-            
-            if (expectedInstructions.Length == 0 && actualInstructions.Length == 0)
-            {
-                return; // Both empty, that's fine
-            }
-            
-            if (actualInstructions.Length == 0)
-            {
-                Console.WriteLine($"WARNING: Object {objectId}, Script {scriptIndex} - Actual script is empty but expected script has {expectedInstructions.Length} instructions");
-                return;
-            }
-            
-            if (actualInstructions.Length > 0)
-            {
-                Console.WriteLine($"SUCCESS: Object {objectId}, Script {scriptIndex} - Actual script has {actualInstructions.Length} instructions (roundtrip compilation working)");
-            }
+            return;
         }
-        catch (Exception ex)
+        
+        // Compare each instruction
+        for (int i = 0; i < expectedInstructions.Length; i++)
         {
-            Console.WriteLine($"Error comparing Object {objectId}, Script {scriptIndex}: {ex.Message}");
-            // Don't fail the test for comparison errors since we're primarily testing compilation
+            var expectedInstr = expectedInstructions[i];
+            var actualInstr = actualInstructions[i];
+            
+            // Instructions should be of the same type and have the same opcode
+            Assert.Equal(expectedInstr.GetType(), actualInstr.GetType());
+            
+            // For more detailed comparison, we can compare the instruction's string representation
+            // This will catch differences in arguments and instruction details
+            Assert.Equal(expectedInstr.ToString(), actualInstr.ToString());
         }
     }
 
