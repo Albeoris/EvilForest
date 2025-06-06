@@ -115,6 +115,25 @@ public class RoundtripTests : IDisposable
         var actualInstructions = actual.Segment.EnumerateAllInstruction().ToArray();
         
         // Both scripts should have the same number of instructions
+        if (expectedInstructions.Length != actualInstructions.Length)
+        {
+            Console.WriteLine($"\nInstruction count mismatch in Object {objectId}, Script {scriptIndex}:");
+            Console.WriteLine($"Expected: {expectedInstructions.Length} instructions");
+            Console.WriteLine($"Actual: {actualInstructions.Length} instructions");
+            
+            Console.WriteLine("\nExpected instructions:");
+            for (int i = 0; i < Math.Min(10, expectedInstructions.Length); i++)
+            {
+                Console.WriteLine($"  [{i}] {expectedInstructions[i]}");
+            }
+            
+            Console.WriteLine("\nActual instructions:");
+            for (int i = 0; i < Math.Min(10, actualInstructions.Length); i++)
+            {
+                Console.WriteLine($"  [{i}] {actualInstructions[i]}");
+            }
+        }
+        
         Assert.Equal(expectedInstructions.Length, actualInstructions.Length);
         
         // If both are empty, that's fine

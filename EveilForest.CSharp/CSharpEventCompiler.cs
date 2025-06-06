@@ -476,14 +476,18 @@ public sealed class CSharpEventCompiler : IEventCompiler
               binaryCondition = directBinary;
           }
           
+          IJsmInstruction? jmpIfInstruction = null;
+          int jmpIfIndex = -1;
+          
           if (binaryCondition != null)
           {
               try
               {
-                  // Try to create a JMP_IF instruction
-                  var jmpIfInstruction = CreateJmpIfInstruction(binaryCondition);
+                  // Try to create a JMP_IF instruction with placeholder target
+                  jmpIfInstruction = CreateJmpIfInstruction(binaryCondition);
                   if (jmpIfInstruction != null)
                   {
+                      jmpIfIndex = instructions.Count;
                       instructions.Add(jmpIfInstruction);
                   }
               }
@@ -492,6 +496,9 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   Console.WriteLine($"Warning: Failed to create JMP_IF for condition {binaryCondition}: {ex.Message}");
               }
           }
+          
+          // Remember where the body starts
+          int bodyStartIndex = instructions.Count;
           
           // Process the body statements 
           if (ifStatement.Statement is BlockSyntax block)
@@ -506,10 +513,21 @@ public sealed class CSharpEventCompiler : IEventCompiler
               ProcessStatement(ifStatement.Statement, instructions);
           }
           
-          // Also process else clause if present
+          // Calculate where the if body ends (this is where JMP_IF should jump when condition is false)
+          int afterBodyIndex = instructions.Count;
+          
+          // Process else clause if present
           if (ifStatement.Else != null)
           {
               ProcessStatement(ifStatement.Else.Statement, instructions);
+          }
+          
+          // Now set the correct jump target for the JMP_IF instruction
+          if (jmpIfInstruction != null && jmpIfInstruction is IJumpToInstruction jumpInstruction)
+          {
+              // JMP_IF should jump to after the if body (or to else clause)
+              jumpInstruction.Index = afterBodyIndex;
+              Console.WriteLine($"Set JMP_IF jump target to instruction index {afterBodyIndex}");
           }
      }
 
@@ -1072,14 +1090,10 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for event variables (Map source)
-          // For array access, use the base index and handle array indexing separately
-          // The JSM system seems to expect the array index to be encoded differently
-          var value = new Int26(baseIndex, Jsm.Expression.VariableSource.Map, type);
+          // For array access, add the array index to the base index
+          var finalIndex = baseIndex + arrayIndex;
+          var value = new Int26(finalIndex, Jsm.Expression.VariableSource.Map, type);
           var result = new Jsm.Expression.VariableExpression(value);
-          
-          // TODO: Handle array indexing properly - for now just use base index
-          // This is the core issue - the JSM library may handle array indexing differently
-          // than simple index addition
           
           return result;
      }
@@ -1123,11 +1137,10 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for global variables (Global source)
-          // Use base index only, don't add array index for now
-          var value = new Int26(baseIndex, Jsm.Expression.VariableSource.Global, type);
+          // For array access, add the array index to the base index
+          var finalIndex = baseIndex + arrayIndex;
+          var value = new Int26(finalIndex, Jsm.Expression.VariableSource.Global, type);
           var result = new Jsm.Expression.VariableExpression(value);
-          
-          // TODO: Handle array indexing properly for global variables too
           
           return result;
      }
