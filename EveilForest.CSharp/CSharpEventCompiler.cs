@@ -654,15 +654,32 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
               if (InstructionMapper.TryGetOpcode(serviceName, methodName, out Jsm.Opcode opcode))
               {
-                  var actualArgs = ParseArguments(invocation.ArgumentList);
-                  var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
-                  if (instruction != null)
+                  // Special handling for SPS and SPS2 opcodes
+                  if (opcode == Jsm.Opcode.SPS || opcode == Jsm.Opcode.SPS2)
                   {
-                      instructions.Add(instruction);
+                      var actualArgs = ParseArguments(invocation.ArgumentList);
+                      var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
+                      if (instruction != null)
+                      {
+                          instructions.Add(instruction);
+                      }
+                      else
+                      {
+                          Console.WriteLine($"Warning: Could not create SPS instruction for {serviceName}.{methodName}");
+                      }
                   }
                   else
                   {
-                      Console.WriteLine($"Warning: Could not create JSM instruction for {serviceName}.{methodName} (opcode {opcode})");
+                      var actualArgs = ParseArguments(invocation.ArgumentList);
+                      var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
+                      if (instruction != null)
+                      {
+                          instructions.Add(instruction);
+                      }
+                      else
+                      {
+                          Console.WriteLine($"Warning: Could not create JSM instruction for {serviceName}.{methodName} (opcode {opcode})");
+                      }
                   }
               }
               else
@@ -711,6 +728,33 @@ public sealed class CSharpEventCompiler : IEventCompiler
                   "LOCATE" => Jsm.Opcode.LOCATE,
                   "MODEL" => Jsm.Opcode.MODEL,
                   "POS" => Jsm.Opcode.POS,
+                  // Add the missing standalone methods
+                  "BGSSCROLL" => Jsm.Opcode.BGSSCROLL,
+                  "BGAVISIBLE" => Jsm.Opcode.BGAVISIBLE,
+                  "SETCAM" => Jsm.Opcode.SETCAM,
+                  "STARTSEQ" => Jsm.Opcode.STARTSEQ,
+                  "VIBTRACK1" => Jsm.Opcode.VIBTRACK1,
+                  "VIBACTIVE" => Jsm.Opcode.VIBACTIVE,
+                  "FULLMEMBER" => Jsm.Opcode.FULLMEMBER,
+                  "PARTYDELETE" => Jsm.Opcode.PARTYDELETE,
+                  "CLEARSTATUS" => Jsm.Opcode.CLEARSTATUS,
+                  "JOIN" => Jsm.Opcode.JOIN,
+                  "PLAYERNAME" => Jsm.Opcode.PLAYERNAME,
+                  "MENU" => Jsm.Opcode.MENU,
+                  "BGARANGE" => Jsm.Opcode.BGARANGE,
+                  "BGARATE" => Jsm.Opcode.BGARATE,
+                  "CHRFX" => Jsm.Opcode.CHRFX,
+                  "GILADD" => Jsm.Opcode.GILADD,
+                  "ITEMADD" => Jsm.Opcode.ITEMADD,
+                  "TURNA" => Jsm.Opcode.TURNA,
+                  "BGLACTIVE" => Jsm.Opcode.BGLACTIVE,
+                  "BGLCOLOR" => Jsm.Opcode.BGLCOLOR,
+                  "BGI" => Jsm.Opcode.BGI,
+                  "PREJUMP" => Jsm.Opcode.PREJUMP,
+                  "SETVY3" => Jsm.Opcode.SETVY3,
+                  "JUMP3" => Jsm.Opcode.JUMP3,
+                  "POSTJUMP" => Jsm.Opcode.POSTJUMP,
+                  "MROT" => Jsm.Opcode.MROT,
                   _ => (Jsm.Opcode?)null
               };
               

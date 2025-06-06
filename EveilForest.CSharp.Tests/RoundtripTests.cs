@@ -85,6 +85,9 @@ public class RoundtripTests : IDisposable
     {
         Assert.Equal(expected.Length, actual.Length);
 
+        Console.WriteLine($"\nFull instruction count summary:");
+        int totalExpected = 0, totalActual = 0;
+
         for (int i = 0; i < expected.Length; i++)
         {
             var expectedObj = expected[i];
@@ -102,10 +105,23 @@ public class RoundtripTests : IDisposable
 
                 Assert.Equal(expectedScript.Id, actualScript.Id);
                 
+                var expectedInstructions = expectedScript.Segment.EnumerateAllInstruction().ToArray();
+                var actualInstructions = actualScript.Segment.EnumerateAllInstruction().ToArray();
+                
+                totalExpected += expectedInstructions.Length;
+                totalActual += actualInstructions.Length;
+                
+                if (expectedInstructions.Length > 0 || actualInstructions.Length > 0)
+                {
+                    Console.WriteLine($"  Object {expectedObj.Id}, Script {j}: Expected {expectedInstructions.Length}, Actual {actualInstructions.Length}");
+                }
+                
                 // Compare script content/bytecode
                 CompareScriptBytecode(expectedScript, actualScript, expectedObj.Id, j);
             }
         }
+        
+        Console.WriteLine($"Total instructions: Expected {totalExpected}, Actual {totalActual}");
     }
 
     private void CompareScriptBytecode(EVScript expected, EVScript actual, int objectId, int scriptIndex)
@@ -120,6 +136,7 @@ public class RoundtripTests : IDisposable
             Console.WriteLine($"\nInstruction count mismatch in Object {objectId}, Script {scriptIndex}:");
             Console.WriteLine($"Expected: {expectedInstructions.Length} instructions");
             Console.WriteLine($"Actual: {actualInstructions.Length} instructions");
+            Console.WriteLine($"Missing: {expectedInstructions.Length - actualInstructions.Length} instructions");
             
             Console.WriteLine("\nExpected instructions:");
             for (int i = 0; i < Math.Min(10, expectedInstructions.Length); i++)
@@ -134,7 +151,11 @@ public class RoundtripTests : IDisposable
             }
         }
         
-        Assert.Equal(expectedInstructions.Length, actualInstructions.Length);
+        // Only assert if either expected or actual is non-zero
+        if (expectedInstructions.Length > 0 || actualInstructions.Length > 0)
+        {
+            Assert.Equal(expectedInstructions.Length, actualInstructions.Length);
+        }
         
         // If both are empty, that's fine
         if (expectedInstructions.Length == 0 && actualInstructions.Length == 0)
