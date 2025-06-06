@@ -504,6 +504,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
           }
           
           // Process the body statements 
+          int ifBlockStartIndex = instructions.Count;
           if (ifStatement.Statement is BlockSyntax block)
           {
               foreach (var statement in block.Statements)
@@ -515,6 +516,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
           {
               ProcessStatement(ifStatement.Statement, instructions);
           }
+          int ifBlockEndIndex = instructions.Count - 1; // Last instruction in if block
           
           // If there's an else clause, we need a JMP to skip it after the if body
           IJsmInstruction? skipElseJump = null;
@@ -546,9 +548,19 @@ public sealed class CSharpEventCompiler : IEventCompiler
           // Now set the correct jump targets
           if (jmpIfInstruction != null && jmpIfInstruction is IJumpToInstruction jumpInstruction)
           {
-              // JMP_IF should jump to else clause start (or after everything if no else)
-              jumpInstruction.Index = ifStatement.Else != null ? elseStartIndex : afterEverythingIndex;
-              Console.WriteLine($"Set JMP_IF jump target to instruction index {jumpInstruction.Index}");
+              // According to @Albeoris: JMP_IF index should point to the latest instruction in the branch, not the next one
+              // So for if statements without else, point to the last instruction in the if block
+              if (ifStatement.Else == null)
+              {
+                  jumpInstruction.Index = ifBlockEndIndex;
+                  Console.WriteLine($"Set JMP_IF jump target to last if block instruction index {jumpInstruction.Index}");
+              }
+              else
+              {
+                  // For if-else statements, jump to else clause start when condition is false
+                  jumpInstruction.Index = elseStartIndex;
+                  Console.WriteLine($"Set JMP_IF jump target to else clause start index {jumpInstruction.Index}");
+              }
           }
           
           if (skipElseJump != null && skipElseJump is IJumpToInstruction skipJumpInstruction)
@@ -1162,9 +1174,9 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for event variables (Map source)
-          // For array access like [7], we need to handle this as bit-level access
+          // For array access like [7] or [0], we need to handle this as bit-level access
           Int26 value;
-          if (arrayIndex > 0)
+          if (variablePart.Contains("["))
           {
               // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
               var bitOffset = baseIndex * 8 + arrayIndex;
@@ -1219,9 +1231,9 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for global variables (Global source)
-          // For array access like [7], we need to handle this as bit-level access
+          // For array access like [7] or [0], we need to handle this as bit-level access
           Int26 value;
-          if (arrayIndex > 0)
+          if (variablePart.Contains("["))
           {
               // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
               var bitOffset = baseIndex * 8 + arrayIndex;
