@@ -226,13 +226,19 @@ public sealed class CSharpEventCompiler : IEventCompiler
      {
           var instructions = new List<IJsmInstruction>();
           
+          Console.WriteLine($"Debug: Creating EVScript {scriptId} from method '{method.Identifier.ValueText}'");
+          
           // Process the method body
           if (method.Body != null)
           {
+              Console.WriteLine($"Debug: Processing method '{method.Identifier.ValueText}' with {method.Body.Statements.Count} statements");
               foreach (var statement in method.Body.Statements)
               {
+                  Console.WriteLine($"Debug: Processing statement type: {statement.GetType().Name}");
                   ProcessStatement(statement, instructions);
+                  Console.WriteLine($"Debug: After processing statement, instruction count: {instructions.Count}");
               }
+              Console.WriteLine($"Debug: Method '{method.Identifier.ValueText}' final instruction count: {instructions.Count}");
           }
 
           // Add return instruction at the end if not already present
@@ -497,9 +503,6 @@ public sealed class CSharpEventCompiler : IEventCompiler
               }
           }
           
-          // Remember where the body starts
-          int bodyStartIndex = instructions.Count;
-          
           // Process the body statements 
           if (ifStatement.Statement is BlockSyntax block)
           {
@@ -513,8 +516,23 @@ public sealed class CSharpEventCompiler : IEventCompiler
               ProcessStatement(ifStatement.Statement, instructions);
           }
           
-          // Calculate where the if body ends (this is where JMP_IF should jump when condition is false)
-          int afterBodyIndex = instructions.Count;
+          // If there's an else clause, we need a JMP to skip it after the if body
+          IJsmInstruction? skipElseJump = null;
+          int skipElseJumpIndex = -1;
+          
+          if (ifStatement.Else != null)
+          {
+              // Create a JMP instruction to skip the else clause
+              skipElseJump = CreateJsmInstruction(Jsm.Opcode.JMP, "System", "Jump", new Dictionary<string, object>());
+              if (skipElseJump != null)
+              {
+                  skipElseJumpIndex = instructions.Count;
+                  instructions.Add(skipElseJump);
+              }
+          }
+          
+          // Calculate where the else clause starts (this is where JMP_IF should jump when condition is false)
+          int elseStartIndex = instructions.Count;
           
           // Process else clause if present
           if (ifStatement.Else != null)
@@ -522,12 +540,22 @@ public sealed class CSharpEventCompiler : IEventCompiler
               ProcessStatement(ifStatement.Else.Statement, instructions);
           }
           
-          // Now set the correct jump target for the JMP_IF instruction
+          // Calculate where everything ends
+          int afterEverythingIndex = instructions.Count;
+          
+          // Now set the correct jump targets
           if (jmpIfInstruction != null && jmpIfInstruction is IJumpToInstruction jumpInstruction)
           {
-              // JMP_IF should jump to after the if body (or to else clause)
-              jumpInstruction.Index = afterBodyIndex;
-              Console.WriteLine($"Set JMP_IF jump target to instruction index {afterBodyIndex}");
+              // JMP_IF should jump to else clause start (or after everything if no else)
+              jumpInstruction.Index = ifStatement.Else != null ? elseStartIndex : afterEverythingIndex;
+              Console.WriteLine($"Set JMP_IF jump target to instruction index {jumpInstruction.Index}");
+          }
+          
+          if (skipElseJump != null && skipElseJump is IJumpToInstruction skipJumpInstruction)
+          {
+              // Skip-else JMP should jump to after everything
+              skipJumpInstruction.Index = afterEverythingIndex;
+              Console.WriteLine($"Set skip-else JMP jump target to instruction index {afterEverythingIndex}");
           }
      }
 
@@ -1134,11 +1162,21 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for event variables (Map source)
-          // For array access, add the array index to the base index
-          var finalIndex = baseIndex + arrayIndex;
-          var value = new Int26(finalIndex, Jsm.Expression.VariableSource.Map, type);
-          var result = new Jsm.Expression.VariableExpression(value);
+          // For array access like [7], we need to handle this as bit-level access
+          Int26 value;
+          if (arrayIndex > 0)
+          {
+              // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
+              var bitOffset = baseIndex * 8 + arrayIndex;
+              value = new Int26(bitOffset, Jsm.Expression.VariableSource.Map, Jsm.Expression.VariableType.Bit);
+          }
+          else
+          {
+              // For regular variables, use the baseIndex directly
+              value = new Int26(baseIndex, Jsm.Expression.VariableSource.Map, type);
+          }
           
+          var result = new Jsm.Expression.VariableExpression(value);
           return result;
      }
 
@@ -1181,11 +1219,21 @@ public sealed class CSharpEventCompiler : IEventCompiler
           };
           
           // Create the Int26 value for global variables (Global source)
-          // For array access, add the array index to the base index
-          var finalIndex = baseIndex + arrayIndex;
-          var value = new Int26(finalIndex, Jsm.Expression.VariableSource.Global, type);
-          var result = new Jsm.Expression.VariableExpression(value);
+          // For array access like [7], we need to handle this as bit-level access
+          Int26 value;
+          if (arrayIndex > 0)
+          {
+              // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
+              var bitOffset = baseIndex * 8 + arrayIndex;
+              value = new Int26(bitOffset, Jsm.Expression.VariableSource.Global, Jsm.Expression.VariableType.Bit);
+          }
+          else
+          {
+              // For regular variables, use the baseIndex directly
+              value = new Int26(baseIndex, Jsm.Expression.VariableSource.Global, type);
+          }
           
+          var result = new Jsm.Expression.VariableExpression(value);
           return result;
      }
 
