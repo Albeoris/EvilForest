@@ -307,13 +307,21 @@ namespace FF8.JSM.Format
 
             public MethodFormatter Enum<T>(T argumentValue) where T : struct
             {
-                return Argument(typeof(T).Name + '.' + argumentValue);
+                String value = argumentValue.ToString();
+                return Argument(Char.IsDigit(value[0]) || value[0] == '-'
+                    ? $"({typeof(T).Name}){value}"
+                    : typeof(T).Name + '.' + value);
             }
 
             public MethodFormatter Enum<T>(IJsmExpression argumentExpression) where T : struct
             {
                 if (argumentExpression is IConstExpression expr)
-                    return Argument(typeof(T).Name + '.' + (T)(Object)expr.Int32());
+                {
+                    String value = ((T)(Object)expr.Int32()).ToString();
+                    return Argument(Char.IsDigit(value[0]) || value[0] == '-'
+                        ? $"({typeof(T).Name}){value}"
+                        : typeof(T).Name + '.' + value);
+                }
 
                 return Argument<T>(null, argumentExpression);
             }

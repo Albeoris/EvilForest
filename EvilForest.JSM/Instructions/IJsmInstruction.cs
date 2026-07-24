@@ -18,7 +18,7 @@ using Memoria.EventEngine.EV;
 
         public virtual void Format(ScriptWriter sw, IScriptFormatterContext formatterContext, IServices services)
         {
-            sw.AppendLine(this.ToString());
+            sw.AppendLine($"{this};");
         }
 
         public virtual IAwaitable Execute(IServices services)

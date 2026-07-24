@@ -20,6 +20,19 @@ namespace Memoria.EventEngine.EV
             _input = input;
         }
 
+        /// <summary>
+        /// Parses a raw JSM bytecode array into an ExecutableSegment, using the same
+        /// logic as when reading from a binary .eb.bytes file.
+        /// </summary>
+        public static Jsm.ExecutableSegment ParseScript(Byte[] bytecode)
+        {
+            var maker = new EVScriptMaker(new ByteSegment(bytecode, 0, bytecode.Length));
+            Jsm.ExecutableSegment segment = MakeScript(maker);
+            Byte[] preservedBytecode = (Byte[])bytecode.Clone();
+            CompiledBytecodeTag.Set(segment, preservedBytecode);
+            return segment;
+        }
+
         public static EVObject[] Read(String evPath)
         {
             using var input = File.OpenRead(evPath);
@@ -77,6 +90,9 @@ namespace Memoria.EventEngine.EV
 
                         EVScriptMaker scriptMaker = new EVScriptMaker(new ByteSegment(code, position, size));
                         Jsm.ExecutableSegment scriptSegment = MakeScript(scriptMaker);
+                        Byte[] rawBytecode = new Byte[size];
+                        Buffer.BlockCopy(code, position, rawBytecode, 0, size);
+                        CompiledBytecodeTag.Set(scriptSegment, rawBytecode);
                         scripts[s] = new EVScript(info.Id, scriptSegment);
 
                         var sw = new ScriptWriter();
@@ -108,7 +124,7 @@ namespace Memoria.EventEngine.EV
 
             while (maker.TryReadOpcode(out Jsm.Opcode opcode))
             {
-                CheckCodeAllowed(opcode, instructions);
+                CheckCodeAllowed(opcode, instructions, maker.Offset - 1);
 
                 if (opcode == Jsm.Opcode.EXPR)
                 {
@@ -186,13 +202,14 @@ namespace Memoria.EventEngine.EV
             return Jsm.Segment.Builder.Build(instructions, controls);
         }
 
-        private static void CheckCodeAllowed(Jsm.Opcode opcode, List<JsmInstruction> instructions)
+        private static void CheckCodeAllowed(Jsm.Opcode opcode, List<JsmInstruction> instructions, Int32 offset)
         {
             if (opcode == Jsm.Opcode.NOP)
             {
                 var isAllowed = IsNopOpcodeAllowed(instructions);
                 if (!isAllowed)
-                    throw new InvalidProgramException("if (opcode == Jsm.Opcode.NOP)");
+                    throw new InvalidProgramException(
+                        $"Unexpected NOP at byte offset {offset}; previous instruction: {instructions.LastOrDefault()}.");
             }
         }
 
