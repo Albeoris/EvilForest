@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EveilForest.CSharp\EveilForest.CSharp.csproj" />
     <ProjectReference Include="..\EvilForest.JSM\EvilForest.JSM.csproj" />
+    <ProjectReference Include="..\EvilForest.Resources\EvilForest.Resources.csproj" />
   </ItemGroup>
 
   <ItemGroup>

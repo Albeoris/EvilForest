@@ -54,6 +54,10 @@ namespace Memoria.EventEngine.EV
                 sw.AppendLine("{");
                 sw.Indent++;
 
+                sw.AppendLine($"private const byte __VariableCount = {VariableCount};");
+                sw.AppendLine($"private const byte __Flags = {Flags};");
+                sw.AppendLine();
+
                 sw.ObjectWriter.BeginObject();
                 if (Scripts.Length > 0)
                 {

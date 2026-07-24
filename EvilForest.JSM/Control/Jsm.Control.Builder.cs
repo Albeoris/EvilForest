@@ -66,6 +66,12 @@ namespace FF8.JSM
                             _result.Add(new While(_instructions, @if, _index, to));
                             return true;
                         }
+
+                        if (to < _index)
+                        {
+                            _result.Add(new InfiniteWhile(_instructions, to, _index));
+                            return true;
+                        }
                         
                         
                         var control = new Goto(_instructions, _index, @goto.Index);

@@ -60,7 +60,7 @@ namespace FF8.JSM.Instructions
                 .Argument("colorR", _colorR)
                 .Argument("colorG", _colorG)
                 .Argument("colorB", _colorB)
-                .Comment(nameof(WIPERGB));
+                .Comment($"{nameof(WIPERGB)}(unknown: {_unknown})");
         }
 
         public override String ToString()

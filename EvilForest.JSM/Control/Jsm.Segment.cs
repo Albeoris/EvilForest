@@ -127,7 +127,7 @@ namespace FF8.JSM
                     if (item is IFormattableScript formattable)
                         formattable.Format(sw, formatterContext, executionContext);
                     else
-                        sw.AppendLine(item.ToString());
+                        sw.AppendLine($"{item};");
                 }
             }
         }

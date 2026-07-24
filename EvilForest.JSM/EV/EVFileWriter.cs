@@ -1,245 +1,118 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
 using FF8.JSM;
-using FF8.JSM.Instructions;
 
 namespace Memoria.EventEngine.EV
 {
+    /// <summary>
+    /// Writes EVObject arrays back to the .eb.bytes binary format.
+    /// </summary>
     public sealed class EVFileWriter
     {
-        private readonly Stream _output;
+        private const UInt16 MagicNumber     = 0x5645; // "EV"
+        private const Byte   FileVersion     = 2;
+        private const Int32  FileHeaderSize  = 128; // sizeof(EVFileHeader)
+        private const Int32  ObjectEntrySize = 8;   // sizeof(EVFileObject)
+        private const Int32  ScriptsHeaderSize = 2; // sizeof(EVFileScriptsHeader)
+        private const Int32  ScriptInfoSize   = 4;  // sizeof(EVFileScriptInfo)
 
-        public EVFileWriter(Stream output)
-        {
-            _output = output;
-        }
-
-        public static void Write(string evPath, EVObject[] objects)
+        public static void Write(String evPath, EVObject[] objects)
         {
             using var output = File.Create(evPath);
-            var writer = new EVFileWriter(output);
-            writer.Write(objects);
+            new EVFileWriter().Write(output, objects);
         }
 
-        public unsafe void Write(EVObject[] objects)
+        public void Write(Stream output, EVObject[] objects)
         {
-            // Write file header
-            var fileHeader = CreateFileHeader((byte)objects.Length);
-            WriteStruct(fileHeader);
+            using var bw = new BinaryWriter(output, System.Text.Encoding.UTF8, leaveOpen: true);
 
-            // Calculate object data and write object headers
-            var objectData = new List<(EVFileObject header, byte[] data)>();
-            int currentOffset = sizeof(EVFileHeader) + sizeof(EVFileObject) * objects.Length;
+            // File header (128 bytes)
+            bw.Write(MagicNumber);
+            bw.Write(FileVersion);
+            bw.Write((Byte)objects.Length);
+            bw.Write(new Byte[124]);
 
-            foreach (var obj in objects)
+            // Pre-compute object bodies
+            var bodies = new Byte[objects.Length][];
+            for (Int32 i = 0; i < objects.Length; i++)
+                bodies[i] = SerializeObjectBody(objects[i]);
+
+            // Object entry table
+            // EVFileObject.Offset is relative to the end of EVFileHeader.
+            // EVFileReader adds FileHeaderSize when seeking to an object body.
+            Int32 bodyOffset = ObjectEntrySize * objects.Length;
+            for (Int32 i = 0; i < objects.Length; i++)
             {
-                byte[] data = SerializeObject(obj);
-                var header = new EVFileObject
-                {
-                    Offset = (ushort)currentOffset,
-                    Size = (ushort)data.Length,
-                    VariableCount = obj.VariableCount,
-                    Flags = obj.Flags
-                };
-
-                objectData.Add((header, data));
-                currentOffset += data.Length;
+                bw.Write((UInt16)bodyOffset);
+                bw.Write((UInt16)bodies[i].Length);
+                bw.Write(objects[i].VariableCount);
+                bw.Write(objects[i].Flags);
+                bw.Write((Int16)0);
+                bodyOffset += bodies[i].Length;
             }
 
-            // Write object headers
-            foreach (var (header, _) in objectData)
-            {
-                WriteStruct(header);
-            }
-
-            // Write object data
-            foreach (var (_, data) in objectData)
-            {
-                _output.Write(data, 0, data.Length);
-            }
+            foreach (var body in bodies)
+                bw.Write(body);
         }
 
-        private void WriteStruct<T>(T value) where T : unmanaged
-        {
-            int size = Marshal.SizeOf<T>();
-            byte[] bytes = new byte[size];
-            
-            unsafe
-            {
-                fixed (byte* ptr = bytes)
-                {
-                    Marshal.StructureToPtr(value, (IntPtr)ptr, false);
-                }
-            }
-            
-            _output.Write(bytes, 0, bytes.Length);
-        }
-
-        private unsafe EVFileHeader CreateFileHeader(byte objectCount)
-        {
-            var header = new EVFileHeader();
-            
-            // Use reflection to set private fields
-            var type = typeof(EVFileHeader);
-            var magicField = type.GetField("_magicNumber", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            var unknownField = type.GetField("_unknown", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            
-            magicField?.SetValue(header, (ushort)0x5645); // "EV"
-            unknownField?.SetValue(header, (byte)2);
-            
-            // Set public field
-            var objectCountField = type.GetField("ObjectCount");
-            objectCountField?.SetValue(header, objectCount);
-            
-            return header;
-        }
-
-        private unsafe byte[] SerializeObject(EVObject obj)
+        private static Byte[] SerializeObjectBody(EVObject obj)
         {
             if (obj.Scripts.Length == 0)
+                return Array.Empty<Byte>();
+
+            using var ms  = new MemoryStream();
+            using var bw  = new BinaryWriter(ms, System.Text.Encoding.UTF8, leaveOpen: true);
+
+            bw.Write((Byte)0);
+            bw.Write((Byte)obj.Scripts.Length);
+
+            var bytecodes = new Byte[obj.Scripts.Length][];
+            for (Int32 s = 0; s < obj.Scripts.Length; s++)
+                bytecodes[s] = TryExtractBytecode(obj.Scripts[s]);
+
+            // EVFileScriptInfo.Offset is relative to the byte immediately after
+            // EVFileScriptsHeader, so the two-byte header is deliberately excluded.
+            Int32 codeOffset = ScriptInfoSize * obj.Scripts.Length;
+            for (Int32 s = 0; s < obj.Scripts.Length; s++)
             {
-                return Array.Empty<byte>();
+                bw.Write((UInt16)obj.Scripts[s].Id);
+                bw.Write((UInt16)codeOffset);
+                codeOffset += bytecodes[s].Length;
             }
 
-            using var ms = new MemoryStream();
-
-            // Write scripts header
-            var scriptsHeader = new EVFileScriptsHeader
-            {
-                Unknown = 0,
-                ScriptCount = (byte)obj.Scripts.Length
-            };
-            WriteStructToStream(ms, scriptsHeader);
-
-            // Collect script bytecode and calculate offsets
-            var scriptBytecodes = new List<byte[]>();
-            var scriptInfos = new List<EVFileScriptInfo>();
-            int scriptOffset = sizeof(EVFileScriptsHeader) + sizeof(EVFileScriptInfo) * obj.Scripts.Length;
-
-            foreach (var script in obj.Scripts)
-            {
-                byte[] bytecode = ExtractScriptBytecode(script);
-                scriptBytecodes.Add(bytecode);
-
-                var scriptInfo = new EVFileScriptInfo
-                {
-                    Id = (ushort)script.Id,
-                    Offset = (ushort)scriptOffset
-                };
-                scriptInfos.Add(scriptInfo);
-
-                scriptOffset += bytecode.Length;
-            }
-
-            // Write script infos
-            foreach (var scriptInfo in scriptInfos)
-            {
-                WriteStructToStream(ms, scriptInfo);
-            }
-
-            // Write script bytecodes
-            foreach (var bytecode in scriptBytecodes)
-            {
-                ms.Write(bytecode, 0, bytecode.Length);
-            }
+            foreach (var code in bytecodes)
+                bw.Write(code);
 
             return ms.ToArray();
         }
 
-        private void WriteStructToStream<T>(Stream stream, T value) where T : unmanaged
+        private static Byte[] TryExtractBytecode(EVScript script)
         {
-            int size = Marshal.SizeOf<T>();
-            byte[] bytes = new byte[size];
-            
-            unsafe
-            {
-                fixed (byte* ptr = bytes)
-                {
-                    Marshal.StructureToPtr(value, (IntPtr)ptr, false);
-                }
-            }
-            
-            stream.Write(bytes, 0, bytes.Length);
-        }
-
-        private byte[] ExtractScriptBytecode(EVScript script)
-        {
-            // Try to extract bytecode from the script segment
-            // This is a simplified approach - in reality, we'd need to properly
-            // convert the ExecutableSegment back to raw bytecode
-            
-            if (script.Segment.GetType().Name.Contains("BasicExecutableSegment"))
-            {
-                return script.Segment.GetBytecode();
-            }
-
-            // For other types of segments, we need to reconstruct the bytecode
-            // This is a complex process that involves walking the instruction tree
-            // and converting back to JSM opcodes and arguments
-            
-            return ReconstructBytecodeFromSegment(script.Segment);
-        }
-
-        private byte[] ReconstructBytecodeFromSegment(Jsm.ExecutableSegment segment)
-        {
-            // This is a complex reconstruction process
-            // For now, return empty bytecode as a placeholder
-            var writer = new EVScriptWriter();
-            
-            try
-            {
-                // Walk through all instructions in the segment and convert them back to bytecode
-                foreach (var instruction in segment.EnumerateAllInstruction())
-                {
-                    ConvertInstructionToBytecode(instruction, writer);
-                }
-            }
-            catch (Exception)
-            {
-                // If conversion fails, return a simple return instruction
-                writer.WriteOpcode(Jsm.Opcode.Return);
-            }
-
-            return writer.GetBytecode();
-        }
-
-        private void ConvertInstructionToBytecode(IJsmInstruction instruction, EVScriptWriter writer)
-        {
-            // This is where we'd convert each instruction type back to bytecode
-            // For now, we'll handle some basic cases and throw for others
-            
-            if (instruction is JsmReturn)
-            {
-                writer.WriteOpcode(Jsm.Opcode.Return);
-            }
-            else
-            {
-                // For unhandled instructions, we'll add a NOP
-                writer.WriteOpcode(Jsm.Opcode.NOP);
-            }
+            Byte[] stored = CompiledBytecodeTag.Get(script.Segment);
+            if (stored != null) return stored;
+            throw new InvalidOperationException(
+                $"Script {script.Id} has no preserved bytecode and cannot be serialized losslessly.");
         }
     }
 
-    // Extension class for the BasicExecutableSegment to expose bytecode
-    public static class ExecutableSegmentExtensions
+    /// <summary>
+    /// Attaches raw compiled bytecode to an ExecutableSegment so EVFileWriter can recover it.
+    /// </summary>
+    public static class CompiledBytecodeTag
     {
-        public static byte[] GetBytecode(this Jsm.ExecutableSegment segment)
+        private static readonly ConditionalWeakTable<Jsm.ExecutableSegment, ByteTag> Table = new();
+
+        public static void Set(Jsm.ExecutableSegment segment, Byte[] bytecode)
+            => Table.AddOrUpdate(segment, new ByteTag(bytecode));
+
+        public static Byte[] Get(Jsm.ExecutableSegment segment)
+            => Table.TryGetValue(segment, out ByteTag tag) ? tag.Data : null;
+
+        private sealed class ByteTag
         {
-            // Use reflection to try to extract bytecode from BasicExecutableSegment
-            var type = segment.GetType();
-            var field = type.GetField("_bytecode", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (field?.GetValue(segment) is byte[] bytecode)
-            {
-                return bytecode;
-            }
-            
-            // Fallback - return a simple return instruction
-            var writer = new EVScriptWriter();
-            writer.WriteOpcode(Jsm.Opcode.Return);
-            return writer.GetBytecode();
+            public Byte[] Data { get; }
+            public ByteTag(Byte[] data) => Data = data;
         }
     }
 }

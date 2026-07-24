@@ -3,2171 +3,1212 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using Albeoris.Framework.Collections;
+using EvilForest.Resources.Enums;
+using FF8.Core;
 using Memoria.EventEngine.EV;
-using Microsoft.CodeAnalysis;
+
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using FF8.JSM;
 using FF8.JSM.Instructions;
-using FF8.Core;
 using Memoria.EventEngine.Execution;
-using FF8.JSM.Format;
-using Albeoris.Framework.Collections;
+using Microsoft.CodeAnalysis;
 
 namespace EveilForest.CSharp;
 
+/// <summary>
+/// Compiles C# pseudo-code files back to JSM bytecode wrapped in EVObject[].
+/// </summary>
 public sealed class CSharpEventCompiler : IEventCompiler
 {
-     public EVObject[] CompileDirectory(String directoryPath)
-     {
-          // TODO: Process Event.cs
-          String eventPath = Path.Combine(directoryPath, "Event.cs");
-
-          String[] objectPaths = Directory.GetFiles(directoryPath, "*??_*.cs");
-
-          List<EVObject> objects = new(capacity: objectPaths.Length);
-
-          foreach (String objectPath in objectPaths)
-          {
-               EVObject evObject = ParseObject(objectPath);
-               objects.Add(evObject);
-          }
-
-          // Sort objects by ID to maintain consistent ordering
-          objects.Sort((a, b) => a.Id.CompareTo(b.Id));
-
-          return objects.ToArray();
-     }
-
-     private static EVObject ParseObject(String objectPath)
-     {
-          const Int32 flags = default; // not used
-
-          Int32 id = ParseObjectId(objectPath);
-
-          SyntaxTree tree = CSharpSyntaxTree.ParseText(File.ReadAllText(objectPath));
-          CompilationUnitSyntax root = (CompilationUnitSyntax)tree.GetRoot();
-          Byte variableCount = ParseVariables(root);
-          EVScript[] scripts = ParseScripts(root);
-
-          EVObject evObject = new EVObject(id, variableCount, flags, scripts);
-          return evObject;
-     }
-
-     private static Byte ParseVariables(CompilationUnitSyntax root)
-     {
-          // Analyze the C# code to determine the original variable count by looking at
-          // public properties that represent object variables (like Int32_0, Byte_1, etc.)
-          // and also @evt variable access patterns
-          
-          var variableIndexes = new HashSet<int>();
-          
-          // Find public properties that represent object variables
-          var classes = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
-          foreach (var classDecl in classes)
-          {
-              var properties = classDecl.Members.OfType<PropertyDeclarationSyntax>()
-                  .Where(p => p.Modifiers.Any(SyntaxKind.PublicKeyword));
-              
-              foreach (var property in properties)
-              {
-                  var propName = property.Identifier.ValueText;
-                  if (TryExtractVariableIndex(propName, out int index))
-                  {
-                      int size = GetVariableSize(propName);
-                      // Add all byte indices that this variable occupies
-                      for (int i = 0; i < size; i++)
-                      {
-                          variableIndexes.Add(index + i);
-                      }
-                  }
-              }
-          }
-          
-          // Also look for @evt variable access patterns like @evt.Byte_18[1]
-          var memberAccesses = root.DescendantNodes()
-              .OfType<MemberAccessExpressionSyntax>()
-              .Where(ma => ma.Expression is IdentifierNameSyntax id && id.Identifier.ValueText == "@evt");
-          
-          foreach (var memberAccess in memberAccesses)
-          {
-              var memberName = memberAccess.Name.Identifier.ValueText;
-              if (TryExtractVariableIndex(memberName, out int index))
-              {
-                  int size = GetVariableSize(memberName);
-                  // Add all byte indices that this variable occupies
-                  for (int i = 0; i < size; i++)
-                  {
-                      variableIndexes.Add(index + i);
-                  }
-              }
-          }
-          
-          // Special heuristics for commonly encountered patterns
-          // If we see a JMP_SWITCH pattern (Object[x, y] access), likely indicates at least 1 variable
-          var hasObjectAccess = root.DescendantNodes()
-              .OfType<ElementAccessExpressionSyntax>()
-              .Any(ea => ea.Expression is IdentifierNameSyntax id && id.Identifier.ValueText == "Object");
-          
-          // If we have Object access patterns but no explicit variables, assume 1 variable minimum
-          if (hasObjectAccess && variableIndexes.Count == 0)
-          {
-              // This is a heuristic based on the observation that objects with JMP_SWITCH
-              // often have an implicit variable for switch state
-              variableIndexes.Add(0);
-          }
-          
-          // The variable count is the highest index + 1 (since variables are 0-indexed)
-          return variableIndexes.Count > 0 ? (byte)(variableIndexes.Max() + 1) : (byte)0;
-     }
-     
-     private static bool TryExtractVariableIndex(string memberName, out int index)
-     {
-          index = 0;
-          
-          // Check for patterns like Byte_X, SByte_X, UInt16_X, UInt32_X, Int32_X
-          var patterns = new[] 
-          { 
-              ("Byte_", 1),     // 1 byte
-              ("SByte_", 1),    // 1 byte 
-              ("UInt16_", 2),   // 2 bytes
-              ("Int16_", 2),    // 2 bytes
-              ("UInt32_", 4),   // 4 bytes
-              ("Int32_", 4)     // 4 bytes
-          };
-          
-          foreach (var (pattern, size) in patterns)
-          {
-              if (memberName.StartsWith(pattern))
-              {
-                  var indexPart = memberName.Substring(pattern.Length);
-                  if (int.TryParse(indexPart, out index))
-                  {
-                      return true;
-                  }
-              }
-          }
-          
-          return false;
-     }
-     
-     private static int GetVariableSize(string memberName)
-     {
-          var patterns = new[] 
-          { 
-              ("Byte_", 1),     // 1 byte
-              ("SByte_", 1),    // 1 byte 
-              ("UInt16_", 2),   // 2 bytes
-              ("Int16_", 2),    // 2 bytes
-              ("UInt32_", 4),   // 4 bytes
-              ("Int32_", 4)     // 4 bytes
-          };
-          
-          foreach (var (pattern, size) in patterns)
-          {
-              if (memberName.StartsWith(pattern))
-              {
-                  return size;
-              }
-          }
-          
-          return 1; // Default to 1 byte
-     }
-
-     private static EVScript[] ParseScripts(CompilationUnitSyntax root)
-     {
-          var scripts = new List<EVScript>();
-          
-          // Find all classes in the compilation unit
-          var classes = root.DescendantNodes().OfType<ClassDeclarationSyntax>();
-          
-          foreach (var classDecl in classes)
-          {
-              // Find all public methods that represent scripts
-              var methods = classDecl.Members.OfType<MethodDeclarationSyntax>()
-                  .Where(m => m.Modifiers.Any(SyntaxKind.PublicKeyword));
-              
-              foreach (var method in methods)
-              {
-                  try
-                  {
-                      int scriptId = GetScriptIdFromMethodName(method.Identifier.ValueText);
-                      EVScript script = ConvertMethodToEVScript(scriptId, method);
-                      scripts.Add(script);
-                  }
-                  catch (NotSupportedException ex)
-                  {
-                      throw new InvalidOperationException($"Error compiling method '{method.Identifier.ValueText}': {ex.Message}", ex);
-                  }
-              }
-          }
-          
-          return scripts.ToArray();
-     }
-
-     private static int GetScriptIdFromMethodName(string methodName)
-     {
-          // Map method names to script IDs
-          // This is a simplified mapping - in a full implementation,
-          // this would be more sophisticated
-          return methodName switch
-          {
-              "Init" => 0,
-              "OnLoop" => 1,
-              "OnEnter" => 2,
-              "OnExit" => 3,
-              _ when methodName.StartsWith("Script_") => 
-                  int.TryParse(methodName.Substring(7), out int id) ? id : 0,
-              _ => throw new NotSupportedException($"Method name '{methodName}' cannot be mapped to a script ID")
-          };
-     }
-
-     private static EVScript ConvertMethodToEVScript(int scriptId, MethodDeclarationSyntax method)
-     {
-          var instructions = new List<IJsmInstruction>();
-          
-          Console.WriteLine($"Debug: Creating EVScript {scriptId} from method '{method.Identifier.ValueText}'");
-          
-          // Process the method body
-          if (method.Body != null)
-          {
-              Console.WriteLine($"Debug: Processing method '{method.Identifier.ValueText}' with {method.Body.Statements.Count} statements");
-              foreach (var statement in method.Body.Statements)
-              {
-                  Console.WriteLine($"Debug: Processing statement type: {statement.GetType().Name}");
-                  ProcessStatement(statement, instructions);
-                  Console.WriteLine($"Debug: After processing statement, instruction count: {instructions.Count}");
-              }
-              Console.WriteLine($"Debug: Method '{method.Identifier.ValueText}' final instruction count: {instructions.Count}");
-          }
-
-          // Add return instruction at the end if not already present
-          var returnInstruction = CreateJsmInstruction(Jsm.Opcode.Return, "System", "Return", new Dictionary<string, object>());
-          if (returnInstruction != null)
-          {
-              instructions.Add(returnInstruction);
-          }
-
-          // Create a proper executable segment from the instructions
-          var segment = CreateExecutableSegmentFromInstructions(instructions);
-          
-          return new EVScript((UInt16)scriptId, segment);
-     }
-
-     private static void ProcessStatement(StatementSyntax statement, List<IJsmInstruction> instructions)
-     {
-          switch (statement)
-          {
-              case ExpressionStatementSyntax expressionStatement:
-                  ProcessExpression(expressionStatement.Expression, instructions);
-                  break;
-                  
-              case YieldStatementSyntax yieldStatement when yieldStatement.ReturnOrBreakKeyword.IsKind(SyntaxKind.ReturnKeyword):
-                  if (yieldStatement.Expression != null)
-                  {
-                      ProcessExpression(yieldStatement.Expression, instructions);
-                  }
-                  break;
-                  
-              case YieldStatementSyntax yieldStatement when yieldStatement.ReturnOrBreakKeyword.IsKind(SyntaxKind.BreakKeyword):
-                  // yield break; -> Return instruction
-                  var returnInstruction = CreateJsmInstruction(Jsm.Opcode.Return, "System", "Return", new Dictionary<string, object>());
-                  if (returnInstruction != null)
-                  {
-                      instructions.Add(returnInstruction);
-                  }
-                  break;
-                  
-              case WhileStatementSyntax whileStatement:
-                  ProcessWhileLoop(whileStatement, instructions);
-                  break;
-                  
-              case LocalDeclarationStatementSyntax localDeclaration:
-                  ProcessLocalDeclaration(localDeclaration, instructions);
-                  break;
-                  
-              case SwitchStatementSyntax switchStatement:
-                  ProcessSwitchStatement(switchStatement, instructions);
-                  break;
-                  
-              case IfStatementSyntax ifStatement:
-                  ProcessIfStatement(ifStatement, instructions);
-                  break;
-                  
-              case BreakStatementSyntax breakStatement:
-                  // Break statements typically used in switch cases - handled by parent context
-                  break;
-                  
-              case EmptyStatementSyntax emptyStatement:
-                  // Empty statements (just semicolons) - no action needed
-                  break;
-                  
-              case BlockSyntax block:
-                  foreach (var blockStatement in block.Statements)
-                  {
-                      ProcessStatement(blockStatement, instructions);
-                  }
-                  break;
-                  
-              default:
-                  Console.WriteLine($"Warning: Statement type {statement.GetType().Name} is not supported, skipping");
-                  break;
-          }
-     }
-
-     private static void ProcessIfStatement(IfStatementSyntax ifStatement, EVScriptWriter writer)
-     {
-          // Process if statements more conservatively
-          // Skip very complex conditions but allow simple ones
-          
-          var condition = ifStatement.Condition.ToString();
-          
-          // Skip if statements that are clearly C# artifacts
-          if (condition.Contains("// do nothing") || condition.Length > 50)
-          {
-              Console.WriteLine($"Warning: If statement with condition '{condition}' skipped (likely C# artifact)");
-              return;
-          }
-          
-          // For simpler conditions, process them but use a simplified approach
-          var elseLabel = writer.CreateLabel();
-          var endLabel = writer.CreateLabel();
-          
-          // Generate a simple conditional jump - don't try to parse complex conditions
-          Console.WriteLine($"Warning: If condition type {ifStatement.Condition.GetType().Name} is simplified to generic conditional jump");
-          writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, condition, 0, elseLabel);
-          
-          // Process the then body
-          Console.WriteLine($"Warning: Statement processing skipped in legacy mode");
-          
-          // If there's an else clause, jump to end after then body
-          if (ifStatement.Else != null)
-          {
-              writer.WriteJump(endLabel);
-              writer.PlaceLabel(elseLabel);
-              Console.WriteLine($"Warning: Else statement processing skipped in legacy mode");
-              writer.PlaceLabel(endLabel);
-          }
-          else
-          {
-              writer.PlaceLabel(elseLabel);
-          }
-     }
-
-     private static void ProcessIfCondition(ExpressionSyntax condition, EVScriptWriter writer, EVScriptWriter.Label elseLabel)
-     {
-          // Similar to while condition processing but with different jump logic
-          if (condition is ParenthesizedExpressionSyntax parenthesized)
-          {
-              ProcessIfCondition(parenthesized.Expression, writer, elseLabel);
-              return;
-          }
-          
-          if (condition is BinaryExpressionSyntax binary)
-          {
-              ProcessBinaryIfCondition(binary, writer, elseLabel);
-              return;
-          }
-          
-          // For other conditions, generate a generic conditional jump
-          Console.WriteLine($"Warning: If condition type {condition.GetType().Name} is simplified to generic conditional jump");
-          writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, condition.ToString(), 0, elseLabel);
-     }
-
-     private static void ProcessBinaryIfCondition(BinaryExpressionSyntax binary, EVScriptWriter writer, EVScriptWriter.Label elseLabel)
-     {
-          var left = ExtractVariableValue(binary.Left);
-          var right = ExtractConstantValue(binary.Right);
-          var operatorKind = binary.OperatorToken.Kind();
-          
-          switch (operatorKind)
-          {
-              case SyntaxKind.EqualsEqualsToken:
-                  // Jump to else if NOT equal
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IFN, left, right, elseLabel);
-                  break;
-                  
-              case SyntaxKind.ExclamationEqualsToken:
-                  // Jump to else if equal
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, left, right, elseLabel);
-                  break;
-                  
-              default:
-                  // For other operators, use generic conditional jump
-                  Console.WriteLine($"Warning: Binary operator {operatorKind} in if condition is simplified to generic conditional jump");
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, left, right, elseLabel);
-                  break;
-          }
-     }
-
-     private static void ProcessSwitchStatement(SwitchStatementSyntax switchStatement, EVScriptWriter writer)
-     {
-          // Switch statements in JSM bytecode can be implemented as a series of conditional jumps
-          // For now, we'll implement a simplified version
-          
-          var endLabel = writer.CreateLabel();
-          var casLabels = new List<EVScriptWriter.Label>();
-          
-          // Process each case
-          foreach (var section in switchStatement.Sections)
-          {
-              var caseLabel = writer.CreateLabel();
-              casLabels.Add(caseLabel);
-              
-              // Place the case label
-              writer.PlaceLabel(caseLabel);
-              
-              // Process statements in this case
-              foreach (var statement in section.Statements)
-              {
-                  Console.WriteLine($"Warning: Statement processing skipped in legacy mode");
-              }
-              
-              // If this case doesn't end with break, add jump to end
-              if (!section.Statements.OfType<BreakStatementSyntax>().Any())
-              {
-                  writer.WriteJump(endLabel);
-              }
-          }
-          
-          writer.PlaceLabel(endLabel);
-     }
-
-     private static void ProcessLocalDeclaration(LocalDeclarationStatementSyntax localDeclaration, List<IJsmInstruction> instructions)
-     {
-          // Handle variable declarations like: var @aud = ServiceId.Audio[@ctx];
-          // Most service variable declarations don't correspond to actual bytecode instructions
-          // so we'll skip them entirely
-          
-          Console.WriteLine($"Warning: Local declaration skipped (likely service reference)");
-          // Don't generate any instructions for variable declarations
-     }
-
-     private static void ProcessWhileLoop(WhileStatementSyntax whileStatement, List<IJsmInstruction> instructions)
-     {
-          // For now, process while loops by extracting their body statements and processing them directly
-          // This won't preserve the loop logic but will extract the instructions contained within
-          // TODO: Implement proper loop jump logic
-          
-          Console.WriteLine($"Warning: While loop simplified - processing body without loop logic");
-          
-          if (whileStatement.Statement is BlockSyntax block)
-          {
-              foreach (var statement in block.Statements)
-              {
-                  ProcessStatement(statement, instructions);
-              }
-          }
-          else
-          {
-              ProcessStatement(whileStatement.Statement, instructions);
-          }
-     }
-
-     private static void ProcessIfStatement(IfStatementSyntax ifStatement, List<IJsmInstruction> instructions)
-     {
-          // Implement proper conditional jump (JMP_IF) support
-          Console.WriteLine($"Processing if statement with condition: {ifStatement.Condition}");
-          
-          // For now, let's try to create a JMP_IF instruction for simple conditions
-          BinaryExpressionSyntax? binaryCondition = null;
-          
-          if (ifStatement.Condition is ParenthesizedExpressionSyntax parenthesized &&
-              parenthesized.Expression is BinaryExpressionSyntax binary)
-          {
-              binaryCondition = binary;
-          }
-          else if (ifStatement.Condition is BinaryExpressionSyntax directBinary)
-          {
-              binaryCondition = directBinary;
-          }
-          
-          IJsmInstruction? jmpIfInstruction = null;
-          int jmpIfIndex = -1;
-          
-          if (binaryCondition != null)
-          {
-              try
-              {
-                  // Try to create a JMP_IF instruction with placeholder target
-                  jmpIfInstruction = CreateJmpIfInstruction(binaryCondition);
-                  if (jmpIfInstruction != null)
-                  {
-                      jmpIfIndex = instructions.Count;
-                      instructions.Add(jmpIfInstruction);
-                  }
-              }
-              catch (Exception ex)
-              {
-                  Console.WriteLine($"Warning: Failed to create JMP_IF for condition {binaryCondition}: {ex.Message}");
-              }
-          }
-          
-          // Process the body statements 
-          int ifBlockStartIndex = instructions.Count;
-          if (ifStatement.Statement is BlockSyntax block)
-          {
-              foreach (var statement in block.Statements)
-              {
-                  ProcessStatement(statement, instructions);
-              }
-          }
-          else
-          {
-              ProcessStatement(ifStatement.Statement, instructions);
-          }
-          int ifBlockEndIndex = instructions.Count - 1; // Last instruction in if block
-          
-          // If there's an else clause, we need a JMP to skip it after the if body
-          IJsmInstruction? skipElseJump = null;
-          int skipElseJumpIndex = -1;
-          
-          if (ifStatement.Else != null)
-          {
-              // Create a JMP instruction to skip the else clause
-              skipElseJump = CreateJsmInstruction(Jsm.Opcode.JMP, "System", "Jump", new Dictionary<string, object>());
-              if (skipElseJump != null)
-              {
-                  skipElseJumpIndex = instructions.Count;
-                  instructions.Add(skipElseJump);
-              }
-          }
-          
-          // Calculate where the else clause starts (this is where JMP_IF should jump when condition is false)
-          int elseStartIndex = instructions.Count;
-          
-          // Process else clause if present
-          if (ifStatement.Else != null)
-          {
-              ProcessStatement(ifStatement.Else.Statement, instructions);
-          }
-          
-          // Calculate where everything ends
-          int afterEverythingIndex = instructions.Count;
-          
-          // Now set the correct jump targets
-          if (jmpIfInstruction != null && jmpIfInstruction is IJumpToInstruction jumpInstruction)
-          {
-              // According to @Albeoris: JMP_IF index should point to the latest instruction in the branch, not the next one
-              // So for if statements without else, point to the last instruction in the if block
-              if (ifStatement.Else == null)
-              {
-                  jumpInstruction.Index = ifBlockEndIndex;
-                  Console.WriteLine($"Set JMP_IF jump target to last if block instruction index {jumpInstruction.Index}");
-              }
-              else
-              {
-                  // For if-else statements, jump to else clause start when condition is false
-                  jumpInstruction.Index = elseStartIndex;
-                  Console.WriteLine($"Set JMP_IF jump target to else clause start index {jumpInstruction.Index}");
-              }
-          }
-          
-          if (skipElseJump != null && skipElseJump is IJumpToInstruction skipJumpInstruction)
-          {
-              // Skip-else JMP should jump to after everything
-              skipJumpInstruction.Index = afterEverythingIndex;
-              Console.WriteLine($"Set skip-else JMP jump target to instruction index {afterEverythingIndex}");
-          }
-     }
-
-     private static IJsmInstruction? CreateJmpIfInstruction(BinaryExpressionSyntax binary)
-     {
-          // Create a JMP_IF instruction from a binary expression like (@var.Byte_23[0] == 1)
-          
-          try
-          {
-              // Extract the variable and value from the binary expression
-              var leftVariableExpression = CreateVariableExpression(binary.Left.ToString());
-              var rightValue = ExtractConstantValue(binary.Right);
-              var operatorKind = binary.OperatorToken.Kind();
-              
-              // Convert boolean values to numbers
-              if (rightValue is bool boolValue)
-              {
-                  rightValue = boolValue ? 1 : 0;
-              }
-              
-              // Create the value expression for the right side
-              var rightValueExpression = CreateValueExpression(rightValue);
-              
-              // Create a comparison expression using the evaluator pattern
-              var evaluatorStack = new MockStack();
-              evaluatorStack.Push(leftVariableExpression);  // Push left operand first
-              evaluatorStack.Push(rightValueExpression);    // Push right operand second
-              
-              // Create a fake evaluator that will create our comparison
-              var bytecode = new List<byte>();
-              bytecode.AddRange(BitConverter.GetBytes((short)5)); // Placeholder jump offset
-              var segment = new Albeoris.Framework.Collections.ByteSegment(bytecode.ToArray());
-              var maker = new EVScriptMaker(segment);
-              var evaluator = new JsmExpressionEvaluator(maker, evaluatorStack, StatelessServices.Instance);
-              
-              // Create the comparison based on the operator type
-              switch (operatorKind)
-              {
-                  case SyntaxKind.EqualsEqualsToken:
-                      Jsm.Expression.Comparison.Equal(evaluator);
-                      break;
-                  case SyntaxKind.ExclamationEqualsToken:
-                      Jsm.Expression.Comparison.NotEqual(evaluator);
-                      break;
-                  case SyntaxKind.LessThanToken:
-                      Jsm.Expression.Comparison.LessStrict(evaluator);
-                      break;
-                  case SyntaxKind.LessThanEqualsToken:
-                      Jsm.Expression.Comparison.LessOrEqual(evaluator);
-                      break;
-                  case SyntaxKind.GreaterThanToken:
-                      Jsm.Expression.Comparison.GreatStrict(evaluator);
-                      break;
-                  case SyntaxKind.GreaterThanEqualsToken:
-                      Jsm.Expression.Comparison.GreatOrEqual(evaluator);
-                      break;
-                  default:
-                      Console.WriteLine($"Warning: Unsupported comparison operator {operatorKind}, defaulting to equality");
-                      Jsm.Expression.Comparison.Equal(evaluator);
-                      break;
-              }
-              
-              // Now the comparison expression should be on the evaluator stack
-              // Create a new stack with just the comparison for the JMP_IF instruction
-              var jmpIfStack = new MockStack();
-              if (evaluatorStack.Count > 0)
-              {
-                  var comparison = evaluatorStack.Pop();
-                  jmpIfStack.Push(comparison);
-              }
-              else
-              {
-                  Console.WriteLine("Warning: No comparison expression created on stack");
-                  return null;
-              }
-              
-              // Reset bytecode for JMP_IF with proper offset
-              bytecode.Clear();
-              bytecode.AddRange(BitConverter.GetBytes((short)5)); // Placeholder jump offset
-              
-              var jmpIfSegment = new Albeoris.Framework.Collections.ByteSegment(bytecode.ToArray());
-              var jmpIfMaker = new EVScriptMaker(jmpIfSegment);
-              
-              // Create the JMP_IF instruction (JMP_IFN = not inverted, JMP_IF = inverted)
-              var instruction = JsmInstruction.TryMake(Jsm.Opcode.JMP_IFN, jmpIfMaker, jmpIfStack);
-              
-              return instruction;
-          }
-          catch (Exception ex)
-          {
-              Console.WriteLine($"Warning: Failed to create JMP_IF instruction: {ex.Message}");
-              return null;
-          }
-     }
-
-     private static void ProcessSwitchStatement(SwitchStatementSyntax switchStatement, List<IJsmInstruction> instructions)
-     {
-          // For now, process switch statements by extracting all case statements and processing them directly
-          // This won't preserve the switch logic but will extract the instructions contained within
-          // TODO: Implement proper switch/case jump logic
-          
-          Console.WriteLine($"Warning: Switch statement simplified - processing all cases without switch logic");
-          
-          foreach (var section in switchStatement.Sections)
-          {
-              foreach (var statement in section.Statements)
-              {
-                  // Skip break statements as they don't correspond to JSM instructions
-                  if (statement is BreakStatementSyntax)
-                      continue;
-                      
-                  ProcessStatement(statement, instructions);
-              }
-          }
-     }
-
-     private static void ProcessInvocation(InvocationExpressionSyntax invocation, List<IJsmInstruction> instructions)
-     {
-          // Parse member access like @mes.ShowAndWait
-          if (invocation.Expression is MemberAccessExpressionSyntax memberAccess)
-          {
-              string serviceName = ExtractServiceName(memberAccess.Expression);
-              string methodName = memberAccess.Name.Identifier.ValueText;
-
-              if (InstructionMapper.TryGetOpcode(serviceName, methodName, out Jsm.Opcode opcode))
-              {
-                  // Special handling for SPS and SPS2 opcodes
-                  if (opcode == Jsm.Opcode.SPS || opcode == Jsm.Opcode.SPS2)
-                  {
-                      var actualArgs = ParseArguments(invocation.ArgumentList);
-                      var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
-                      if (instruction != null)
-                      {
-                          instructions.Add(instruction);
-                      }
-                      else
-                      {
-                          Console.WriteLine($"Warning: Could not create SPS instruction for {serviceName}.{methodName}");
-                      }
-                  }
-                  else
-                  {
-                      var actualArgs = ParseArguments(invocation.ArgumentList);
-                      var instruction = CreateJsmInstruction(opcode, serviceName, methodName, actualArgs);
-                      if (instruction != null)
-                      {
-                          instructions.Add(instruction);
-                      }
-                      else
-                      {
-                          Console.WriteLine($"Warning: Could not create JSM instruction for {serviceName}.{methodName} (opcode {opcode})");
-                      }
-                  }
-              }
-              else
-              {
-                  Console.WriteLine($"Warning: Method {serviceName}.{methodName} is not supported, skipping");
-              }
-          }
-          // Handle standalone method calls like NOP() or DELETE()
-          else if (invocation.Expression is IdentifierNameSyntax identifierName)
-          {
-              string methodName = identifierName.Identifier.ValueText;
-              
-              // Map standalone methods to opcodes
-              var opcode = methodName switch
-              {
-                  "NOP" => Jsm.Opcode.NOP,
-                  "DELETE" => Jsm.Opcode.DELETE,
-                  "NECKID" => Jsm.Opcode.NECKID,
-                  "POS3" => Jsm.Opcode.POS3,
-                  "AJUMP" => Jsm.Opcode.AJUMP,
-                  "SHADOWOFF" => Jsm.Opcode.SHADOWOFF,
-                  "CHRSCALE" => Jsm.Opcode.CHRSCALE,
-                  "CFLAG" => Jsm.Opcode.CFLAG,
-                  "NECKFLAG" => Jsm.Opcode.NECKFLAG,
-                  "MESHHIDE" => Jsm.Opcode.MESHHIDE,
-                  "FICON" => Jsm.Opcode.FICON,
-                  "MSPEED" => Jsm.Opcode.MSPEED,
-                  "CLRDIST" => Jsm.Opcode.CLRDIST,
-                  "MOVE" => Jsm.Opcode.MOVE,
-                  "MESHSHOW" => Jsm.Opcode.MESHSHOW,
-                  "WAIT" => Jsm.Opcode.WAIT,
-                  "STOP" => Jsm.Opcode.STOP,
-                  "RETURN" => Jsm.Opcode.Return,
-                  "REQEW" => Jsm.Opcode.REQEW,
-                  "TURN" => Jsm.Opcode.TURN,
-                  "DIRE" => Jsm.Opcode.DIRE,
-                  "AIDLE" => Jsm.Opcode.AIDLE,
-                  "ANIM" => Jsm.Opcode.ANIM,
-                  "WAITANIM" => Jsm.Opcode.WAITANIM,
-                  "ENDANIM" => Jsm.Opcode.ENDANIM,
-                  "AFRAME" => Jsm.Opcode.AFRAME,
-                  "ASPEED" => Jsm.Opcode.ASPEED,
-                  "RADIUS" => Jsm.Opcode.RADIUS,
-                  "ATTACH" => Jsm.Opcode.ATTACH,
-                  "DETACH" => Jsm.Opcode.DETACH,
-                  "LOCATE" => Jsm.Opcode.LOCATE,
-                  "MODEL" => Jsm.Opcode.MODEL,
-                  "POS" => Jsm.Opcode.POS,
-                  // Add the missing standalone methods
-                  "BGSSCROLL" => Jsm.Opcode.BGSSCROLL,
-                  "BGAVISIBLE" => Jsm.Opcode.BGAVISIBLE,
-                  "SETCAM" => Jsm.Opcode.SETCAM,
-                  "STARTSEQ" => Jsm.Opcode.STARTSEQ,
-                  "VIBTRACK1" => Jsm.Opcode.VIBTRACK1,
-                  "VIBACTIVE" => Jsm.Opcode.VIBACTIVE,
-                  "FULLMEMBER" => Jsm.Opcode.FULLMEMBER,
-                  "PARTYDELETE" => Jsm.Opcode.PARTYDELETE,
-                  "CLEARSTATUS" => Jsm.Opcode.CLEARSTATUS,
-                  "JOIN" => Jsm.Opcode.JOIN,
-                  "PLAYERNAME" => Jsm.Opcode.PLAYERNAME,
-                  "MENU" => Jsm.Opcode.MENU,
-                  "BGARANGE" => Jsm.Opcode.BGARANGE,
-                  "BGARATE" => Jsm.Opcode.BGARATE,
-                  "CHRFX" => Jsm.Opcode.CHRFX,
-                  "GILADD" => Jsm.Opcode.GILADD,
-                  "ITEMADD" => Jsm.Opcode.ITEMADD,
-                  "TURNA" => Jsm.Opcode.TURNA,
-                  "BGLACTIVE" => Jsm.Opcode.BGLACTIVE,
-                  "BGLCOLOR" => Jsm.Opcode.BGLCOLOR,
-                  "BGI" => Jsm.Opcode.BGI,
-                  "PREJUMP" => Jsm.Opcode.PREJUMP,
-                  "SETVY3" => Jsm.Opcode.SETVY3,
-                  "JUMP3" => Jsm.Opcode.JUMP3,
-                  "POSTJUMP" => Jsm.Opcode.POSTJUMP,
-                  "MROT" => Jsm.Opcode.MROT,
-                  _ => (Jsm.Opcode?)null
-              };
-              
-              if (opcode.HasValue)
-              {
-                  var actualArgs = ParseArguments(invocation.ArgumentList);
-                  var instruction = CreateJsmInstruction(opcode.Value, "Standalone", methodName, actualArgs);
-                  if (instruction != null)
-                  {
-                      instructions.Add(instruction);
-                  }
-                  else
-                  {
-                      Console.WriteLine($"Warning: Could not create JSM instruction for standalone method '{methodName}' (opcode {opcode})");
-                  }
-              }
-              else
-              {
-                  Console.WriteLine($"Warning: Standalone method '{methodName}' is not supported, skipping");
-              }
-          }
-          else
-          {
-              Console.WriteLine($"Warning: Method invocation type {invocation.Expression.GetType().Name} is not supported, skipping");
-          }
-     }
-     private static void ProcessLocalDeclaration(LocalDeclarationStatementSyntax localDeclaration, EVScriptWriter writer)
-     {
-          // Handle variable declarations like: var @aud = ServiceId.Audio[@ctx];
-          // Most service variable declarations don't correspond to actual bytecode instructions
-          // so we'll skip them entirely
-          
-          Console.WriteLine($"Warning: Local declaration skipped (likely service reference)");
-          // Don't generate any bytecode for variable declarations
-     }
-
-     private static void ProcessWhileLoop(WhileStatementSyntax whileStatement, EVScriptWriter writer)
-     {
-          // Process while loops but with simplified condition handling
-          
-          var condition = whileStatement.Condition.ToString();
-          
-          // Skip very complex loops
-          if (condition.Length > 50)
-          {
-              Console.WriteLine($"Warning: While loop with condition '{condition}' skipped (too complex)");
-              return;
-          }
-          
-          Console.WriteLine($"Warning: While loop with condition '{condition}' processed with simplified logic");
-          
-          var startLabel = writer.CreateLabel();
-          var endLabel = writer.CreateLabel();
-          
-          writer.PlaceLabel(startLabel);
-          
-          // Generate a simplified conditional jump
-          writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, condition, 0, endLabel);
-          
-          // Process the loop body
-          Console.WriteLine($"Warning: Loop body processing skipped in legacy mode");
-          
-          // Jump back to start
-          writer.WriteJump(startLabel);
-          
-          writer.PlaceLabel(endLabel);
-     }
-
-     private static void ProcessWhileCondition(ExpressionSyntax condition, EVScriptWriter writer, EVScriptWriter.Label endLabel)
-     {
-          // For now, we'll handle simple conditions like (@evt.Byte_44 == 0)
-          // In a full implementation, this would need to handle more complex expressions
-          
-          if (condition is ParenthesizedExpressionSyntax parenthesized)
-          {
-              ProcessWhileCondition(parenthesized.Expression, writer, endLabel);
-              return;
-          }
-          
-          if (condition is BinaryExpressionSyntax binary)
-          {
-              ProcessBinaryCondition(binary, writer, endLabel);
-              return;
-          }
-          
-          if (condition is LiteralExpressionSyntax literal)
-          {
-              // Handle literal conditions like while(true) or while(false)
-              if (literal.Token.IsKind(SyntaxKind.TrueKeyword))
-              {
-                  // while(true) - no jump needed, infinite loop
-                  return;
-              }
-              else if (literal.Token.IsKind(SyntaxKind.FalseKeyword))
-              {
-                  // while(false) - always jump to end
-                  writer.WriteJump(endLabel);
-                  return;
-              }
-          }
-          
-          throw new NotSupportedException($"While condition type {condition.GetType().Name} is not supported");
-     }
-
-     private static void ProcessBinaryCondition(BinaryExpressionSyntax binary, EVScriptWriter writer, EVScriptWriter.Label endLabel)
-     {
-          // Handle comparisons like (@evt.Byte_44 == 0) or (@sys.SoundSync != 0)
-          // We'll need to evaluate the expression and create a conditional jump
-          
-          // For simplicity, we'll use IFNBL (if not byte local) or similar instructions
-          // In practice, this would need to be more sophisticated
-          
-          var left = ExtractVariableValue(binary.Left);
-          var right = ExtractConstantValue(binary.Right);
-          
-          var operatorKind = binary.OperatorToken.Kind();
-          
-          switch (operatorKind)
-          {
-              case SyntaxKind.EqualsEqualsToken:
-                  // Jump to end if NOT equal (inverse logic for while loops)
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IFN, left, right, endLabel);
-                  break;
-                  
-              case SyntaxKind.ExclamationEqualsToken:
-                  // Jump to end if equal 
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, left, right, endLabel);
-                  break;
-                  
-              case SyntaxKind.GreaterThanToken:
-              case SyntaxKind.LessThanToken:
-              case SyntaxKind.GreaterThanEqualsToken:
-              case SyntaxKind.LessThanEqualsToken:
-                  // For comparison operators, we'll use a generic conditional jump
-                  // In a full implementation, we'd map these to specific JSM comparison opcodes
-                  Console.WriteLine($"Warning: Binary operator {operatorKind} in while condition is simplified to generic conditional jump");
-                  writer.WriteConditionalJump(Jsm.Opcode.JMP_IF, left, right, endLabel);
-                  break;
-                  
-              default:
-                  Console.WriteLine($"Warning: Binary operator {operatorKind} is not supported in while conditions, generating unconditional jump");
-                  writer.WriteJump(endLabel);
-                  break;
-          }
-     }
-
-     private static object ExtractVariableValue(ExpressionSyntax expression)
-     {
-          // Extract variable references like @evt.Byte_44 or @sys.SoundSync
-          // For now, we'll return a placeholder that represents the variable
-          // In a full implementation, this would map to proper variable indices
-          
-          return expression.ToString(); // Placeholder
-     }
-
-     private static void ProcessExpression(ExpressionSyntax expression, List<IJsmInstruction> instructions)
-     {
-          switch (expression)
-          {
-              case AssignmentExpressionSyntax assignment:
-                  ProcessAssignment(assignment, instructions);
-                  break;
-                  
-              case InvocationExpressionSyntax invocation:
-                  ProcessInvocation(invocation, instructions);
-                  break;
-                  
-              case ParenthesizedExpressionSyntax parenthesizedExpression:
-                  ProcessExpression(parenthesizedExpression.Expression, instructions);
-                  break;
-                  
-              default:
-                  Console.WriteLine($"Warning: Expression type {expression.GetType().Name} is not supported, skipping");
-                  break;
-          }
-     }
-
-     // Keep the old method for backwards compatibility during transition
-     private static void ProcessExpression(ExpressionSyntax expression, EVScriptWriter writer)
-     {
-          switch (expression)
-          {
-              case InvocationExpressionSyntax invocation:
-                  ProcessInvocation(invocation, writer);
-                  break;
-                  
-              case AssignmentExpressionSyntax assignment:
-                  ProcessAssignment(assignment, writer);
-                  break;
-                  
-              case PostfixUnaryExpressionSyntax postfixUnary:
-                  ProcessPostfixUnary(postfixUnary, writer);
-                  break;
-                  
-              case BinaryExpressionSyntax binaryExpression:
-                  ProcessBinaryExpression(binaryExpression, writer);
-                  break;
-                  
-              case IdentifierNameSyntax identifierName:
-                  // Handle standalone identifiers - likely variables being referenced
-                  // Skip these rather than generating NOPs
-                  Console.WriteLine($"Warning: Standalone identifier {identifierName.Identifier.ValueText} skipped");
-                  break;
-                  
-              case ElementAccessExpressionSyntax elementAccess:
-                  // Handle element access expressions like array[index] - skip these
-                  Console.WriteLine($"Warning: Element access {elementAccess} skipped");
-                  break;
-                  
-              case TupleExpressionSyntax tupleExpression:
-                  // Handle tuple expressions - skip these
-                  Console.WriteLine($"Warning: Tuple expression {tupleExpression} skipped");
-                  break;
-                  
-              case ParenthesizedExpressionSyntax parenthesizedExpression:
-                  // Handle parenthesized expressions by processing the inner expression
-                  ProcessExpression(parenthesizedExpression.Expression, writer);
-                  break;
-                  
-              case ConditionalExpressionSyntax conditionalExpression:
-                  // Handle ternary operator (condition ? true : false) - skip these
-                  Console.WriteLine($"Warning: Conditional expression {conditionalExpression} skipped");
-                  break;
-                  
-              default:
-                  throw new NotSupportedException($"Expression type {expression.GetType().Name} is not supported");
-          }
-     }
-
-     private static void ProcessBinaryExpression(BinaryExpressionSyntax binaryExpression, EVScriptWriter writer)
-     {
-          // Handle binary expressions like arithmetic operations
-          // Skip these rather than generating NOPs since they're often part of assignments
-          // that don't need separate bytecode
-          
-          Console.WriteLine($"Warning: Binary expression {binaryExpression} skipped");
-          // Don't generate any instruction
-     }
-
-     private static void ProcessPostfixUnary(PostfixUnaryExpressionSyntax postfixUnary, EVScriptWriter writer)
-     {
-          // Handle postfix operations like i++ or i--
-          // For now, we'll convert these to assignment expressions
-          
-          if (postfixUnary.OperatorToken.IsKind(SyntaxKind.PlusPlusToken))
-          {
-              // i++ -> i = i + 1
-              var assignment = SyntaxFactory.AssignmentExpression(
-                  SyntaxKind.SimpleAssignmentExpression,
-                  postfixUnary.Operand,
-                  SyntaxFactory.BinaryExpression(
-                      SyntaxKind.AddExpression,
-                      postfixUnary.Operand,
-                      SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal(1))
-                  )
-              );
-              ProcessAssignment(assignment, writer);
-          }
-          else if (postfixUnary.OperatorToken.IsKind(SyntaxKind.MinusMinusToken))
-          {
-              // i-- -> i = i - 1
-              var assignment = SyntaxFactory.AssignmentExpression(
-                  SyntaxKind.SimpleAssignmentExpression,
-                  postfixUnary.Operand,
-                  SyntaxFactory.BinaryExpression(
-                      SyntaxKind.SubtractExpression,
-                      postfixUnary.Operand,
-                      SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal(1))
-                  )
-              );
-              ProcessAssignment(assignment, writer);
-          }
-          else
-          {
-              Console.WriteLine($"Warning: Postfix operator {postfixUnary.OperatorToken} is not supported, skipping");
-              // Don't generate any instruction
-          }
-     }
-
-     private static void ProcessAssignment(AssignmentExpressionSyntax assignment, List<IJsmInstruction> instructions)
-     {
-          // Handle assignments like @evt.Byte_8 = 125; that correspond to Let instructions
-          
-          if (assignment.OperatorToken.IsKind(SyntaxKind.EqualsToken))
-          {
-              var leftSide = assignment.Left.ToString();
-              
-              // Process assignments to event object variables AND global variables
-              if ((leftSide.StartsWith("@evt.") || leftSide.StartsWith("@var.")) && 
-                  (leftSide.Contains("Byte_") || leftSide.Contains("Int16_") || leftSide.Contains("UInt16_") || leftSide.Contains("Int32_")))
-              {
-                  var rightValue = ExtractConstantValue(assignment.Right);
-                  
-                  // Process assignments with literal values and simple boolean values
-                  if (IsLiteralValue(rightValue) || rightValue is bool)
-                  {
-                      // Create proper Let instruction
-                      var variableExpression = CreateVariableExpression(leftSide);
-                      var valueExpression = CreateValueExpression(rightValue);
-                      var letInstruction = new Jsm.Expression.Let(variableExpression, valueExpression);
-                      instructions.Add(letInstruction);
-                  }
-                  else
-                  {
-                      // Skip assignments with complex expressions (like @evt.Byte_26-1)
-                      Console.WriteLine($"Warning: Assignment {leftSide} = {rightValue} skipped (complex expression)");
-                  }
-              }
-              else
-              {
-                  // Skip other assignments (like service assignments, context assignments, etc.)
-                  Console.WriteLine($"Warning: Assignment {leftSide} = ... skipped (likely C# construct)");
-              }
-          }
-          else
-          {
-              Console.WriteLine($"Warning: Assignment operator {assignment.OperatorToken.Kind()} is not supported");
-          }
-     }
-
-     private static Jsm.Expression.VariableExpression CreateVariableExpression(string variableName)
-     {
-          // Parse variable names like "@evt.Int16_0", "@evt.Byte_44", "@var.Byte_23[7]" etc.
-          
-          if (variableName.StartsWith("@evt."))
-          {
-              var variablePart = variableName.Substring(5); // Remove "@evt."
-              return ParseEventVariable(variablePart);
-          }
-          else if (variableName.StartsWith("@var."))
-          {
-              var variablePart = variableName.Substring(5); // Remove "@var."
-              return ParseGlobalVariable(variablePart);
-          }
-          else
-          {
-              throw new NotSupportedException($"Variable type not supported: {variableName}");
-          }
-     }
-
-     private static Jsm.Expression.VariableExpression ParseEventVariable(string variablePart)
-     {
-          // Handle patterns like "Byte_44", "Int16_0", "Byte_19[7]"
-          
-          string typeName;
-          int arrayIndex = 0;
-          
-          if (variablePart.Contains("["))
-          {
-              // Handle array access like "Byte_19[7]"
-              var bracketIndex = variablePart.IndexOf('[');
-              var endBracketIndex = variablePart.IndexOf(']');
-              typeName = variablePart.Substring(0, bracketIndex);
-              var arrayIndexStr = variablePart.Substring(bracketIndex + 1, endBracketIndex - bracketIndex - 1);
-              int.TryParse(arrayIndexStr, out arrayIndex);
-          }
-          else
-          {
-              typeName = variablePart;
-          }
-          
-          // Parse type and base index like "Byte_19"
-          var parts = typeName.Split('_');
-          if (parts.Length != 2 || !int.TryParse(parts[1], out int baseIndex))
-          {
-              throw new ArgumentException($"Invalid variable format: {variablePart}");
-          }
-          
-          var type = parts[0] switch
-          {
-              "Byte" => Jsm.Expression.VariableType.Byte,
-              "SByte" => Jsm.Expression.VariableType.SByte,
-              "Int16" => Jsm.Expression.VariableType.Int16,
-              "UInt16" => Jsm.Expression.VariableType.UInt16,
-              "Int32" => Jsm.Expression.VariableType.Int24, // JSM uses Int24 for 32-bit values
-              _ => throw new ArgumentException($"Unknown variable type: {parts[0]}")
-          };
-          
-          // Create the Int26 value for event variables (Map source)
-          // For array access like [7] or [0], we need to handle this as bit-level access
-          Int26 value;
-          if (variablePart.Contains("["))
-          {
-              // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
-              var bitOffset = baseIndex * 8 + arrayIndex;
-              value = new Int26(bitOffset, Jsm.Expression.VariableSource.Map, Jsm.Expression.VariableType.Bit);
-          }
-          else
-          {
-              // For regular variables, use the baseIndex directly
-              value = new Int26(baseIndex, Jsm.Expression.VariableSource.Map, type);
-          }
-          
-          var result = new Jsm.Expression.VariableExpression(value);
-          return result;
-     }
-
-     private static Jsm.Expression.VariableExpression ParseGlobalVariable(string variablePart)
-     {
-          // Handle patterns like "Byte_23[7]" for global variables
-          
-          string typeName;
-          int arrayIndex = 0;
-          
-          if (variablePart.Contains("["))
-          {
-              // Handle array access like "Byte_23[7]"
-              var bracketIndex = variablePart.IndexOf('[');
-              var endBracketIndex = variablePart.IndexOf(']');
-              typeName = variablePart.Substring(0, bracketIndex);
-              var arrayIndexStr = variablePart.Substring(bracketIndex + 1, endBracketIndex - bracketIndex - 1);
-              int.TryParse(arrayIndexStr, out arrayIndex);
-          }
-          else
-          {
-              typeName = variablePart;
-          }
-          
-          // Parse type and base index like "Byte_23"
-          var parts = typeName.Split('_');
-          if (parts.Length != 2 || !int.TryParse(parts[1], out int baseIndex))
-          {
-              throw new ArgumentException($"Invalid variable format: {variablePart}");
-          }
-          
-          var type = parts[0] switch
-          {
-              "Byte" => Jsm.Expression.VariableType.Byte,
-              "SByte" => Jsm.Expression.VariableType.SByte,
-              "Int16" => Jsm.Expression.VariableType.Int16,
-              "UInt16" => Jsm.Expression.VariableType.UInt16,
-              "Int32" => Jsm.Expression.VariableType.Int24,
-              _ => throw new ArgumentException($"Unknown variable type: {parts[0]}")
-          };
-          
-          // Create the Int26 value for global variables (Global source)
-          // For array access like [7] or [0], we need to handle this as bit-level access
-          Int26 value;
-          if (variablePart.Contains("["))
-          {
-              // For array access, calculate the bit offset: baseIndex * 8 + arrayIndex
-              var bitOffset = baseIndex * 8 + arrayIndex;
-              value = new Int26(bitOffset, Jsm.Expression.VariableSource.Global, Jsm.Expression.VariableType.Bit);
-          }
-          else
-          {
-              // For regular variables, use the baseIndex directly
-              value = new Int26(baseIndex, Jsm.Expression.VariableSource.Global, type);
-          }
-          
-          var result = new Jsm.Expression.VariableExpression(value);
-          return result;
-     }
-
-     private static Jsm.Expression.ValueExpression CreateValueExpression(object value)
-     {
-          // Convert the value to a proper ValueExpression
-          if (value is byte byteValue)
-          {
-              return new Jsm.Expression.ValueExpression(byteValue, Jsm.Expression.VariableType.Byte);
-          }
-          else if (value is sbyte sbyteValue)
-          {
-              return new Jsm.Expression.ValueExpression(sbyteValue, Jsm.Expression.VariableType.SByte);
-          }
-          else if (value is short shortValue)
-          {
-              return new Jsm.Expression.ValueExpression(shortValue, Jsm.Expression.VariableType.Int16);
-          }
-          else if (value is ushort ushortValue)
-          {
-              return new Jsm.Expression.ValueExpression(ushortValue, Jsm.Expression.VariableType.UInt16);
-          }
-          else if (value is int intValue)
-          {
-              return new Jsm.Expression.ValueExpression(intValue, Jsm.Expression.VariableType.Int24);
-          }
-          else if (value is long longValue)
-          {
-              return new Jsm.Expression.ValueExpression(longValue, Jsm.Expression.VariableType.Int24);
-          }
-          else if (value is bool boolValue)
-          {
-              return new Jsm.Expression.ValueExpression(boolValue ? 1 : 0, Jsm.Expression.VariableType.Byte);
-          }
-          else if (value is string stringValue && int.TryParse(stringValue, out int parsedValue))
-          {
-              return new Jsm.Expression.ValueExpression(parsedValue, Jsm.Expression.VariableType.Int24);
-          }
-          else if (value is string stringValue2 && bool.TryParse(stringValue2, out bool parsedBool))
-          {
-              return new Jsm.Expression.ValueExpression(parsedBool ? 1 : 0, Jsm.Expression.VariableType.Byte);
-          }
-          else
-          {
-              // Default to 0 for unknown types
-              Console.WriteLine($"Warning: Unknown value type {value?.GetType().Name}, defaulting to 0");
-              return new Jsm.Expression.ValueExpression(0, Jsm.Expression.VariableType.Int24);
-          }
-     }
-
-     // Keep the old ProcessAssignment method for backwards compatibility during transition
-     private static void ProcessAssignment(AssignmentExpressionSyntax assignment, EVScriptWriter writer)
-     {
-          // Handle assignments like @evt.Byte_8 = 125; that correspond to actual variable sets
-          // Skip most other assignments that are just C# constructs
-          
-          if (assignment.OperatorToken.IsKind(SyntaxKind.EqualsToken))
-          {
-              var leftSide = assignment.Left.ToString();
-              
-              // Only process assignments to event object variables that look like they 
-              // correspond to actual JSM SET instructions
-              if (leftSide.StartsWith("@evt.") && (leftSide.Contains("Byte_") || leftSide.Contains("Int16_") || leftSide.Contains("UInt16_") || leftSide.Contains("Int32_")))
-              {
-                  var rightValue = ExtractConstantValue(assignment.Right);
-                  
-                  // Only process assignments with literal values - skip complex expressions
-                  if (IsLiteralValue(rightValue))
-                  {
-                      writer.WriteVariableAssignment(leftSide, rightValue);
-                  }
-                  else
-                  {
-                      // Skip assignments with complex expressions (like @evt.Byte_26-1)
-                      Console.WriteLine($"Warning: Assignment {leftSide} = {rightValue} skipped (complex expression)");
-                  }
-              }
-              else
-              {
-                  // Skip other assignments (like service assignments, context assignments, etc.)
-                  Console.WriteLine($"Warning: Assignment {leftSide} = ... skipped (likely C# construct)");
-              }
-          }
-          else
-          {
-              throw new NotSupportedException($"Assignment operator {assignment.OperatorToken.Kind()} is not supported");
-          }
-     }
-
-     private static bool IsLiteralValue(object value)
-     {
-         // Check if a value is a simple literal (number, bool, etc.) rather than a complex expression
-         return value is not string || (value is string str && IsNumericString(str));
-     }
-
-     private static bool IsNumericString(string str)
-     {
-         // Check if a string represents a simple number
-         return int.TryParse(str, out _) || double.TryParse(str, out _);
-     }
-
-     private static void ProcessInvocation(InvocationExpressionSyntax invocation, EVScriptWriter writer)
-     {
-          // Parse member access like @mes.ShowAndWait
-          if (invocation.Expression is MemberAccessExpressionSyntax memberAccess)
-          {
-              string serviceName = ExtractServiceName(memberAccess.Expression);
-              string methodName = memberAccess.Name.Identifier.ValueText;
-
-              if (InstructionMapper.TryGetOpcode(serviceName, methodName, out Jsm.Opcode opcode))
-              {
-                  // Special handling for SPS and SPS2 opcodes
-                  if (opcode == Jsm.Opcode.SPS || opcode == Jsm.Opcode.SPS2)
-                  {
-                      ProcessSpsMethod(serviceName, methodName, invocation.ArgumentList, writer, opcode);
-                  }
-                  else
-                  {
-                      // Standard opcode processing
-                      // Get expected arguments for this opcode
-                      var expectedArgs = InstructionMapper.GetArgumentInfo(opcode);
-                      var actualArgs = ParseArguments(invocation.ArgumentList);
-
-                      // Write arguments in the correct order
-                      foreach (var expectedArg in expectedArgs)
-                      {
-                          if (actualArgs.TryGetValue(expectedArg.Name, out object value))
-                          {
-                              WriteArgument(writer, value, expectedArg.Type);
-                          }
-                          else
-                          {
-                              // For missing arguments, write a default value instead of failing
-                              Console.WriteLine($"Warning: Missing argument '{expectedArg.Name}' for {opcode}, using default value");
-                              object defaultValue = expectedArg.Type switch
-                              {
-                                  ArgumentType.Byte => (byte)0,
-                                  ArgumentType.SByte => (sbyte)0,
-                                  ArgumentType.Int16 => (short)0,
-                                  ArgumentType.UInt16 => (ushort)0,
-                                  ArgumentType.Int24 => 0,
-                                  ArgumentType.Int32 => 0,
-                                  _ => (byte)0
-                              };
-                              WriteArgument(writer, defaultValue, expectedArg.Type);
-                          }
-                      }
-
-                      // Write the opcode
-                      writer.WriteOpcode(opcode);
-                  }
-              }
-              else
-              {
-                  // For unknown methods, skip them entirely rather than generating NOPs
-                  // This prevents generating unnecessary instructions for unsupported methods
-                  Console.WriteLine($"Warning: Method {serviceName}.{methodName} is not supported, skipping");
-                  // Don't write any instruction - just skip it
-              }
-          }
-          // Handle standalone method calls like NOP() or DELETE()
-          else if (invocation.Expression is IdentifierNameSyntax identifierName)
-          {
-              string methodName = identifierName.Identifier.ValueText;
-              
-              // Map standalone methods to opcodes
-              var opcode = methodName switch
-              {
-                  "NOP" => Jsm.Opcode.NOP,
-                  "DELETE" => Jsm.Opcode.DELETE,
-                  "NECKID" => Jsm.Opcode.NOP, // Placeholder
-                  "WAIT" => Jsm.Opcode.WAIT,
-                  "STOP" => Jsm.Opcode.STOP,
-                  "RETURN" => Jsm.Opcode.Return,
-                  _ => Jsm.Opcode.NOP // Default fallback instead of throwing
-              };
-              
-              // Parse arguments for standalone methods
-              var actualArgs = ParseArguments(invocation.ArgumentList);
-              
-              // Write arguments based on the method (simplified)
-              switch (methodName)
-              {
-                  case "DELETE":
-                      if (actualArgs.TryGetValue("_continue", out object continueValue))
-                      {
-                          writer.WriteByte(Convert.ToByte(continueValue));
-                      }
-                      break;
-                  case "NOP":
-                  case "NECKID":
-                      // These take no arguments or we ignore them
-                      break;
-                  default:
-                      // For unknown methods, skip them entirely rather than generating NOPs
-                      if (methodName != "NOP" && methodName != "DELETE" && methodName != "WAIT" && methodName != "STOP" && methodName != "RETURN")
-                      {
-                          Console.WriteLine($"Warning: Standalone method '{methodName}' is not fully supported, skipping");
-                          return; // Skip this entire method call
-                      }
-                      break;
-              }
-              
-              writer.WriteOpcode(opcode);
-          }
-          else
-          {
-              throw new NotSupportedException("Only member access method calls and standalone method calls are supported");
-          }
-     }
-
-     private static string ExtractServiceName(ExpressionSyntax expression)
-     {
-          // Handle @mes -> Messages, @system -> System, etc.
-          if (expression is IdentifierNameSyntax identifier)
-          {
-              string name = identifier.Identifier.ValueText;
-              if (name.StartsWith("@"))
-              {
-                  name = name.Substring(1);
-              }
-              
-              return name switch
-              {
-                  "mes" => "Messages",
-                  "system" => "System", 
-                  "sys" => "System",
-                  "variables" => "Variables",
-                  "var" => "Variables",
-                  "actor" => "Actor",
-                  "act" => "Actor", // @act is commonly used for actor service
-                  "player" => "Actor", // player is often an alias for actor
-                  "character" => "Actor",
-                  "sound" => "Audio",
-                  "aud" => "Audio",
-                  "audio" => "Audio",
-                  "music" => "Music",
-                  "bg" => "Background",
-                  "background" => "Background",
-                  "camera" => "Camera",
-                  "field" => "Field",
-                  "sps" => "Sps",
-                  _ => char.ToUpper(name[0]) + name.Substring(1) // Capitalize first letter
-              };
-          }
-          
-          if (expression is ThisExpressionSyntax)
-          {
-              // Handle 'this' references
-              return "This";
-          }
-          
-          throw new NotSupportedException($"Service expression type {expression.GetType().Name} is not supported");
-     }
-
-     private static Dictionary<string, object> ParseArguments(ArgumentListSyntax argumentList)
-     {
-          var args = new Dictionary<string, object>();
-          
-          foreach (var argument in argumentList.Arguments)
-          {
-              string paramName;
-              
-              if (argument.NameColon != null)
-              {
-                  // Named argument: methodName(paramName: value)
-                  paramName = argument.NameColon.Name.Identifier.ValueText;
-              }
-              else
-              {
-                  // Positional argument - for now, we'll skip these or handle them later
-                  // In a full implementation, we'd map positional args to parameter names
-                  continue;
-              }
-
-              object value = ExtractConstantValue(argument.Expression);
-              args[paramName] = value;
-          }
-          
-          return args;
-     }
-
-     private static object ExtractConstantValue(ExpressionSyntax expression)
-     {
-          switch (expression)
-          {
-              case LiteralExpressionSyntax literal:
-                  return literal.Token.Value ?? throw new InvalidOperationException("Literal value is null");
-                  
-              case IdentifierNameSyntax identifier:
-                  // Handle identifiers like 'executionContext' - for now treat as string
-                  return identifier.Identifier.ValueText;
-                  
-              case MemberAccessExpressionSyntax memberAccess:
-                  // Handle member access like @var.Byte_8 - for now treat as string
-                  return memberAccess.ToString();
-                  
-              case ElementAccessExpressionSyntax elementAccess:
-                  // Handle element access like ServiceId.Audio[@ctx] or @evt.Byte_20[7] - for now treat as string
-                  return elementAccess.ToString();
-                  
-              case PrefixUnaryExpressionSyntax prefixUnary:
-                  // Handle prefix expressions like -30 or !value
-                  if (prefixUnary.OperatorToken.IsKind(SyntaxKind.MinusToken))
-                  {
-                      var operand = ExtractConstantValue(prefixUnary.Operand);
-                      if (operand is int intValue)
-                          return -intValue;
-                      if (operand is double doubleValue)
-                          return -doubleValue;
-                  }
-                  // For other prefix operators, return as string
-                  return prefixUnary.ToString();
-                  
-              case BinaryExpressionSyntax binaryExpression:
-                  // Handle binary expressions like i + 1
-                  // For now, return as string - in a full implementation would evaluate
-                  return binaryExpression.ToString();
-                  
-              case AssignmentExpressionSyntax assignmentExpression:
-                  // Handle assignment expressions in contexts where they're used as values
-                  // For now, return as string
-                  return assignmentExpression.ToString();
-                  
-              case ParenthesizedExpressionSyntax parenthesizedExpression:
-                  // Handle parenthesized expressions by processing the inner expression
-                  return ExtractConstantValue(parenthesizedExpression.Expression);
-                  
-              case InvocationExpressionSyntax invocationExpression:
-                  // Handle method calls in expression contexts - return as string
-                  return invocationExpression.ToString();
-                  
-              default:
-                  throw new NotSupportedException($"Only literal values and simple identifiers are supported, got {expression.GetType().Name}");
-          }
-     }
-
-     private static void WriteArgument(EVScriptWriter writer, object value, ArgumentType type)
-     {
-          try
-          {
-              switch (type)
-              {
-                  case ArgumentType.Byte:
-                      if (value is string str)
-                      {
-                          // Try to extract numeric value from variable references
-                          var numericValue = ExtractNumericFromString(str);
-                          writer.WriteByte((byte)numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteByte(Convert.ToByte(value));
-                      }
-                      break;
-                  case ArgumentType.SByte:
-                      if (value is string str2)
-                      {
-                          var numericValue = ExtractNumericFromString(str2);
-                          writer.WriteSByte((sbyte)numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteSByte(Convert.ToSByte(value));
-                      }
-                      break;
-                  case ArgumentType.Int16:
-                      if (value is string str3)
-                      {
-                          var numericValue = ExtractNumericFromString(str3);
-                          writer.WriteInt16((short)numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteInt16(Convert.ToInt16(value));
-                      }
-                      break;
-                  case ArgumentType.UInt16:
-                      if (value is string str4)
-                      {
-                          var numericValue = ExtractNumericFromString(str4);
-                          writer.WriteUInt16((ushort)numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteUInt16(Convert.ToUInt16(value));
-                      }
-                      break;
-                  case ArgumentType.Int24:
-                      if (value is string str5)
-                      {
-                          var numericValue = ExtractNumericFromString(str5);
-                          writer.WriteInt24(numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteInt24(Convert.ToInt32(value));
-                      }
-                      break;
-                  case ArgumentType.Int32:
-                      if (value is string str6)
-                      {
-                          var numericValue = ExtractNumericFromString(str6);
-                          writer.WriteInt32(numericValue);
-                      }
-                      else
-                      {
-                          writer.WriteInt32(Convert.ToInt32(value));
-                      }
-                      break;
-                  default:
-                      throw new NotSupportedException($"Argument type {type} is not supported");
-              }
-          }
-          catch (Exception ex)
-          {
-              Console.WriteLine($"Warning: Failed to write argument '{value}' of type {type}: {ex.Message}. Using default value 0.");
-              // Write a default value instead of failing
-              switch (type)
-              {
-                  case ArgumentType.Byte:
-                      writer.WriteByte(0);
-                      break;
-                  case ArgumentType.SByte:
-                      writer.WriteSByte(0);
-                      break;
-                  case ArgumentType.Int16:
-                      writer.WriteInt16(0);
-                      break;
-                  case ArgumentType.UInt16:
-                      writer.WriteUInt16(0);
-                      break;
-                  case ArgumentType.Int24:
-                      writer.WriteInt24(0);
-                      break;
-                  case ArgumentType.Int32:
-                      writer.WriteInt32(0);
-                      break;
-              }
-          }
-     }
-
-     private static int ExtractNumericFromString(string str)
-     {
-          // Try to extract numeric values from strings like "@var.Byte_8" or "Music_12"
-          if (str.Contains("_"))
-          {
-              var parts = str.Split('_');
-              if (parts.Length > 1 && int.TryParse(parts[^1], out int value))
-              {
-                  return value;
-              }
-          }
-          
-          // Try to parse the whole string as a number
-          if (int.TryParse(str, out int directValue))
-          {
-              return directValue;
-          }
-          
-          // If all else fails, return 0
-          return 0;
-     }
-
-     private static void ProcessSpsMethod(string serviceName, string methodName, ArgumentListSyntax argumentList, EVScriptWriter writer, Jsm.Opcode opcode)
-     {
-         var actualArgs = ParseArguments(argumentList);
-         byte operationCode = InstructionMapper.GetSpsOperationCode(methodName);
-         
-         // Write the index argument (first argument for all SPS methods)
-         if (actualArgs.TryGetValue("index", out object indexValue))
-         {
-             writer.WriteByte(Convert.ToByte(indexValue));
-         }
-         else
-         {
-             writer.WriteByte(0); // Default index
-         }
-         
-         // Write the operation code
-         writer.WriteByte(operationCode);
-         
-         // Write method-specific arguments
-         switch (methodName)
-         {
-             case "SetReference":
-                 if (actualArgs.TryGetValue("referenceIndex", out object refValue))
-                 {
-                     writer.WriteInt16(Convert.ToInt16(refValue));
-                 }
-                 else
-                 {
-                     writer.WriteInt16(0);
-                 }
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetRotation":
-                 WriteInt16Argument(writer, actualArgs, "x", 0);
-                 WriteInt16Argument(writer, actualArgs, "y", 0);
-                 WriteInt16Argument(writer, actualArgs, "z", 0);
-                 break;
-                 
-             case "SetScale":
-                 WriteInt16Argument(writer, actualArgs, "scale", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetFade":
-                 WriteInt16Argument(writer, actualArgs, "fade", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetAnimationRate":
-                 WriteInt16Argument(writer, actualArgs, "rate", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetFrameRate":
-                 WriteInt16Argument(writer, actualArgs, "rate", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetDepthOffset":
-                 WriteInt16Argument(writer, actualArgs, "offset", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetCharacter":
-                 WriteInt16Argument(writer, actualArgs, "characterIndex", 0);
-                 WriteInt16Argument(writer, actualArgs, "boneIndex", 0);
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             case "SetPosition":
-                 WriteInt16Argument(writer, actualArgs, "x", 0);
-                 WriteInt16Argument(writer, actualArgs, "y", 0);
-                 WriteInt16Argument(writer, actualArgs, "z", 0);
-                 break;
-                 
-             case "SetPositionOffset":
-                 WriteInt16Argument(writer, actualArgs, "offset", 0);
-                 writer.WriteInt16(0); // parameter2
-                 writer.WriteInt16(0); // parameter3
-                 break;
-                 
-             default:
-                 // Default case - write zeros for unknown methods
-                 writer.WriteInt16(0);
-                 writer.WriteInt16(0);
-                 writer.WriteInt16(0);
-                 break;
-         }
-         
-         // Write the opcode
-         writer.WriteOpcode(opcode);
-     }
-
-     private static void WriteInt16Argument(EVScriptWriter writer, Dictionary<string, object> actualArgs, string argName, short defaultValue)
-     {
-         if (actualArgs.TryGetValue(argName, out object value))
-         {
-             writer.WriteInt16(Convert.ToInt16(value));
-         }
-         else
-         {
-             writer.WriteInt16(defaultValue);
-         }
-     }
-
-     private static Jsm.ExecutableSegment CreateExecutableSegmentFromInstructions(List<IJsmInstruction> instructions)
-     {
-          // Create a proper executable segment that holds our JSM instructions
-          return new InstructionListExecutableSegment(instructions);
-     }
-
-     // Simple implementation of ExecutableSegment for JSM instructions
-     private class InstructionListExecutableSegment : Jsm.ExecutableSegment
-     {
-          private readonly List<IJsmInstruction> _instructions;
-
-          public InstructionListExecutableSegment(List<IJsmInstruction> instructions) : base(0, instructions.Count)
-          {
-              _instructions = instructions ?? throw new ArgumentNullException(nameof(instructions));
-          }
-
-          // Override EnumerateAllInstruction to return our proper JSM instructions
-          public override IEnumerable<IJsmInstruction> EnumerateAllInstruction()
-          {
-              return _instructions.Where(i => i != null);
-          }
-
-          // Override GetExecuter to provide basic execution capability
-          public override IScriptExecuter GetExecuter()
-          {
-              // Return a basic executer that doesn't do anything for now
-              // In a full implementation, this would execute the compiled instructions
-              return new NullExecuter();
-          }
-
-          private class NullExecuter : IScriptExecuter
-          {
-              public IEnumerable<IAwaitable> Execute(IServices services)
-              {
-                  // Return empty enumerable - no operations to execute
-                  return Enumerable.Empty<IAwaitable>();
-              }
-          }
-     }
-
-
-
-
-
-     private static IJsmInstruction CreateJsmInstruction(Jsm.Opcode opcode, string serviceName, string methodName, Dictionary<string, object> actualArgs)
-     {
-          try
-          {
-              // Create bytecode data for the instruction arguments
-              var bytecodeData = CreateInstructionBytecode(opcode, serviceName, methodName, actualArgs);
-              
-              // Create EVScriptMaker from the bytecode
-              var segment = new Albeoris.Framework.Collections.ByteSegment(bytecodeData.ToArray());
-              var maker = new EVScriptMaker(segment);
-              var stack = new MockStack();
-              
-              // Use the factory to create the instruction
-              var instruction = JsmInstruction.TryMake(opcode, maker, stack);
-              if (instruction != null)
-              {
-                  return instruction;
-              }
-              else
-              {
-                  Console.WriteLine($"Warning: JSM factory could not create instruction for opcode {opcode}");
-                  return null;
-              }
-          }
-          catch (Exception ex)
-          {
-              Console.WriteLine($"Warning: Failed to create JSM instruction for {opcode}: {ex.Message}");
-              return null;
-          }
-     }
-
-     private static List<byte> CreateInstructionBytecode(Jsm.Opcode opcode, string serviceName, string methodName, Dictionary<string, object> actualArgs)
-     {
-          var bytecode = new List<byte>();
-          
-          switch (opcode)
-          {
-              case Jsm.Opcode.NOP:
-                  // NOP takes no arguments
-                  break;
-                  
-              case Jsm.Opcode.WAIT:
-                  var frameDuration = ConvertToNumericValue(actualArgs.GetValueOrDefault("frameDuration", 1));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)frameDuration);
-                  break;
-                  
-              case Jsm.Opcode.STOP:
-                  // STOP takes no arguments
-                  break;
-                  
-              case Jsm.Opcode.DELETE:
-                  var continueValue = ConvertToNumericValue(actualArgs.GetValueOrDefault("_continue", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)continueValue);
-                  break;
-                  
-              case Jsm.Opcode.Return:
-                  // Return takes no arguments
-                  break;
-                  
-              case Jsm.Opcode.MODEL:
-                  var modelId = ConvertToNumericValue(actualArgs.GetValueOrDefault("model", 0));
-                  var height = ConvertToNumericValue(actualArgs.GetValueOrDefault("height", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)modelId));
-                  bytecode.Add((byte)height);
-                  break;
-                  
-              case Jsm.Opcode.POS:
-                  var x = ConvertToNumericValue(actualArgs.GetValueOrDefault("x", 0));
-                  var y = ConvertToNumericValue(actualArgs.GetValueOrDefault("y", 0));
-                  var z = ConvertToNumericValue(actualArgs.GetValueOrDefault("z", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)x));
-                  bytecode.AddRange(BitConverter.GetBytes((short)y));
-                  bytecode.AddRange(BitConverter.GetBytes((short)z));
-                  break;
-                  
-              case Jsm.Opcode.DIRE:
-                  var angle = ConvertToNumericValue(actualArgs.GetValueOrDefault("angle", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)angle);
-                  break;
-                  
-              case Jsm.Opcode.AIDLE:
-                  var animationId = ConvertToNumericValue(actualArgs.GetValueOrDefault("animationId", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)animationId));
-                  break;
-                  
-              case Jsm.Opcode.RADIUS:
-                  var radius = ConvertToNumericValue(actualArgs.GetValueOrDefault("radius", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)radius);
-                  break;
-                  
-              case Jsm.Opcode.ASPEED:
-                  var speed = ConvertToNumericValue(actualArgs.GetValueOrDefault("speed", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)speed);
-                  break;
-                  
-              case Jsm.Opcode.SPS:
-              case Jsm.Opcode.SPS2:
-                  var sps = ConvertToNumericValue(actualArgs.GetValueOrDefault("index", 0));
-                  var operationCode = InstructionMapper.GetSpsOperationCode(methodName);
-                  var parameter1 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 1));
-                  var parameter2 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 2));
-                  var parameter3 = ConvertToNumericValue(GetSpsParameter(methodName, actualArgs, 3));
-                  
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)sps);
-                  bytecode.Add(operationCode);
-                  bytecode.AddRange(BitConverter.GetBytes((short)parameter1));
-                  bytecode.AddRange(BitConverter.GetBytes((short)parameter2));
-                  bytecode.AddRange(BitConverter.GetBytes((short)parameter3));
-                  break;
-                  
-              case Jsm.Opcode.FLDSND0:
-                  var songId = ConvertToNumericValue(actualArgs.GetValueOrDefault("songId", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)songId));
-                  break;
-                  
-              case Jsm.Opcode.FLDSND1:
-                  var volume = ConvertToNumericValue(actualArgs.GetValueOrDefault("volume", 0));
-                  var time = ConvertToNumericValue(actualArgs.GetValueOrDefault("time", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)volume));
-                  bytecode.AddRange(BitConverter.GetBytes((short)time));
-                  break;
-                  
-              case Jsm.Opcode.NECKID:
-              case Jsm.Opcode.POS3:
-              case Jsm.Opcode.SHADOWOFF:
-              case Jsm.Opcode.CFLAG:
-              case Jsm.Opcode.NECKFLAG:
-              case Jsm.Opcode.MESHHIDE:
-              case Jsm.Opcode.MESHSHOW:
-              case Jsm.Opcode.FICON:
-              case Jsm.Opcode.MSPEED:
-              case Jsm.Opcode.CLRDIST:
-              case Jsm.Opcode.MOVE:
-              case Jsm.Opcode.REQEW:
-              case Jsm.Opcode.WAITANIM:
-              case Jsm.Opcode.ENDANIM:
-              case Jsm.Opcode.ATTACH:
-              case Jsm.Opcode.DETACH:
-              case Jsm.Opcode.LOCATE:
-                  // These instructions take no arguments or have default parameter handling
-                  break;
-                  
-              case Jsm.Opcode.TURN:
-                  var turnAngle = ConvertToNumericValue(actualArgs.GetValueOrDefault("angle", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)turnAngle);
-                  break;
-                  
-              case Jsm.Opcode.ANIM:
-              case Jsm.Opcode.AFRAME:
-                  var animId = ConvertToNumericValue(actualArgs.GetValueOrDefault("animationId", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)animId));
-                  break;
-                  
-              case Jsm.Opcode.AJUMP:
-                  var jumpHeight = ConvertToNumericValue(actualArgs.GetValueOrDefault("height", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.Add((byte)jumpHeight);
-                  break;
-                  
-              case Jsm.Opcode.CHRSCALE:
-                  var scaleX = ConvertToNumericValue(actualArgs.GetValueOrDefault("x", 0));
-                  var scaleY = ConvertToNumericValue(actualArgs.GetValueOrDefault("y", 0));
-                  var scaleZ = ConvertToNumericValue(actualArgs.GetValueOrDefault("z", 0));
-                  bytecode.Add(0); // argument mask
-                  bytecode.AddRange(BitConverter.GetBytes((short)scaleX));
-                  bytecode.AddRange(BitConverter.GetBytes((short)scaleY));
-                  bytecode.AddRange(BitConverter.GetBytes((short)scaleZ));
-                  break;
-                  
-              default:
-                  // For unknown opcodes, don't add any arguments
-                  break;
-          }
-          
-          return bytecode;
-     }
-
-     private static int ConvertToNumericValue(object value)
-     {
-          if (value is int intValue)
-              return intValue;
-          if (value is string stringValue)
-          {
-              // Try to parse as number first
-              if (int.TryParse(stringValue, out int parsedValue))
-                  return parsedValue;
-              
-              // Try to extract numeric value from variable references like "@evt.Int16_6" or "@var.Byte_8"
-              return ExtractNumericFromString(stringValue);
-          }
-          if (value is byte byteValue)
-              return byteValue;
-          if (value is short shortValue)
-              return shortValue;
-          if (value is bool boolValue)
-              return boolValue ? 1 : 0;
-          
-          // Default to 0 for unknown types
-          return 0;
-     }
-
-     // Mock implementation of stack for JSM expressions
-     private class MockStack : IStack<IJsmExpression>
-     {
-          private readonly Stack<IJsmExpression> _stack = new Stack<IJsmExpression>();
-
-          public int Count => _stack.Count;
-          public IJsmExpression Pop() => _stack.Count > 0 ? _stack.Pop() : new Jsm.Expression.ValueExpression(0, Jsm.Expression.VariableType.Int24);
-          public void Push(IJsmExpression item) => _stack.Push(item);
-          public IJsmExpression Peek() => _stack.Count > 0 ? _stack.Peek() : new Jsm.Expression.ValueExpression(0, Jsm.Expression.VariableType.Int24);
-          public void Clear() => _stack.Clear();
-     }
-
-     private static object GetSpsParameter(string methodName, Dictionary<string, object> actualArgs, int parameterNumber)
-     {
-          return methodName switch
-          {
-              "SetReference" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("referenceIndex", 0),
-                  _ => 0
-              },
-              "SetRotation" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("x", 0),
-                  2 => actualArgs.GetValueOrDefault("y", 0),
-                  3 => actualArgs.GetValueOrDefault("z", 0),
-                  _ => 0
-              },
-              "SetPosition" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("x", 0),
-                  2 => actualArgs.GetValueOrDefault("y", 0),
-                  3 => actualArgs.GetValueOrDefault("z", 0),
-                  _ => 0
-              },
-              "SetScale" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("scale", 0),
-                  _ => 0
-              },
-              "SetFade" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("fade", 0),
-                  _ => 0
-              },
-              "SetAnimationRate" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("rate", 0),
-                  _ => 0
-              },
-              "SetFrameRate" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("rate", 0),
-                  _ => 0
-              },
-              "SetDepthOffset" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("offset", 0),
-                  _ => 0
-              },
-              "SetCharacter" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("characterIndex", 0),
-                  2 => actualArgs.GetValueOrDefault("boneIndex", 0),
-                  _ => 0
-              },
-              "SetPositionOffset" => parameterNumber switch
-              {
-                  1 => actualArgs.GetValueOrDefault("offset", 0),
-                  _ => 0
-              },
-              _ => 0
-          };
-     }
-
-
-
-     private static Int32 ParseObjectId(String objectPath)
-     {
-          String fileName = Path.GetFileNameWithoutExtension(objectPath);
-          Int32 underscoreIndex = fileName.IndexOf('_');
-          if (underscoreIndex < 1)
-               throw new FormatException(objectPath);
-
-          String objectId = fileName.Substring(0, underscoreIndex);
-          Int32 id = Int32.Parse(objectId, CultureInfo.InvariantCulture);
-          if (id < 0)
-               throw new FormatException(objectPath);
-          return id;
-     }
+    public EVObject[] CompileDirectory(String directoryPath)
+    {
+        var objectFiles = Directory
+            .GetFiles(directoryPath, "*.cs")
+            .Where(f => IsObjectFile(f))
+            .ToArray();
+
+        var results = new List<EVObject>(objectFiles.Length);
+        foreach (var file in objectFiles)
+        {
+            try
+            {
+                results.Add(ParseObject(file));
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidDataException($"Failed to compile event object '{file}'.", ex);
+            }
+        }
+
+        results.Sort((a, b) => a.Id.CompareTo(b.Id));
+        return results.ToArray();
+    }
+
+    private static bool IsObjectFile(string path)
+    {
+        var stem = Path.GetFileNameWithoutExtension(path);
+        var us = stem.IndexOf('_');
+        return us > 0 && int.TryParse(stem.Substring(0, us), out _);
+    }
+
+    private static int ParseObjectId(string path)
+    {
+        var stem = Path.GetFileNameWithoutExtension(path);
+        return int.Parse(stem.Substring(0, stem.IndexOf('_')));
+    }
+
+    private EVObject ParseObject(string filePath)
+    {
+        int id      = ParseObjectId(filePath);
+        string code = File.ReadAllText(filePath);
+        var tree    = CSharpSyntaxTree.ParseText(code);
+        var root    = (CompilationUnitSyntax)tree.GetRoot();
+        var cls     = root.DescendantNodes().OfType<ClassDeclarationSyntax>().FirstOrDefault();
+        if (cls == null) return new EVObject(id, 0, 0, Array.Empty<EVScript>());
+
+        byte varCount = ComputeVarCount(cls);
+        byte flags = ReadByteConstant(cls, "__Flags");
+        var scripts   = CompileScripts(cls).ToArray();
+        return new EVObject(id, varCount, flags, scripts);
+    }
+
+    // ─── variable-count scanner ───────────────────────────────────────────────
+
+    private static byte ComputeVarCount(ClassDeclarationSyntax cls)
+    {
+        byte declared = ReadByteConstant(cls, "__VariableCount");
+        if (declared != 0)
+            return declared;
+        int maxEnd = 0;
+        foreach (PropertyDeclarationSyntax property in cls.Members.OfType<PropertyDeclarationSyntax>())
+        {
+            string name = property.Identifier.ValueText;
+            int separator = name.LastIndexOf('_');
+            if (separator <= 0 ||
+                !int.TryParse(name.Substring(separator + 1), NumberStyles.None,
+                    CultureInfo.InvariantCulture, out int n))
+                continue;
+
+            string tn = name.Substring(0, separator);
+            int byteEnd = tn switch
+            {
+                "Int16" or "UInt16" => n     + 2,
+                "Int24" or "UInt24" => n     + 3,
+                "Int32" or "UInt32" => n     + 4,
+                "Bit" or "Boolean" => n / 8 + 1,
+                "Byte" or "SByte" or "BitByte" or "SBitByte" => n + 1,
+                _ => 0
+            };
+            if (byteEnd > maxEnd) maxEnd = byteEnd;
+        }
+        return (byte)Math.Min(maxEnd, 255);
+    }
+
+    private static byte ReadByteConstant(ClassDeclarationSyntax cls, string name)
+    {
+        VariableDeclaratorSyntax? variable = cls.Members.OfType<FieldDeclarationSyntax>()
+            .SelectMany(field => field.Declaration.Variables)
+            .FirstOrDefault(candidate => candidate.Identifier.ValueText == name);
+        return variable?.Initializer?.Value is ExpressionSyntax expression &&
+               TryParseConst(expression, out long value)
+            ? (byte)value
+            : (byte)0;
+    }
+
+    // ─── script compiler ─────────────────────────────────────────────────────
+
+    private IEnumerable<EVScript> CompileScripts(ClassDeclarationSyntax cls)
+    {
+        foreach (var method in cls.Members.OfType<MethodDeclarationSyntax>())
+        {
+            int sid = GetScriptId(method);
+            if (sid < 0) continue;
+
+            var ctx = new CompileCtx();
+            CollectServiceAliases(method.Body, ctx);
+            CompileBlock(method.Body, ctx);
+            if (ctx.IsJumpTarget(ctx.Position))
+            {
+                if (ctx.LastInstructionOpcode == Jsm.Opcode.NOP)
+                    ctx.Retarget(ctx.Position, ctx.LastInstructionStart);
+                else
+                {
+                    int label = ctx.Position;
+                    ctx.EmitOpcode(Jsm.Opcode.NOP);
+                    ctx.RecordLabel(label);
+                    ctx.RecordInstructionOpcode(Jsm.Opcode.NOP);
+                }
+            }
+
+            byte[] bytecode = ctx.GetBytes();
+            Jsm.ExecutableSegment seg;
+            try
+            {
+                seg = EVFileReader.ParseScript(bytecode);
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidDataException(
+                    $"Script '{method.Identifier.ValueText}' produced invalid bytecode: " +
+                    Convert.ToHexString(bytecode), ex);
+            }
+            CompiledBytecodeTag.Set(seg, bytecode);
+            yield return new EVScript((ushort)sid, seg);
+        }
+    }
+
+    private static int GetScriptId(MethodDeclarationSyntax m)
+    {
+        string name = m.Identifier.Text;
+        if (name == "Init") return 0;
+        if (name.StartsWith("Script_") && int.TryParse(name.Substring(7), out int sid)) return sid;
+        return name switch { "OnLoop" => 1, "OnEnter" => 2, "OnExit" => 3, _ => -1 };
+    }
+
+    private static void CollectServiceAliases(BlockSyntax? body, CompileCtx ctx)
+    {
+        if (body == null) return;
+        foreach (var stmt in body.Statements.OfType<LocalDeclarationStatementSyntax>())
+        {
+            foreach (var decl in stmt.Declaration.Variables)
+            {
+                var short_name = decl.Identifier.Text;
+                if (short_name.StartsWith("@") &&
+                    decl.Initializer?.Value is ElementAccessExpressionSyntax ea &&
+                    ea.Expression is MemberAccessExpressionSyntax ma)
+                {
+                    ctx.AddService(short_name, ma.Name.Identifier.Text);
+                }
+            }
+        }
+    }
+
+    // ─── statement dispatcher ────────────────────────────────────────────────
+
+    private void CompileBlock(BlockSyntax? body, CompileCtx ctx)
+    {
+        if (body == null) return;
+        StatementSyntax? previousNext = ctx.NextStatement;
+        for (int i = 0; i < body.Statements.Count; i++)
+        {
+            ctx.NextStatement = i + 1 < body.Statements.Count
+                ? body.Statements[i + 1]
+                : previousNext;
+            CompileStmt(body.Statements[i], ctx);
+            ctx.ResolveDeferredJumps(body.Statements[i]);
+        }
+        ctx.NextStatement = previousNext;
+    }
+
+    private void CompileInfiniteWhile(WhileStatementSyntax loop, CompileCtx ctx)
+    {
+        int loopStart = ctx.Position;
+        CompileBlock(loop.Statement as BlockSyntax ?? WrapInBlock(loop.Statement), ctx);
+
+        ctx.EmitOpcode(Jsm.Opcode.JMP);
+        int slot = ctx.Position;
+        ctx.WriteInt16(0);
+        ctx.RecordJumpTarget(loopStart);
+        ctx.PatchInt16(slot, (short)(loopStart - (slot + 2)));
+    }
+
+    private static bool IsTrue(ExpressionSyntax expression)
+    {
+        while (expression is ParenthesizedExpressionSyntax parenthesized)
+            expression = parenthesized.Expression;
+        return expression.IsKind(SyntaxKind.TrueLiteralExpression);
+    }
+
+    private void CompileStmt(StatementSyntax stmt, CompileCtx ctx)
+    {
+        switch (stmt)
+        {
+            case ExpressionStatementSyntax { Expression: AssignmentExpressionSyntax asgn }:
+                CompileAssign(asgn, ctx);
+                break;
+            case ExpressionStatementSyntax { Expression: InvocationExpressionSyntax inv }:
+                CompileInvocation(inv, ctx);
+                break;
+            case ExpressionStatementSyntax { Expression: PostfixUnaryExpressionSyntax unary }:
+                CompileStandaloneUnary(unary.Operand,
+                    unary.IsKind(SyntaxKind.PostIncrementExpression)
+                        ? Jsm.Excode.IncrementPost
+                        : Jsm.Excode.DecrementPost, ctx);
+                break;
+            case ExpressionStatementSyntax { Expression: PrefixUnaryExpressionSyntax unary }
+                when unary.IsKind(SyntaxKind.PreIncrementExpression) ||
+                     unary.IsKind(SyntaxKind.PreDecrementExpression):
+                CompileStandaloneUnary(unary.Operand,
+                    unary.IsKind(SyntaxKind.PreIncrementExpression)
+                        ? Jsm.Excode.B_PRE_PLUS
+                        : Jsm.Excode.B_PRE_MINUS, ctx);
+                break;
+            case YieldStatementSyntax ys:
+                if (ys.IsKind(SyntaxKind.YieldBreakStatement))
+                    ctx.EmitOpcode(Jsm.Opcode.Return);
+                else if (ys.Expression is InvocationExpressionSyntax yi)
+                    CompileYieldReturn(yi, ctx);
+                break;
+            case IfStatementSyntax ifS:
+                CompileIf(ifS, ctx);
+                break;
+            case WhileStatementSyntax ws:
+                if (IsTrue(ws.Condition))
+                    CompileInfiniteWhile(ws, ctx);
+                else
+                    CompileWhile(ws, ctx);
+                break;
+            case SwitchStatementSyntax ss:
+                CompileSwitch(ss, ctx);
+                break;
+            case BlockSyntax blk:
+                CompileBlock(blk, ctx);
+                break;
+            case LocalDeclarationStatementSyntax:
+            case ReturnStatementSyntax:
+            case BreakStatementSyntax:
+            case EmptyStatementSyntax:
+                break;
+        }
+    }
+
+    // ─── assignment: @prefix.TypeName_N[k] = value ───────────────────────────
+
+    private static void CompileAssign(AssignmentExpressionSyntax asgn, CompileCtx ctx)
+    {
+        // Skip Init-method field assignments: @ctx = …, @evt = …
+        if (asgn.Left is IdentifierNameSyntax lid &&
+            (lid.Identifier.Text == "@ctx" || lid.Identifier.Text == "@evt"))
+            return;
+
+        if (!TryParseVarRef(asgn.Left, out var v26)) return;
+
+        var enc = new ExprEnc();
+        enc.PushVar(v26);
+        if (!asgn.IsKind(SyntaxKind.SimpleAssignmentExpression))
+            enc.PushVar(v26);
+        EncodeExpr(asgn.Right, enc);
+        enc.Op(asgn.Kind() switch
+        {
+            SyntaxKind.SimpleAssignmentExpression      => (byte)Jsm.Excode.Let,
+            SyntaxKind.AddAssignmentExpression         => (byte)Jsm.Excode.Add,
+            SyntaxKind.SubtractAssignmentExpression    => (byte)Jsm.Excode.Sub,
+            SyntaxKind.MultiplyAssignmentExpression    => (byte)Jsm.Excode.Mul,
+            SyntaxKind.DivideAssignmentExpression      => (byte)Jsm.Excode.Div,
+            SyntaxKind.ModuloAssignmentExpression      => (byte)Jsm.Excode.Mod,
+            SyntaxKind.AndAssignmentExpression         => (byte)Jsm.Excode.BitAnd,
+            SyntaxKind.OrAssignmentExpression          => (byte)Jsm.Excode.BitOr,
+            SyntaxKind.ExclusiveOrAssignmentExpression => (byte)Jsm.Excode.BitXor,
+            SyntaxKind.LeftShiftAssignmentExpression   => (byte)Jsm.Excode.BitLeft,
+            SyntaxKind.RightShiftAssignmentExpression  => (byte)Jsm.Excode.BitRight,
+            _                                           => (byte)Jsm.Excode.Let
+        });
+        if (!asgn.IsKind(SyntaxKind.SimpleAssignmentExpression))
+            enc.Op((byte)Jsm.Excode.Let);
+        enc.Op((byte)Jsm.Excode.End);
+
+        int label = ctx.Position;
+        ctx.EmitOpcode(Jsm.Opcode.EXPR);
+        ctx.WriteBytes(enc.ToArray());
+        ctx.RecordLabel(label);
+    }
+
+    private static void CompileStandaloneUnary(ExpressionSyntax operand, Jsm.Excode opcode,
+        CompileCtx ctx)
+    {
+        var encoded = new ExprEnc();
+        EncodeExpr(operand, encoded);
+        encoded.Op((byte)opcode);
+        encoded.Op((byte)Jsm.Excode.End);
+        int label = ctx.Position;
+        ctx.EmitOpcode(Jsm.Opcode.EXPR);
+        ctx.WriteBytes(encoded.ToArray());
+        ctx.RecordLabel(label);
+    }
+
+    // ─── yield return @svc.Method(args); // OPCODE ────────────────────────────
+
+    private void CompileYieldReturn(InvocationExpressionSyntax inv, CompileCtx ctx)
+    {
+        EmitInvocation(inv, ctx, "yield-return");
+    }
+
+    // ─── standalone call: REQ(…); AICON(…); etc. ─────────────────────────────
+
+    private void CompileInvocation(InvocationExpressionSyntax inv, CompileCtx ctx)
+    {
+        EmitInvocation(inv, ctx, "instruction");
+    }
+
+    private static void EmitInvocation(InvocationExpressionSyntax invocation, CompileCtx ctx, string kind)
+    {
+        List<ExpressionSyntax> encodedArguments;
+        Jsm.Opcode opcode;
+        if (!TryParseParameterizedComment(invocation, out opcode, out encodedArguments))
+        {
+            if (!TryResolveOpcode(invocation, ctx, out opcode))
+            {
+                if (TryEmitExpressionInstruction(invocation, ctx))
+                    return;
+                throw new InvalidDataException(
+                    $"Unsupported {kind} '{invocation}'. A compiler must never silently alter it.");
+            }
+            encodedArguments = invocation.ArgumentList.Arguments
+                .Select(argument => argument.Expression).ToList();
+        }
+
+        InstructionSchema schema = InstructionSchema.For(opcode);
+        AdaptSemanticArguments(opcode, schema, encodedArguments, invocation);
+        if (schema.Widths.Length != 0 && encodedArguments.Count != schema.Widths.Length)
+            throw new InvalidDataException(
+                $"Instruction {opcode} expects {schema.Widths.Length} encoded arguments, " +
+                $"but '{invocation}' supplies {encodedArguments.Count}.");
+
+        int instrLabel = ctx.Position;
+        ctx.EmitOpcode(opcode);
+        int maskSlot = -1;
+        byte argumentMask = 0;
+        if (schema.HasArgumentMask)
+        {
+            maskSlot = ctx.Position;
+            ctx.WriteByte(0);
+        }
+
+        for (int i = 0; i < schema.Widths.Length; i++)
+        {
+            ExpressionSyntax expression = encodedArguments[i];
+            int width = schema.Widths[i];
+            if (schema.HasArgumentMask && !TryParseConst(expression, out long v))
+            {
+                argumentMask |= (byte)(1 << i);
+                var encoded = new ExprEnc();
+                EncodeExpr(expression, encoded);
+                encoded.Op((byte)Jsm.Excode.End);
+                ctx.WriteBytes(encoded.ToArray());
+                continue;
+            }
+
+            TryParseConst(expression, out v);
+            switch (width) {
+                case 1: ctx.WriteByte((byte)v);   break;
+                case 2: ctx.WriteInt16((short)v); break;
+                case 3:
+                    ctx.WriteByte((byte)v);
+                    ctx.WriteByte((byte)(v >> 8));
+                    ctx.WriteByte((byte)(v >> 16));
+                    break;
+                case 4: ctx.WriteInt32((int)v);   break;
+            }
+        }
+        if (maskSlot >= 0)
+            ctx.PatchByte(maskSlot, argumentMask);
+        ctx.RecordLabel(instrLabel);
+        ctx.RecordInstructionOpcode(opcode);
+    }
+
+    private static void AdaptSemanticArguments(Jsm.Opcode opcode, InstructionSchema schema,
+        List<ExpressionSyntax> arguments, InvocationExpressionSyntax invocation)
+    {
+        if (opcode is Jsm.Opcode.AIDLE or Jsm.Opcode.AWALK or Jsm.Opcode.ARUN or
+            Jsm.Opcode.ATURNL or Jsm.Opcode.ATURNR or Jsm.Opcode.ASLEEP && arguments.Count == 2)
+        {
+            arguments.RemoveAt(0); // AnimationKind selects the opcode; ID is encoded.
+        }
+        else if (opcode == Jsm.Opcode.WIPERGB && arguments.Count == 5 && schema.Widths.Length == 6)
+        {
+            Match unknown = Regex.Match(GetTrailingComment(invocation),
+                @"WIPERGB\(unknown:\s*(.+)\)");
+            arguments.Insert(2, unknown.Success
+                ? SyntaxFactory.ParseExpression(unknown.Groups[1].Value)
+                : SyntaxFactory.LiteralExpression(
+                    SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal(0)));
+        }
+    }
+
+    private static bool TryParseParameterizedComment(InvocationExpressionSyntax invocation,
+        out Jsm.Opcode opcode, out List<ExpressionSyntax> arguments)
+    {
+        string comment = GetTrailingComment(invocation);
+        Match sound = Regex.Match(comment,
+            @"FLDSND\(op:\s*([^,\)]+),\s*sound:\s*([^,\)]+)(?:,\s*a1:\s*([^,\)]+))?(?:,\s*a2:\s*([^,\)]+))?(?:,\s*a3:\s*([^,\)]+))?\)");
+        if (sound.Success)
+        {
+            int optionalCount = Enumerable.Range(3, 3).Count(index => sound.Groups[index].Success);
+            opcode = optionalCount switch
+            {
+                0 => Jsm.Opcode.FLDSND0,
+                1 => Jsm.Opcode.FLDSND1,
+                2 => Jsm.Opcode.FLDSND2,
+                _ => Jsm.Opcode.FLDSND3
+            };
+            arguments = new List<ExpressionSyntax>
+            {
+                SyntaxFactory.ParseExpression(sound.Groups[1].Value),
+                SyntaxFactory.ParseExpression(sound.Groups[2].Value)
+            };
+            for (int index = 3; index <= 5; index++)
+                if (sound.Groups[index].Success)
+                    arguments.Add(SyntaxFactory.ParseExpression(sound.Groups[index].Value));
+            return true;
+        }
+
+        Match sps = Regex.Match(comment,
+            @"SPS\(\s*([^,]+),\s*([A-Za-z0-9_]+),\s*([^,]+),\s*([^,]+),\s*([^\)]+)\)");
+        if (sps.Success && SpsOperationCodes.TryGetValue(sps.Groups[2].Value, out byte operation))
+        {
+            opcode = sps.Groups[2].Value == "SetCharacter" ? Jsm.Opcode.SPS2 : Jsm.Opcode.SPS;
+            arguments = new List<ExpressionSyntax>
+            {
+                SyntaxFactory.ParseExpression(sps.Groups[1].Value),
+                SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression,
+                    SyntaxFactory.Literal(operation)),
+                SyntaxFactory.ParseExpression(sps.Groups[3].Value),
+                SyntaxFactory.ParseExpression(sps.Groups[4].Value),
+                SyntaxFactory.ParseExpression(sps.Groups[5].Value)
+            };
+            return true;
+        }
+
+        opcode = default;
+        arguments = new List<ExpressionSyntax>();
+        return false;
+    }
+
+    private static readonly Dictionary<string, byte> SpsOperationCodes = new()
+    {
+        ["SetReference"] = 130, ["SetAttribute"] = 131, ["SetPosition"] = 135,
+        ["SetRotation"] = 140, ["SetScale"] = 145, ["SetCharacter"] = 150,
+        ["SetFade"] = 155, ["SetAnimationRate"] = 156, ["SetFrameRate"] = 160,
+        ["SetCurrentFrame"] = 161, ["SetPositionOffset"] = 165,
+        ["SetDepthOffset"] = 170,
+    };
+
+    private static string GetTrailingComment(InvocationExpressionSyntax invocation)
+    {
+        StatementSyntax? statement = invocation.AncestorsAndSelf().OfType<StatementSyntax>().FirstOrDefault();
+        return statement?.GetTrailingTrivia().ToFullString() ?? String.Empty;
+    }
+
+    private static bool TryEmitExpressionInstruction(InvocationExpressionSyntax invocation, CompileCtx ctx)
+    {
+        if (invocation.Expression is not MemberAccessExpressionSyntax member ||
+            member.Name.Identifier.ValueText != "CalcAngleByTangent")
+            return false;
+
+        var encoded = new ExprEnc();
+        foreach (ArgumentSyntax argument in invocation.ArgumentList.Arguments.Reverse())
+            EncodeExpr(argument.Expression, encoded);
+        encoded.Op((byte)Jsm.Excode.GetAngle);
+        encoded.Op((byte)Jsm.Excode.End);
+
+        int label = ctx.Position;
+        ctx.EmitOpcode(Jsm.Opcode.EXPR);
+        ctx.WriteBytes(encoded.ToArray());
+        ctx.RecordLabel(label);
+        return true;
+    }
+
+    private static bool TryResolveOpcode(InvocationExpressionSyntax invocation, CompileCtx ctx,
+        out Jsm.Opcode opcode)
+    {
+        if (invocation.Expression is IdentifierNameSyntax identifier &&
+            Enum.TryParse(identifier.Identifier.ValueText, out opcode))
+            return true;
+
+        string trivia = GetTrailingComment(invocation);
+        Match commentOpcode = Regex.Match(trivia, @"//\s*([A-Z][A-Z0-9_]*)");
+        if (commentOpcode.Success &&
+            Enum.TryParse(commentOpcode.Groups[1].Value, out opcode))
+            return true;
+
+        if (invocation.Expression is MemberAccessExpressionSyntax member &&
+            member.Expression is IdentifierNameSyntax serviceIdentifier)
+        {
+            string service = ctx.ResolveService(serviceIdentifier.Identifier.Text);
+            string method = member.Name.Identifier.ValueText;
+            if (ServiceOpcode.TryGetValue((service, method), out opcode))
+                return true;
+        }
+
+        opcode = default;
+        return false;
+    }
+
+    private static readonly Dictionary<(string Service, string Method), Jsm.Opcode> ServiceOpcode = new()
+    {
+        { ("System", "Wait"), Jsm.Opcode.WAIT },
+        { ("Messages", "ShowAndWait"), Jsm.Opcode.MES },
+        { ("Messages", "Show"), Jsm.Opcode.MESN },
+        { ("Messages", "Wait"), Jsm.Opcode.WAITMES },
+    };
+
+    // ─── if statement ─────────────────────────────────────────────────────────
+
+    private void CompileIf(IfStatementSyntax ifS, CompileCtx ctx)
+    {
+        var (cond, negated) = UnwrapNot(ifS.Condition);
+        // if(cond)  → JMP_IFN (isTrue=true)   : skip when cond TRUE
+        // if(!(c))  → JMP_IF  (isTrue=false)  : skip when cond FALSE
+        var jmpOp = negated ? Jsm.Opcode.JMP_IF : Jsm.Opcode.JMP_IFN;
+
+        EmitCondExpr(cond, ctx);
+        ctx.EmitOpcode(jmpOp);
+        int slot    = ctx.Position;
+        ctx.WriteInt16(0);         // forward placeholder
+
+        BlockSyntax body = ifS.Statement as BlockSyntax ?? WrapInBlock(ifS.Statement);
+        int bodyStart = ctx.Position;
+        if (ifS.Else != null)
+        {
+            bool hasTailAfterJump = body.Statements.Count > 1;
+            int bodyCountBeforeJump = hasTailAfterJump
+                ? body.Statements.Count - 1
+                : body.Statements.Count;
+            for (int i = 0; i < bodyCountBeforeJump; i++)
+                CompileStmt(body.Statements[i], ctx);
+
+            ctx.EmitOpcode(Jsm.Opcode.JMP);
+            int endSlot = ctx.Position;
+            ctx.WriteInt16(0);
+            ctx.RecordJumpTarget(ctx.Position);
+            ctx.PatchInt16(slot, (short)(ctx.Position - (slot + 2)));
+            if (hasTailAfterJump)
+                CompileStmt(body.Statements[^1], ctx);
+            CompileStmt(ifS.Else.Statement, ctx);
+            int endTarget = ctx.LastInstructionStart >= bodyStart
+                ? ctx.LastInstructionStart
+                : ctx.Position;
+            ctx.RecordJumpTarget(endTarget);
+            ctx.PatchInt16(endSlot, (short)(endTarget - (endSlot + 2)));
+        }
+        else
+        {
+            CompileBlock(body, ctx);
+            bool nextStartsControl = ctx.NextStatement is IfStatementSyntax or
+                WhileStatementSyntax or SwitchStatementSyntax;
+            bool trailingAssignments = body.Statements.Count >= 2 &&
+                IsAssignment(body.Statements[^1]) && IsAssignment(body.Statements[^2]);
+            bool endsWithYieldBreak = body.Statements.LastOrDefault() is YieldStatementSyntax;
+            bool endsWithControl = body.Statements.LastOrDefault() is IfStatementSyntax or
+                WhileStatementSyntax or SwitchStatementSyntax;
+            int target = !endsWithYieldBreak && !endsWithControl &&
+                         (!nextStartsControl || trailingAssignments) &&
+                         ctx.LastInstructionStart >= bodyStart
+                ? ctx.LastInstructionStart
+                : ctx.Position;
+            if (ctx.NextStatement is YieldStatementSyntax)
+            {
+                ctx.DeferRelativeJump(slot, ctx.NextStatement);
+            }
+            else
+            {
+                ctx.RecordJumpTarget(target);
+                ctx.PatchInt16(slot, (short)(target - (slot + 2)));
+            }
+        }
+    }
+
+    // ─── while statement ──────────────────────────────────────────────────────
+
+    private void CompileWhile(WhileStatementSyntax ws, CompileCtx ctx)
+    {
+        var (cond, negated) = UnwrapNot(ws.Condition);
+        var jmpOp = negated ? Jsm.Opcode.JMP_IF : Jsm.Opcode.JMP_IFN;
+
+        // Record position where the condition EXPR begins
+        int condStart = ctx.Position;
+        EmitCondExpr(cond, ctx);
+
+        ctx.EmitOpcode(jmpOp);
+        int forwardSlot = ctx.Position;
+        ctx.WriteInt16(0);         // forward placeholder (exit loop)
+
+        ctx.StartBody();
+        CompileBlock(ws.Statement as BlockSyntax ?? WrapInBlock(ws.Statement), ctx);
+        ctx.EndBody();
+
+        // Backward JMP → condStart
+        ctx.EmitOpcode(Jsm.Opcode.JMP);
+        int backSlot = ctx.Position;
+        ctx.WriteInt16(0);
+        int afterLoop = ctx.Position;
+
+        ctx.RecordJumpTarget(condStart);
+        ctx.PatchInt16(backSlot,    (short)(condStart - afterLoop));
+        ctx.RecordJumpTarget(afterLoop);
+        ctx.PatchInt16(forwardSlot, (short)(afterLoop - (forwardSlot + 2)));
+    }
+
+    private static bool IsAssignment(StatementSyntax statement) =>
+        statement is ExpressionStatementSyntax { Expression: AssignmentExpressionSyntax };
+
+    private void CompileSwitch(SwitchStatementSyntax statement, CompileCtx ctx)
+    {
+        var cases = new List<(int Value, SwitchSectionSyntax Section)>();
+        SwitchSectionSyntax? defaultSection = null;
+        foreach (SwitchSectionSyntax section in statement.Sections)
+        {
+            foreach (SwitchLabelSyntax label in section.Labels)
+            {
+                if (label is DefaultSwitchLabelSyntax)
+                    defaultSection = section;
+                else if (label is CaseSwitchLabelSyntax caseLabel &&
+                         TryParseConst(caseLabel.Value, out long value))
+                    cases.Add(((int)value, section));
+            }
+        }
+
+        if (cases.Count == 0)
+            throw new InvalidDataException("A switch must contain at least one constant case.");
+        bool isExtended = false;
+        for (int i = 1; i < cases.Count; i++)
+            if (cases[i].Value != cases[0].Value + i)
+                isExtended = true;
+
+        var condition = new ExprEnc();
+        EncodeExpr(statement.Expression, condition);
+        condition.Op((byte)Jsm.Excode.End);
+        ctx.EmitOpcode(Jsm.Opcode.EXPR);
+        ctx.WriteBytes(condition.ToArray());
+
+        ctx.EmitOpcode(isExtended ? Jsm.Opcode.JMP_SWITCHEX : Jsm.Opcode.JMP_SWITCH);
+        int switchBase = ctx.Position + (isExtended ? 3 : 0);
+        ctx.WriteByte((byte)cases.Count);
+        if (!isExtended)
+            ctx.WriteInt16((short)cases[0].Value);
+        int defaultSlot = ctx.Position;
+        ctx.WriteInt16(0);
+        int[] caseSlots = new int[cases.Count];
+        for (int i = 0; i < caseSlots.Length; i++)
+        {
+            if (isExtended)
+                ctx.WriteInt16((short)cases[i].Value);
+            caseSlots[i] = ctx.Position;
+            ctx.WriteInt16(0);
+        }
+
+        var starts = new int[cases.Count];
+        var breakSlots = new List<int>();
+        for (int i = 0; i < cases.Count; i++)
+        {
+            starts[i] = ctx.Position;
+            CompileSwitchSection(cases[i].Section, ctx, breakSlots);
+        }
+
+        int defaultStart = ctx.Position;
+        if (defaultSection != null)
+            CompileSwitchSection(defaultSection, ctx, breakSlots);
+        int end = ctx.Position;
+
+        ctx.RecordJumpTarget(defaultStart);
+        ctx.PatchInt16(defaultSlot, (short)(defaultStart - switchBase));
+        for (int i = 0; i < starts.Length; i++)
+        {
+            ctx.RecordJumpTarget(starts[i]);
+            ctx.PatchInt16(caseSlots[i], (short)(starts[i] - switchBase));
+        }
+        foreach (int slot in breakSlots)
+        {
+            ctx.RecordJumpTarget(end);
+            ctx.PatchInt16(slot, (short)(end - (slot + 2)));
+        }
+    }
+
+    private void CompileSwitchSection(SwitchSectionSyntax section, CompileCtx ctx, List<int> breakSlots)
+    {
+        foreach (StatementSyntax child in section.Statements)
+            CompileSwitchChild(child, ctx, breakSlots);
+    }
+
+    private void CompileSwitchChild(StatementSyntax child, CompileCtx ctx, List<int> breakSlots)
+    {
+        if (child is BreakStatementSyntax)
+        {
+            ctx.EmitOpcode(Jsm.Opcode.JMP);
+            breakSlots.Add(ctx.Position);
+            ctx.WriteInt16(0);
+        }
+        else if (child is BlockSyntax block)
+        {
+            foreach (StatementSyntax nested in block.Statements)
+                CompileSwitchChild(nested, ctx, breakSlots);
+        }
+        else
+        {
+            CompileStmt(child, ctx);
+        }
+    }
+
+    // ─── condition expression emitter ────────────────────────────────────────
+
+    private static void EmitCondExpr(ExpressionSyntax cond, CompileCtx ctx)
+    {
+        var enc = new ExprEnc();
+        EncodeExpr(cond, enc);
+        enc.Op((byte)Jsm.Excode.End);
+        // Condition EXPR is NOT an instruction (no label recorded), just raw bytes
+        ctx.EmitOpcode(Jsm.Opcode.EXPR);
+        ctx.WriteBytes(enc.ToArray());
+    }
+
+    private static void EncodeExpr(ExpressionSyntax e, ExprEnc enc)
+    {
+        while (e is ParenthesizedExpressionSyntax p) e = p.Expression;
+
+        if (e is CastExpressionSyntax cast)
+        {
+            EncodeExpr(cast.Expression, enc);
+            return;
+        }
+        if (e is PrefixUnaryExpressionSyntax constantUnary &&
+            TryParseConst(constantUnary, out long constantValue))
+        {
+            enc.PushConst16((short)constantValue);
+            return;
+        }
+        if (e is PrefixUnaryExpressionSyntax unary)
+        {
+            EncodeExpr(unary.Operand, enc);
+            enc.Op(unary.Kind() switch
+            {
+                SyntaxKind.UnaryMinusExpression       => (byte)Jsm.Excode.B_SINGLE_MINUS,
+                SyntaxKind.UnaryPlusExpression        => (byte)Jsm.Excode.B_SINGLE_PLUS,
+                SyntaxKind.LogicalNotExpression       => (byte)Jsm.Excode.B_NOT,
+                SyntaxKind.BitwiseNotExpression       => (byte)Jsm.Excode.B_COMP,
+                SyntaxKind.PreIncrementExpression     => (byte)Jsm.Excode.B_PRE_PLUS,
+                SyntaxKind.PreDecrementExpression     => (byte)Jsm.Excode.B_PRE_MINUS,
+                _                                     => (byte)Jsm.Excode.B_SINGLE_PLUS
+            });
+            return;
+        }
+
+        if (e is BinaryExpressionSyntax bin)
+        {
+            EncodeExpr(bin.Left,  enc);
+            EncodeExpr(bin.Right, enc);
+            enc.Op(bin.Kind() switch {
+                SyntaxKind.EqualsExpression             => (byte)Jsm.Excode.Equivalence,
+                SyntaxKind.NotEqualsExpression          => (byte)Jsm.Excode.NotEquivalence,
+                SyntaxKind.LessThanExpression           => (byte)Jsm.Excode.LessThan,
+                SyntaxKind.LessThanOrEqualExpression    => (byte)Jsm.Excode.LessOrEquals,
+                SyntaxKind.GreaterThanExpression        => (byte)Jsm.Excode.GreatThan,
+                SyntaxKind.GreaterThanOrEqualExpression => (byte)Jsm.Excode.GreatOrEquals,
+                SyntaxKind.LogicalAndExpression         => (byte)Jsm.Excode.BooleanAnd,
+                SyntaxKind.LogicalOrExpression          => (byte)Jsm.Excode.BooleanOr,
+                SyntaxKind.AddExpression                => (byte)Jsm.Excode.Add,
+                SyntaxKind.SubtractExpression           => (byte)Jsm.Excode.Sub,
+                SyntaxKind.MultiplyExpression           => (byte)Jsm.Excode.Mul,
+                SyntaxKind.DivideExpression             => (byte)Jsm.Excode.Div,
+                SyntaxKind.ModuloExpression             => (byte)Jsm.Excode.Mod,
+                SyntaxKind.BitwiseAndExpression         => (byte)Jsm.Excode.BitAnd,
+                SyntaxKind.BitwiseOrExpression          => (byte)Jsm.Excode.BitOr,
+                SyntaxKind.ExclusiveOrExpression        => (byte)Jsm.Excode.BitXor,
+                SyntaxKind.LeftShiftExpression          => (byte)Jsm.Excode.BitLeft,
+                SyntaxKind.RightShiftExpression         => (byte)Jsm.Excode.BitRight,
+                _                                       => (byte)Jsm.Excode.Equivalence
+            });
+            return;
+        }
+        if (e is LiteralExpressionSyntax lit)
+        {
+            short v = lit.IsKind(SyntaxKind.TrueLiteralExpression)  ?  (short)1 :
+                      lit.IsKind(SyntaxKind.FalseLiteralExpression) ?  (short)0 :
+                      (short)Convert.ToInt32(lit.Token.Value);
+            enc.PushConst16(v);
+            return;
+        }
+        if (e is MemberAccessExpressionSyntax systemMember &&
+            systemMember.Expression is IdentifierNameSyntax systemIdentifier &&
+            systemIdentifier.Identifier.Text == "@sys" &&
+            Enum.TryParse(systemMember.Name.Identifier.ValueText, out SystemData systemData))
+        {
+            enc.Op((byte)Jsm.Excode.B_SYSVAR);
+            enc.Op((byte)systemData);
+            return;
+        }
+        if (TryParseVarRef(e, out var v26)) { enc.PushVar(v26);  return; }
+        enc.PushConst16(0); // fallback
+    }
+
+    // ─── variable-reference parser ────────────────────────────────────────────
+
+    private static bool TryParseVarRef(ExpressionSyntax e, out Int26 result)
+    {
+        result = default;
+        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
+
+        // @prefix.TypeName_N[k]  — Bit
+        if (e is ElementAccessExpressionSyntax ea)
+        {
+            if (!TryMemberAccess(ea.Expression, out var src, out var tn, out int n)) return false;
+            if (ea.ArgumentList.Arguments.Count != 1) return false;
+            if (!TryParseConst(ea.ArgumentList.Arguments[0].Expression, out long kl)) return false;
+            int k = (int)kl;
+            int bitOfs = n * GetTypeBytes(tn) * 8 + k;
+            result = new Int26(bitOfs, src, Jsm.Expression.VariableType.Bit);
+            return true;
+        }
+        // @prefix.TypeName_N
+        if (TryMemberAccess(e, out var src2, out var tn2, out int idx2))
+        {
+            result = new Int26(idx2, src2, GetVarType(tn2));
+            return true;
+        }
+        return false;
+    }
+
+    private static bool TryMemberAccess(ExpressionSyntax e,
+        out Jsm.Expression.VariableSource src, out string typeName, out int index)
+    {
+        src = default; typeName = ""; index = 0;
+        string pfx;
+        string mn;
+        if (e is MemberAccessExpressionSyntax ma)
+        {
+            pfx = (ma.Expression as IdentifierNameSyntax)?.Identifier.Text ?? "";
+            mn = ma.Name.Identifier.Text;
+        }
+        else if (e is IdentifierNameSyntax identifier)
+        {
+            pfx = "@loc";
+            mn = identifier.Identifier.Text;
+        }
+        else
+        {
+            return false;
+        }
+        src = pfx switch {
+            "@var"            => Jsm.Expression.VariableSource.Global,
+            "@loc"            => Jsm.Expression.VariableSource.Instance,
+            "@evt" or "@map"  => Jsm.Expression.VariableSource.Map,
+            "@sys"            => Jsm.Expression.VariableSource.System,
+            _                 => (Jsm.Expression.VariableSource)99
+        };
+        if ((int)src == 99) return false;
+        int us = mn.IndexOf('_');
+        if (us <= 0) return false;
+        typeName = mn.Substring(0, us);
+        return int.TryParse(mn.Substring(us + 1), out index);
+    }
+
+    private static Jsm.Expression.VariableType GetVarType(string n) => n switch {
+        "Byte"   => Jsm.Expression.VariableType.Byte,
+        "SByte"  => Jsm.Expression.VariableType.SByte,
+        "Int16"  => Jsm.Expression.VariableType.Int16,
+        "UInt16" => Jsm.Expression.VariableType.UInt16,
+        "Int24"  => Jsm.Expression.VariableType.Int24,
+        "UInt24" => Jsm.Expression.VariableType.UInt24,
+        "Bit"    => Jsm.Expression.VariableType.Bit,
+        _        => Jsm.Expression.VariableType.Byte
+    };
+
+    private static int GetTypeBytes(string n) => n switch {
+        "Int16" or "UInt16" => 2,
+        "Int24" or "UInt24" => 3,
+        _                   => 1
+    };
+
+    private static bool TryParseConst(ExpressionSyntax e, out long v)
+    {
+        v = 0;
+        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
+        if (e is LiteralExpressionSyntax lit) {
+            if (lit.IsKind(SyntaxKind.TrueLiteralExpression))  { v = 1; return true; }
+            if (lit.IsKind(SyntaxKind.FalseLiteralExpression)) { v = 0; return true; }
+            if (lit.Token.Value is string text)
+            {
+                Match numericSuffix = Regex.Match(text, @"(-?\d+)$");
+                if (numericSuffix.Success)
+                    return long.TryParse(numericSuffix.Groups[1].Value, NumberStyles.Integer,
+                        CultureInfo.InvariantCulture, out v);
+                return false;
+            }
+            if (lit.Token.Value != null)
+            {
+                try { v = Convert.ToInt64(lit.Token.Value, CultureInfo.InvariantCulture); return true; }
+                catch (FormatException) { return false; }
+            }
+        }
+        if (e is MemberAccessExpressionSyntax member &&
+            long.TryParse(member.Name.Identifier.ValueText, NumberStyles.Integer,
+                CultureInfo.InvariantCulture, out v))
+            return true;
+        Match enumNumber = Regex.Match(e.ToString(), @"\.(-?\d+)$");
+        if (enumNumber.Success && long.TryParse(enumNumber.Groups[1].Value,
+                NumberStyles.Integer, CultureInfo.InvariantCulture, out v))
+            return true;
+        if (e is PrefixUnaryExpressionSyntax neg &&
+            neg.IsKind(SyntaxKind.UnaryMinusExpression) &&
+            neg.Operand is LiteralExpressionSyntax nl)
+        { v = -Convert.ToInt64(nl.Token.Value); return true; }
+        return false;
+    }
+
+    // ─── helpers ─────────────────────────────────────────────────────────────
+
+    private static (ExpressionSyntax cond, bool negated) UnwrapNot(ExpressionSyntax e)
+    {
+        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
+        if (e is PrefixUnaryExpressionSyntax neg &&
+            neg.IsKind(SyntaxKind.LogicalNotExpression))
+        {
+            var inner = neg.Operand;
+            while (inner is ParenthesizedExpressionSyntax pi) inner = pi.Expression;
+            return (inner, true);
+        }
+        return (e, false);
+    }
+
+    private static BlockSyntax WrapInBlock(StatementSyntax s)
+        => SyntaxFactory.Block(s);
+}
+
+// ─── Int26 encoder ───────────────────────────────────────────────────────────
+
+internal sealed class ExprEnc
+{
+    private readonly List<byte> _b = new();
+
+    public void Op(byte code) => _b.Add(code);
+
+    public void PushVar(Int26 v)
+    {
+        // Compact format: negative byte header + 1-2 value bytes
+        int src  = (int)v.Source & 3;
+        int type = (int)v.Type;
+        int val  = v.Value;
+        bool ext = val > 0xFF;
+        byte h = (byte)(0x80 | (ext ? 0x20 : 0) | ((type & 7) << 2) | (src & 3));
+        _b.Add(h);
+        _b.Add((byte)(val & 0xFF));
+        if (ext) _b.Add((byte)((val >> 8) & 0xFF));
+    }
+
+    public void PushConst16(short v)
+    {
+        _b.Add((byte)Jsm.Excode.Const16);
+        _b.Add((byte)(v & 0xFF));
+        _b.Add((byte)((v >> 8) & 0xFF));
+    }
+
+    public byte[] ToArray() => _b.ToArray();
+}
+
+// ─── bytecode emit context ───────────────────────────────────────────────────
+
+internal sealed class CompileCtx
+{
+    private readonly List<byte>   _b    = new();
+    private readonly Dictionary<string, string> _svc = new(StringComparer.Ordinal);
+    private readonly HashSet<int> _jumpTargets = new();
+    private readonly List<(int Slot, int Target, int Base)> _jumpPatches = new();
+    private readonly List<(int Slot, StatementSyntax Target)> _deferredJumps = new();
+    private int? _pendingJumpTarget;
+    public int LastInstructionStart { get; private set; } = -1;
+    public Jsm.Opcode? LastInstructionOpcode { get; private set; }
+    public StatementSyntax? NextStatement { get; set; }
+
+    // Per-instruction label tracking (byte position of each instruction's start)
+    private readonly List<int> _bodyLabels = new();
+    private bool _inBody;
+
+    public int Position => _b.Count;
+
+    public void AddService(string sh, string full) => _svc[sh] = full;
+    public string ResolveService(string sh)
+    {
+        if (_svc.TryGetValue(sh, out var f)) return f;
+        return sh.TrimStart('@');
+    }
+
+    public void StartBody() { _inBody = true;  _bodyLabels.Clear(); }
+    public int  EndBody()   { _inBody = false;
+        return _bodyLabels.Count > 0 ? _bodyLabels[_bodyLabels.Count - 1] : Position; }
+
+    /// <summary>Records that an instruction started at byte position 'pos'.</summary>
+    public void RecordLabel(int pos)
+    {
+        LastInstructionStart = pos;
+        LastInstructionOpcode = null;
+        if (_inBody) _bodyLabels.Add(pos);
+    }
+    public void RecordInstructionOpcode(Jsm.Opcode opcode) => LastInstructionOpcode = opcode;
+
+    public void EmitOpcode(Jsm.Opcode op) => _b.Add((byte)op);
+    public void WriteByte(byte x)  => _b.Add(x);
+    public void WriteInt16(short v)  { _b.Add((byte)(v & 0xFF)); _b.Add((byte)((v >> 8) & 0xFF)); }
+    public void WriteInt32(int v)    { _b.Add((byte)v); _b.Add((byte)(v>>8)); _b.Add((byte)(v>>16)); _b.Add((byte)(v>>24)); }
+    public void WriteBytes(byte[] d) => _b.AddRange(d);
+
+    public void PatchInt16(int slot, short v)
+    {
+        _b[slot] = (byte)(v & 0xFF);
+        _b[slot+1] = (byte)((v>>8) & 0xFF);
+        if (_pendingJumpTarget is int target)
+        {
+            _jumpPatches.Add((slot, target, target - v));
+            _pendingJumpTarget = null;
+        }
+    }
+    public void RecordJumpTarget(int position)
+    {
+        _jumpTargets.Add(position);
+        _pendingJumpTarget = position;
+    }
+    public bool IsJumpTarget(int position) => _jumpTargets.Contains(position);
+    public void DeferRelativeJump(int slot, StatementSyntax target) =>
+        _deferredJumps.Add((slot, target));
+    public void ResolveDeferredJumps(StatementSyntax statement)
+    {
+        for (int i = _deferredJumps.Count - 1; i >= 0; i--)
+        {
+            var deferred = _deferredJumps[i];
+            if (!ReferenceEquals(deferred.Target, statement))
+                continue;
+            RecordJumpTarget(Position);
+            PatchInt16(deferred.Slot, checked((short)(Position - (deferred.Slot + 2))));
+            _deferredJumps.RemoveAt(i);
+        }
+    }
+    public void Retarget(int oldTarget, int newTarget)
+    {
+        for (int i = 0; i < _jumpPatches.Count; i++)
+        {
+            var patch = _jumpPatches[i];
+            if (patch.Target != oldTarget) continue;
+            short value = checked((short)(newTarget - patch.Base));
+            _b[patch.Slot] = (byte)(value & 0xFF);
+            _b[patch.Slot + 1] = (byte)((value >> 8) & 0xFF);
+            _jumpPatches[i] = (patch.Slot, newTarget, patch.Base);
+        }
+        _jumpTargets.Remove(oldTarget);
+        _jumpTargets.Add(newTarget);
+    }
+    public void PatchByte(int slot, byte value) => _b[slot] = value;
+
+    public byte[] GetBytes() => _b.ToArray();
+}
+
+internal sealed class InstructionSchema
+{
+    private static readonly Dictionary<Jsm.Opcode, InstructionSchema> Cache = new();
+
+    public bool HasArgumentMask { get; }
+    public int[] Widths { get; }
+
+    private InstructionSchema(bool hasArgumentMask, int[] widths)
+    {
+        HasArgumentMask = hasArgumentMask;
+        Widths = widths;
+    }
+
+    public static InstructionSchema For(Jsm.Opcode opcode)
+    {
+        lock (Cache)
+        {
+            if (!Cache.TryGetValue(opcode, out InstructionSchema? schema))
+                Cache.Add(opcode, schema = Build(opcode));
+            return schema;
+        }
+    }
+
+    private static InstructionSchema Build(Jsm.Opcode opcode)
+    {
+        Assembly assembly = typeof(JsmInstruction).Assembly;
+        Type? type = assembly.GetType($"FF8.JSM.Instructions.{opcode}");
+        MethodInfo? factory = type?.GetMethod("Create", BindingFlags.Public | BindingFlags.Static);
+        byte[]? il = factory?.GetMethodBody()?.GetILAsByteArray();
+        if (factory == null || il == null)
+            throw new NotSupportedException($"Opcode {opcode} has no readable instruction factory.");
+
+        var calls = new List<string>();
+        for (int i = 0; i + 4 < il.Length; i++)
+        {
+            if (il[i] != 0x28 && il[i] != 0x6F) // call / callvirt
+                continue;
+            int token = BitConverter.ToInt32(il, i + 1);
+            try
+            {
+                if (factory.Module.ResolveMethod(token) is MethodBase called &&
+                    called.DeclaringType == typeof(JsmInstructionReader))
+                    calls.Add(called.Name);
+            }
+            catch (ArgumentException)
+            {
+                // The byte happened to look like a call opcode inside another operand.
+            }
+        }
+
+        bool raw = calls.Contains(nameof(JsmInstructionReader.Arguments));
+        int[] widths = calls.Select(name => name switch
+        {
+            nameof(JsmInstructionReader.ArgumentByte) or nameof(JsmInstructionReader.Arguments) or
+                nameof(JsmInstructionReader.ReadByte) => 1,
+            nameof(JsmInstructionReader.ArgumentInt16) or nameof(JsmInstructionReader.ReadInt16) or
+                nameof(JsmInstructionReader.ReadUInt16) => 2,
+            nameof(JsmInstructionReader.ArgumentInt24) or nameof(JsmInstructionReader.ReadInt24) => 3,
+            _ => 0
+        }).Where(width => width != 0).ToArray();
+
+        return new InstructionSchema(!raw && widths.Length > 0, widths);
+    }
+}
+
+// ─── instruction info table ──────────────────────────────────────────────────
+
+internal readonly struct ArgDef { public readonly string Name; public readonly int Width;
+    public ArgDef(string n, int w) { Name=n; Width=w; } }
+internal readonly struct InstrInfo { public readonly Jsm.Opcode Opcode; public readonly ArgDef[] Args;
+    public InstrInfo(Jsm.Opcode op, params ArgDef[] args) { Opcode=op; Args=args; } }
+
+internal static class InstrTable
+{
+    // (ServiceFullName, MethodName) → InstrInfo
+    private static readonly Dictionary<(string,string), InstrInfo> BySvcMethod
+        = new()
+    {
+        // Messages service
+        {("Messages","ShowAndWait"), new InstrInfo(Jsm.Opcode.MES,
+            new ArgDef("windowId",1), new ArgDef("ui",1), new ArgDef("text",2))},
+        {("Messages","Show"), new InstrInfo(Jsm.Opcode.MESN,
+            new ArgDef("windowId",1), new ArgDef("ui",1), new ArgDef("text",2))},
+        {("Messages","Wait"), new InstrInfo(Jsm.Opcode.WAITMES,
+            new ArgDef("_windowId",1))},
+    };
+
+    // Instruction class name → InstrInfo (for default-formatted instructions)
+    private static readonly Dictionary<string, InstrInfo> ByClassName = new()
+    {
+        {"REQ",    new InstrInfo(Jsm.Opcode.REQ,
+            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
+        {"REQSW",  new InstrInfo(Jsm.Opcode.REQSW,
+            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
+        {"REQEW",  new InstrInfo(Jsm.Opcode.REQEW,
+            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
+        {"AICON",  new InstrInfo(Jsm.Opcode.AICON,  new ArgDef("_modeFlags",1))},
+        {"NOP",    new InstrInfo(Jsm.Opcode.NOP)},
+        {"DELETE", new InstrInfo(Jsm.Opcode.DELETE, new ArgDef("_entry",1))},
+        {"NEW",    new InstrInfo(Jsm.Opcode.NEW,    new ArgDef("_entry",1), new ArgDef("_uid",1))},
+        {"NEW2",   new InstrInfo(Jsm.Opcode.NEW2,   new ArgDef("_entry",1), new ArgDef("_uid",1))},
+        {"NEW3",   new InstrInfo(Jsm.Opcode.NEW3,   new ArgDef("_entry",1), new ArgDef("_uid",1))},
+        {"CLOSE",  new InstrInfo(Jsm.Opcode.CLOSE,  new ArgDef("_windowId",1))},
+        {"WAIT",   new InstrInfo(Jsm.Opcode.WAIT,   new ArgDef("_frameDuration",1))},
+        {"MOVE",   new InstrInfo(Jsm.Opcode.MOVE,
+            new ArgDef("_x",2), new ArgDef("_y",2), new ArgDef("_z",2))},
+        {"MOVA",   new InstrInfo(Jsm.Opcode.MOVA,   new ArgDef("_entry",1))},
+        {"MODEL",  new InstrInfo(Jsm.Opcode.MODEL,  new ArgDef("_model",2), new ArgDef("_height",1))},
+        {"POS",    new InstrInfo(Jsm.Opcode.POS,    new ArgDef("_x",2), new ArgDef("_y",2))},
+        {"UCON",   new InstrInfo(Jsm.Opcode.UCON)},
+        {"UCOFF",  new InstrInfo(Jsm.Opcode.UCOFF)},
+    };
+
+    public static bool TryGet(string svc, string method, out InstrInfo info)
+        => BySvcMethod.TryGetValue((svc, method), out info);
+
+    public static bool TryGetByName(string className, out InstrInfo info)
+        => ByClassName.TryGetValue(className, out info);
 }

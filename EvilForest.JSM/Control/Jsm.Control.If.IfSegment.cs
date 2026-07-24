@@ -29,6 +29,9 @@ namespace FF8.JSM
                         yield return JmpIf;
                         foreach (IJsmInstruction instruction in GetBodyInstructions())
                             yield return instruction;
+                        foreach (Segment block in _aggregator.EnumerateElseBlocks())
+                            foreach (IJsmInstruction instruction in block.EnumerateAllInstruction())
+                                yield return instruction;
                     }
 
                     public override void ToString(StringBuilder sb)
