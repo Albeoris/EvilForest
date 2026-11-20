@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -13,6 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\EvilForest.EventSource\EvilForest.EventSource.csproj" />
       <ProjectReference Include="..\EvilForest.JSM\EvilForest.JSM.csproj" />
     </ItemGroup>
 
