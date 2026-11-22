@@ -1,13 +1,10 @@
-﻿﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
- using Albeoris.Framework.Collections;
- using Albeoris.Framework.IO;
+using Albeoris.Framework.Collections;
 using FF8.JSM;
-using FF8.JSM.Format;
 using FF8.JSM.Instructions;
-using Memoria.EventEngine.Execution;
 
 namespace Memoria.EventEngine.EV
 {
@@ -27,10 +24,15 @@ namespace Memoria.EventEngine.EV
         public static Jsm.ExecutableSegment ParseScript(Byte[] bytecode)
         {
             var maker = new EVScriptMaker(new ByteSegment(bytecode, 0, bytecode.Length));
-            Jsm.ExecutableSegment segment = MakeScript(maker);
-            Byte[] preservedBytecode = (Byte[])bytecode.Clone();
-            CompiledBytecodeTag.Set(segment, preservedBytecode);
-            return segment;
+            try
+            {
+                return MakeScript(maker);
+            }
+            catch (Exception ex)
+            {
+                ex.Data["ScriptOffset"] = maker.Offset;
+                throw;
+            }
         }
 
         public static EVObject[] Read(String evPath)
@@ -40,78 +42,24 @@ namespace Memoria.EventEngine.EV
             return reader.Read();
         }
 
-        public unsafe EVObject[] Read()
+        public EVObject[] Read()
         {
-            Int64 readed = 0;
-
-            EVFileHeader fileHeader = _input.ReadStruct<EVFileHeader>();
-            fileHeader.Check();
-            readed += sizeof(EVFileHeader);
-
-            EVFileObject[] objects = _input.ReadStructs<EVFileObject>(fileHeader.ObjectCount);
-            readed += sizeof(EVFileObject) * fileHeader.ObjectCount;
-
-            EVObject[] objectCode = new EVObject[objects.Length];
-            for (Int32 i = 0; i < objects.Length; i++)
+            EVContainer container = EVContainer.Read(_input);
+            return container.Objects.Select(obj =>
             {
-                EVFileObject obj = objects[i];
-                EVScript[] scripts = Array.Empty<EVScript>();
-
-                if (obj.Size > sizeof(EVFileScriptsHeader))
+                EVScript[] scripts = obj.Scripts.Select(script =>
                 {
-                    Int32 offset = obj.Offset + sizeof(EVFileHeader);
-
-                    _input.SetPosition(offset);
-
-                    EVFileScriptsHeader header = _input.ReadStruct<EVFileScriptsHeader>();
-                    offset = sizeof(EVFileScriptsHeader); // Exclude header from binary code
-
-                    EVFileScriptInfo[] scriptInfos = _input.ReadStructs<EVFileScriptInfo>(header.ScriptCount);
-                    offset += sizeof(EVFileScriptInfo) * header.ScriptCount; // Exclude script infos from binary code
-
-                    Byte[] code = new Byte[obj.Size - offset];
-                    _input.EnsureRead(code, 0, code.Length);
-                    readed += code.Length;
-                    readed += offset;
-                    offset -= sizeof(EVFileScriptsHeader); // Script offset starts from script but not included header
-
-                    Int32 codeUsage = 0;
-                    scripts = new EVScript[header.ScriptCount];
-                    for (Int32 s = 0; s < header.ScriptCount; s++)
+                    try
                     {
-                        EVFileScriptInfo info = scriptInfos[s];
-
-                        Int32 position = info.Offset - offset;
-                        Int32 size = code.Length;
-                        if (s < header.ScriptCount - 1)
-                            size = scriptInfos[s + 1].Offset - offset;
-                        size -= position;
-                        codeUsage += size;
-
-                        EVScriptMaker scriptMaker = new EVScriptMaker(new ByteSegment(code, position, size));
-                        Jsm.ExecutableSegment scriptSegment = MakeScript(scriptMaker);
-                        Byte[] rawBytecode = new Byte[size];
-                        Buffer.BlockCopy(code, position, rawBytecode, 0, size);
-                        CompiledBytecodeTag.Set(scriptSegment, rawBytecode);
-                        scripts[s] = new EVScript(info.Id, scriptSegment);
-
-                        var sw = new ScriptWriter();
-                        scripts[s].FormatMethod(sw, DummyFormatterContext.Instance, StatelessServices.Instance);
-                        var result = sw.Release(); // TODO
+                        return new EVScript(script.Id, EVInstructionBody.Decode(script.Body));
                     }
-
-                    if (codeUsage != code.Length)
-                        throw new NotSupportedException("if (codeUsage != code.Length)");
-
-                }
-
-                objectCode[i] = new EVObject(i, obj.VariableCount, obj.Flags, scripts);
-            }
-
-            if (readed != _input.Length)
-                throw new NotSupportedException("if (readed != _input.Length)");
-
-            return objectCode;
+                    catch (Exception ex)
+                    {
+                        throw new InvalidDataException($"Object {obj.Id}, script {script.Id} at file offset 0x{script.OriginalOffset:X}: {ex.Message}", ex);
+                    }
+                }).ToArray();
+                return new EVObject(obj.Id, obj.VariableCount, obj.Flags, scripts);
+            }).ToArray();
         }
 
         private static Jsm.ExecutableSegment MakeScript(EVScriptMaker maker)

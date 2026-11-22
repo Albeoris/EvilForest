@@ -1,0 +1,29 @@
+name: Event compiler
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  roundtrip:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.0.x
+            10.0.x
+      - run: dotnet build --configuration Release
+      - run: dotnet test --configuration Release --no-build --filter 'Category!=FullCorpus&Category!=MemoriaRuntime'
+      - name: Production SDK and binary roundtrip corpus
+        env:
+          EVILFOREST_FULL_CORPUS: '1'
+          EVILFOREST_CORPUS_REPORT: '${{ github.workspace }}\corpus.tsv'
+        run: dotnet test --configuration Release --no-build --filter Category=FullCorpus
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evilforest-corpus
+          path: corpus.tsv

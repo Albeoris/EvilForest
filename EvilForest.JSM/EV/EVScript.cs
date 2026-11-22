@@ -9,12 +9,22 @@ namespace Memoria.EventEngine.EV
     public sealed class EVScript
     {
         public Int32 Id;
-        public Jsm.ExecutableSegment Segment { get; }
+        private readonly Lazy<Jsm.ExecutableSegment> _segment;
+        public Jsm.ExecutableSegment Segment => _segment.Value;
+        public EVInstructionBody Instructions { get; }
 
-        public EVScript(UInt16 id, Jsm.ExecutableSegment segment)
+        public EVScript(UInt16 id, Jsm.ExecutableSegment segment, EVInstructionBody instructions = null)
         {
             Id = id;
-            Segment = segment;
+            _segment = new Lazy<Jsm.ExecutableSegment>(() => segment);
+            Instructions = instructions;
+        }
+
+        public EVScript(UInt16 id, EVInstructionBody instructions)
+        {
+            Id = id;
+            Instructions = instructions;
+            _segment = new Lazy<Jsm.ExecutableSegment>(() => EVFileReader.ParseScript(instructions.Encode()));
         }
         
         public void FormatMethod(ScriptWriter sw, IScriptFormatterContext formatterContext, IServices executionContext)

@@ -1,21 +1,14 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text.RegularExpressions;
-using Albeoris.Framework.Collections;
 using EvilForest.Resources.Enums;
-using FF8.Core;
+using FF8.JSM;
 using Memoria.EventEngine.EV;
-
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using FF8.JSM;
-using FF8.JSM.Instructions;
-using Memoria.EventEngine.Execution;
-using Microsoft.CodeAnalysis;
 
 namespace EveilForest.CSharp;
 
@@ -63,16 +56,21 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
     private EVObject ParseObject(string filePath)
     {
-        int id      = ParseObjectId(filePath);
+        int id = ParseObjectId(filePath);
         string code = File.ReadAllText(filePath);
-        var tree    = CSharpSyntaxTree.ParseText(code);
-        var root    = (CompilationUnitSyntax)tree.GetRoot();
-        var cls     = root.DescendantNodes().OfType<ClassDeclarationSyntax>().FirstOrDefault();
-        if (cls == null) return new EVObject(id, 0, 0, Array.Empty<EVScript>());
+        SyntaxTree tree = CSharpSyntaxTree.ParseText(code, path: filePath);
+        Diagnostic? error = tree.GetDiagnostics().FirstOrDefault(diagnostic => diagnostic.Severity == DiagnosticSeverity.Error);
+        if (error != null)
+            throw new InvalidDataException(error.ToString());
+
+        var root = (CompilationUnitSyntax)tree.GetRoot();
+        ClassDeclarationSyntax? cls = root.DescendantNodes().OfType<ClassDeclarationSyntax>().FirstOrDefault();
+        if (cls == null)
+            throw Unsupported(root, "object declaration");
 
         byte varCount = ComputeVarCount(cls);
-        byte flags = ReadByteConstant(cls, "__Flags");
-        var scripts   = CompileScripts(cls).ToArray();
+        byte flags = ReadByteConstant(cls, "__Flags") ?? 0;
+        EVScript[] scripts = CompileScripts(cls).ToArray();
         return new EVObject(id, varCount, flags, scripts);
     }
 
@@ -80,8 +78,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
     private static byte ComputeVarCount(ClassDeclarationSyntax cls)
     {
-        byte declared = ReadByteConstant(cls, "__VariableCount");
-        if (declared != 0)
+        if (ReadByteConstant(cls, "__VariableCount") is byte declared)
             return declared;
         int maxEnd = 0;
         foreach (PropertyDeclarationSyntax property in cls.Members.OfType<PropertyDeclarationSyntax>())
@@ -96,27 +93,30 @@ public sealed class CSharpEventCompiler : IEventCompiler
             string tn = name.Substring(0, separator);
             int byteEnd = tn switch
             {
-                "Int16" or "UInt16" => n     + 2,
-                "Int24" or "UInt24" => n     + 3,
-                "Int32" or "UInt32" => n     + 4,
+                "Int16" or "UInt16" => n + 2,
+                "Int24" or "UInt24" => n + 3,
+                "Int32" or "UInt32" => n + 4,
                 "Bit" or "Boolean" => n / 8 + 1,
                 "Byte" or "SByte" or "BitByte" or "SBitByte" => n + 1,
                 _ => 0
             };
-            if (byteEnd > maxEnd) maxEnd = byteEnd;
+            if (byteEnd > maxEnd)
+                maxEnd = byteEnd;
         }
-        return (byte)Math.Min(maxEnd, 255);
+        return checked((byte)maxEnd);
     }
 
-    private static byte ReadByteConstant(ClassDeclarationSyntax cls, string name)
+    private static byte? ReadByteConstant(ClassDeclarationSyntax cls, string name)
     {
         VariableDeclaratorSyntax? variable = cls.Members.OfType<FieldDeclarationSyntax>()
             .SelectMany(field => field.Declaration.Variables)
             .FirstOrDefault(candidate => candidate.Identifier.ValueText == name);
-        return variable?.Initializer?.Value is ExpressionSyntax expression &&
-               TryParseConst(expression, out long value)
-            ? (byte)value
-            : (byte)0;
+        if (variable == null)
+            return null;
+        if (variable.Initializer?.Value is not ExpressionSyntax expression || !TryParseConst(expression, out long value) ||
+            value < byte.MinValue || value > byte.MaxValue)
+            throw Unsupported(variable, "byte metadata declaration");
+        return (byte)value;
     }
 
     // ─── script compiler ─────────────────────────────────────────────────────
@@ -126,94 +126,80 @@ public sealed class CSharpEventCompiler : IEventCompiler
         foreach (var method in cls.Members.OfType<MethodDeclarationSyntax>())
         {
             int sid = GetScriptId(method);
-            if (sid < 0) continue;
+            if (sid < 0 || sid > ushort.MaxValue || method.Body == null)
+                throw Unsupported(method, "script declaration");
 
             var ctx = new CompileCtx();
             CollectServiceAliases(method.Body, ctx);
             CompileBlock(method.Body, ctx);
-            if (ctx.IsJumpTarget(ctx.Position))
-            {
-                if (ctx.LastInstructionOpcode == Jsm.Opcode.NOP)
-                    ctx.Retarget(ctx.Position, ctx.LastInstructionStart);
-                else
-                {
-                    int label = ctx.Position;
-                    ctx.EmitOpcode(Jsm.Opcode.NOP);
-                    ctx.RecordLabel(label);
-                    ctx.RecordInstructionOpcode(Jsm.Opcode.NOP);
-                }
-            }
-
             byte[] bytecode = ctx.GetBytes();
-            Jsm.ExecutableSegment seg;
-            try
-            {
-                seg = EVFileReader.ParseScript(bytecode);
-            }
-            catch (Exception ex)
-            {
-                throw new InvalidDataException(
-                    $"Script '{method.Identifier.ValueText}' produced invalid bytecode: " +
-                    Convert.ToHexString(bytecode), ex);
-            }
-            CompiledBytecodeTag.Set(seg, bytecode);
-            yield return new EVScript((ushort)sid, seg);
+            yield return new EVScript((ushort)sid, EVInstructionBody.Decode(bytecode));
         }
     }
 
     private static int GetScriptId(MethodDeclarationSyntax m)
     {
         string name = m.Identifier.Text;
-        if (name == "Init") return 0;
-        if (name.StartsWith("Script_") && int.TryParse(name.Substring(7), out int sid)) return sid;
+        if (name == "Init")
+            return 0;
+        if (name.StartsWith("Script_", StringComparison.Ordinal) && int.TryParse(name.Substring(7), out int sid))
+            return sid;
         return name switch { "OnLoop" => 1, "OnEnter" => 2, "OnExit" => 3, _ => -1 };
     }
 
     private static void CollectServiceAliases(BlockSyntax? body, CompileCtx ctx)
     {
-        if (body == null) return;
+        if (body == null)
+            return;
         foreach (var stmt in body.Statements.OfType<LocalDeclarationStatementSyntax>())
         {
             foreach (var decl in stmt.Declaration.Variables)
             {
-                var short_name = decl.Identifier.Text;
-                if (short_name.StartsWith("@") &&
-                    decl.Initializer?.Value is ElementAccessExpressionSyntax ea &&
-                    ea.Expression is MemberAccessExpressionSyntax ma)
-                {
-                    ctx.AddService(short_name, ma.Name.Identifier.Text);
-                }
+                string alias = decl.Identifier.Text;
+                if (IsServiceAlias(decl) &&
+                    decl.Initializer?.Value is ElementAccessExpressionSyntax { Expression: MemberAccessExpressionSyntax member })
+                    ctx.AddService(alias, member.Name.Identifier.Text);
             }
         }
     }
+
+    private static bool IsServiceAlias(VariableDeclaratorSyntax declaration) =>
+        declaration.Initializer?.Value is ElementAccessExpressionSyntax
+        {
+            Expression: MemberAccessExpressionSyntax { Expression: IdentifierNameSyntax service },
+            ArgumentList.Arguments.Count: 1
+        } access &&
+        service.Identifier.ValueText == "ServiceId" &&
+        access.ArgumentList.Arguments[0].Expression is IdentifierNameSyntax context &&
+        context.Identifier.ValueText == "ctx";
 
     // ─── statement dispatcher ────────────────────────────────────────────────
 
     private void CompileBlock(BlockSyntax? body, CompileCtx ctx)
     {
-        if (body == null) return;
-        StatementSyntax? previousNext = ctx.NextStatement;
-        for (int i = 0; i < body.Statements.Count; i++)
-        {
-            ctx.NextStatement = i + 1 < body.Statements.Count
-                ? body.Statements[i + 1]
-                : previousNext;
-            CompileStmt(body.Statements[i], ctx);
-            ctx.ResolveDeferredJumps(body.Statements[i]);
-        }
-        ctx.NextStatement = previousNext;
+        if (body == null)
+            return;
+        foreach (StatementSyntax statement in body.Statements)
+            CompileStmt(statement, ctx);
     }
 
-    private void CompileInfiniteWhile(WhileStatementSyntax loop, CompileCtx ctx)
+    private void CompileLoop(WhileStatementSyntax loop, CompileCtx ctx)
     {
-        int loopStart = ctx.Position;
-        CompileBlock(loop.Statement as BlockSyntax ?? WrapInBlock(loop.Statement), ctx);
-
-        ctx.EmitOpcode(Jsm.Opcode.JMP);
-        int slot = ctx.Position;
-        ctx.WriteInt16(0);
-        ctx.RecordJumpTarget(loopStart);
-        ctx.PatchInt16(slot, (short)(loopStart - (slot + 2)));
+        var start = new CompileCtx.Label();
+        var end = new CompileCtx.Label();
+        ctx.Mark(start);
+        if (!IsTrue(loop.Condition))
+        {
+            EmitCondExpr(loop.Condition, ctx);
+            ctx.Jump(Jsm.Opcode.JMP_IFN, end);
+        }
+        ctx.Breaks.Push(end);
+        ctx.Continues.Push(start);
+        CompileStmt(loop.Statement, ctx);
+        ctx.Continues.Pop();
+        ctx.Breaks.Pop();
+        ctx.Jump(Jsm.Opcode.JMP, start);
+        ctx.Mark(end);
     }
 
     private static bool IsTrue(ExpressionSyntax expression)
@@ -252,15 +238,14 @@ public sealed class CSharpEventCompiler : IEventCompiler
                     ctx.EmitOpcode(Jsm.Opcode.Return);
                 else if (ys.Expression is InvocationExpressionSyntax yi)
                     CompileYieldReturn(yi, ctx);
+                else
+                    throw Unsupported(ys, "yield statement");
                 break;
             case IfStatementSyntax ifS:
                 CompileIf(ifS, ctx);
                 break;
             case WhileStatementSyntax ws:
-                if (IsTrue(ws.Condition))
-                    CompileInfiniteWhile(ws, ctx);
-                else
-                    CompileWhile(ws, ctx);
+                CompileLoop(ws, ctx);
                 break;
             case SwitchStatementSyntax ss:
                 CompileSwitch(ss, ctx);
@@ -268,11 +253,20 @@ public sealed class CSharpEventCompiler : IEventCompiler
             case BlockSyntax blk:
                 CompileBlock(blk, ctx);
                 break;
-            case LocalDeclarationStatementSyntax:
-            case ReturnStatementSyntax:
-            case BreakStatementSyntax:
+            case LocalDeclarationStatementSyntax local when local.Declaration.Variables.All(IsServiceAlias):
             case EmptyStatementSyntax:
                 break;
+            case ReturnStatementSyntax { Expression: null }:
+                ctx.EmitOpcode(Jsm.Opcode.Return);
+                break;
+            case BreakStatementSyntax when ctx.Breaks.TryPeek(out CompileCtx.Label? exit):
+                ctx.Jump(Jsm.Opcode.JMP, exit);
+                break;
+            case ContinueStatementSyntax when ctx.Continues.TryPeek(out CompileCtx.Label? continuation):
+                ctx.Jump(Jsm.Opcode.JMP, continuation);
+                break;
+            default:
+                throw Unsupported(stmt, "statement");
         }
     }
 
@@ -282,10 +276,14 @@ public sealed class CSharpEventCompiler : IEventCompiler
     {
         // Skip Init-method field assignments: @ctx = …, @evt = …
         if (asgn.Left is IdentifierNameSyntax lid &&
-            (lid.Identifier.Text == "@ctx" || lid.Identifier.Text == "@evt"))
+            asgn.IsKind(SyntaxKind.SimpleAssignmentExpression) &&
+            asgn.Right is IdentifierNameSyntax binding &&
+            ((lid.Identifier.Text == "@ctx" && binding.Identifier.ValueText == "executionContext") ||
+             (lid.Identifier.Text == "@evt" && binding.Identifier.ValueText == "evt")))
             return;
 
-        if (!TryParseVarRef(asgn.Left, out var v26)) return;
+        if (!TryParseVarRef(asgn.Left, out var v26))
+            throw Unsupported(asgn.Left, "assignment target");
 
         var enc = new ExprEnc();
         enc.PushVar(v26);
@@ -305,29 +303,27 @@ public sealed class CSharpEventCompiler : IEventCompiler
             SyntaxKind.ExclusiveOrAssignmentExpression => (byte)Jsm.Excode.BitXor,
             SyntaxKind.LeftShiftAssignmentExpression   => (byte)Jsm.Excode.BitLeft,
             SyntaxKind.RightShiftAssignmentExpression  => (byte)Jsm.Excode.BitRight,
-            _                                           => (byte)Jsm.Excode.Let
+            _                                           => throw Unsupported(asgn, "assignment")
         });
         if (!asgn.IsKind(SyntaxKind.SimpleAssignmentExpression))
             enc.Op((byte)Jsm.Excode.Let);
         enc.Op((byte)Jsm.Excode.End);
 
-        int label = ctx.Position;
         ctx.EmitOpcode(Jsm.Opcode.EXPR);
         ctx.WriteBytes(enc.ToArray());
-        ctx.RecordLabel(label);
     }
 
     private static void CompileStandaloneUnary(ExpressionSyntax operand, Jsm.Excode opcode,
         CompileCtx ctx)
     {
+        if (!TryParseVarRef(operand, out Int26 variable))
+            throw Unsupported(operand, "increment or decrement target");
         var encoded = new ExprEnc();
-        EncodeExpr(operand, encoded);
+        encoded.PushVar(variable);
         encoded.Op((byte)opcode);
         encoded.Op((byte)Jsm.Excode.End);
-        int label = ctx.Position;
         ctx.EmitOpcode(Jsm.Opcode.EXPR);
         ctx.WriteBytes(encoded.ToArray());
-        ctx.RecordLabel(label);
     }
 
     // ─── yield return @svc.Method(args); // OPCODE ────────────────────────────
@@ -346,44 +342,38 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
     private static void EmitInvocation(InvocationExpressionSyntax invocation, CompileCtx ctx, string kind)
     {
-        List<ExpressionSyntax> encodedArguments;
-        Jsm.Opcode opcode;
-        if (!TryParseParameterizedComment(invocation, out opcode, out encodedArguments))
+        if (!TryResolveOpcode(invocation, ctx, out Jsm.Opcode opcode))
         {
-            if (!TryResolveOpcode(invocation, ctx, out opcode))
-            {
-                if (TryEmitExpressionInstruction(invocation, ctx))
-                    return;
-                throw new InvalidDataException(
-                    $"Unsupported {kind} '{invocation}'. A compiler must never silently alter it.");
-            }
-            encodedArguments = invocation.ArgumentList.Arguments
-                .Select(argument => argument.Expression).ToList();
+            throw Unsupported(invocation, kind);
         }
 
-        InstructionSchema schema = InstructionSchema.For(opcode);
-        AdaptSemanticArguments(opcode, schema, encodedArguments, invocation);
-        if (schema.Widths.Length != 0 && encodedArguments.Count != schema.Widths.Length)
+        List<ExpressionSyntax> encodedArguments = invocation.ArgumentList.Arguments
+            .Select(argument => argument.Expression).ToList();
+        string layout = EVOperands.For(opcode);
+        bool hasMask = layout.StartsWith("m", StringComparison.Ordinal);
+        string operands = hasMask ? layout.Substring(1) : layout;
+        if (encodedArguments.Count != operands.Length)
             throw new InvalidDataException(
-                $"Instruction {opcode} expects {schema.Widths.Length} encoded arguments, " +
+                $"Instruction {opcode} expects {operands.Length} encoded arguments, " +
                 $"but '{invocation}' supplies {encodedArguments.Count}.");
 
-        int instrLabel = ctx.Position;
         ctx.EmitOpcode(opcode);
         int maskSlot = -1;
         byte argumentMask = 0;
-        if (schema.HasArgumentMask)
+        if (hasMask)
         {
             maskSlot = ctx.Position;
             ctx.WriteByte(0);
         }
 
-        for (int i = 0; i < schema.Widths.Length; i++)
+        for (int i = 0; i < operands.Length; i++)
         {
             ExpressionSyntax expression = encodedArguments[i];
-            int width = schema.Widths[i];
-            if (schema.HasArgumentMask && !TryParseConst(expression, out long v))
+            int width = EVOperands.Width(operands[i]);
+            if (!TryParseConst(expression, out long v))
             {
+                if (!hasMask || !EVOperands.UsesExpression(opcode, byte.MaxValue, i))
+                    throw Unsupported(expression, $"operand {i + 1} of {opcode}");
                 argumentMask |= (byte)(1 << i);
                 var encoded = new ExprEnc();
                 EncodeExpr(expression, encoded);
@@ -392,124 +382,22 @@ public sealed class CSharpEventCompiler : IEventCompiler
                 continue;
             }
 
-            TryParseConst(expression, out v);
-            switch (width) {
-                case 1: ctx.WriteByte((byte)v);   break;
-                case 2: ctx.WriteInt16((short)v); break;
-                case 3:
-                    ctx.WriteByte((byte)v);
-                    ctx.WriteByte((byte)(v >> 8));
-                    ctx.WriteByte((byte)(v >> 16));
-                    break;
-                case 4: ctx.WriteInt32((int)v);   break;
-            }
+            bool signed = EVOperands.IsSigned(operands[i]);
+            long limit = 1L << (8 * width - (signed ? 1 : 0));
+            if (v < (signed ? -limit : 0) || v >= limit)
+                throw Unsupported(expression, $"operand {i + 1} of {opcode}");
+            for (int shift = 0; shift < width * 8; shift += 8)
+                ctx.WriteByte((byte)(v >> shift));
         }
         if (maskSlot >= 0)
             ctx.PatchByte(maskSlot, argumentMask);
-        ctx.RecordLabel(instrLabel);
-        ctx.RecordInstructionOpcode(opcode);
     }
 
-    private static void AdaptSemanticArguments(Jsm.Opcode opcode, InstructionSchema schema,
-        List<ExpressionSyntax> arguments, InvocationExpressionSyntax invocation)
+    private static InvalidDataException Unsupported(SyntaxNode node, string kind)
     {
-        if (opcode is Jsm.Opcode.AIDLE or Jsm.Opcode.AWALK or Jsm.Opcode.ARUN or
-            Jsm.Opcode.ATURNL or Jsm.Opcode.ATURNR or Jsm.Opcode.ASLEEP && arguments.Count == 2)
-        {
-            arguments.RemoveAt(0); // AnimationKind selects the opcode; ID is encoded.
-        }
-        else if (opcode == Jsm.Opcode.WIPERGB && arguments.Count == 5 && schema.Widths.Length == 6)
-        {
-            Match unknown = Regex.Match(GetTrailingComment(invocation),
-                @"WIPERGB\(unknown:\s*(.+)\)");
-            arguments.Insert(2, unknown.Success
-                ? SyntaxFactory.ParseExpression(unknown.Groups[1].Value)
-                : SyntaxFactory.LiteralExpression(
-                    SyntaxKind.NumericLiteralExpression, SyntaxFactory.Literal(0)));
-        }
-    }
-
-    private static bool TryParseParameterizedComment(InvocationExpressionSyntax invocation,
-        out Jsm.Opcode opcode, out List<ExpressionSyntax> arguments)
-    {
-        string comment = GetTrailingComment(invocation);
-        Match sound = Regex.Match(comment,
-            @"FLDSND\(op:\s*([^,\)]+),\s*sound:\s*([^,\)]+)(?:,\s*a1:\s*([^,\)]+))?(?:,\s*a2:\s*([^,\)]+))?(?:,\s*a3:\s*([^,\)]+))?\)");
-        if (sound.Success)
-        {
-            int optionalCount = Enumerable.Range(3, 3).Count(index => sound.Groups[index].Success);
-            opcode = optionalCount switch
-            {
-                0 => Jsm.Opcode.FLDSND0,
-                1 => Jsm.Opcode.FLDSND1,
-                2 => Jsm.Opcode.FLDSND2,
-                _ => Jsm.Opcode.FLDSND3
-            };
-            arguments = new List<ExpressionSyntax>
-            {
-                SyntaxFactory.ParseExpression(sound.Groups[1].Value),
-                SyntaxFactory.ParseExpression(sound.Groups[2].Value)
-            };
-            for (int index = 3; index <= 5; index++)
-                if (sound.Groups[index].Success)
-                    arguments.Add(SyntaxFactory.ParseExpression(sound.Groups[index].Value));
-            return true;
-        }
-
-        Match sps = Regex.Match(comment,
-            @"SPS\(\s*([^,]+),\s*([A-Za-z0-9_]+),\s*([^,]+),\s*([^,]+),\s*([^\)]+)\)");
-        if (sps.Success && SpsOperationCodes.TryGetValue(sps.Groups[2].Value, out byte operation))
-        {
-            opcode = sps.Groups[2].Value == "SetCharacter" ? Jsm.Opcode.SPS2 : Jsm.Opcode.SPS;
-            arguments = new List<ExpressionSyntax>
-            {
-                SyntaxFactory.ParseExpression(sps.Groups[1].Value),
-                SyntaxFactory.LiteralExpression(SyntaxKind.NumericLiteralExpression,
-                    SyntaxFactory.Literal(operation)),
-                SyntaxFactory.ParseExpression(sps.Groups[3].Value),
-                SyntaxFactory.ParseExpression(sps.Groups[4].Value),
-                SyntaxFactory.ParseExpression(sps.Groups[5].Value)
-            };
-            return true;
-        }
-
-        opcode = default;
-        arguments = new List<ExpressionSyntax>();
-        return false;
-    }
-
-    private static readonly Dictionary<string, byte> SpsOperationCodes = new()
-    {
-        ["SetReference"] = 130, ["SetAttribute"] = 131, ["SetPosition"] = 135,
-        ["SetRotation"] = 140, ["SetScale"] = 145, ["SetCharacter"] = 150,
-        ["SetFade"] = 155, ["SetAnimationRate"] = 156, ["SetFrameRate"] = 160,
-        ["SetCurrentFrame"] = 161, ["SetPositionOffset"] = 165,
-        ["SetDepthOffset"] = 170,
-    };
-
-    private static string GetTrailingComment(InvocationExpressionSyntax invocation)
-    {
-        StatementSyntax? statement = invocation.AncestorsAndSelf().OfType<StatementSyntax>().FirstOrDefault();
-        return statement?.GetTrailingTrivia().ToFullString() ?? String.Empty;
-    }
-
-    private static bool TryEmitExpressionInstruction(InvocationExpressionSyntax invocation, CompileCtx ctx)
-    {
-        if (invocation.Expression is not MemberAccessExpressionSyntax member ||
-            member.Name.Identifier.ValueText != "CalcAngleByTangent")
-            return false;
-
-        var encoded = new ExprEnc();
-        foreach (ArgumentSyntax argument in invocation.ArgumentList.Arguments.Reverse())
-            EncodeExpr(argument.Expression, encoded);
-        encoded.Op((byte)Jsm.Excode.GetAngle);
-        encoded.Op((byte)Jsm.Excode.End);
-
-        int label = ctx.Position;
-        ctx.EmitOpcode(Jsm.Opcode.EXPR);
-        ctx.WriteBytes(encoded.ToArray());
-        ctx.RecordLabel(label);
-        return true;
+        FileLinePositionSpan span = node.GetLocation().GetLineSpan();
+        return new InvalidDataException(
+            $"Unsupported {kind} at {span.Path}:{span.StartLinePosition.Line + 1}:{span.StartLinePosition.Character + 1}: '{node}'. A compiler must never silently alter it.");
     }
 
     private static bool TryResolveOpcode(InvocationExpressionSyntax invocation, CompileCtx ctx,
@@ -517,12 +405,6 @@ public sealed class CSharpEventCompiler : IEventCompiler
     {
         if (invocation.Expression is IdentifierNameSyntax identifier &&
             Enum.TryParse(identifier.Identifier.ValueText, out opcode))
-            return true;
-
-        string trivia = GetTrailingComment(invocation);
-        Match commentOpcode = Regex.Match(trivia, @"//\s*([A-Z][A-Z0-9_]*)");
-        if (commentOpcode.Success &&
-            Enum.TryParse(commentOpcode.Groups[1].Value, out opcode))
             return true;
 
         if (invocation.Expression is MemberAccessExpressionSyntax member &&
@@ -548,218 +430,95 @@ public sealed class CSharpEventCompiler : IEventCompiler
 
     // ─── if statement ─────────────────────────────────────────────────────────
 
-    private void CompileIf(IfStatementSyntax ifS, CompileCtx ctx)
+    private void CompileIf(IfStatementSyntax statement, CompileCtx ctx)
     {
-        var (cond, negated) = UnwrapNot(ifS.Condition);
-        // if(cond)  → JMP_IFN (isTrue=true)   : skip when cond TRUE
-        // if(!(c))  → JMP_IF  (isTrue=false)  : skip when cond FALSE
-        var jmpOp = negated ? Jsm.Opcode.JMP_IF : Jsm.Opcode.JMP_IFN;
-
-        EmitCondExpr(cond, ctx);
-        ctx.EmitOpcode(jmpOp);
-        int slot    = ctx.Position;
-        ctx.WriteInt16(0);         // forward placeholder
-
-        BlockSyntax body = ifS.Statement as BlockSyntax ?? WrapInBlock(ifS.Statement);
-        int bodyStart = ctx.Position;
-        if (ifS.Else != null)
+        var alternative = new CompileCtx.Label();
+        EmitCondExpr(statement.Condition, ctx);
+        ctx.Jump(Jsm.Opcode.JMP_IFN, alternative);
+        CompileStmt(statement.Statement, ctx);
+        if (statement.Else == null)
         {
-            bool hasTailAfterJump = body.Statements.Count > 1;
-            int bodyCountBeforeJump = hasTailAfterJump
-                ? body.Statements.Count - 1
-                : body.Statements.Count;
-            for (int i = 0; i < bodyCountBeforeJump; i++)
-                CompileStmt(body.Statements[i], ctx);
-
-            ctx.EmitOpcode(Jsm.Opcode.JMP);
-            int endSlot = ctx.Position;
-            ctx.WriteInt16(0);
-            ctx.RecordJumpTarget(ctx.Position);
-            ctx.PatchInt16(slot, (short)(ctx.Position - (slot + 2)));
-            if (hasTailAfterJump)
-                CompileStmt(body.Statements[^1], ctx);
-            CompileStmt(ifS.Else.Statement, ctx);
-            int endTarget = ctx.LastInstructionStart >= bodyStart
-                ? ctx.LastInstructionStart
-                : ctx.Position;
-            ctx.RecordJumpTarget(endTarget);
-            ctx.PatchInt16(endSlot, (short)(endTarget - (endSlot + 2)));
+            ctx.Mark(alternative);
+            return;
         }
-        else
-        {
-            CompileBlock(body, ctx);
-            bool nextStartsControl = ctx.NextStatement is IfStatementSyntax or
-                WhileStatementSyntax or SwitchStatementSyntax;
-            bool trailingAssignments = body.Statements.Count >= 2 &&
-                IsAssignment(body.Statements[^1]) && IsAssignment(body.Statements[^2]);
-            bool endsWithYieldBreak = body.Statements.LastOrDefault() is YieldStatementSyntax;
-            bool endsWithControl = body.Statements.LastOrDefault() is IfStatementSyntax or
-                WhileStatementSyntax or SwitchStatementSyntax;
-            int target = !endsWithYieldBreak && !endsWithControl &&
-                         (!nextStartsControl || trailingAssignments) &&
-                         ctx.LastInstructionStart >= bodyStart
-                ? ctx.LastInstructionStart
-                : ctx.Position;
-            if (ctx.NextStatement is YieldStatementSyntax)
-            {
-                ctx.DeferRelativeJump(slot, ctx.NextStatement);
-            }
-            else
-            {
-                ctx.RecordJumpTarget(target);
-                ctx.PatchInt16(slot, (short)(target - (slot + 2)));
-            }
-        }
+
+        var end = new CompileCtx.Label();
+        ctx.Jump(Jsm.Opcode.JMP, end);
+        ctx.Mark(alternative);
+        CompileStmt(statement.Else.Statement, ctx);
+        ctx.Mark(end);
     }
-
-    // ─── while statement ──────────────────────────────────────────────────────
-
-    private void CompileWhile(WhileStatementSyntax ws, CompileCtx ctx)
-    {
-        var (cond, negated) = UnwrapNot(ws.Condition);
-        var jmpOp = negated ? Jsm.Opcode.JMP_IF : Jsm.Opcode.JMP_IFN;
-
-        // Record position where the condition EXPR begins
-        int condStart = ctx.Position;
-        EmitCondExpr(cond, ctx);
-
-        ctx.EmitOpcode(jmpOp);
-        int forwardSlot = ctx.Position;
-        ctx.WriteInt16(0);         // forward placeholder (exit loop)
-
-        ctx.StartBody();
-        CompileBlock(ws.Statement as BlockSyntax ?? WrapInBlock(ws.Statement), ctx);
-        ctx.EndBody();
-
-        // Backward JMP → condStart
-        ctx.EmitOpcode(Jsm.Opcode.JMP);
-        int backSlot = ctx.Position;
-        ctx.WriteInt16(0);
-        int afterLoop = ctx.Position;
-
-        ctx.RecordJumpTarget(condStart);
-        ctx.PatchInt16(backSlot,    (short)(condStart - afterLoop));
-        ctx.RecordJumpTarget(afterLoop);
-        ctx.PatchInt16(forwardSlot, (short)(afterLoop - (forwardSlot + 2)));
-    }
-
-    private static bool IsAssignment(StatementSyntax statement) =>
-        statement is ExpressionStatementSyntax { Expression: AssignmentExpressionSyntax };
 
     private void CompileSwitch(SwitchStatementSyntax statement, CompileCtx ctx)
     {
-        var cases = new List<(int Value, SwitchSectionSyntax Section)>();
-        SwitchSectionSyntax? defaultSection = null;
+        var cases = new List<(long Value, CompileCtx.Label Target)>();
+        var sections = new Dictionary<SwitchSectionSyntax, CompileCtx.Label>();
+        var end = new CompileCtx.Label();
+        CompileCtx.Label fallback = end;
         foreach (SwitchSectionSyntax section in statement.Sections)
         {
+            var target = new CompileCtx.Label();
+            sections.Add(section, target);
             foreach (SwitchLabelSyntax label in section.Labels)
             {
                 if (label is DefaultSwitchLabelSyntax)
-                    defaultSection = section;
-                else if (label is CaseSwitchLabelSyntax caseLabel &&
-                         TryParseConst(caseLabel.Value, out long value))
-                    cases.Add(((int)value, section));
+                    fallback = target;
+                else if (label is CaseSwitchLabelSyntax caseLabel && TryParseConst(caseLabel.Value, out long value))
+                    cases.Add((value, target));
+                else
+                    throw Unsupported(label, "switch label");
             }
         }
 
-        if (cases.Count == 0)
-            throw new InvalidDataException("A switch must contain at least one constant case.");
-        bool isExtended = false;
+        if (cases.Count == 0 || cases.Count > byte.MaxValue || cases.Select(item => item.Value).Distinct().Count() != cases.Count)
+            throw Unsupported(statement, "switch case table");
+
+        bool extended = cases[0].Value < short.MinValue || cases[0].Value > short.MaxValue;
         for (int i = 1; i < cases.Count; i++)
-            if (cases[i].Value != cases[0].Value + i)
-                isExtended = true;
+            extended |= cases[i].Value != cases[0].Value + i;
+        if (extended && cases.Any(item => item.Value < 0 || item.Value > ushort.MaxValue))
+            throw Unsupported(statement, "extended switch case value");
 
-        var condition = new ExprEnc();
-        EncodeExpr(statement.Expression, condition);
-        condition.Op((byte)Jsm.Excode.End);
-        ctx.EmitOpcode(Jsm.Opcode.EXPR);
-        ctx.WriteBytes(condition.ToArray());
-
-        ctx.EmitOpcode(isExtended ? Jsm.Opcode.JMP_SWITCHEX : Jsm.Opcode.JMP_SWITCH);
-        int switchBase = ctx.Position + (isExtended ? 3 : 0);
+        EmitCondExpr(statement.Expression, ctx);
+        ctx.EmitOpcode(extended ? Jsm.Opcode.JMP_SWITCHEX : Jsm.Opcode.JMP_SWITCH);
+        int offsetBase = ctx.Position + (extended ? 3 : 0);
         ctx.WriteByte((byte)cases.Count);
-        if (!isExtended)
+        if (!extended)
             ctx.WriteInt16((short)cases[0].Value);
-        int defaultSlot = ctx.Position;
-        ctx.WriteInt16(0);
-        int[] caseSlots = new int[cases.Count];
-        for (int i = 0; i < caseSlots.Length; i++)
+        ctx.WriteBranch(fallback, offsetBase, signed: false);
+        foreach (var (value, target) in cases)
         {
-            if (isExtended)
-                ctx.WriteInt16((short)cases[i].Value);
-            caseSlots[i] = ctx.Position;
-            ctx.WriteInt16(0);
+            if (extended)
+                ctx.WriteInt16(unchecked((short)value));
+            ctx.WriteBranch(target, offsetBase, signed: false);
         }
 
-        var starts = new int[cases.Count];
-        var breakSlots = new List<int>();
-        for (int i = 0; i < cases.Count; i++)
+        ctx.Breaks.Push(end);
+        foreach (var (section, start) in sections)
         {
-            starts[i] = ctx.Position;
-            CompileSwitchSection(cases[i].Section, ctx, breakSlots);
+            ctx.Mark(start);
+            foreach (StatementSyntax child in section.Statements)
+                CompileStmt(child, ctx);
         }
-
-        int defaultStart = ctx.Position;
-        if (defaultSection != null)
-            CompileSwitchSection(defaultSection, ctx, breakSlots);
-        int end = ctx.Position;
-
-        ctx.RecordJumpTarget(defaultStart);
-        ctx.PatchInt16(defaultSlot, (short)(defaultStart - switchBase));
-        for (int i = 0; i < starts.Length; i++)
-        {
-            ctx.RecordJumpTarget(starts[i]);
-            ctx.PatchInt16(caseSlots[i], (short)(starts[i] - switchBase));
-        }
-        foreach (int slot in breakSlots)
-        {
-            ctx.RecordJumpTarget(end);
-            ctx.PatchInt16(slot, (short)(end - (slot + 2)));
-        }
+        ctx.Breaks.Pop();
+        ctx.Mark(end);
     }
-
-    private void CompileSwitchSection(SwitchSectionSyntax section, CompileCtx ctx, List<int> breakSlots)
-    {
-        foreach (StatementSyntax child in section.Statements)
-            CompileSwitchChild(child, ctx, breakSlots);
-    }
-
-    private void CompileSwitchChild(StatementSyntax child, CompileCtx ctx, List<int> breakSlots)
-    {
-        if (child is BreakStatementSyntax)
-        {
-            ctx.EmitOpcode(Jsm.Opcode.JMP);
-            breakSlots.Add(ctx.Position);
-            ctx.WriteInt16(0);
-        }
-        else if (child is BlockSyntax block)
-        {
-            foreach (StatementSyntax nested in block.Statements)
-                CompileSwitchChild(nested, ctx, breakSlots);
-        }
-        else
-        {
-            CompileStmt(child, ctx);
-        }
-    }
-
-    // ─── condition expression emitter ────────────────────────────────────────
 
     private static void EmitCondExpr(ExpressionSyntax cond, CompileCtx ctx)
     {
         var enc = new ExprEnc();
         EncodeExpr(cond, enc);
         enc.Op((byte)Jsm.Excode.End);
-        // Condition EXPR is NOT an instruction (no label recorded), just raw bytes
         ctx.EmitOpcode(Jsm.Opcode.EXPR);
         ctx.WriteBytes(enc.ToArray());
     }
 
     private static void EncodeExpr(ExpressionSyntax e, ExprEnc enc)
     {
-        while (e is ParenthesizedExpressionSyntax p) e = p.Expression;
+        while (e is ParenthesizedExpressionSyntax p)
+            e = p.Expression;
 
-        if (e is CastExpressionSyntax cast)
+        if (e is CastExpressionSyntax { Type: PredefinedTypeSyntax target } cast && target.Keyword.IsKind(SyntaxKind.IntKeyword))
         {
             EncodeExpr(cast.Expression, enc);
             return;
@@ -767,7 +526,7 @@ public sealed class CSharpEventCompiler : IEventCompiler
         if (e is PrefixUnaryExpressionSyntax constantUnary &&
             TryParseConst(constantUnary, out long constantValue))
         {
-            enc.PushConst16((short)constantValue);
+            enc.PushConstant(constantValue);
             return;
         }
         if (e is PrefixUnaryExpressionSyntax unary)
@@ -776,12 +535,11 @@ public sealed class CSharpEventCompiler : IEventCompiler
             enc.Op(unary.Kind() switch
             {
                 SyntaxKind.UnaryMinusExpression       => (byte)Jsm.Excode.B_SINGLE_MINUS,
-                SyntaxKind.UnaryPlusExpression        => (byte)Jsm.Excode.B_SINGLE_PLUS,
                 SyntaxKind.LogicalNotExpression       => (byte)Jsm.Excode.B_NOT,
                 SyntaxKind.BitwiseNotExpression       => (byte)Jsm.Excode.B_COMP,
                 SyntaxKind.PreIncrementExpression     => (byte)Jsm.Excode.B_PRE_PLUS,
                 SyntaxKind.PreDecrementExpression     => (byte)Jsm.Excode.B_PRE_MINUS,
-                _                                     => (byte)Jsm.Excode.B_SINGLE_PLUS
+                _                                     => throw Unsupported(unary, "unary expression")
             });
             return;
         }
@@ -809,16 +567,13 @@ public sealed class CSharpEventCompiler : IEventCompiler
                 SyntaxKind.ExclusiveOrExpression        => (byte)Jsm.Excode.BitXor,
                 SyntaxKind.LeftShiftExpression          => (byte)Jsm.Excode.BitLeft,
                 SyntaxKind.RightShiftExpression         => (byte)Jsm.Excode.BitRight,
-                _                                       => (byte)Jsm.Excode.Equivalence
+                _                                       => throw Unsupported(bin, "binary expression")
             });
             return;
         }
-        if (e is LiteralExpressionSyntax lit)
+        if (e is LiteralExpressionSyntax && TryParseConst(e, out long literal))
         {
-            short v = lit.IsKind(SyntaxKind.TrueLiteralExpression)  ?  (short)1 :
-                      lit.IsKind(SyntaxKind.FalseLiteralExpression) ?  (short)0 :
-                      (short)Convert.ToInt32(lit.Token.Value);
-            enc.PushConst16(v);
+            enc.PushConstant(literal);
             return;
         }
         if (e is MemberAccessExpressionSyntax systemMember &&
@@ -830,8 +585,12 @@ public sealed class CSharpEventCompiler : IEventCompiler
             enc.Op((byte)systemData);
             return;
         }
-        if (TryParseVarRef(e, out var v26)) { enc.PushVar(v26);  return; }
-        enc.PushConst16(0); // fallback
+        if (TryParseVarRef(e, out var v26))
+        {
+            enc.PushVar(v26);
+            return;
+        }
+        throw Unsupported(e, "expression");
     }
 
     // ─── variable-reference parser ────────────────────────────────────────────
@@ -839,16 +598,20 @@ public sealed class CSharpEventCompiler : IEventCompiler
     private static bool TryParseVarRef(ExpressionSyntax e, out Int26 result)
     {
         result = default;
-        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
+        while (e is ParenthesizedExpressionSyntax pe)
+            e = pe.Expression;
 
         // @prefix.TypeName_N[k]  — Bit
         if (e is ElementAccessExpressionSyntax ea)
         {
-            if (!TryMemberAccess(ea.Expression, out var src, out var tn, out int n)) return false;
-            if (ea.ArgumentList.Arguments.Count != 1) return false;
-            if (!TryParseConst(ea.ArgumentList.Arguments[0].Expression, out long kl)) return false;
-            int k = (int)kl;
-            int bitOfs = n * GetTypeBytes(tn) * 8 + k;
+            if (!TryMemberAccess(ea.Expression, out var src, out var tn, out int n) ||
+                ea.ArgumentList.Arguments.Count != 1 ||
+                !TryParseConst(ea.ArgumentList.Arguments[0].Expression, out long bit) ||
+                bit < 0 || bit >= GetTypeBytes(tn) * 8 || tn == "Bit")
+                return false;
+            int bitOfs = checked(n * 8 + (int)bit);
+            if (bitOfs > ushort.MaxValue)
+                return false;
             result = new Int26(bitOfs, src, Jsm.Expression.VariableType.Bit);
             return true;
         }
@@ -864,7 +627,9 @@ public sealed class CSharpEventCompiler : IEventCompiler
     private static bool TryMemberAccess(ExpressionSyntax e,
         out Jsm.Expression.VariableSource src, out string typeName, out int index)
     {
-        src = default; typeName = ""; index = 0;
+        src = default;
+        typeName = "";
+        index = 0;
         string pfx;
         string mn;
         if (e is MemberAccessExpressionSyntax ma)
@@ -888,11 +653,15 @@ public sealed class CSharpEventCompiler : IEventCompiler
             "@sys"            => Jsm.Expression.VariableSource.System,
             _                 => (Jsm.Expression.VariableSource)99
         };
-        if ((int)src == 99) return false;
+        if ((int)src == 99)
+            return false;
         int us = mn.IndexOf('_');
-        if (us <= 0) return false;
+        if (us <= 0)
+            return false;
         typeName = mn.Substring(0, us);
-        return int.TryParse(mn.Substring(us + 1), out index);
+        if (typeName is not ("Byte" or "SByte" or "Int16" or "UInt16" or "Int24" or "UInt24" or "Bit"))
+            return false;
+        return int.TryParse(mn.Substring(us + 1), out index) && index >= 0 && index <= ushort.MaxValue;
     }
 
     private static Jsm.Expression.VariableType GetVarType(string n) => n switch {
@@ -915,59 +684,39 @@ public sealed class CSharpEventCompiler : IEventCompiler
     private static bool TryParseConst(ExpressionSyntax e, out long v)
     {
         v = 0;
-        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
-        if (e is LiteralExpressionSyntax lit) {
-            if (lit.IsKind(SyntaxKind.TrueLiteralExpression))  { v = 1; return true; }
-            if (lit.IsKind(SyntaxKind.FalseLiteralExpression)) { v = 0; return true; }
-            if (lit.Token.Value is string text)
+        while (e is ParenthesizedExpressionSyntax pe)
+            e = pe.Expression;
+        if (e is LiteralExpressionSyntax lit)
+        {
+            if (lit.IsKind(SyntaxKind.TrueLiteralExpression))
             {
-                Match numericSuffix = Regex.Match(text, @"(-?\d+)$");
-                if (numericSuffix.Success)
-                    return long.TryParse(numericSuffix.Groups[1].Value, NumberStyles.Integer,
-                        CultureInfo.InvariantCulture, out v);
-                return false;
+                v = 1;
+                return true;
             }
-            if (lit.Token.Value != null)
+            if (lit.IsKind(SyntaxKind.FalseLiteralExpression))
             {
-                try { v = Convert.ToInt64(lit.Token.Value, CultureInfo.InvariantCulture); return true; }
-                catch (FormatException) { return false; }
+                v = 0;
+                return true;
+            }
+            if (lit.Token.Value is int or uint or long or ulong)
+            {
+                v = Convert.ToInt64(lit.Token.Value, CultureInfo.InvariantCulture);
+                return true;
             }
         }
-        if (e is MemberAccessExpressionSyntax member &&
-            long.TryParse(member.Name.Identifier.ValueText, NumberStyles.Integer,
-                CultureInfo.InvariantCulture, out v))
-            return true;
-        Match enumNumber = Regex.Match(e.ToString(), @"\.(-?\d+)$");
-        if (enumNumber.Success && long.TryParse(enumNumber.Groups[1].Value,
-                NumberStyles.Integer, CultureInfo.InvariantCulture, out v))
-            return true;
         if (e is PrefixUnaryExpressionSyntax neg &&
             neg.IsKind(SyntaxKind.UnaryMinusExpression) &&
-            neg.Operand is LiteralExpressionSyntax nl)
-        { v = -Convert.ToInt64(nl.Token.Value); return true; }
+            TryParseConst(neg.Operand, out long magnitude))
+        {
+            v = checked(-magnitude);
+            return true;
+        }
         return false;
     }
 
     // ─── helpers ─────────────────────────────────────────────────────────────
 
-    private static (ExpressionSyntax cond, bool negated) UnwrapNot(ExpressionSyntax e)
-    {
-        while (e is ParenthesizedExpressionSyntax pe) e = pe.Expression;
-        if (e is PrefixUnaryExpressionSyntax neg &&
-            neg.IsKind(SyntaxKind.LogicalNotExpression))
-        {
-            var inner = neg.Operand;
-            while (inner is ParenthesizedExpressionSyntax pi) inner = pi.Expression;
-            return (inner, true);
-        }
-        return (e, false);
-    }
-
-    private static BlockSyntax WrapInBlock(StatementSyntax s)
-        => SyntaxFactory.Block(s);
 }
-
-// ─── Int26 encoder ───────────────────────────────────────────────────────────
 
 internal sealed class ExprEnc
 {
@@ -977,22 +726,29 @@ internal sealed class ExprEnc
 
     public void PushVar(Int26 v)
     {
-        // Compact format: negative byte header + 1-2 value bytes
-        int src  = (int)v.Source & 3;
-        int type = (int)v.Type;
-        int val  = v.Value;
-        bool ext = val > 0xFF;
-        byte h = (byte)(0x80 | (ext ? 0x20 : 0) | ((type & 7) << 2) | (src & 3));
-        _b.Add(h);
-        _b.Add((byte)(val & 0xFF));
-        if (ext) _b.Add((byte)((val >> 8) & 0xFF));
+        EVExpressionToken token = new EVVariable((EVStorageScope)v.Source, (EVStorageType)v.Type, v.Value).Encode();
+        _b.Add(token.Opcode);
+        _b.Add((byte)token.Value);
+        if ((token.Opcode & 0x20) != 0)
+            _b.Add((byte)(token.Value >> 8));
     }
 
-    public void PushConst16(short v)
+    public void PushConstant(long value)
     {
-        _b.Add((byte)Jsm.Excode.Const16);
-        _b.Add((byte)(v & 0xFF));
-        _b.Add((byte)((v >> 8) & 0xFF));
+        if (value >= short.MinValue && value <= short.MaxValue)
+        {
+            _b.Add((byte)Jsm.Excode.Const16);
+            _b.Add((byte)value);
+            _b.Add((byte)(value >> 8));
+            return;
+        }
+
+        if (value < -(1 << 25) || value >= (1 << 25))
+            throw new InvalidDataException($"Value {value} does not fit a signed VM literal.");
+        int bits = (int)value & 0x03FFFFFF;
+        _b.Add((byte)Jsm.Excode.Const26);
+        for (int shift = 0; shift < 32; shift += 8)
+            _b.Add((byte)(bits >> shift));
     }
 
     public byte[] ToArray() => _b.ToArray();
@@ -1002,213 +758,61 @@ internal sealed class ExprEnc
 
 internal sealed class CompileCtx
 {
-    private readonly List<byte>   _b    = new();
-    private readonly Dictionary<string, string> _svc = new(StringComparer.Ordinal);
-    private readonly HashSet<int> _jumpTargets = new();
-    private readonly List<(int Slot, int Target, int Base)> _jumpPatches = new();
-    private readonly List<(int Slot, StatementSyntax Target)> _deferredJumps = new();
-    private int? _pendingJumpTarget;
-    public int LastInstructionStart { get; private set; } = -1;
-    public Jsm.Opcode? LastInstructionOpcode { get; private set; }
-    public StatementSyntax? NextStatement { get; set; }
+    private readonly List<byte> _bytes = new();
+    private readonly Dictionary<string, string> _services = new(StringComparer.Ordinal);
+    private readonly List<(int Slot, int Base, Label Target, bool Signed)> _branches = new();
 
-    // Per-instruction label tracking (byte position of each instruction's start)
-    private readonly List<int> _bodyLabels = new();
-    private bool _inBody;
-
-    public int Position => _b.Count;
-
-    public void AddService(string sh, string full) => _svc[sh] = full;
-    public string ResolveService(string sh)
+    public sealed class Label
     {
-        if (_svc.TryGetValue(sh, out var f)) return f;
-        return sh.TrimStart('@');
+        public int? Position { get; set; }
     }
 
-    public void StartBody() { _inBody = true;  _bodyLabels.Clear(); }
-    public int  EndBody()   { _inBody = false;
-        return _bodyLabels.Count > 0 ? _bodyLabels[_bodyLabels.Count - 1] : Position; }
+    public Stack<Label> Breaks { get; } = new();
+    public Stack<Label> Continues { get; } = new();
+    public int Position => _bytes.Count;
 
-    /// <summary>Records that an instruction started at byte position 'pos'.</summary>
-    public void RecordLabel(int pos)
+    public void AddService(string alias, string name) => _services.Add(alias, name);
+
+    public string ResolveService(string alias) => _services.GetValueOrDefault(alias) ?? alias.TrimStart('@');
+
+    public void Mark(Label label) => label.Position = Position;
+
+    public void Jump(Jsm.Opcode opcode, Label target)
     {
-        LastInstructionStart = pos;
-        LastInstructionOpcode = null;
-        if (_inBody) _bodyLabels.Add(pos);
+        EmitOpcode(opcode);
+        WriteBranch(target, Position + 2, opcode != Jsm.Opcode.JMP_IFN);
     }
-    public void RecordInstructionOpcode(Jsm.Opcode opcode) => LastInstructionOpcode = opcode;
 
-    public void EmitOpcode(Jsm.Opcode op) => _b.Add((byte)op);
-    public void WriteByte(byte x)  => _b.Add(x);
-    public void WriteInt16(short v)  { _b.Add((byte)(v & 0xFF)); _b.Add((byte)((v >> 8) & 0xFF)); }
-    public void WriteInt32(int v)    { _b.Add((byte)v); _b.Add((byte)(v>>8)); _b.Add((byte)(v>>16)); _b.Add((byte)(v>>24)); }
-    public void WriteBytes(byte[] d) => _b.AddRange(d);
-
-    public void PatchInt16(int slot, short v)
+    public void WriteBranch(Label target, int offsetBase, bool signed)
     {
-        _b[slot] = (byte)(v & 0xFF);
-        _b[slot+1] = (byte)((v>>8) & 0xFF);
-        if (_pendingJumpTarget is int target)
+        _branches.Add((Position, offsetBase, target, signed));
+        WriteInt16(0);
+    }
+
+    public void EmitOpcode(Jsm.Opcode opcode) => _bytes.Add((byte)opcode);
+
+    public void WriteByte(byte value) => _bytes.Add(value);
+
+    public void WriteInt16(short value)
+    {
+        _bytes.Add((byte)value);
+        _bytes.Add((byte)(value >> 8));
+    }
+
+    public void WriteBytes(byte[] data) => _bytes.AddRange(data);
+
+    public void PatchByte(int slot, byte value) => _bytes[slot] = value;
+
+    public byte[] GetBytes()
+    {
+        foreach (var (slot, offsetBase, target, signed) in _branches)
         {
-            _jumpPatches.Add((slot, target, target - v));
-            _pendingJumpTarget = null;
+            int displacement = (target.Position ?? throw new InvalidDataException("Missing branch target.")) - offsetBase;
+            if (signed ? displacement < short.MinValue || displacement > short.MaxValue : displacement < 0 || displacement > ushort.MaxValue)
+                throw new InvalidDataException($"Branch displacement {displacement} does not fit its 16-bit operand.");
+            _bytes[slot] = (byte)displacement;
+            _bytes[slot + 1] = (byte)(displacement >> 8);
         }
+        return _bytes.ToArray();
     }
-    public void RecordJumpTarget(int position)
-    {
-        _jumpTargets.Add(position);
-        _pendingJumpTarget = position;
-    }
-    public bool IsJumpTarget(int position) => _jumpTargets.Contains(position);
-    public void DeferRelativeJump(int slot, StatementSyntax target) =>
-        _deferredJumps.Add((slot, target));
-    public void ResolveDeferredJumps(StatementSyntax statement)
-    {
-        for (int i = _deferredJumps.Count - 1; i >= 0; i--)
-        {
-            var deferred = _deferredJumps[i];
-            if (!ReferenceEquals(deferred.Target, statement))
-                continue;
-            RecordJumpTarget(Position);
-            PatchInt16(deferred.Slot, checked((short)(Position - (deferred.Slot + 2))));
-            _deferredJumps.RemoveAt(i);
-        }
-    }
-    public void Retarget(int oldTarget, int newTarget)
-    {
-        for (int i = 0; i < _jumpPatches.Count; i++)
-        {
-            var patch = _jumpPatches[i];
-            if (patch.Target != oldTarget) continue;
-            short value = checked((short)(newTarget - patch.Base));
-            _b[patch.Slot] = (byte)(value & 0xFF);
-            _b[patch.Slot + 1] = (byte)((value >> 8) & 0xFF);
-            _jumpPatches[i] = (patch.Slot, newTarget, patch.Base);
-        }
-        _jumpTargets.Remove(oldTarget);
-        _jumpTargets.Add(newTarget);
-    }
-    public void PatchByte(int slot, byte value) => _b[slot] = value;
-
-    public byte[] GetBytes() => _b.ToArray();
-}
-
-internal sealed class InstructionSchema
-{
-    private static readonly Dictionary<Jsm.Opcode, InstructionSchema> Cache = new();
-
-    public bool HasArgumentMask { get; }
-    public int[] Widths { get; }
-
-    private InstructionSchema(bool hasArgumentMask, int[] widths)
-    {
-        HasArgumentMask = hasArgumentMask;
-        Widths = widths;
-    }
-
-    public static InstructionSchema For(Jsm.Opcode opcode)
-    {
-        lock (Cache)
-        {
-            if (!Cache.TryGetValue(opcode, out InstructionSchema? schema))
-                Cache.Add(opcode, schema = Build(opcode));
-            return schema;
-        }
-    }
-
-    private static InstructionSchema Build(Jsm.Opcode opcode)
-    {
-        Assembly assembly = typeof(JsmInstruction).Assembly;
-        Type? type = assembly.GetType($"FF8.JSM.Instructions.{opcode}");
-        MethodInfo? factory = type?.GetMethod("Create", BindingFlags.Public | BindingFlags.Static);
-        byte[]? il = factory?.GetMethodBody()?.GetILAsByteArray();
-        if (factory == null || il == null)
-            throw new NotSupportedException($"Opcode {opcode} has no readable instruction factory.");
-
-        var calls = new List<string>();
-        for (int i = 0; i + 4 < il.Length; i++)
-        {
-            if (il[i] != 0x28 && il[i] != 0x6F) // call / callvirt
-                continue;
-            int token = BitConverter.ToInt32(il, i + 1);
-            try
-            {
-                if (factory.Module.ResolveMethod(token) is MethodBase called &&
-                    called.DeclaringType == typeof(JsmInstructionReader))
-                    calls.Add(called.Name);
-            }
-            catch (ArgumentException)
-            {
-                // The byte happened to look like a call opcode inside another operand.
-            }
-        }
-
-        bool raw = calls.Contains(nameof(JsmInstructionReader.Arguments));
-        int[] widths = calls.Select(name => name switch
-        {
-            nameof(JsmInstructionReader.ArgumentByte) or nameof(JsmInstructionReader.Arguments) or
-                nameof(JsmInstructionReader.ReadByte) => 1,
-            nameof(JsmInstructionReader.ArgumentInt16) or nameof(JsmInstructionReader.ReadInt16) or
-                nameof(JsmInstructionReader.ReadUInt16) => 2,
-            nameof(JsmInstructionReader.ArgumentInt24) or nameof(JsmInstructionReader.ReadInt24) => 3,
-            _ => 0
-        }).Where(width => width != 0).ToArray();
-
-        return new InstructionSchema(!raw && widths.Length > 0, widths);
-    }
-}
-
-// ─── instruction info table ──────────────────────────────────────────────────
-
-internal readonly struct ArgDef { public readonly string Name; public readonly int Width;
-    public ArgDef(string n, int w) { Name=n; Width=w; } }
-internal readonly struct InstrInfo { public readonly Jsm.Opcode Opcode; public readonly ArgDef[] Args;
-    public InstrInfo(Jsm.Opcode op, params ArgDef[] args) { Opcode=op; Args=args; } }
-
-internal static class InstrTable
-{
-    // (ServiceFullName, MethodName) → InstrInfo
-    private static readonly Dictionary<(string,string), InstrInfo> BySvcMethod
-        = new()
-    {
-        // Messages service
-        {("Messages","ShowAndWait"), new InstrInfo(Jsm.Opcode.MES,
-            new ArgDef("windowId",1), new ArgDef("ui",1), new ArgDef("text",2))},
-        {("Messages","Show"), new InstrInfo(Jsm.Opcode.MESN,
-            new ArgDef("windowId",1), new ArgDef("ui",1), new ArgDef("text",2))},
-        {("Messages","Wait"), new InstrInfo(Jsm.Opcode.WAITMES,
-            new ArgDef("_windowId",1))},
-    };
-
-    // Instruction class name → InstrInfo (for default-formatted instructions)
-    private static readonly Dictionary<string, InstrInfo> ByClassName = new()
-    {
-        {"REQ",    new InstrInfo(Jsm.Opcode.REQ,
-            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
-        {"REQSW",  new InstrInfo(Jsm.Opcode.REQSW,
-            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
-        {"REQEW",  new InstrInfo(Jsm.Opcode.REQEW,
-            new ArgDef("_scriptLevel",1), new ArgDef("_entry",1), new ArgDef("_function",1))},
-        {"AICON",  new InstrInfo(Jsm.Opcode.AICON,  new ArgDef("_modeFlags",1))},
-        {"NOP",    new InstrInfo(Jsm.Opcode.NOP)},
-        {"DELETE", new InstrInfo(Jsm.Opcode.DELETE, new ArgDef("_entry",1))},
-        {"NEW",    new InstrInfo(Jsm.Opcode.NEW,    new ArgDef("_entry",1), new ArgDef("_uid",1))},
-        {"NEW2",   new InstrInfo(Jsm.Opcode.NEW2,   new ArgDef("_entry",1), new ArgDef("_uid",1))},
-        {"NEW3",   new InstrInfo(Jsm.Opcode.NEW3,   new ArgDef("_entry",1), new ArgDef("_uid",1))},
-        {"CLOSE",  new InstrInfo(Jsm.Opcode.CLOSE,  new ArgDef("_windowId",1))},
-        {"WAIT",   new InstrInfo(Jsm.Opcode.WAIT,   new ArgDef("_frameDuration",1))},
-        {"MOVE",   new InstrInfo(Jsm.Opcode.MOVE,
-            new ArgDef("_x",2), new ArgDef("_y",2), new ArgDef("_z",2))},
-        {"MOVA",   new InstrInfo(Jsm.Opcode.MOVA,   new ArgDef("_entry",1))},
-        {"MODEL",  new InstrInfo(Jsm.Opcode.MODEL,  new ArgDef("_model",2), new ArgDef("_height",1))},
-        {"POS",    new InstrInfo(Jsm.Opcode.POS,    new ArgDef("_x",2), new ArgDef("_y",2))},
-        {"UCON",   new InstrInfo(Jsm.Opcode.UCON)},
-        {"UCOFF",  new InstrInfo(Jsm.Opcode.UCOFF)},
-    };
-
-    public static bool TryGet(string svc, string method, out InstrInfo info)
-        => BySvcMethod.TryGetValue((svc, method), out info);
-
-    public static bool TryGetByName(string className, out InstrInfo info)
-        => ByClassName.TryGetValue(className, out info);
 }
