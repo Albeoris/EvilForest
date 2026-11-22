@@ -60,7 +60,7 @@ internal sealed class EventAnnotations(string eventName)
                 string token = match.Groups[1].Value;
                 int separator = token.IndexOf(' ');
                 string command = separator < 0 ? token : token.Substring(0, separator);
-                if (Substitutions.Contains(command))
+                if (Substitutions.Contains(command.TrimEnd('+')))
                     return $"[{token}]";
                 return "";
             }).Trim();

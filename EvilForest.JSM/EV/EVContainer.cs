@@ -9,6 +9,10 @@ namespace Memoria.EventEngine.EV
     public sealed class EVContainer
     {
         public const Int32 HeaderSize = 128;
+        public const Int32 HeaderMetadataOffset = 4;
+        public const Byte SupportedVersion = 2;
+        private const Byte SignatureFirst = (Byte)'E';
+        private const Byte SignatureSecond = (Byte)'V';
         public const Int32 ObjectEntrySize = 8;
         public const Int32 ObjectHeaderSize = 2;
         public const Int32 ScriptEntrySize = 4;
@@ -24,12 +28,25 @@ namespace Memoria.EventEngine.EV
             Trailer = trailer;
         }
 
+        public static Byte[] CreateHeader(Byte version, Byte[] metadata)
+        {
+            if (version != SupportedVersion || metadata.Length != HeaderSize - HeaderMetadataOffset)
+                throw new InvalidDataException("Invalid EV header version or metadata size.");
+
+            var header = new Byte[HeaderSize];
+            header[0] = SignatureFirst;
+            header[1] = SignatureSecond;
+            header[2] = version;
+            metadata.CopyTo(header, HeaderMetadataOffset);
+            return header;
+        }
+
         public static EVContainer Read(Stream input)
         {
             using var buffer = new MemoryStream();
             input.CopyTo(buffer);
             Byte[] data = buffer.ToArray();
-            if (data.Length < HeaderSize || data[0] != 'E' || data[1] != 'V' || data[2] != 2)
+            if (data.Length < HeaderSize || data[0] != SignatureFirst || data[1] != SignatureSecond || data[2] != SupportedVersion)
                 throw new InvalidDataException("Expected a version 2 EV header.");
 
             var objects = new EVContainerObject[data[3]];
@@ -94,7 +111,7 @@ namespace Memoria.EventEngine.EV
 
         public Byte[] Serialize()
         {
-            if (Header.Length != HeaderSize || Header[0] != 'E' || Header[1] != 'V' || Header[2] != 2)
+            if (Header.Length != HeaderSize || Header[0] != SignatureFirst || Header[1] != SignatureSecond || Header[2] != SupportedVersion)
                 throw new InvalidDataException("Expected a version 2 EV header.");
             if (Objects.Length > Byte.MaxValue || Header[3] != Objects.Length)
                 throw new InvalidDataException($"The EV header declares {Header[3]} object slots but {Objects.Length} were supplied.");

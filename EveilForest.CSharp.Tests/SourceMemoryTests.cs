@@ -1,5 +1,6 @@
 using System.Reflection;
 using EveilForest.CSharp;
+using FF8.JSM;
 using Memoria.EventEngine.EV;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -9,6 +10,63 @@ namespace EveilForest.CSharp.Tests;
 
 public sealed class SourceMemoryTests
 {
+    [Theory]
+    [InlineData(EVStorageScope.Map)]
+    [InlineData(EVStorageScope.Instance)]
+    public void AFieldOffsetDrivesManagedAndBytecodeAccess(EVStorageScope scope)
+    {
+        var byteView = new EVVariable(scope, EVStorageType.Byte, 12);
+        var bitView = new EVVariable(scope, EVStorageType.Bit, 97);
+        var byteWrite = new EVInstruction(0, Jsm.Opcode.EXPR)
+        {
+            Expression = [byteView.Encode(), EVExpressionToken.Literal(2), new EVExpressionToken((byte)Jsm.Excode.Let)]
+        };
+        var bitWrite = new EVInstruction(1, Jsm.Opcode.EXPR)
+        {
+            Expression = [bitView.Encode(), EVExpressionToken.Literal(0), new EVExpressionToken((byte)Jsm.Excode.Let)]
+        };
+        var body = new EVInstructionBody([byteWrite, bitWrite, new EVInstruction(2, Jsm.Opcode.Return)], 3);
+        var header = new byte[EVContainer.HeaderSize];
+        new byte[] { 0x45, 0x56, 2, 1 }.CopyTo(header, 0);
+        var slot = new EVContainerObject(0, 32, 0, 0) { BodyOrder = 0, Scripts = [new EVContainerScript(0, body.Encode())] };
+        var container = new EVContainer(header, [slot], []);
+        string project = Path.Combine(Path.GetTempPath(), $"evilforest-map-layout-{Guid.NewGuid():N}");
+        try
+        {
+            EventProjectExporter.Export(container, "EVT_MEMORY_LAYOUT", project);
+            Assert.Equal(container.Serialize(), EventProjectCompiler.Compile(project).Serialize());
+            bool map = scope == EVStorageScope.Map;
+            string sourceFile = Path.Combine(project, map ? "Event.cs" : "00_Object_00.cs");
+            string source = File.ReadAllText(sourceFile);
+            string declaration = $"FieldOffset(12)]{Environment.NewLine}{new string(' ', map ? 8 : 12)}internal ByteCell";
+            Assert.Contains(declaration, source);
+            File.WriteAllText(sourceFile, source.Replace(declaration, declaration.Replace("(12)", "(20)", StringComparison.Ordinal), StringComparison.Ordinal));
+
+            EVContainer rebuilt = EventProjectCompiler.Compile(project);
+            EVInstructionBody rebuiltBody = EVInstructionBody.Decode(rebuilt.Objects[0].Scripts[0].Body);
+            Assert.Equal(20, EVVariable.Decode(rebuiltBody.Instructions[0].Expression[0]).Address);
+            Assert.Equal(97, EVVariable.Decode(rebuiltBody.Instructions[1].Expression[0]).Address);
+
+            var assembly = Assembly.Load(EventProjectCompiler.CompileManaged(project));
+            Type location = assembly.GetType(map ? "Event_EVT_MEMORY_LAYOUT.Location" : "Event_EVT_MEMORY_LAYOUT.Object_00+LocalMemory")!;
+            object instance = Activator.CreateInstance(location, nonPublic: true)!;
+            var buffer = new byte[80];
+            using (new global::EvilForest.EventSource.ScriptMemory([], map ? buffer : [], map ? [] : buffer).Enter())
+            {
+                location.GetProperty("Byte_12")!.SetValue(instance, 65);
+                location.GetProperty("Bit_97")!.SetValue(instance, true);
+                Assert.Equal(65, location.GetProperty("Byte_12")!.GetValue(instance));
+            }
+            Assert.Equal(2, buffer[12]);
+            Assert.Equal(65, buffer[20]);
+        }
+        finally
+        {
+            if (Directory.Exists(project))
+                Directory.Delete(project, recursive: true);
+        }
+    }
+
     [Theory]
     [InlineData("Map", 78, 79, 80)]
     [InlineData("Instance", 2, 3, 4)]
@@ -100,6 +158,18 @@ public sealed class SourceMemoryTests
                 Assert.Equal(EVStorageScope.Instance, variable.Scope);
                 Assert.Equal(EVStorageType.Byte, variable.Type);
                 Assert.Equal(address, variable.Address);
+
+                var assembly = Assembly.Load(EventProjectCompiler.CompileManaged(project));
+                Type storage = assembly.GetTypes().Single(type => type.Name == "UserStorage");
+                PropertyInfo counter = storage.GetProperty("Counter")!;
+                var first = new byte[4];
+                var second = new byte[4];
+                byte[] map = new byte[80];
+                using (new global::EvilForest.EventSource.ScriptMemory(new byte[16], map, first).Enter())
+                    counter.SetValue(null, 12);
+                using (new global::EvilForest.EventSource.ScriptMemory(new byte[16], map, second).Enter())
+                    Assert.Equal(0, counter.GetValue(null));
+                Assert.Equal(12, first[address]);
             }
         }
         finally
@@ -141,6 +211,12 @@ public sealed class SourceMemoryTests
             EVVariable variable = EVVariable.Decode(instruction.Expression[0]);
             Assert.Equal(EVStorageScope.Map, variable.Scope);
             Assert.Equal(1, variable.Address);
+
+            var assembly = Assembly.Load(EventProjectCompiler.CompileManaged(project));
+            byte[] location = new byte[80];
+            using (new global::EvilForest.EventSource.ScriptMemory(new byte[16], location, new byte[4]).Enter())
+                assembly.GetType("Event_AllocationTest.Object_00")!.GetMethod("OnInit")!.Invoke(null, null);
+            Assert.Equal(5, location[variable.Address]);
         }
         finally
         {

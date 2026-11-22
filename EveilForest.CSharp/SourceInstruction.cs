@@ -143,7 +143,7 @@ internal sealed class SourceInstruction(Jsm.Opcode opcode, string service, strin
         new(Jsm.Opcode.RESETMAPNAME, "Field", "ResetFieldName"),
         new(Jsm.Opcode.SETMAPNAME, "Field", "SetFieldName", "name"),
         new(Jsm.Opcode.CLEARKEYMASK, "Input", "RemoveControllerMask", "pad", "buttons"),
-        new(Jsm.Opcode.FICON, "Input", "Bubble", "symbol"),
+        new(Jsm.Opcode.FICON, "Input", "BubbleFromScript", "symbol"),
         new(Jsm.Opcode.HEREON, "Input", "ShowHereIcon", "show"),
         new(Jsm.Opcode.SETKEYMASK, "Input", "AddControllerMask", "pad", "buttons"),
         new(Jsm.Opcode.TWIST, "Input", "SetControlDirection", "arrowAngle", "analogicAngle"),
@@ -335,7 +335,17 @@ internal sealed class SourceInstruction(Jsm.Opcode opcode, string service, strin
         Audio(Jsm.Opcode.FLDSND3, 54145, "InterpolateResidentEffectVolume", "sound", "attributes", "ticks", "volume"),
         Audio(Jsm.Opcode.FLDSND3, 54145 | 0x40, "InterpolateResidentEffectVolumeInSlot1", "sound", "attributes", "ticks", "volume"),
         Audio(Jsm.Opcode.FLDSND1, 20864, "StopResidentEffect", "sound", "timeMsec"),
-        Audio(Jsm.Opcode.FLDSND1, 20864 | 0x40, "StopResidentEffectInSlot1", "sound", "timeMsec")
+        Audio(Jsm.Opcode.FLDSND1, 20864 | 0x40, "StopResidentEffectInSlot1", "sound", "timeMsec"),
+        Audio(Jsm.Opcode.FLDSND0, 4489, "StopCurrentResidentEffect", "unusedSound"),
+        Audio(Jsm.Opcode.FLDSND1, 21761, "SetAllEffectVolumes", "diagnosticSound", "volume"),
+        Audio(Jsm.Opcode.FLDSND1, 25098, "SetMovieStreamVolume", "diagnosticSound", "volume"),
+        Audio(Jsm.Opcode.FLDSND2, 33539, "InterpolateSongPitch", "sound", "ticks", "pitch"),
+        Audio(Jsm.Opcode.FLDSND2, 34305, "InterpolateAllSongVolumes", "unusedSound", "ticks", "volume"),
+        Audio(Jsm.Opcode.FLDSND2, 38401, "InterpolateAllEffectVolumes", "diagnosticSound", "ticks", "volume"),
+        Audio(Jsm.Opcode.FLDSND3, 54017, "InterpolateEffectVolumeWithAttributes", "sound", "attributes", "ticks", "volume"),
+        Audio(Jsm.Opcode.FLDSND3, 54021, "InterpolateEffectPosition", "sound", "attributes", "ticks", "position"),
+        Audio(Jsm.Opcode.FLDSND3, 54147, "InterpolateResidentEffectPitch", "sound", "attributes", "ticks", "pitch"),
+        Audio(Jsm.Opcode.FLDSND3, 54149, "InterpolateResidentEffectPosition", "sound", "attributes", "ticks", "position")
     };
 
     private static readonly IReadOnlyDictionary<Jsm.Opcode, SourceInstruction> ByOpcode = Instructions.ToDictionary(operation => operation.Opcode);
@@ -369,7 +379,7 @@ internal sealed class SourceInstruction(Jsm.Opcode opcode, string service, strin
             Jsm.Opcode.WAITANIM or Jsm.Opcode.DWAITANIM or Jsm.Opcode.WAITSEQ or
             Jsm.Opcode.WAITTURN or Jsm.Opcode.DWAITTURN or Jsm.Opcode.CHRCOLOR or Jsm.Opcode.JUMP3 => Suspension.Retry,
         Jsm.Opcode.DISCCHANGE or Jsm.Opcode.DRET or Jsm.Opcode.MENUOFF or Jsm.Opcode.MENU or Jsm.Opcode.PARTYMENU or
-            Jsm.Opcode.RAIN => Suspension.Host,
+            Jsm.Opcode.RAIN or Jsm.Opcode.MINIGAME => Suspension.Host,
         _ => Suspension.Immediate
     };
 
@@ -418,6 +428,8 @@ internal sealed class SourceInstruction(Jsm.Opcode opcode, string service, strin
             }
             source.AppendLine("}");
         }
+        AppendActorService("ActorAnimation", instruction => instruction.UsesActingAnimation && instruction.Opcode != Jsm.Opcode.AIDLE);
+        AppendActorService("ActorActions", instruction => instruction.UsesActingActor);
 
         source.AppendLine();
         source.AppendLine("public static class SoundCommands");
@@ -428,7 +440,42 @@ internal sealed class SourceInstruction(Jsm.Opcode opcode, string service, strin
             source.AppendLine($"    public const int {name}Slot1 = {number | 0x40};");
         }
         source.AppendLine("}");
+
+        void AppendActorService(string className, Func<SourceInstruction, bool> accepts)
+        {
+            source.AppendLine();
+            source.AppendLine($"public sealed partial class {className}");
+            source.AppendLine("{");
+            foreach (SourceInstruction operation in Instructions.Where(accepts))
+            {
+                var parameters = operation.Operands.Select(name => $"Operand {name}").ToList();
+                var arguments = operation.Operands.ToList();
+                if (operation.HasMask)
+                {
+                    parameters.Add("int mask = -1");
+                    arguments.Add("mask");
+                }
+                bool immediate = SuspensionOf(operation.Opcode) == Suspension.Immediate;
+                string result = immediate ? "void" : "EventAwaitable";
+                source.AppendLine($"    [Instruction(Opcode.{operation.Opcode})]");
+                source.AppendLine($"    public {result} {operation.Method}({string.Join(", ", parameters)})");
+                source.AppendLine("    {");
+                source.AppendLine("        RequireActing();");
+                source.AppendLine($"        {(immediate ? "" : "return ")}{operation.Service}.{operation.Method}({string.Join(", ", arguments)});");
+                source.AppendLine("    }");
+                source.AppendLine();
+            }
+            source.AppendLine("}");
+        }
     }
+
+    public bool UsesActingAnimation => Service == "Animations" && !Operands.Contains("targetUid");
+
+    public bool UsesActingActor => Opcode is Jsm.Opcode.MODEL or Jsm.Opcode.BGI or Jsm.Opcode.DIRE or
+        Jsm.Opcode.MOVE or Jsm.Opcode.MOVE3 or Jsm.Opcode.MOVA or Jsm.Opcode.MOVH or Jsm.Opcode.MOVE3H or
+        Jsm.Opcode.MROT or Jsm.Opcode.MSPEED or Jsm.Opcode.NECKFLAG or Jsm.Opcode.NECKID or Jsm.Opcode.OVAL or
+        Jsm.Opcode.POS or Jsm.Opcode.POS3 or Jsm.Opcode.RADIUS or Jsm.Opcode.ROTXZ or Jsm.Opcode.SPEEDTH or
+        Jsm.Opcode.TSPEED or Jsm.Opcode.TURN or Jsm.Opcode.WAITTURN;
 
     public static readonly IReadOnlyDictionary<int, string> SoundCommands = new Dictionary<int, string>
     {

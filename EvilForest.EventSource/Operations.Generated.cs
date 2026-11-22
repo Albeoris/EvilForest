@@ -752,6 +752,26 @@ public static partial class Audio
     public static void StopResidentEffect(Operand sound, Operand timeMsec, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND1, 20864, sound, timeMsec);
     [Instruction(Opcode.FLDSND1, fixedIndex: 0, fixedValue: 20928)]
     public static void StopResidentEffectInSlot1(Operand sound, Operand timeMsec, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND1, 20928, sound, timeMsec);
+    [Instruction(Opcode.FLDSND0, fixedIndex: 0, fixedValue: 4489)]
+    public static void StopCurrentResidentEffect(Operand unusedSound, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND0, 4489, unusedSound);
+    [Instruction(Opcode.FLDSND1, fixedIndex: 0, fixedValue: 21761)]
+    public static void SetAllEffectVolumes(Operand diagnosticSound, Operand volume, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND1, 21761, diagnosticSound, volume);
+    [Instruction(Opcode.FLDSND1, fixedIndex: 0, fixedValue: 25098)]
+    public static void SetMovieStreamVolume(Operand diagnosticSound, Operand volume, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND1, 25098, diagnosticSound, volume);
+    [Instruction(Opcode.FLDSND2, fixedIndex: 0, fixedValue: 33539)]
+    public static void InterpolateSongPitch(Operand sound, Operand ticks, Operand pitch, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND2, 33539, sound, ticks, pitch);
+    [Instruction(Opcode.FLDSND2, fixedIndex: 0, fixedValue: 34305)]
+    public static void InterpolateAllSongVolumes(Operand unusedSound, Operand ticks, Operand volume, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND2, 34305, unusedSound, ticks, volume);
+    [Instruction(Opcode.FLDSND2, fixedIndex: 0, fixedValue: 38401)]
+    public static void InterpolateAllEffectVolumes(Operand diagnosticSound, Operand ticks, Operand volume, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND2, 38401, diagnosticSound, ticks, volume);
+    [Instruction(Opcode.FLDSND3, fixedIndex: 0, fixedValue: 54017)]
+    public static void InterpolateEffectVolumeWithAttributes(Operand sound, Operand attributes, Operand ticks, Operand volume, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND3, 54017, sound, attributes, ticks, volume);
+    [Instruction(Opcode.FLDSND3, fixedIndex: 0, fixedValue: 54021)]
+    public static void InterpolateEffectPosition(Operand sound, Operand attributes, Operand ticks, Operand position, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND3, 54021, sound, attributes, ticks, position);
+    [Instruction(Opcode.FLDSND3, fixedIndex: 0, fixedValue: 54147)]
+    public static void InterpolateResidentEffectPitch(Operand sound, Operand attributes, Operand ticks, Operand pitch, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND3, 54147, sound, attributes, ticks, pitch);
+    [Instruction(Opcode.FLDSND3, fixedIndex: 0, fixedValue: 54149)]
+    public static void InterpolateResidentEffectPosition(Operand sound, Operand attributes, Operand ticks, Operand position, int mask = -1) => EventScheduler.Execute(Opcode.FLDSND3, 54149, sound, attributes, ticks, position);
 }
 
 public static partial class Battle
@@ -863,7 +883,7 @@ public static partial class Input
     [Instruction(Opcode.CLEARKEYMASK)]
     public static void RemoveControllerMask(Operand pad, Operand buttons, int mask = -1) => EventScheduler.Execute(Opcode.CLEARKEYMASK, pad, buttons);
     [Instruction(Opcode.FICON)]
-    public static void Bubble(Operand symbol, int mask = -1) => EventScheduler.Execute(Opcode.FICON, symbol);
+    public static void BubbleFromScript(Operand symbol, int mask = -1) => EventScheduler.Execute(Opcode.FICON, symbol);
     [Instruction(Opcode.HEREON)]
     public static void ShowHereIcon(Operand show, int mask = -1) => EventScheduler.Execute(Opcode.HEREON, show);
     [Instruction(Opcode.SETKEYMASK)]
@@ -885,7 +905,7 @@ public static partial class Inventory
     [Instruction(Opcode.ITEMDELETE)]
     public static void RemoveItem(Operand item, Operand amount, int mask = -1) => EventScheduler.Execute(Opcode.ITEMDELETE, item, amount);
     [Instruction(Opcode.MINIGAME)]
-    public static void TetraMaster(Operand cardDeck, int mask = -1) => EventScheduler.Execute(Opcode.MINIGAME, cardDeck);
+    public static EventAwaitable TetraMaster(Operand cardDeck, int mask = -1) => EventScheduler.ExecuteAsync(Opcode.MINIGAME, cardDeck);
 }
 
 public static partial class Messages
@@ -1152,6 +1172,273 @@ public static partial class World
     public static void Enter(Operand worldMapId, int mask = -1) => EventScheduler.Execute(Opcode.WMAPJUMP, worldMapId);
     [Instruction(Opcode.WPRM)]
     public static void RunWorldCode(Operand code, Operand argument, int mask = -1) => EventScheduler.Execute(Opcode.WPRM, code, argument);
+}
+
+public sealed partial class ActorAnimation
+{
+    [Instruction(Opcode.AFRAME)]
+    public void SetFrameRange(Operand firstFrame, Operand lastFrame, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetFrameRange(firstFrame, lastFrame, mask);
+    }
+
+    [Instruction(Opcode.AJUMP)]
+    public void SetJumpAnimation(Operand animation, Operand parameter2, Operand unknown, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetJumpAnimation(animation, parameter2, unknown, mask);
+    }
+
+    [Instruction(Opcode.AMODE)]
+    public void SetAnimationFlags(Operand flag, Operand repeat, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetAnimationFlags(flag, repeat, mask);
+    }
+
+    [Instruction(Opcode.ANIM)]
+    public void Play(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.Play(animation, mask);
+    }
+
+    [Instruction(Opcode.ARUN)]
+    public void SetRun(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetRun(animation, mask);
+    }
+
+    [Instruction(Opcode.ASLEEP)]
+    public void SetSleep(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetSleep(animation, mask);
+    }
+
+    [Instruction(Opcode.ASPEED)]
+    public void SetAnimationSpeed(Operand speed, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetAnimationSpeed(speed, mask);
+    }
+
+    [Instruction(Opcode.ATURNL)]
+    public void SetTurnLeft(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetTurnLeft(animation, mask);
+    }
+
+    [Instruction(Opcode.ATURNR)]
+    public void SetTurnRight(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetTurnRight(animation, mask);
+    }
+
+    [Instruction(Opcode.AWALK)]
+    public void SetWalk(Operand animation, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetWalk(animation, mask);
+    }
+
+    [Instruction(Opcode.ENDANIM)]
+    public void Stop()
+    {
+        RequireActing();
+        Animations.Stop();
+    }
+
+    [Instruction(Opcode.IDLESPEED)]
+    public void SetIdleSpeeds(Operand speed1, Operand speed2, Operand speed3, Operand speed4, int mask = -1)
+    {
+        RequireActing();
+        Animations.SetIdleSpeeds(speed1, speed2, speed3, speed4, mask);
+    }
+
+    [Instruction(Opcode.MOVT)]
+    public void MakeAnimationLoop(Operand amount, int mask = -1)
+    {
+        RequireActing();
+        Animations.MakeAnimationLoop(amount, mask);
+    }
+
+    [Instruction(Opcode.SLEEPINH)]
+    public void DisableInactiveAnimation()
+    {
+        RequireActing();
+        Animations.DisableInactiveAnimation();
+    }
+
+    [Instruction(Opcode.SLEEPON)]
+    public void EnableInactiveAnimation()
+    {
+        RequireActing();
+        Animations.EnableInactiveAnimation();
+    }
+
+    [Instruction(Opcode.WAITANIM)]
+    public EventAwaitable WaitForCompletion()
+    {
+        RequireActing();
+        return Animations.WaitForCompletion();
+    }
+
+}
+
+public sealed partial class ActorActions
+{
+    [Instruction(Opcode.BGI)]
+    public void SetPathing(Operand pathing, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetPathing(pathing, mask);
+    }
+
+    [Instruction(Opcode.DIRE)]
+    public void TurnInstant(Operand angle, int mask = -1)
+    {
+        RequireActing();
+        Actors.TurnInstant(angle, mask);
+    }
+
+    [Instruction(Opcode.MODEL)]
+    public void SetModel(Operand model, Operand height, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetModel(model, height, mask);
+    }
+
+    [Instruction(Opcode.MOVA)]
+    public EventAwaitable WalkTowardObject(Operand targetUid, int mask = -1)
+    {
+        RequireActing();
+        return Actors.WalkTowardObject(targetUid, mask);
+    }
+
+    [Instruction(Opcode.MOVE)]
+    public EventAwaitable WalkTo(Operand x, Operand z, int mask = -1)
+    {
+        RequireActing();
+        return Actors.WalkTo(x, z, mask);
+    }
+
+    [Instruction(Opcode.MOVE3)]
+    public EventAwaitable WalkTo3D(Operand x, Operand z, Operand y, int mask = -1)
+    {
+        RequireActing();
+        return Actors.WalkTo3D(x, z, y, mask);
+    }
+
+    [Instruction(Opcode.MOVE3H)]
+    public EventAwaitable SideStepTo3D(Operand x, Operand z, Operand y, int mask = -1)
+    {
+        RequireActing();
+        return Actors.SideStepTo3D(x, z, y, mask);
+    }
+
+    [Instruction(Opcode.MOVH)]
+    public EventAwaitable SlideTo(Operand x, Operand z, int mask = -1)
+    {
+        RequireActing();
+        return Actors.SlideTo(x, z, mask);
+    }
+
+    [Instruction(Opcode.MROT)]
+    public void SetWalkTurnSpeed(Operand turnSpeed, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetWalkTurnSpeed(turnSpeed, mask);
+    }
+
+    [Instruction(Opcode.MSPEED)]
+    public void SetWalkSpeed(Operand speed, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetWalkSpeed(speed, mask);
+    }
+
+    [Instruction(Opcode.NECKFLAG)]
+    public void EnableHeadFocus(Operand flags, int mask = -1)
+    {
+        RequireActing();
+        Actors.EnableHeadFocus(flags, mask);
+    }
+
+    [Instruction(Opcode.NECKID)]
+    public void SetHeadFocusMask(Operand selfMask, Operand targetMask, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetHeadFocusMask(selfMask, targetMask, mask);
+    }
+
+    [Instruction(Opcode.OVAL)]
+    public void SetObjectOvalRatio(Operand stretchingFactor, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetObjectOvalRatio(stretchingFactor, mask);
+    }
+
+    [Instruction(Opcode.POS)]
+    public void SetPosition(Operand x, Operand z, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetPosition(x, z, mask);
+    }
+
+    [Instruction(Opcode.POS3)]
+    public void SetPosition3D(Operand x, Operand z, Operand y, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetPosition3D(x, z, y, mask);
+    }
+
+    [Instruction(Opcode.RADIUS)]
+    public void SetObjectLogicalSize(Operand walkRadius, Operand collisionRadius, Operand talkDistance, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetObjectLogicalSize(walkRadius, collisionRadius, talkDistance, mask);
+    }
+
+    [Instruction(Opcode.ROTXZ)]
+    public void SetPitchAngle(Operand pitch, Operand xzAngle, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetPitchAngle(pitch, xzAngle, mask);
+    }
+
+    [Instruction(Opcode.SPEEDTH)]
+    public void SetRunSpeedLimit(Operand speedLimit, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetRunSpeedLimit(speedLimit, mask);
+    }
+
+    [Instruction(Opcode.TSPEED)]
+    public void SetTurnSpeed(Operand speed, int mask = -1)
+    {
+        RequireActing();
+        Actors.SetTurnSpeed(speed, mask);
+    }
+
+    [Instruction(Opcode.TURN)]
+    public void TurnAtSpeed(Operand angle, Operand speed, int mask = -1)
+    {
+        RequireActing();
+        Actors.TurnAtSpeed(angle, speed, mask);
+    }
+
+    [Instruction(Opcode.WAITTURN)]
+    public EventAwaitable WaitForTurn()
+    {
+        RequireActing();
+        return Actors.WaitForTurn();
+    }
+
 }
 
 public static class SoundCommands

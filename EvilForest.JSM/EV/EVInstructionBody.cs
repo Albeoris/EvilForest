@@ -146,7 +146,9 @@ namespace Memoria.EventEngine.EV
             return successors;
         }
 
-        public void ValidateObjectSlots(Int32 objectCount)
+        public void ValidateObjectSlots(Int32 objectCount) => ValidateObjectSlots(objectCount, null);
+
+        public void ValidateObjectSlots(Int32 objectCount, Func<Int32, Boolean> isDeclared)
         {
             foreach (EVInstruction instruction in Instructions)
             {
@@ -155,7 +157,7 @@ namespace Memoria.EventEngine.EV
 
                 Int32 target = instruction.Operands[0].Value;
                 Boolean partySlot = instruction.Opcode == Jsm.Opcode.NEW3 && target >= 251 && target <= 254;
-                if (!partySlot && (UInt32)target >= objectCount)
+                if (!partySlot && ((UInt32)target >= objectCount || isDeclared?.Invoke(target) == false))
                 {
                     var error = new InvalidDataException($"{instruction.Opcode} references missing object slot {target}.");
                     error.Data[nameof(EVInstruction.Label)] = instruction.Label;

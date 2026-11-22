@@ -12,6 +12,7 @@ internal static class SourceProjectTest
     internal static MetadataReference[] EventReferences(string directory) => new[]
     {
         MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
+        MetadataReference.CreateFromFile(typeof(System.Linq.Expressions.Expression).Assembly.Location),
         MetadataReference.CreateFromFile(Path.Combine(Path.GetDirectoryName(typeof(object).Assembly.Location)!, "System.Runtime.dll")),
         MetadataReference.CreateFromFile(Path.Combine(directory, "lib", "EvilForest.EventSource.dll"))
     };
@@ -35,7 +36,7 @@ internal static class SourceProjectTest
         {
             string target = Path.Combine(destination, Path.GetRelativePath(source, file));
             Directory.CreateDirectory(Path.GetDirectoryName(target)!);
-            if (Path.GetExtension(file) is ".csproj" or ".dll")
+            if (Path.GetExtension(file) is ".csproj" or ".dll" or ".bin")
                 File.Copy(file, target);
             if (Path.GetExtension(file) != ".cs")
                 continue;
@@ -57,7 +58,7 @@ internal static class SourceProjectTest
     {
         foreach (string file in Directory.EnumerateFiles(directory))
         {
-            if (Path.GetExtension(file) is ".cs" or ".csproj" or ".dll")
+            if (Path.GetExtension(file) is ".cs" or ".csproj" or ".dll" or ".bin")
                 yield return file;
         }
 

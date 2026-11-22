@@ -13,6 +13,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <EmbeddedResource Include="CutsceneNames.json" LogicalName="CutsceneNames.json" />
+      <EmbeddedResource Include="CutsceneParticipantNames.json" LogicalName="CutsceneParticipantNames.json" />
       <ProjectReference Include="..\EvilForest.EventSource\EvilForest.EventSource.csproj" />
       <ProjectReference Include="..\EvilForest.JSM\EvilForest.JSM.csproj" />
     </ItemGroup>

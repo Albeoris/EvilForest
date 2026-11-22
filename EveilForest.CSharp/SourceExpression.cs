@@ -94,7 +94,7 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
 
     private enum ValueKind { Operand, Int, Bool }
 
-    private readonly record struct Printed(string Text, ValueKind Kind, int? Literal = null, bool Storage = false, bool Computed = false)
+    private readonly record struct Printed(string Text, ValueKind Kind, int? Literal = null, bool Storage = false, bool Computed = false, int? InputMask = null)
     {
         public Printed AsFlag() => Literal is 0 or 1 ? new Printed(Literal == 0 ? "false" : "true", ValueKind.Bool) : this;
     }
@@ -107,6 +107,16 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
         if (!TryFormat(tokens, storage, statement: false, out string? text, out ValueKind kind, asOperand: false))
             return null;
         return kind == ValueKind.Int ? text : kind == ValueKind.Bool ? $"(({text}) ? 1 : 0)" : $"(int)({text})";
+    }
+
+    public static string? FormatSwitchSelector(IReadOnlyList<EVExpressionToken> tokens, StorageDeclarations storage)
+    {
+        if (tokens.Count == 3 && tokens[0].Opcode == (byte)Jsm.Excode.B_OBJSPECA &&
+            tokens[1].Opcode == (byte)Jsm.Excode.Const16 && tokens[1].Value == 5 &&
+            tokens[2].Opcode == (byte)Jsm.Excode.BitRight &&
+            storage.FormatObjectProperty(tokens[0].Value) is { } property && property.EndsWith(".Facing.RawTurn", StringComparison.Ordinal))
+            return property[..^"RawTurn".Length] + "Sector8";
+        return FormatInteger(tokens, storage);
     }
 
     public static bool TryFormatCondition(IReadOnlyList<EVExpressionToken> tokens, StorageDeclarations storage, [NotNullWhen(true)] out string? result)
@@ -131,14 +141,15 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
             EVExpressionToken token = tokens[index];
             if (token.Opcode == (byte)Jsm.Excode.Const16)
             {
-                stack.Push(new Printed(Number(token.Value), ValueKind.Int, token.Value, Computed: true));
+                stack.Push(new Printed(Number(token.Value), ValueKind.Int, token.Value, Computed: true, InputMask: token.Value >= 0 ? token.Value : null));
                 continue;
             }
             if (token.Opcode == (byte)Jsm.Excode.Const26)
             {
                 int highBits = (int)((uint)token.Value >> 26);
                 string data = highBits == 0 ? "" : $", highBits: {highBits}";
-                stack.Push(new Printed($"Wide({Number(token.Value << 6 >> 6)}{data})", ValueKind.Int, Computed: true));
+                int wideValue = token.Value << 6 >> 6;
+                stack.Push(new Printed($"Wide({Number(wideValue)}{data})", ValueKind.Int, Computed: true, InputMask: highBits == 0 && wideValue > short.MaxValue ? wideValue : null));
                 continue;
             }
             if (StorageDeclarations.IsStorage(token))
@@ -154,7 +165,10 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
             }
             if (operation.Payload != ExpressionPayload.None)
             {
-                stack.Push(new Printed($"{operation.Service}.{operation.Method}({FormatPayload(operation.Payload, token.Value)})", operation.Result, Computed: operation.Opcode == Jsm.Excode.B_SYSVAR));
+                string text = operation.Payload == ExpressionPayload.ObjectProperty && storage.FormatObjectProperty(token.Value) is { } named
+                    ? named
+                    : $"{operation.Service}.{operation.Method}({FormatPayload(operation.Payload, token.Value)})";
+                stack.Push(new Printed(text, operation.Result, Computed: operation.Opcode == Jsm.Excode.B_SYSVAR));
                 continue;
             }
             // The VM unary-plus opcode pushes the last calculation again. In the
@@ -175,6 +189,12 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
             for (int argument = arguments.Length - 1; argument >= 0; argument--)
                 arguments[argument] = stack.Pop();
             string name = operation.Service == "Values" ? operation.Method : $"{operation.Service}.{operation.Method}";
+            if (operation.Opcode is Jsm.Excode.IsKeyPressed or Jsm.Excode.B_KEYOFF or Jsm.Excode.B_KEY &&
+                arguments[0].InputMask is int input && FormatInput(input) is { } namedInput)
+            {
+                stack.Push(new Printed($"{name}({namedInput})", ValueKind.Bool, Computed: true));
+                continue;
+            }
             if (operation.Opcode == Jsm.Excode.Let && arguments[0].Computed)
             {
                 string discarded = $"Values.DiscardAssignment({arguments[0].Text}, {arguments[1].Text})";
@@ -229,8 +249,15 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
             return null;
         Printed left = arguments[0];
         Printed right = arguments[1];
+        const string rawTurn = ".Facing.RawTurn";
+        if (opcode == Jsm.Excode.BitRight && right.Literal == 5 && left.Text.EndsWith(rawTurn, StringComparison.Ordinal))
+            return new Printed($"((int){left.Text[..^rawTurn.Length]}.Facing.Sector8)", ValueKind.Int, Computed: true);
         if (opcode is Jsm.Excode.Equivalence or Jsm.Excode.NotEquivalence)
         {
+            if (SectorEquality(left, right) is { } typedLeft)
+                return new Printed($"({typedLeft.Left} {spec.Symbol} {typedLeft.Right})", ValueKind.Bool, Computed: true);
+            if (SectorEquality(right, left) is { } typedRight)
+                return new Printed($"({typedRight.Right} {spec.Symbol} {typedRight.Left})", ValueKind.Bool, Computed: true);
             if (left.Kind == ValueKind.Bool)
                 right = right.AsFlag();
             if (right.Kind == ValueKind.Bool)
@@ -246,6 +273,27 @@ internal sealed class SourceExpression(Jsm.Excode opcode, string service, string
         if (!flagEquality && (left.Kind != operandType || right.Kind != operandType))
             return null;
         return new Printed($"({left.Text} {spec.Symbol} {right.Text})", spec.BooleanResult ? ValueKind.Bool : ValueKind.Int, Computed: true);
+
+        static (string Left, string Right)? SectorEquality(Printed field, Printed value) =>
+            field.Text.StartsWith("((int)", StringComparison.Ordinal) && field.Text.EndsWith(".Facing.Sector8)", StringComparison.Ordinal) &&
+            value.Literal is >= 0 and < 8
+                ? (field.Text[6..^1], $"FacingSector.Sector{value.Literal}") : null;
+    }
+
+    private static string? FormatInput(int value)
+    {
+        if (value == 0)
+            return "PlayerInput.None";
+        var flags = new List<string>();
+        foreach (var flag in Enum.GetValues<global::EvilForest.EventSource.PlayerInput>())
+        {
+            if ((int)flag != 0 && (value & (int)flag) != 0)
+            {
+                flags.Add($"PlayerInput.{flag}");
+                value &= ~(int)flag;
+            }
+        }
+        return value == 0 ? string.Join(" | ", flags) : null;
     }
 
     private static string? Assignment(Jsm.Excode opcode, Printed[] arguments)

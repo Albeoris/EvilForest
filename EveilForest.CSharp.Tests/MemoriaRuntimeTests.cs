@@ -10,6 +10,14 @@ namespace EveilForest.CSharp.Tests;
 
 public sealed class MemoriaRuntimeTests(ITestOutputHelper output)
 {
+    internal static void VerifyCompiledTruthOperator(byte opcode, int[] inputs)
+    {
+        string? directory = Environment.GetEnvironmentVariable("EVILFOREST_MEMORIA_MANAGED");
+        if (string.IsNullOrWhiteSpace(directory))
+            return;
+        new RuntimeProbe(Path.GetFullPath(directory)).CheckTruthOperator(opcode, inputs);
+    }
+
     [Fact]
     [Trait("Category", "MemoriaRuntime")]
     public void InstalledMemoriaPreservesVariableViewsAndRequestTransitions()
@@ -43,6 +51,18 @@ public sealed class MemoriaRuntimeTests(ITestOutputHelper output)
                 output.WriteLine($"0x{opcode:X2}, busy={busy}: {string.Join(", ", trace)}");
             }
         }
+    }
+
+    [Fact]
+    [Trait("Category", "MemoriaRuntime")]
+    public void InstalledMemoriaReadsFieldFacingAndResolvesControlTransfers()
+    {
+        string? directory = Environment.GetEnvironmentVariable("EVILFOREST_MEMORIA_MANAGED");
+        if (string.IsNullOrWhiteSpace(directory))
+            return;
+
+        var runtime = new RuntimeProbe(Path.GetFullPath(directory));
+        runtime.CheckFieldFacingAndSelectors();
     }
 
     [Fact]
@@ -111,6 +131,26 @@ public sealed class MemoriaRuntimeTests(ITestOutputHelper output)
         private const BindingFlags Members = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
         private readonly Assembly _game = new GameLoadContext(directory).LoadFromAssemblyPath(Path.Combine(directory, "Assembly-CSharp.dll"));
 
+        public void CheckTruthOperator(byte opcode, int[] inputs)
+        {
+            Type type = GameType("EBin");
+            object interpreter = RuntimeHelpers.GetUninitializedObject(type);
+            FieldInfo stackField = type.GetField("_calcStack", Members)!;
+            object stack = Activator.CreateInstance(stackField.FieldType)!;
+            stackField.SetValue(stackField.IsStatic ? null : interpreter, stack);
+            object integer = Enum.Parse(type.GetNestedType("VariableSource", Members)!, "Int26");
+            int prefix = (int)Call(interpreter, "encodeVarClass", integer)!;
+            object operation = Enum.ToObject(type.GetNestedType("op_binary", Members)!, opcode);
+            foreach (int value in inputs)
+            {
+                Call(stack, "emptyCalcStack");
+                Call(stack, "push", (value & 0x03FFFFFF) | prefix);
+                Call(stack, "push", prefix);
+                Call(interpreter, "expr_jumpToSubCommand", operation);
+                Assert.Equal(value == 0 ? 0 : 1, (int)Call(interpreter, "EvaluateValueExpression")!);
+            }
+        }
+
         public void CheckVariables()
         {
             Type type = GameType("EBin");
@@ -130,6 +170,31 @@ public sealed class MemoriaRuntimeTests(ITestOutputHelper output)
             Assert.Equal(0, Read(29, Bit()));
             Assert.Equal(unchecked((int)0xFF801234), Read(1, Unsigned24()));
             Assert.Equal(0x1234, Read(1, Enum.Parse(variableType, "UInt16")));
+        }
+
+        public void CheckFieldFacingAndSelectors()
+        {
+            object engine = RuntimeHelpers.GetUninitializedObject(GameType("EventEngine"));
+            object interpreter = RuntimeHelpers.GetUninitializedObject(GameType("EBin"));
+            object context = Activator.CreateInstance(GameType("EventContext"))!;
+            Type actorType = GameType("Actor");
+            object actor = RuntimeHelpers.GetUninitializedObject(actorType);
+            Type vector = actorType.GetField("rotAngle", Members)!.FieldType;
+            Set(interpreter, "_eventEngine", engine);
+            Set(engine, "_context", context);
+            Set(engine, "gMode", 1);
+            Set(engine, "sObjModIndexing", new List<int[]> { Enumerable.Range(0, 23).ToArray() });
+            Set(context, "controlUID", (byte)17);
+            Assert.Equal(17, Call(engine, "GetUIDFromLocalUID", 250, 0));
+            Set(context, "controlUID", (byte)22);
+            Assert.Equal(22, Call(engine, "GetUIDFromLocalUID", 250, 0));
+            Assert.Equal(17, Call(engine, "GetUIDFromLocalUID", 17, 0));
+
+            foreach (int turn in new[] { 0, 31, 32, 63, 64, 96, 128, 160, 192, 224, 255 })
+            {
+                Set(actor, "rotAngle", Activator.CreateInstance(vector, 0f, turn * 360f / 256f, 0f)!);
+                Assert.Equal(turn, Call(interpreter, "getvobj", actor, 3));
+            }
         }
 
         public string[] TraceRequest(byte[] code, bool busy)
@@ -247,7 +312,7 @@ public sealed class MemoriaRuntimeTests(ITestOutputHelper output)
                 type.GetProperty(name, Members)!.SetValue(instance, value);
         }
 
-        private sealed class GameLoadContext(string directory) : AssemblyLoadContext(isCollectible: true)
+        private sealed class GameLoadContext(string directory) : AssemblyLoadContext()
         {
             protected override Assembly? Load(AssemblyName assemblyName)
             {

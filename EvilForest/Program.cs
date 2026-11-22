@@ -14,18 +14,27 @@ namespace EvilForest
         {
             try
             {
+                Boolean allowNative = args.Length >= 4 && args[0] is "export" or "export-all" && args[^1] == "--allow-native-phase-dispatch";
+                if (allowNative)
+                    args = args[..^1];
                 return args switch
                 {
-                    ["export", String input, String destination] => Export(input, destination),
+                    ["export", String input, String destination] => Export(input, destination, allowNativePhaseDispatch: allowNative),
                     ["export", String input, String destination, "--simplify"] => Export(input, destination, simplify: true),
                     ["export", String input, String destination, "--flat"] => Export(input, destination, structured: false),
+                    ["export", String input, String destination, "--no-cutscene-catalog"] => Export(input, destination, useCutsceneNames: false, allowNativePhaseDispatch: allowNative),
+                    ["export", String input, String destination, "--cutscene-catalog", String catalog] => Export(input, destination, useCutsceneNames: false, cutsceneCatalog: CutsceneCatalog.Read(catalog), allowNativePhaseDispatch: allowNative),
                     ["index-memoria-storage", String source, String report] => IndexMemoriaStorage(source, report),
                     ["index-storage", String input, String summary, String references] => IndexStorage(input, summary, references),
+                    ["diagnose-cutscene-memory", String input, String directory] => DiagnoseCutsceneMemory(input, directory),
                     ["generate-api", String fixtures, String output] => GenerateApi(fixtures, output),
                     ["disassemble", String input] => Disassemble(input),
                     ["compile", String project, String output] => Compile(project, output),
-                    ["export-all", String input, String destination] => ExportAll(input, destination),
-                    [] => ExportAll("EventEngine", "EventEngine"),
+                    ["compile-managed", String project, String output] => CompileManaged(project, output),
+                    ["export-all", String input, String destination] => ExportAll(input, destination, allowNativePhaseDispatch: allowNative),
+                    ["export-all", String input, String destination, "--no-cutscene-catalog"] => ExportAll(input, destination, useCutsceneNames: false, allowNativePhaseDispatch: allowNative),
+                    ["export-all", String input, String destination, "--cutscene-catalog", String catalog] => ExportAll(input, destination, useCutsceneNames: false, cutsceneCatalog: CutsceneCatalog.Read(catalog), allowNativePhaseDispatch: allowNative),
+                    [] => ExportAll("EventEngine", "EventEngine.CSharp"),
                     _ => Usage()
                 };
             }
@@ -36,12 +45,12 @@ namespace EvilForest
             }
         }
 
-        private static Int32 Export(String input, String destination, Boolean simplify = false, Boolean structured = true, String dependency = null)
+        private static Int32 Export(String input, String destination, Boolean simplify = false, Boolean structured = true, String dependency = null, Boolean useCutsceneNames = true, CutsceneCatalog cutsceneCatalog = null, Boolean allowNativePhaseDispatch = false)
         {
             String name = EventName(input);
             using var stream = File.OpenRead(input);
             EVContainer container = EVContainer.Read(stream);
-            EventProjectExporter.Export(container, name, destination, simplify, structured, dependency);
+            EventProjectExporter.Export(container, name, destination, simplify, structured, dependency, useCutsceneNames, cutsceneCatalog, allowNativePhaseDispatch: allowNativePhaseDispatch);
             return 0;
         }
 
@@ -62,6 +71,13 @@ namespace EvilForest
         private static Int32 GenerateApi(String fixtures, String output)
         {
             EventProjectExporter.GenerateDependencySources(fixtures, output);
+            return 0;
+        }
+
+        private static Int32 DiagnoseCutsceneMemory(String input, String directory)
+        {
+            using var stream = File.OpenRead(input);
+            EventProjectExporter.DiagnoseCutsceneMemory(EVContainer.Read(stream), EventName(input), directory);
             return 0;
         }
 
@@ -96,26 +112,18 @@ namespace EvilForest
             return 0;
         }
 
-        private static Int32 ExportAll(String input, String destination)
+        private static Int32 ExportAll(String input, String destination, Boolean useCutsceneNames = true, CutsceneCatalog cutsceneCatalog = null, Boolean allowNativePhaseDispatch = false)
         {
-            String dependency = EventProjectExporter.CopyDependencyTo(Path.Combine(destination, "lib"));
-            Int32 succeeded = 0;
-            Int32 failed = 0;
-            foreach (String file in Directory.EnumerateFiles(input, "*" + EventExtension).OrderBy(path => path, StringComparer.OrdinalIgnoreCase))
-            {
-                try
-                {
-                    Export(file, Path.Combine(destination, EventName(file)), dependency: dependency);
-                    succeeded++;
-                }
-                catch (Exception ex) when (ex is IOException || ex is InvalidDataException || ex is UnauthorizedAccessException || ex is ArgumentException)
-                {
-                    Console.Error.WriteLine($"{Path.GetFileName(file)}: {ex.Message}");
-                    failed++;
-                }
-            }
-            Console.WriteLine($"Exported {succeeded} event projects. {failed} failed.");
-            return failed == 0 ? 0 : 1;
+            Int32 count = EventProjectExporter.ExportAll(input, destination, useCutsceneNames, cutsceneCatalog, allowNativePhaseDispatch);
+            Console.WriteLine($"Exported {count} event projects.");
+            return 0;
+        }
+
+        private static Int32 CompileManaged(String project, String output)
+        {
+            Byte[] assembly = EventProjectCompiler.CompileManaged(project);
+            File.WriteAllBytes(output, assembly);
+            return 0;
         }
 
         private static String EventName(String file)
@@ -128,13 +136,16 @@ namespace EvilForest
 
         private static Int32 Usage()
         {
-            Console.Error.WriteLine("EvilForest export <input.eb.bytes> <project-directory> [--simplify]");
+            Console.Error.WriteLine("EvilForest export <input.eb.bytes> <project-directory> [--simplify | --flat | --no-cutscene-catalog | --cutscene-catalog <path>]");
             Console.Error.WriteLine("EvilForest index-memoria-storage <source-directory> <references.tsv>");
             Console.Error.WriteLine("EvilForest index-storage <input-directory> <summary.tsv> <references.tsv>");
+            Console.Error.WriteLine("EvilForest diagnose-cutscene-memory <input.eb.bytes> <report-directory>");
             Console.Error.WriteLine("EvilForest generate-api <fixtures-directory> <dependency-source-directory>");
             Console.Error.WriteLine("EvilForest disassemble <input.eb.bytes>");
             Console.Error.WriteLine("EvilForest compile <project-directory> <output.eb.bytes>");
-            Console.Error.WriteLine("EvilForest export-all <input-directory> <output-directory>");
+            Console.Error.WriteLine("EvilForest compile-managed <project-directory> <output.dll>");
+            Console.Error.WriteLine("EvilForest export-all <input-directory> <output-directory> [--no-cutscene-catalog | --cutscene-catalog <path>]");
+            Console.Error.WriteLine("Append --allow-native-phase-dispatch to export or export-all to retain unsupported native phase machines for inspection.");
             return 2;
         }
     }

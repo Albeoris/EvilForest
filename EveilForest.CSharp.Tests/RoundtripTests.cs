@@ -1,6 +1,13 @@
 using EveilForest.CSharp;
+using EvilForest.EventSource;
 using FF8.JSM;
 using Memoria.EventEngine.EV;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.FindSymbols;
+using Microsoft.CodeAnalysis.Rename;
+using Microsoft.CodeAnalysis.Text;
 using Xunit;
 using Xunit.Abstractions;
 using static EveilForest.CSharp.Tests.SourceProjectTest;
@@ -10,6 +17,8 @@ namespace EveilForest.CSharp.Tests;
 public sealed class RoundtripTests : IDisposable
 {
     private const string Cargo = "EVT_ALEX1_TS_CARGO_0";
+    private const string CargoScene = "Scene_Interactions.cs";
+    private const string CargoCandleScene = "Cutscenes/LightTheCandle.cs";
     private static readonly string TestData = Path.Combine(AppContext.BaseDirectory, "TestData");
     private readonly string _directory = Path.Combine(Path.GetTempPath(), $"evilforest-{Guid.NewGuid():N}");
     private readonly ITestOutputHelper _output;
@@ -43,9 +52,326 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
+        ExportCargoFixtureWithCli(original, project);
+        string layout = File.ReadAllText(Path.Combine(project, "Event.cs"));
+        Assert.Contains("[assembly: EventFormat(version: 2)]", layout);
+        Assert.DoesNotContain("EventLayout", layout);
+        Assert.Equal(File.ReadAllBytes(original)[4..EVContainer.HeaderSize], File.ReadAllBytes(Path.Combine(project, "Event.Header.bin")));
+        Assert.False(File.Exists(Path.Combine(project, "Event.Trailer.bin")));
         AddCommentFixture(project);
         CheckCargoCopies(project, "baseline", bytes => Assert.Equal(File.ReadAllBytes(original), bytes));
+    }
+
+    [Fact]
+    public void OpaqueContainerBytesRoundtripOutsideSceneSource()
+    {
+        byte[] extra = new byte[EVContainer.HeaderSize - EVContainer.HeaderMetadataOffset];
+        extra[0] = 0xA6;
+        extra[^1] = 0x3D;
+        byte[] trailer = [0x65, 0xFE];
+        var container = new EVContainer(EVContainer.CreateHeader(EVContainer.SupportedVersion, extra), [], trailer);
+        string project = Path.Combine(_directory, "opaque");
+        EventProjectExporter.Export(container, "OpaqueMetadata", project);
+
+        Assert.Equal(extra, File.ReadAllBytes(Path.Combine(project, "Event.Header.bin")));
+        Assert.Equal(trailer, File.ReadAllBytes(Path.Combine(project, "Event.Trailer.bin")));
+        Assert.Equal(container.Serialize(), EventProjectCompiler.Compile(project).Serialize());
+        string projectWithoutComments = CopyWithoutComments(project);
+        Assert.Equal(container.Serialize(), EventProjectCompiler.Compile(projectWithoutComments).Serialize());
+
+        File.Delete(Path.Combine(project, "Event.Header.bin"));
+        EVContainer withoutExtras = EventProjectCompiler.Compile(project);
+        Assert.Equal(new byte[extra.Length], withoutExtras.Header[EVContainer.HeaderMetadataOffset..]);
+        Assert.Equal(trailer, withoutExtras.Trailer);
+    }
+
+    [Fact]
+    public void RegenerationRefusesAnAuthoredExportWithoutChangingItsFiles()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        string generated = Path.Combine(project, "00_Object_00.cs");
+        string renamed = Path.Combine(project, "Authored.cs");
+        ReplaceSource(project, Path.GetFileName(generated), "scale: 936", "scale: 500");
+        File.Move(generated, renamed);
+        byte[] authored = File.ReadAllBytes(renamed);
+
+        for (int attempt = 0; attempt < 2; attempt++)
+            Assert.Throws<InvalidDataException>(() => ExportCargoFixture(ReadContainer(original), project));
+
+        Assert.False(File.Exists(generated));
+        Assert.Equal(authored, File.ReadAllBytes(renamed));
+        Assert.NotEqual(original, EventProjectCompiler.Compile(project).Serialize());
+    }
+
+    [Fact]
+    public void FailedExportNeverPublishesPartiallyGeneratedFiles()
+    {
+        string project = Directory.CreateDirectory(Path.Combine(_directory, "source")).FullName;
+        Assert.Throws<InvalidDataException>(() => ExportDirectory.Publish(project, stage =>
+        {
+            File.WriteAllText(Path.Combine(stage, "Partial.cs"), "// incomplete");
+            throw new InvalidDataException("Injected generation failure");
+        }));
+
+        Assert.Empty(Directory.EnumerateFileSystemEntries(project));
+        Assert.Single(Directory.EnumerateFileSystemEntries(_directory));
+    }
+
+    [Fact]
+    public void FailedBatchLeavesItsDestinationEmpty()
+    {
+        string fixtures = Directory.CreateDirectory(Path.Combine(_directory, "fixtures")).FullName;
+        string destination = Directory.CreateDirectory(Path.Combine(_directory, "output")).FullName;
+        File.Copy(Path.Combine(TestData, Cargo + ".eb.bytes"), Path.Combine(fixtures, Cargo + ".eb.bytes"));
+        File.WriteAllBytes(Path.Combine(fixtures, "ZZZ-invalid.eb.bytes"), [0]);
+
+        var error = Assert.Throws<InvalidDataException>(() => EventProjectExporter.ExportAll(fixtures, destination, allowNativePhaseDispatch: true));
+        Assert.Contains("ZZZ-invalid.eb.bytes", error.Message);
+        Assert.Empty(Directory.EnumerateFileSystemEntries(destination));
+    }
+
+    [Theory]
+    [InlineData("duplicate")]
+    [InlineData("missing")]
+    [InlineData("getter")]
+    [InlineData("receiver")]
+    public void CargoRejectsEditsThatBreakDispatchOrStorageParity(string edit)
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        string expected;
+        if (edit == "duplicate")
+        {
+            ReplaceSource(project, "17_Zidane.cs", "[Script(13, 4)]", "[Script(12, 4)]");
+            expected = "duplicate handler tag 12";
+        }
+        else if (edit == "missing")
+        {
+            ReplaceSource(project, CargoScene, "[Script(12, 3)]", "[Script(71, 3)]");
+            foreach (string file in new[] { CargoScene, "09_Object_09.cs" })
+                ReplaceSource(project, file, "scripts.RequestAndWait(evt.ControlledActor.HandleTreasureReward, level: 2)", "Scripts.RequestAndWait(level: 2, targetUid: 250, scriptId: 12)");
+            expected = "tag 12";
+        }
+        else if (edit == "getter")
+        {
+            ReplaceSource(project, "Event.cs", "get => Memory.SceneStep.Value;", "get => 0;");
+            expected = "must read and write the same declared memory field";
+        }
+        else
+        {
+            ReplaceSource(project, "17_Zidane.cs", "Animation.SetIdle(", "ctx.Scene.Cinna.Animation.SetIdle(");
+            expected = "animation receiver must be the acting actor";
+        }
+
+        var error = Assert.Throws<InvalidDataException>(() => EventProjectCompiler.Compile(project));
+        Assert.Contains(expected, error.Message);
+        Assert.Contains(".cs(", error.Message);
+    }
+
+    [Fact]
+    public void CargoParticipantAndHandlerNamesCanChangeAcrossPartialFiles()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        foreach (string file in new[] { "01_AttachedSpriteController.cs", CargoScene, CargoCandleScene })
+            ReplaceSource(project, file, "AttachedSpriteController", "HeldCandle");
+        ReplaceSource(project, CargoScene, "HandleTreasureReward", "GrantTreasure");
+        ReplaceSource(project, "09_Object_09.cs", "HandleTreasureReward", "GrantTreasure");
+        File.Move(Path.Combine(project, "01_AttachedSpriteController.cs"), Path.Combine(project, "Z_HeldCandle.cs"));
+        string hero = Path.Combine(project, "17_Zidane.cs");
+        string source = File.ReadAllText(hero);
+        int method = source.IndexOf("    [Script(13, 4)]", StringComparison.Ordinal);
+        int declaration = source.IndexOf("[ObjectSlot(", StringComparison.Ordinal);
+        File.WriteAllText(hero, source[..method] + "}");
+        File.WriteAllText(Path.Combine(project, "Zidane.Information.cs"), source[..declaration] + "public sealed partial class Zidane\n{\n" + source[method..]);
+        CheckCargoCopies(project, "renamed partial scene", bytes => Assert.Equal(original, bytes));
+    }
+
+    [Fact]
+    public void CargoCanLinkAnAddedParticipantAndDiagnoseItsRemoval()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        string firstParticipant = "    internal Object_00 Object_00";
+        ReplaceSource(project, CargoScene, firstParticipant,
+            $"    internal AddedThread AddedThread {{ get; }} = new AddedThread(context);{Environment.NewLine}{firstParticipant}");
+        ReplaceSource(project, "00_Object_00.cs", "scripts.StartThread(evt.Object_02);", "scripts.StartThread(evt.AddedThread);");
+        string participant = Path.Combine(project, "AddedThread.cs");
+        File.WriteAllText(participant, """
+            using EvilForest.EventSource;
+
+            namespace Event_EVT_ALEX1_TS_CARGO_0;
+
+            [ObjectSlot(26, 0, 0, 0, 21, 0, 0, "", "")]
+            public sealed class AddedThread : EventThread
+            {
+                internal AddedThread(SceneContext context) : base(context)
+                {
+                }
+
+                [Script(0, 0)]
+                public void Init()
+                {
+                    return;
+                }
+            }
+            """);
+
+        EVContainer edited = ReadContainer(EventProjectCompiler.Compile(project).Serialize());
+        Assert.Equal(27, edited.Objects.Length);
+        Assert.Contains(EVInstructionBody.Decode(edited.Objects[0].Scripts[0].Body).Instructions,
+            instruction => instruction.Opcode == Jsm.Opcode.NEW && instruction.Operands[0].Value == 26);
+
+        File.Delete(participant);
+        var error = Assert.Throws<InvalidDataException>(() => EventProjectCompiler.Compile(project));
+        Assert.Contains("AddedThread", error.Message);
+        Assert.Contains($"{CargoScene}(", error.Message);
+    }
+
+    [Fact]
+    public void HistoricalDuplicateTagsKeepTheirPhysicalOrder()
+    {
+        const string name = "EVT_ALEX5_AT_CENTER";
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, name + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        EventProjectExporter.Export(ReadContainer(original), name, project);
+        Assert.Equal(original, EventProjectCompiler.Compile(project).Serialize());
+    }
+
+    [Fact]
+    public void ManagedSchedulerRunsGeneratedCargoInitHandlers()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        string binaries = Path.Combine(_directory, "compiled");
+        ExportCargoFixture(ReadContainer(original), project);
+        ReplaceSource(project, "00_Object_00.cs", "scripts.StartActor(evt.Zidane);",
+            $"scripts.StartActor(evt.Zidane);{Environment.NewLine}        scripts.StartActor(evt.Zidane, new InstanceUid(128));");
+        RunDotnet(new[] { "build", ProjectFile(project), "-o", binaries, "-v", "q" });
+        var assembly = System.Reflection.Assembly.Load(File.ReadAllBytes(Path.Combine(binaries, "Event.dll")));
+        var host = new CargoHost();
+        var scheduler = new EventScheduler(host, new byte[16384], new byte[80]);
+        var secondHost = new CargoHost();
+        var secondScheduler = new EventScheduler(secondHost, new byte[16384], new byte[80]);
+        scheduler.RegisterProject(assembly);
+        secondScheduler.RegisterProject(assembly);
+        Assert.NotSame(scheduler.SceneContext, secondScheduler.SceneContext);
+        Assert.NotSame(scheduler.SceneContext!.Globals, secondScheduler.SceneContext!.Globals);
+        scheduler.StartScene();
+        secondScheduler.StartScene();
+
+        scheduler.Tick();
+        Assert.Contains((0, Opcode.NEW3), host.Commands);
+        Assert.DoesNotContain((17, Opcode.MODEL), host.Commands);
+        scheduler.Tick();
+        Assert.Contains((17, Opcode.MODEL), host.Commands);
+        Assert.Contains((128, Opcode.MODEL), host.Commands);
+        Assert.Contains((4, Opcode.QUAD), host.Commands);
+        Assert.Empty(secondHost.Commands);
+        secondScheduler.Tick();
+        Assert.DoesNotContain((17, Opcode.MODEL), secondHost.Commands);
+        secondScheduler.Tick();
+        Assert.Contains((17, Opcode.MODEL), secondHost.Commands);
+    }
+
+    [Fact]
+    public async Task CargoMethodGroupsNavigateToTheirHandlersAndSurviveWorkspaceRename()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+
+        using var workspace = new AdhocWorkspace();
+        ProjectId id = ProjectId.CreateNewId();
+        Solution solution = workspace.CurrentSolution.AddProject(ProjectInfo.Create(id, VersionStamp.Create(), "Cargo", "Cargo", LanguageNames.CSharp,
+            compilationOptions: new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary),
+            metadataReferences: EventReferences(project)));
+        foreach (string source in Directory.GetFiles(project, "*.cs"))
+            solution = solution.AddDocument(DocumentId.CreateNewId(id), Path.GetFileName(source), SourceText.From(File.ReadAllText(source)), filePath: source);
+        Document trigger = solution.GetProject(id)!.Documents.Single(document => document.Name == "09_Object_09.cs");
+        string text = (await trigger.GetTextAsync()).ToString();
+        int position = text.IndexOf("HandleTreasureReward", StringComparison.Ordinal);
+        var contract = Assert.IsAssignableFrom<IMethodSymbol>(await SymbolFinder.FindSymbolAtPositionAsync(trigger, position));
+        Assert.Equal("Zidane", contract.ContainingType.Name);
+        var references = await SymbolFinder.FindReferencesAsync(contract, solution);
+        Assert.Contains(references.SelectMany(reference => reference.Locations), location => location.Document.Id == trigger.Id);
+
+        string fixedText = text.Replace("evt.ControlledActor.HandleTreasureReward", "evt.Zidane.HandleTreasureReward", StringComparison.Ordinal);
+        Document fixedTrigger = trigger.WithText(SourceText.From(fixedText));
+        int fixedPosition = fixedText.IndexOf("HandleTreasureReward", StringComparison.Ordinal);
+        var concrete = Assert.IsAssignableFrom<IMethodSymbol>(await SymbolFinder.FindSymbolAtPositionAsync(fixedTrigger, fixedPosition));
+        Assert.Equal("Zidane", concrete.ContainingType.Name);
+        File.WriteAllText(fixedTrigger.FilePath!, fixedText);
+        EVContainer fixedBytes = ReadContainer(original);
+        EVContainerScript loop = fixedBytes.Objects[9].Scripts.Single(script => script.Id == 1);
+        EVInstructionBody body = EVInstructionBody.Decode(loop.Body);
+        EVInstruction request = body.Instructions.Single(instruction => instruction.Opcode == Jsm.Opcode.REQEW && instruction.Operands[1].Value == 250);
+        request.Operands[1] = new EVOperand(17);
+        loop.Body = body.Encode();
+        Assert.Equal(fixedBytes.Serialize(), EventProjectCompiler.Compile(project).Serialize());
+
+        solution = await Renamer.RenameSymbolAsync(solution, contract, new SymbolRenameOptions(), "GrantTreasure");
+        foreach (Document document in solution.GetProject(id)!.Documents)
+            File.WriteAllText(document.FilePath!, (await document.GetTextAsync()).ToString());
+        Assert.Equal(original, EventProjectCompiler.Compile(project).Serialize());
+    }
+
+    [Fact]
+    public void SceneCapabilitiesAndResourceDomainsAreCheckedByTheSdk()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        ReplaceSource(project, "00_Object_00.cs", "scripts.StartThread(evt.Object_02);", "scripts.StartThread(evt.Area_04);");
+        ReplaceSource(project, "17_Zidane.cs", "Animation.SetIdle(", "ctx.Scene.AttachedSpriteController.Animation.SetIdle(");
+        ReplaceSource(project, "17_Zidane.cs", "animation: Animations.Zidane.Run, frame: 0, sound: Sounds.Se040008",
+            "animation: Sounds.Se040008, frame: 0, sound: Sounds.Se040008");
+        string diagnostics = RunDotnet(new[] { "build", ProjectFile(project), "-v", "q" }, expectedExit: 1);
+        Assert.Contains("CS1061", diagnostics);
+        Assert.Contains("CS1503", diagnostics);
+        Assert.Contains("SoundEffectId", diagnostics);
+    }
+
+    [Fact]
+    public void ControlledRequestsUseTheTagDeclaredOnTheHandler()
+    {
+        byte[] original = File.ReadAllBytes(Path.Combine(TestData, Cargo + ".eb.bytes"));
+        string project = Path.Combine(_directory, "source");
+        ExportCargoFixture(ReadContainer(original), project);
+        ReplaceSource(project, CargoScene, "[Script(12, 3)]", "[Script(71, 3)]");
+
+        EVContainer rebuilt = EventProjectCompiler.Compile(project);
+        Assert.Contains(rebuilt.Objects[17].Scripts, script => script.Id == 71);
+        foreach (int id in new[] { 8, 9 })
+        {
+            EVInstructionBody body = EVInstructionBody.Decode(rebuilt.Objects[id].Scripts.Single(script => script.Id == 1).Body);
+            EVInstruction request = Assert.Single(body.Instructions.Where(instruction => instruction.Opcode == Jsm.Opcode.REQEW && instruction.Operands[1].Value == 250));
+            Assert.Equal(71, request.Operands[2].Value);
+        }
+        string reexport = Path.Combine(_directory, "reexport");
+        ExportCargoFixture(rebuilt, reexport);
+        string interaction = File.ReadAllText(Path.Combine(reexport, "09_Object_09.cs"));
+        Assert.Contains("evt.ControlledActor.Script_71", interaction);
+        Assert.Equal(rebuilt.Serialize(), EventProjectCompiler.Compile(reexport).Serialize());
+    }
+
+    private sealed class CargoHost : IEventHost
+    {
+        public List<(int Object, Opcode Opcode)> Commands { get; } = new();
+
+        public EventCommandFlow Execute(int objectId, Opcode opcode, ReadOnlySpan<Operand> operands)
+        {
+            Commands.Add((objectId, opcode));
+            return EventCommandFlow.Continue;
+        }
+
+        public int Read(int objectId, Excode opcode, ReadOnlySpan<Operand> operands) => 0;
+        public bool IsWindowOpen(int objectId, int windowId) => false;
     }
 
     [Theory]
@@ -58,7 +384,7 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
+        ExportCargoFixtureWithCli(original, project);
 
         byte[] expected = File.ReadAllBytes(original);
         EVContainer container = ReadContainer(expected);
@@ -93,7 +419,7 @@ public sealed class RoundtripTests : IDisposable
                 ReplaceSource(project, initializer, "Point(x: 210, z: 120)", "Point(z: 120, x: 210)");
                 string model = "13_GEO_SUB_F2_BAK_13.cs";
                 ReplaceSource(project, model, "using static EvilForest.EventSource.Vm;", "using Instructions = EvilForest.EventSource.Actors;");
-                ReplaceSource(project, model, "        Actors.SetModel(model: Resources.GEO_SUB_F2_BAK, height: 112);",
+                ReplaceSource(project, model, "        Actions.SetModel(model: Resources.GEO_SUB_F2_BAK, height: 112);",
                     "        Instructions.SetModel(height: 112, model: Resources.GEO_SUB_F2_BAK);");
                 // The source contains other intrinsic calls. Keep their static import.
                 string file = Path.Combine(project, model);
@@ -115,7 +441,7 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
+        ExportCargoFixtureWithCli(original, project);
         const string file = "00_Object_00.cs";
         AddCommentFixture(project);
         ReplaceSource(project, file, "scale: 936", "scale: 50000");
@@ -143,7 +469,7 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string source = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, source });
+        ExportCargoFixtureWithCli(original, source);
         ReplaceSource(source, "00_Object_00.cs", "scale: 936", "scale: 500");
         string compiled = Path.Combine(_directory, "compiled.eb.bytes");
         RunDotnet(new[] { "build", ProjectFile(source), "--nologo", "-v:q" });
@@ -174,7 +500,7 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string source = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, source });
+        ExportCargoFixtureWithCli(original, source);
         AddCommentFixture(source);
         ReplaceSource(source, "04_Area_04.cs", "        Regions.DefinePolygon(", "        EvilForest.EventSource.CommentFixture.Unsupported(); // WAIT(frames: 1)\n        Regions.DefinePolygon(");
         foreach (string variant in new[] { source, CopyWithoutComments(source) })
@@ -301,22 +627,20 @@ public sealed class RoundtripTests : IDisposable
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         byte[] expected = File.ReadAllBytes(original);
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
+        ExportCargoFixtureWithCli(original, project);
 
-        string hero = Directory.GetFiles(project, "17_*.cs").Single();
-        string music = Directory.GetFiles(project, "16_*.cs").Single();
-        string dialogue = File.ReadAllText(hero).Replace("\r\n", "\n", StringComparison.Ordinal);
-        string audio = File.ReadAllText(music).Replace("\r\n", "\n", StringComparison.Ordinal);
-        Assert.Matches(@"// Sure is dark\.\.\.\n\s*await Messages\.ShowAndWait\(windowId: 2, flags: 128, messageId: 34\);", dialogue);
-        Assert.Matches(@"// - Light the candle\n\s*// - Cancel\n\s*await Messages\.ShowAndWait\(windowId: 2, flags: 128, messageId: 36\);", dialogue);
-        Assert.Matches(@"// Strategy Conference[^\n]*\n\s*Audio\.PlaySong\(sound: Resources\.music018\);", audio);
-        Assert.DoesNotContain("{Speed", dialogue);
+        string scene = File.ReadAllText(Path.Combine(project, CargoCandleScene)).Replace("\r\n", "\n", StringComparison.Ordinal);
+        Assert.Matches(@"// Sure is dark\.\.\.\n\s*await Messages\.ShowAndWait\(windowId: 2, flags: 128, messageId: 34\);", scene);
+        Assert.Matches(@"// - Light the candle\n\s*// - Cancel\n\s*await Messages\.ShowAndWait\(windowId: 2, flags: 128, messageId: 36\);", scene);
+        Assert.Matches(@"// Strategy Conference[^\n]*\n\s*Audio\.PlaySong\(sound: Resources\.music018\);", scene);
+        Assert.Contains("Press the [Cross+] button", File.ReadAllText(Path.Combine(project, "04_Area_04.cs")));
+        Assert.DoesNotContain("{Speed", scene);
 
         CheckCargoCopies(project, "dialogue and music", bytes => Assert.Equal(expected, bytes));
         string misleading = Path.Combine(_directory, "misleading");
-        RunDotnet(new[] { CliPath(), "export", original, misleading });
-        ReplaceSource(misleading, Path.GetFileName(hero), "// Sure is dark...", "// Different message in another bank. WAIT(100).");
-        ReplaceSource(misleading, Path.GetFileName(music), "Strategy Conference", "An unrelated title");
+        ExportCargoFixtureWithCli(original, misleading);
+        ReplaceSource(misleading, CargoCandleScene, "// Sure is dark...", "// Different message in another bank. WAIT(100).");
+        ReplaceSource(misleading, CargoCandleScene, "Strategy Conference", "An unrelated title");
         CheckCargoCopies(misleading, "misleading comments", bytes => Assert.Equal(expected, bytes));
     }
 
@@ -327,14 +651,10 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
-        string hero = Directory.GetFiles(project, "17_*.cs").Single();
-        string source = File.ReadAllText(hero);
-        const string waitCall = "await Engine.Wait(frames: 25);";
-        int call = source.IndexOf(waitCall, StringComparison.Ordinal);
-        Assert.True(call >= 0);
+        ExportCargoFixtureWithCli(original, project);
+        string waitCall = "await Engine.Wait(frames: 25);";
         string edit = string.Join($"{Environment.NewLine}                    ", Enumerable.Repeat(waitCall, copies));
-        File.WriteAllText(hero, source.Remove(call, waitCall.Length).Insert(call, edit));
+        EditCargoOpeningWait(project, edit);
 
         EVContainer expected = ReadContainer(File.ReadAllBytes(original));
         EVContainerScript script = expected.Objects[17].Scripts.Single(item => item.Id == 1);
@@ -354,7 +674,7 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
+        ExportCargoFixtureWithCli(original, project);
         string hero = Path.GetFileName(Directory.GetFiles(project, "17_*.cs").Single());
         ReplaceSource(project, hero, "case 103:", $"case 104:{Environment.NewLine}            case 103:");
 
@@ -386,9 +706,8 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
-        string hero = Path.GetFileName(Directory.GetFiles(project, "17_*.cs").Single());
-        ReplaceSource(project, hero, "await Engine.Wait(frames: 25);", "Engine.Wait(frames: 25);");
+        ExportCargoFixtureWithCli(original, project);
+        EditCargoOpeningWait(project, "Engine.Wait(frames: 25);");
         foreach (string variant in new[] { project, CopyWithoutComments(project) })
         {
             RunDotnet(new[] { "build", ProjectFile(variant), "--nologo", "-v:q" });
@@ -402,17 +721,28 @@ public sealed class RoundtripTests : IDisposable
     {
         string original = Path.Combine(TestData, Cargo + ".eb.bytes");
         string project = Path.Combine(_directory, "source");
-        RunDotnet(new[] { CliPath(), "export", original, project });
-        string source = string.Join(Environment.NewLine, Directory.GetFiles(project, "*_*.cs").Select(File.ReadAllText));
-        Assert.Contains("Scripts.RequestAndWait(level:", source);
-        Assert.Contains("Actors.SetModel(model: Resources.GEO_SUB_F2_BAK", source);
+        ExportCargoFixtureWithCli(original, project);
+        string source = string.Join(Environment.NewLine, Directory.GetFiles(project, "*.cs", SearchOption.AllDirectories).Select(File.ReadAllText));
+        Assert.Contains("scripts.RequestAndWait(evt.ControlledActor.HandleTreasureReward, level: 2)", source);
+        Assert.Contains("scripts.StartThread(evt.AttachedSpriteController)", source);
+        Assert.Contains("evt.ControlledActor.Facing.Sector8", source);
+        Assert.Contains("Animation.SetPrimaryFrameSound(animation: Animations.Zidane.Run, frame: 0, sound: Sounds.Se040008)", source);
+        Assert.DoesNotContain("Actors.RunModelCode", source);
+        Assert.DoesNotContain("Actors.ReadProperty", source);
+        Assert.Contains("Actions.SetModel(model: Resources.GEO_SUB_F2_BAK", source);
         Assert.Contains("VisualEffects.SetScale(effect: 1, scale: 936", source);
         Assert.Contains("Regions.DefinePolygon(4, 0x00", source);
         Assert.Contains("Audio.PlaySong(sound:", source);
         Assert.Contains("Audio.PlayEffect(sound:", source);
         Assert.Contains("Messages.", source);
         Assert.DoesNotContain("Emit(Opcode.", source);
-        Assert.Contains("Input.IsKeyPressed(Wide(", source);
+        Assert.Contains("if (Input.IsKeyPressed(PlayerInput.Confirm | PlayerInput.Special))", source);
+        Assert.Contains("switch (evt.ControlledActor.Facing.Sector8)", source);
+        Assert.Contains("case FacingSector.Sector0:", source);
+        Assert.Contains("BubbleSymbol.Exclamation", source);
+        Assert.Contains("TriangleAttributeMask.All", source);
+        Assert.DoesNotContain("IControlledActor", source);
+        Assert.DoesNotContain("ControlledHandler(", source);
         CheckCargoCopies(project, "service names", bytes => Assert.Equal(File.ReadAllBytes(original), bytes));
     }
 
@@ -596,7 +926,7 @@ public sealed class RoundtripTests : IDisposable
         string directory = Path.Combine(_directory, result.Name);
         try
         {
-            RunStage(result, 2, () => EventProjectExporter.Export(container, result.Name, directory));
+            RunStage(result, 2, () => EventProjectExporter.Export(container, result.Name, directory, allowNativePhaseDispatch: true));
             string stripped = CopyWithoutComments(directory);
             CheckVariant(directory, 3);
             CheckVariant(stripped, 6);
@@ -607,7 +937,8 @@ public sealed class RoundtripTests : IDisposable
         }
         finally
         {
-            Directory.Delete(directory, recursive: true);
+            if (Directory.Exists(directory))
+                Directory.Delete(directory, recursive: true);
             if (Directory.Exists(directory + "-stripped"))
                 Directory.Delete(directory + "-stripped", recursive: true);
         }
@@ -781,7 +1112,26 @@ public sealed class RoundtripTests : IDisposable
         File.WriteAllText(path, text.Replace(oldText, newText, StringComparison.Ordinal));
     }
 
+    private static void EditCargoOpeningWait(string project, string replacement)
+    {
+        string file = Path.Combine(project, CargoCandleScene);
+        string text = File.ReadAllText(file);
+        const string dialogue = "await Messages.ShowAndWait(windowId: 2, flags: 128, messageId: 34);";
+        var dialogueStatement = Assert.Single(CSharpSyntaxTree.ParseText(text).GetRoot().DescendantNodes()
+            .OfType<ExpressionStatementSyntax>(), statement => statement.ToString() == dialogue);
+        var chapter = Assert.IsType<BlockSyntax>(dialogueStatement.Parent);
+        StatementSyntax wait = chapter.Statements[chapter.Statements.IndexOf(dialogueStatement) - 1];
+        Assert.Equal("await Engine.Wait(frames: 25);", wait.ToString());
+        File.WriteAllText(file, text.Remove(wait.SpanStart, wait.Span.Length).Insert(wait.SpanStart, replacement));
+    }
+
     private static string[] CorpusFiles() => Directory.GetFiles(TestData, "*.eb.bytes", SearchOption.AllDirectories).OrderBy(file => file, StringComparer.Ordinal).ToArray();
+
+    private static void ExportCargoFixture(EVContainer container, string project) =>
+        EventProjectExporter.Export(container, Cargo, project, allowNativePhaseDispatch: true);
+
+    private static void ExportCargoFixtureWithCli(string original, string project) =>
+        RunDotnet([CliPath(), "export", original, project, "--allow-native-phase-dispatch"]);
 
     private static ushort ReadUInt16(byte[] data, int offset) => System.Buffers.Binary.BinaryPrimitives.ReadUInt16LittleEndian(data.AsSpan(offset, 2));
 

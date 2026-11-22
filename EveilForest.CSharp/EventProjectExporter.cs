@@ -10,13 +10,61 @@ namespace EveilForest.CSharp;
 
 public static class EventProjectExporter
 {
-    public static void Export(EVContainer container, string eventName, string directory, bool simplify = false, bool structured = true, string? dependency = null)
+    public static void Export(EVContainer container, string eventName, string directory, bool simplify = false, bool structured = true, string? dependency = null, bool useCutsceneNames = true, CutsceneCatalog? cutsceneCatalog = null, bool extractCutscenes = true, bool allowNativePhaseDispatch = false)
     {
-        Directory.CreateDirectory(directory);
-        string eventNamespace = "Event_" + Identifier(eventName);
-        if (File.Exists(Path.Combine(directory, "EventSource.cs")))
-            throw new InvalidDataException("Export to a new directory to migrate an inline EventSource project.");
+        ExportDirectory.Publish(directory, stage => WriteProject(container, eventName, stage, simplify, structured, dependency, useCutsceneNames, cutsceneCatalog, extractCutscenes, allowNativePhaseDispatch));
+    }
 
+    public static int ExportAll(string fixtures, string directory, bool useCutsceneNames = true, CutsceneCatalog? cutsceneCatalog = null, bool allowNativePhaseDispatch = false)
+    {
+        const string extension = ".eb.bytes";
+        string[] files = Directory.EnumerateFiles(fixtures, "*" + extension).OrderBy(path => path, StringComparer.OrdinalIgnoreCase).ToArray();
+        ExportDirectory.Publish(directory, stage =>
+        {
+            string dependency = CopyDependencyTo(Path.Combine(stage, "lib"));
+            foreach (string file in files)
+            {
+                string name = Path.GetFileName(file)[..^extension.Length];
+                string project = Path.Combine(stage, name);
+                try
+                {
+                    using var stream = File.OpenRead(file);
+                    EVContainer container = EVContainer.Read(stream);
+                    Directory.CreateDirectory(project);
+                    WriteProject(container, name, project, simplify: false, structured: true, dependency, useCutsceneNames, cutsceneCatalog, extractCutscenes: true, allowNativePhaseDispatch);
+                }
+                catch (Exception error) when (error is IOException or InvalidDataException or UnauthorizedAccessException or ArgumentException)
+                {
+                    throw new InvalidDataException($"{Path.GetFileName(file)}: {error.Message}", error);
+                }
+            }
+        });
+        return files.Length;
+    }
+
+    public static void DiagnoseCutsceneMemory(EVContainer container, string eventName, string reportDirectory)
+    {
+        string directory = Directory.CreateDirectory(reportDirectory).FullName;
+        var report = new List<string> { "slot\ttag\tscope\towner\tbyte\tread mask\twrite mask\tunresolved mask\tphase\tentry offset" };
+        foreach (EVContainerObject participant in container.Objects)
+        {
+            foreach (EVContainerScript script in participant.Scripts)
+            {
+                EVInstructionBody body = EVInstructionBody.Decode(script.Body);
+                report.AddRange(CutsceneMemoryIndex.Describe(participant.Id, script.Id, body).Select(row => $"{row}\t\t"));
+                foreach (var phase in CutscenePhaseGraph.Read(new(participant.Id, script.Id), participant.Type, body))
+                {
+                    var fragment = new EVInstructionBody(phase.Instructions, body.EndLabel);
+                    report.AddRange(CutsceneMemoryIndex.Describe(participant.Id, script.Id, fragment).Select(row => $"{row}\t{phase.Value}\t0x{phase.Start:X}"));
+                }
+            }
+        }
+        File.WriteAllLines(Path.Combine(directory, Identifier(eventName) + ".CutsceneMemory.tsv"), report);
+    }
+
+    private static void WriteProject(EVContainer container, string eventName, string directory, bool simplify, bool structured, string? dependency, bool useCutsceneNames, CutsceneCatalog? cutsceneCatalog, bool extractCutscenes, bool allowNativePhaseDispatch)
+    {
+        string eventNamespace = "Event_" + Identifier(eventName);
         dependency ??= EventSourceDependency.CopyTo(Path.Combine(directory, "lib"));
         string referencePath = System.Security.SecurityElement.Escape(Path.GetRelativePath(directory, dependency).Replace('\\', '/'))!;
         File.WriteAllText(Path.Combine(directory, "Event.csproj"), $$"""
@@ -35,6 +83,8 @@ public static class EventProjectExporter
 
         var annotations = new EventAnnotations(eventName);
         var eventStorage = new StorageDeclarations(eventName);
+        EventSceneSymbols.SceneNames? names = EventSceneSymbols.FindNames(eventName);
+        var objects = new List<(EVContainerObject Definition, EVInstructionBody[] Bodies, StorageDeclarations Storage, string Name)>();
         foreach (EVContainerObject obj in container.Objects)
         {
             var bodies = new EVInstructionBody[obj.Scripts.Length];
@@ -55,22 +105,162 @@ public static class EventProjectExporter
                 }
             }
 
-            string typeName = NameObject(obj.Id, bodies);
-            string source = FormatObject(obj, bodies, eventNamespace, typeName, simplify, structured, annotations, objectStorage);
-            File.WriteAllText(Path.Combine(directory, $"{obj.Id:D2}_{typeName}.cs"), source);
+            string typeName = names?.Participants.GetValueOrDefault(obj.Id) ??
+                (useCutsceneNames && structured && !simplify ? CutsceneCatalog.ParticipantName(eventName, obj.Id) : null) ?? NameObject(obj.Id, bodies);
+            objects.Add((obj, bodies, objectStorage, typeName));
         }
+
+        EventSceneSymbols? scene = eventName.StartsWith("EVT_", StringComparison.OrdinalIgnoreCase)
+            ? new EventSceneSymbols(eventName, objects.Select(item => (item.Definition, item.Name, item.Bodies)), useCutsceneNames && structured && !simplify) : null;
+        CutsceneExport? cutscenes = extractCutscenes && scene != null && structured && !simplify
+            ? new CutsceneExport(eventName, scene, objects.Select(item => (item.Definition, item.Bodies)), useCutsceneNames, cutsceneCatalog, allowNativePhaseDispatch)
+            : null;
+        cutscenes?.NameDirectorStorage(eventStorage);
+        var directors = cutscenes?.Scenes.Where(item => item.DirectorMachine is { Standalone: true }).ToDictionary(item => item.DirectorMachine!.Director.Slot) ?? new();
+        var composedHandlers = new Dictionary<string, StringBuilder>();
+        foreach (var (definition, bodies, storage, name) in objects)
+        {
+            storage.Scene = scene;
+            storage.CutsceneNames = eventStorage.CutsceneNames;
+            string source = FormatObject(definition, bodies, eventNamespace, name, simplify, structured, annotations, storage, scene, composedHandlers, cutscenes, directors);
+            if (!directors.ContainsKey(definition.Id))
+                File.WriteAllText(Path.Combine(directory, $"{definition.Id:D2}_{name}.cs"), source);
+        }
+        cutscenes?.FinalizeParallelPhases(directory);
+        cutscenes?.FinalizeOwnedActions();
+        cutscenes?.ValidateDirectorMachines();
+        cutscenes?.SimplifyChoreographyJoins();
 
         var eventSource = new StringBuilder();
         eventSource.AppendLine("using EvilForest.EventSource;");
         eventSource.AppendLine();
-        eventSource.AppendLine($"[assembly: EventLayout(\"{Convert.ToHexString(container.Header)}\", \"{Convert.ToHexString(container.Trailer)}\")]");
+        eventSource.AppendLine($"[assembly: EventFormat(version: {container.Header[2]})]");
+        File.WriteAllBytes(Path.Combine(directory, "Event.Header.bin"), container.Header[EVContainer.HeaderMetadataOffset..]);
+        if (container.Trailer.Length != 0)
+            File.WriteAllBytes(Path.Combine(directory, "Event.Trailer.bin"), container.Trailer);
+        if (scene != null)
+            eventSource.AppendLine($"[assembly: EventScene(typeof({eventNamespace}.SceneContext))]");
         foreach (var (firstBit, bitCount) in EngineStorageReservations.ForEvent(eventName))
             eventSource.AppendLine($"[assembly: MapStorageReservation({firstBit}, {bitCount})]");
         eventSource.AppendLine();
         eventSource.AppendLine($"namespace {eventNamespace};");
         eventSource.AppendLine();
-        eventStorage.Append(eventSource, EVStorageScope.Map, "internal");
+        eventStorage.Append(eventSource, EVStorageScope.Map, "internal", instance: scene != null, emitEmpty: scene != null);
         File.WriteAllText(Path.Combine(directory, "Event.cs"), eventSource.ToString());
+        if (scene != null)
+        {
+            string[] cutsceneGroups = cutscenes?.Scenes.Where(item => item.Methods.Count > 0).Select(item => item.Name).Distinct(StringComparer.Ordinal).ToArray() ?? [];
+            var sceneSource = new StringBuilder();
+            AppendSourceUsings(sceneSource, eventNamespace);
+            sceneSource.AppendLine("internal sealed class SceneContext : EventSceneContext");
+            sceneSource.AppendLine("{");
+            if (cutsceneGroups.Length == 0)
+                sceneSource.AppendLine("    public SceneContext() => Scene = new Scene(this);");
+            else
+            {
+                sceneSource.AppendLine("    public SceneContext()");
+                sceneSource.AppendLine("    {");
+                sceneSource.AppendLine("        Scene = new Scene(this);");
+                foreach (string name in cutsceneGroups)
+                    sceneSource.AppendLine($"        {name} = new {name}(this);");
+                sceneSource.AppendLine("    }");
+            }
+            sceneSource.AppendLine("    internal Scene Scene { get; }");
+            sceneSource.AppendLine("    internal Location Location { get; } = new();");
+            foreach (string name in cutsceneGroups)
+                sceneSource.AppendLine($"    internal {name} {name} {{ get; }}");
+            sceneSource.AppendLine("}");
+            sceneSource.AppendLine();
+            sceneSource.AppendLine("[SceneRoot]");
+            sceneSource.AppendLine(scene.Participants.Count == 0 ? "internal sealed class Scene(SceneContext _)" : "internal sealed class Scene(SceneContext context)");
+            sceneSource.AppendLine("{");
+            foreach (var (slot, participant) in scene.Participants)
+            {
+                if (!directors.ContainsKey(slot))
+                    sceneSource.AppendLine($"    internal {participant.Name} {participant.Name} {{ get; }} = new {participant.Name}(context);");
+            }
+            if (names != null && scene.Participants.GetValueOrDefault(names.ControlledDefinition) is { } controlled)
+                sceneSource.AppendLine($"    internal {controlled.Name} ControlledActor {{ get; }} = EventSceneContext.BindControlled(new {controlled.Name}(context));");
+            else
+                sceneSource.AppendLine("    internal IActor ControlledActor { get; } = new ControlledActorTarget();");
+            sceneSource.AppendLine("}");
+            foreach (var (owner, handlers) in composedHandlers)
+            {
+                sceneSource.AppendLine();
+                sceneSource.AppendLine($"public sealed partial class {owner}");
+                sceneSource.AppendLine("{");
+                sceneSource.Append(handlers);
+                sceneSource.AppendLine("}");
+            }
+            File.WriteAllText(Path.Combine(directory, names == null ? "Scene.cs" : "Scene_Interactions.cs"), sceneSource.ToString());
+            if (cutscenes != null)
+            {
+                var sources = objects.Where(item => !directors.ContainsKey(item.Definition.Id)).ToDictionary(item => item.Definition.Id, item => $"{item.Definition.Id:D2}_{item.Name}.cs");
+                cutscenes.FinalizeParticipantSources(directory, sources);
+                foreach (var (slot, director) in directors)
+                    sources.Add(slot, $"Cutscenes/{director.Name}.cs");
+                WriteCutscenes(cutscenes, eventNamespace, directory, sources);
+            }
+        }
+        if (structured)
+        {
+            EmptyJumpLayout.AnnotateExport(directory);
+            SharedCaseActionLayout.RewriteExport(directory);
+            CaseContinuationExport.RewriteExport(directory);
+        }
+    }
+
+    private static void WriteCutscenes(CutsceneExport cutscenes, string eventNamespace, string directory, IReadOnlyDictionary<int, string> sources)
+    {
+        if (cutscenes.Outline.Count > 0 || cutscenes.Scenes.Count > 0)
+        {
+            var lines = new List<string> { "slot\ttag\tcandidate\tblocks\tstatus\tsource\tscene source\tfragment key\trule" };
+            foreach (var scene in cutscenes.Scenes)
+            {
+                var chapters = scene.DirectorMachine?.OrderedChapters ?? scene.AdditionalChapters.Keys.Prepend(scene.Entry)
+                    .SelectMany(entry => scene.For(entry)!.Keys.Select(phase => (Entry: entry, Phase: phase))).ToArray();
+                foreach (var (entry, phase) in chapters)
+                {
+                    bool extracted = scene.ExtractedChapters.Contains((entry, phase));
+                    string status = extracted ? "extracted" : "Kept in handler to preserve its original exit";
+                    string sceneSource = extracted ? $"Cutscenes/{scene.Name}.cs" : "";
+                    string? key = scene.FragmentKeys.GetValueOrDefault((entry, phase));
+                    string kind = scene.Whole ? "entry" : $"phase {phase}";
+                    string method = scene.ChapterMethod(entry, phase);
+                    lines.Add($"{entry.Slot}\t{entry.Tag}\t{scene.Name}.{method} ({kind})\t\t{status}\t{sources[entry.Slot]}\t{sceneSource}\t{key}\t{scene.Rule}");
+                }
+            }
+            foreach (var scene in cutscenes.Scenes)
+            {
+                foreach (var (entry, name) in scene.Actions)
+                    lines.Add($"{entry.Slot}\t{entry.Tag}\t{scene.Name}.{name} ({cutscenes.ActionKind(entry)} entry)\t\textracted\t{sources[entry.Slot]}\tCutscenes/{scene.Name}.cs\t\t{scene.Rule}");
+            }
+            foreach (string row in cutscenes.Outline)
+            {
+                string? source = int.TryParse(row.AsSpan(0, row.IndexOf('\t')), out int slot) ? sources.GetValueOrDefault(slot) : null;
+                lines.Add($"{row}\t{source}\t\t\t");
+            }
+            File.WriteAllLines(Path.Combine(directory, "CutsceneOutline.tsv"), lines);
+        }
+        var emitted = cutscenes.Scenes.Where(scene => scene.Methods.Count > 0).ToArray();
+        if (emitted.Length == 0)
+            return;
+        string path = Directory.CreateDirectory(Path.Combine(directory, "Cutscenes")).FullName;
+        foreach (var group in emitted.GroupBy(scene => scene.Name))
+        {
+            var source = new StringBuilder();
+            AppendSourceUsings(source, eventNamespace);
+            source.AppendLine($"internal sealed partial class {group.Key}(SceneContext ctx) : EventCutscene");
+            source.AppendLine("{");
+            source.AppendLine("    private Location Location => ctx.Location;");
+            source.AppendLine("    private GlobalState Globals => ctx.Globals;");
+            foreach (var binding in group.SelectMany(scene => scene.Bindings))
+                source.Append(CutsceneExport.Render(binding));
+            foreach (var method in group.SelectMany(scene => scene.Methods))
+                source.Append(CutsceneExport.Render(method));
+            source.AppendLine("}");
+            File.WriteAllText(Path.Combine(path, group.Key + ".cs"), source.ToString());
+        }
     }
 
     public static string CopyDependencyTo(string directory) => EventSourceDependency.CopyTo(directory);
@@ -89,20 +279,40 @@ public static class EventProjectExporter
         File.WriteAllText(Path.Combine(directory, "Resources.Generated.cs"), resources.ToString());
 
         var storage = new StorageDeclarations();
+        var animationIds = new HashSet<int>();
+        var soundIds = new HashSet<int>();
         foreach (string path in Directory.EnumerateFiles(fixtures, "*.eb.bytes", SearchOption.AllDirectories))
         {
             using var input = File.OpenRead(path);
             foreach (EVContainerObject obj in EVContainer.Read(input).Objects)
             {
                 foreach (EVContainerScript script in obj.Scripts)
-                    storage.Add(EVInstructionBody.Decode(script.Body));
+                {
+                    EVInstructionBody body = EVInstructionBody.Decode(script.Body);
+                    storage.Add(body);
+                    foreach (EVInstruction effect in body.Instructions.Where(instruction => instruction.Opcode == Jsm.Opcode.CHRFX))
+                    {
+                        if (effect.Operands[0] is not { Expression: null, Value: >= 16 and <= 19 })
+                            continue;
+                        if (effect.Operands[1] is { Expression: null, Value: >= 0 and <= ushort.MaxValue } animation)
+                            animationIds.Add(animation.Value);
+                        if (effect.Operands[0].Value is 16 or 17 && effect.Operands[3] is { Expression: null, Value: >= 0 and <= ushort.MaxValue } sound)
+                            soundIds.Add(sound.Value);
+                    }
+                }
             }
         }
         var globals = new StringBuilder("namespace EvilForest.EventSource;");
         globals.AppendLine().AppendLine();
         storage.Append(globals, EVStorageScope.Global, "public");
         storage.Append(globals, EVStorageScope.Special, "public");
+        storage.Append(globals, EVStorageScope.Global, "public", instance: true, className: "GlobalState", emitEmpty: true);
         File.WriteAllText(Path.Combine(directory, "Globals.Generated.cs"), globals.ToString());
+
+        var characterResources = new StringBuilder("namespace EvilForest.EventSource;");
+        characterResources.AppendLine().AppendLine();
+        ResourceCatalog.AppendCharacterResourceIds(characterResources, animationIds, soundIds);
+        File.WriteAllText(Path.Combine(directory, "CharacterResources.Generated.cs"), characterResources.ToString());
     }
 
     private static void AppendCommonOperations(StringBuilder source)
@@ -139,83 +349,143 @@ public static class EventProjectExporter
         return $"Object_{id:D2}";
     }
 
-    private static string FormatObject(EVContainerObject obj, EVInstructionBody[] bodies, string eventNamespace, string typeName, bool simplify, bool structured, EventAnnotations annotations, StorageDeclarations storage)
+    private static void AppendSourceUsings(StringBuilder source, string eventNamespace)
     {
-        var source = new StringBuilder();
         source.AppendLine("using EvilForest.EventSource;");
         source.AppendLine("using static EvilForest.EventSource.Vm;");
         source.AppendLine("using static EvilForest.EventSource.Values;");
         source.AppendLine();
         source.AppendLine($"namespace {eventNamespace};");
         source.AppendLine();
+    }
+
+    private static string FormatObject(EVContainerObject obj, EVInstructionBody[] bodies, string eventNamespace, string typeName, bool simplify, bool structured, EventAnnotations annotations, StorageDeclarations storage, EventSceneSymbols? scene, Dictionary<string, StringBuilder> composedHandlers, CutsceneExport? cutscenes, IReadOnlyDictionary<int, CutsceneExport.Scene> directors)
+    {
+        var source = new StringBuilder();
+        AppendSourceUsings(source, eventNamespace);
         source.AppendLine($"[ObjectSlot({obj.Id}, {obj.VariableCount}, {obj.Flags}, {obj.Reserved}, {obj.BodyOrder ?? -1}, {obj.EmptyOffset}, {obj.Type}, \"{Convert.ToHexString(obj.Gap)}\", \"{Convert.ToHexString(obj.Prefix)}\")]");
-        source.AppendLine($"public static class {typeName}");
+        string parent = obj.Type switch { 1 => "EventRegion", 2 => "EventActor", _ => "EventThread" };
+        source.AppendLine(scene == null ? $"public static partial class {typeName}" : $"public sealed partial class {typeName} : {parent}");
         source.AppendLine("{");
-        storage.Append(source, EVStorageScope.Instance, "private", "    ");
-        var methodNames = new HashSet<string>(StringComparer.Ordinal);
+        if (scene != null)
+        {
+            source.AppendLine($"    internal {typeName}(SceneContext context) : base(context)");
+            source.AppendLine("    {");
+            source.AppendLine("    }");
+            source.AppendLine();
+            source.AppendLine("    private SceneContext ctx => (SceneContext)Context;");
+            source.AppendLine("    private Location Location => ctx.Location;");
+            source.AppendLine("    private GlobalState Globals => ctx.Globals;");
+            source.AppendLine($"    {(cutscenes?.OwnsLocalStorage(obj.Id) == true ? "internal" : "private")} LocalMemory Local {{ get; }} = new();");
+            source.AppendLine();
+        }
+        storage.Append(source, EVStorageScope.Instance, cutscenes?.OwnsLocalStorage(obj.Id) == true ? "internal" : "private", "    ", instance: scene != null, className: scene == null ? null : "LocalMemory", emitEmpty: scene != null);
+        IReadOnlyList<string> methodNames = scene?.Participants.GetValueOrDefault(obj.Id)?.Handlers ?? EventSceneSymbols.HandlerNames(obj, scene?.Names);
+        var duplicateTags = obj.Scripts.GroupBy(script => script.Id).Where(group => group.Count() > 1).Select(group => group.Key).ToHashSet();
         for (int index = 0; index < obj.Scripts.Length; index++)
         {
             ushort id = obj.Scripts[index].Id;
-            string method = id == 0 ? "Init" : $"Script_{id:D2}";
-            if (DB.ScriptNames.TryGetValue((DBScriptName.Id)id, out DBScriptName? script) && !string.IsNullOrEmpty(script.Name))
-                method = Identifier(char.ToUpperInvariant(script.Name[0]) + script.Name.Substring(1));
-            string baseName = method;
-            for (int suffix = index; !methodNames.Add(method); suffix++)
-                method = $"{baseName}_{suffix}";
+            string method = methodNames[index];
 
-            if (index > 0)
-                source.AppendLine();
+            StringBuilder handlerSource = source;
+            if (scene?.Names?.ComposedHandlers.Contains((obj.Id, id)) == true)
+            {
+                if (!composedHandlers.TryGetValue(typeName, out handlerSource!))
+                    composedHandlers.Add(typeName, handlerSource = new StringBuilder());
+                if (handlerSource.Length > 0)
+                    handlerSource.AppendLine();
+            }
+            else if (index > 0)
+            {
+                handlerSource.AppendLine();
+            }
+            StringBuilder destination = handlerSource;
+            if (cutscenes?.NeedsHandlerSource(obj.Id) == true)
+                handlerSource = new StringBuilder();
             EVInstructionBody body = bodies[index];
             int padding = TrailingPadding(body);
             int instructionCount = body.Instructions.Count - padding;
             bool suspends = body.Instructions.Take(instructionCount).Any(instruction => SourceInstruction.SuspensionOf(instruction.Opcode) != Suspension.Immediate);
-            source.AppendLine($"    [Script({id}, {index})]");
+            handlerSource.AppendLine($"    [Script({id}, {index})]");
+            if (duplicateTags.Contains(id))
+                handlerSource.AppendLine($"    [OriginalDuplicateTag({id}, {index})]");
             if (padding != 0)
-                source.AppendLine($"    [TrailingPadding({padding})]");
-            EventControlFlowFormatter CreateFormatter(bool useSwitchLayouts, bool useNativeJumps = false) =>
-                new(body, instructionCount, instruction => FormatInstruction(instruction, storage), tokens => FormatValue(tokens, storage),
+                handlerSource.AppendLine($"    [TrailingPadding({padding})]");
+            IReadOnlySet<int>? unreachablePollingExitLabels = cutscenes?.UnreachablePollingExitLabels(obj.Id, id);
+            IReadOnlySet<int>? linkedPollingDispatchLabels = cutscenes?.LinkedPollingDispatchLabels(obj.Id, id);
+            EventControlFlowFormatter CreateFormatter(bool useNativeJumps = false, bool expandSwitchRegions = true) =>
+                new(body, instructionCount, instruction => FormatInstruction(instruction, storage, scene, obj.Type == 2, directors), tokens => FormatValue(tokens, storage),
                     operand => FormatOperand(operand, storage), tokens => SourceExpression.TryFormatCondition(tokens, storage, out string? condition) ? condition : null,
-                    tokens => SourceExpression.FormatInteger(tokens, storage) ?? $"(int)({FormatValue(tokens, storage)})", simplify, annotations.For)
+                    tokens => SourceExpression.FormatSwitchSelector(tokens, storage) ?? $"(int)({FormatValue(tokens, storage)})", simplify, annotations.For)
                 {
-                    UseSwitchLayouts = useSwitchLayouts,
-                    UseNativeJumps = useNativeJumps
+                    UseNativeJumps = useNativeJumps,
+                    ExpandSwitchRegions = expandSwitchRegions,
+                    PreserveSwitchPhase = cutscenes == null ? null : (selector, value) => cutscenes.OwnsSwitchPhase(obj.Id, id, selector, value),
+                    UnreachablePollingExitLabels = unreachablePollingExitLabels,
+                    LinkedPollingDispatchLabels = linkedPollingDispatchLabels
                 };
 
-            var formatter = CreateFormatter(useSwitchLayouts: true);
+            var formatter = CreateFormatter();
             var statements = new StringBuilder();
             formatter.AppendTo(statements, structured);
-            if (formatter.HasConflictingSwitchLayouts)
-            {
-                formatter = CreateFormatter(useSwitchLayouts: false);
-                statements.Clear();
-                formatter.AppendTo(statements, structured);
-            }
             if (structured && formatter.HasUnstructuredTargets && formatter.CanWriteNativeJumps())
             {
-                foreach (bool keepRegions in new[] { true, false })
+                var native = CreateFormatter(useNativeJumps: true);
+                var nativeStatements = new StringBuilder();
+                native.AppendTo(nativeStatements, structured: true);
+                bool hasVisibleNativeJumps = CanUseNative(native) && HasVisibleJumpTargets(nativeStatements.ToString());
+                if (native.HasExpandedSwitchRegions && (!hasVisibleNativeJumps || native.NativeGotoCount != 0))
                 {
-                    var native = CreateFormatter(useSwitchLayouts: true, useNativeJumps: true);
-                    var nativeStatements = new StringBuilder();
-                    native.AppendTo(nativeStatements, structured: keepRegions);
-                    if (native.HasRawTransfer || native.HasConflictingSwitchLayouts ||
-                        keepRegions && !HasVisibleJumpTargets(nativeStatements.ToString()))
-                        continue;
+                    var conservative = CreateFormatter(useNativeJumps: true, expandSwitchRegions: false);
+                    var conservativeStatements = new StringBuilder();
+                    conservative.AppendTo(conservativeStatements, structured: true);
+                    if (CanUseNative(conservative) && (!hasVisibleNativeJumps || conservative.NativeGotoCount < native.NativeGotoCount) &&
+                        HasVisibleJumpTargets(conservativeStatements.ToString()))
+                    {
+                        native = conservative;
+                        nativeStatements = conservativeStatements;
+                        hasVisibleNativeJumps = true;
+                    }
+                }
 
+                if (!hasVisibleNativeJumps)
+                {
+                    native = CreateFormatter(useNativeJumps: true, expandSwitchRegions: false);
+                    nativeStatements.Clear();
+                    native.AppendTo(nativeStatements, structured: false);
+                    hasVisibleNativeJumps = CanUseNative(native);
+                }
+
+                if (hasVisibleNativeJumps)
+                {
                     formatter = native;
                     statements = nativeStatements;
-                    break;
                 }
             }
             foreach (string layout in formatter.SwitchLayouts)
-                source.AppendLine(layout);
-            source.AppendLine(suspends ? $"    public static async EventRoutine {method}()" : $"    public static void {method}()");
-            source.AppendLine("    {");
-            source.Append(statements);
-            source.AppendLine("    }");
+                handlerSource.AppendLine(layout);
+            string modifier = scene == null ? "static " : "";
+            handlerSource.AppendLine(suspends ? $"    public {modifier}async EventRoutine {method}()" : $"    public {modifier}void {method}()");
+            handlerSource.AppendLine("    {");
+            if (scene != null)
+            {
+                string bodySource = statements.ToString();
+                if (bodySource.Contains("evt.", StringComparison.Ordinal))
+                    handlerSource.AppendLine("        var evt = ctx.Scene;");
+                if (bodySource.Contains("scripts.", StringComparison.Ordinal))
+                    handlerSource.AppendLine("        var scripts = ctx.Scripts;");
+            }
+            int statementOffset = handlerSource.Length;
+            handlerSource.Append(statements);
+            handlerSource.AppendLine("    }");
+            if (handlerSource != destination)
+                destination.Append(cutscenes!.Rewrite(obj.Id, id, index, typeName, handlerSource.ToString(), storage, formatter.LabelName, statementOffset, formatter.InstructionOffsets));
         }
         source.AppendLine("}");
         return source.ToString();
     }
+
+    private static bool CanUseNative(EventControlFlowFormatter formatter) => !formatter.HasRawTransfer;
 
     private static bool HasVisibleJumpTargets(string statements)
     {
@@ -229,9 +499,26 @@ public static class EventProjectExporter
                 return false;
         }
 
-        return body.DescendantNodes().OfType<GotoStatementSyntax>().All(jump =>
-            jump.Expression is IdentifierNameSyntax target && scopes.TryGetValue(target.Identifier.ValueText, out var scope) &&
-            jump.Ancestors().Contains(scope));
+        foreach (GotoStatementSyntax jump in body.DescendantNodes().OfType<GotoStatementSyntax>())
+        {
+            if (jump.Kind() == SyntaxKind.GotoStatement)
+            {
+                if (jump.Expression is not IdentifierNameSyntax target || !scopes.TryGetValue(target.Identifier.ValueText, out var scope) ||
+                    !jump.Ancestors().Contains(scope))
+                    return false;
+                continue;
+            }
+
+            SwitchStatementSyntax? selection = jump.Ancestors().OfType<SwitchStatementSyntax>().FirstOrDefault();
+            if (selection == null || !selection.Sections.SelectMany(section => section.Labels).Any(label => label switch
+                {
+                    CaseSwitchLabelSyntax entry => jump.Kind() == SyntaxKind.GotoCaseStatement && entry.Value.IsEquivalentTo(jump.Expression),
+                    DefaultSwitchLabelSyntax => jump.Kind() == SyntaxKind.GotoDefaultStatement,
+                    _ => false
+                }))
+                return false;
+        }
+        return true;
     }
 
     private static int TrailingPadding(EVInstructionBody body)
@@ -247,7 +534,7 @@ public static class EventProjectExporter
         return body.Instructions.Count - end;
     }
 
-    private static string FormatInstruction(EVInstruction instruction, StorageDeclarations storage)
+    private static string FormatInstruction(EVInstruction instruction, StorageDeclarations storage, EventSceneSymbols? scene, bool actingActor, IReadOnlyDictionary<int, CutsceneExport.Scene> directors)
     {
         if (instruction.Opcode == Jsm.Opcode.EXPR)
         {
@@ -276,6 +563,48 @@ public static class EventProjectExporter
         if (!SourceInstruction.TryGet(instruction, out SourceInstruction? operation))
             return CallWithTail($"Emit({opcode}, {mask}", instruction.Operands.Select(operand => FormatOperand(operand, storage)));
 
+        string animationReceiver = scene != null && actingActor ? "Animation" : "CharacterEffects.ActingAnimation";
+        if (CharacterEffectSource.Format(instruction, animationReceiver, operand => FormatOperand(operand, storage)) is { } effect)
+            return effect;
+
+        if (instruction.Opcode == Jsm.Opcode.NEW && instruction.Operands is [{ Expression: null } definition, { Expression: null, Value: 0 }] &&
+            directors.TryGetValue(definition.Value, out var director))
+            return $"scripts.StartDirector(ctx.{director.Name}.Direct)";
+
+        if (scene != null && instruction.Opcode is Jsm.Opcode.NEW or Jsm.Opcode.NEW2 or Jsm.Opcode.NEW3 &&
+            instruction.Operands.All(operand => operand.Expression == null) &&
+            scene.Participants.TryGetValue(instruction.Operands[0].Value, out var participant) &&
+            participant.Kind == (int)instruction.Opcode - (int)Jsm.Opcode.NEW)
+        {
+            int uid = instruction.Operands[1].Value;
+            string explicitUid = uid == 0 ? "" : $", new InstanceUid({uid})";
+            return $"scripts.{operation.Method}(evt.{participant.Name}{explicitUid})";
+        }
+        if (scene != null && instruction.Opcode == Jsm.Opcode.STARTSEQ &&
+            instruction.Operands[0] is { Expression: null } entry && scene.Participants.TryGetValue(entry.Value, out var sequence))
+        {
+            string explicitMask = instruction.ArgumentMask == SourceInstruction.InferMask(instruction.Opcode, instruction.Operands) ? "" : $", mask: {mask}";
+            return $"scripts.{operation.Method}(evt.{sequence.Name}{explicitMask})";
+        }
+        if (scene != null && instruction.Opcode is Jsm.Opcode.REQ or Jsm.Opcode.REQSW or Jsm.Opcode.REQEW &&
+            instruction.Operands[1].Expression == null && instruction.Operands[2].Expression == null)
+        {
+            int uid = instruction.Operands[1].Value;
+            int tag = instruction.Operands[2].Value;
+            var instance = scene.InstanceHandler(uid, tag);
+            string? handler = instance?.Method ?? scene.HandlerReceiver(uid, tag);
+            if (handler != null)
+            {
+                string awaitPrefix = instruction.Opcode == Jsm.Opcode.REQ ? "" : "await ";
+                string level = FormatOperand(instruction.Operands[0], storage);
+                if (instruction.Operands[0].Expression != null)
+                    level = $"(int)({level})";
+                string instanceArgument = instance.HasValue ? $", instance: new InstanceUid({uid})" : "";
+                string explicitMask = instruction.ArgumentMask == SourceInstruction.InferMask(instruction.Opcode, instruction.Operands) ? "" : $", mask: {mask}";
+                return $"{awaitPrefix}scripts.{operation.Method}({handler}, level: {level}{instanceArgument}{explicitMask})";
+            }
+        }
+
         var arguments = new List<string>();
         for (int index = 0; index < operation.Operands.Length; index++)
         {
@@ -287,7 +616,11 @@ public static class EventProjectExporter
         if (operation.HasMask && instruction.ArgumentMask != SourceInstruction.InferMask(instruction.Opcode, instruction.Operands))
             arguments.Add($"mask: {mask}");
         string awaitKeyword = SourceInstruction.SuspensionOf(instruction.Opcode) == Suspension.Immediate ? "" : "await ";
-        return $"{awaitKeyword}{operation.Service}.{operation.Method}({string.Join(", ", arguments)})";
+        string receiver = scene != null && actingActor && operation.UsesActingAnimation ? "Animation" :
+            scene != null && actingActor && operation.UsesActingActor ? "Actions" : operation.Service;
+        string method = instruction.Opcode == Jsm.Opcode.FICON && instruction.Operands[0] is { Expression: null } icon &&
+            Enum.IsDefined((global::EvilForest.EventSource.BubbleSymbol)icon.Value) ? "Bubble" : operation.Method;
+        return $"{awaitKeyword}{receiver}.{method}({string.Join(", ", arguments)})";
     }
 
     private static string FormatServiceOperand(EVInstruction instruction, int index, string name, StorageDeclarations storage)
@@ -297,6 +630,15 @@ public static class EventProjectExporter
             return FormatOperand(operand, storage);
 
         int value = operand.Value;
+        if (instruction.Opcode == Jsm.Opcode.FICON && Enum.IsDefined((global::EvilForest.EventSource.BubbleSymbol)value))
+            return $"BubbleSymbol.{(global::EvilForest.EventSource.BubbleSymbol)value}";
+        if (instruction.Opcode == Jsm.Opcode.BGIMASK)
+        {
+            if (value == 127)
+                return "TriangleAttributeMask.All & ~TriangleAttributeMask.RestrictPlayer";
+            if (Enum.IsDefined((global::EvilForest.EventSource.TriangleAttributeMask)value))
+                return $"TriangleAttributeMask.{(global::EvilForest.EventSource.TriangleAttributeMask)value}";
+        }
         if (name == "model" && DB.Models.TryGetValue((DBModel.Id)value, out DBModel? model))
             return ResourceCatalog.Qualify(model.FileName, value);
         if (name == "animation" && DB.Animations.TryGetValue((DBAnimation.Id)value, out DBAnimation? animation))

@@ -3,10 +3,21 @@ using System;
 namespace EvilForest.EventSource;
 
 [AttributeUsage(AttributeTargets.Assembly)]
-public sealed class EventLayoutAttribute(string header, string trailer) : Attribute
+public sealed class EventFormatAttribute(byte version) : Attribute
 {
+    public byte Version { get; } = version;
+}
+
+[AttributeUsage(AttributeTargets.Assembly)]
+public sealed class EventLayoutAttribute(string header, string trailer, int objectCount) : Attribute
+{
+    public EventLayoutAttribute(string header, string trailer) : this(header, trailer, -1)
+    {
+    }
+
     public string Header { get; } = header;
     public string Trailer { get; } = trailer;
+    public int ObjectCount { get; } = objectCount;
 }
 
 [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = true)]
@@ -30,6 +41,19 @@ public sealed class ObjectSlotAttribute(int id, byte variableCount, byte flags, 
     public string Prefix { get; } = prefix;
 }
 
+[AttributeUsage(AttributeTargets.Assembly)]
+public sealed class ControlledActorContractAttribute(int slot) : Attribute
+{
+    public int Slot { get; } = slot;
+}
+
+[AttributeUsage(AttributeTargets.Method)]
+public sealed class OriginalDuplicateTagAttribute(ushort tag, int directoryIndex) : Attribute
+{
+    public ushort Tag { get; } = tag;
+    public int DirectoryIndex { get; } = directoryIndex;
+}
+
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class ScriptAttribute(ushort id, int directoryIndex) : Attribute
 {
@@ -44,6 +68,27 @@ public sealed class SwitchLayoutAttribute(string key, SwitchTable table, string 
     public SwitchTable Table { get; } = table;
     public string Order { get; } = order;
     public bool FallsThrough { get; } = fallsThrough;
+    public string TransferExitSections { get; set; } = "";
+    public string ThreadedExitSections { get; set; } = "";
+    public string FallThroughSections { get; set; } = "";
+    public bool HasUnreachablePrefix { get; set; }
+    public int MergedCaseSection { get; set; } = -1;
+    public bool ThreadDefaultExit { get; set; }
+}
+
+[AttributeUsage(AttributeTargets.Method)]
+public sealed class OmitUnreachablePollingExitAttribute : Attribute
+{
+}
+
+[AttributeUsage(AttributeTargets.Method)]
+public sealed class PreserveEmptyJumpsAttribute : Attribute
+{
+}
+
+[AttributeUsage(AttributeTargets.Method)]
+public sealed class ShareSwitchCaseActionsAttribute : Attribute
+{
 }
 
 [AttributeUsage(AttributeTargets.Method)]
@@ -87,6 +132,29 @@ public sealed class ScriptMemory(byte[] globals, byte[] location, byte[] instanc
         Current.Value = this;
         return new Restore(previous);
     }
+
+    public static ref T View<T>(StorageScope scope) where T : unmanaged =>
+        ref System.Runtime.InteropServices.MemoryMarshal.AsRef<T>(Buffer(scope).AsSpan());
+
+    private static readonly System.Collections.Concurrent.ConcurrentDictionary<(Type Owner, string Name), StorageViewAttribute> Views = new();
+
+    public static int ReadView(Type owner, [System.Runtime.CompilerServices.CallerMemberName] string name = "")
+    {
+        StorageViewAttribute view = GetView(owner, name);
+        return Read(view.Scope, view.Type, view.Address);
+    }
+
+    public static void WriteView(Type owner, int value, [System.Runtime.CompilerServices.CallerMemberName] string name = "")
+    {
+        StorageViewAttribute view = GetView(owner, name);
+        Write(view.Scope, view.Type, view.Address, value);
+    }
+
+    private static StorageViewAttribute GetView(Type owner, string name) => Views.GetOrAdd((owner, name), static key =>
+        (StorageViewAttribute?)Attribute.GetCustomAttribute(key.Owner.GetProperty(key.Name,
+            System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Static)
+            ?? throw new MissingMemberException(key.Owner.FullName, key.Name), typeof(StorageViewAttribute))
+        ?? throw new InvalidOperationException($"Missing storage declaration for {key.Owner.FullName}.{key.Name}."));
 
     public static int Read(StorageScope scope, StorageType type, int address)
     {
@@ -150,6 +218,7 @@ public sealed class TrailingPaddingAttribute(int count) : Attribute
 [System.Runtime.CompilerServices.AsyncMethodBuilder(typeof(EventRoutineBuilder))]
 public readonly struct EventRoutine(System.Threading.Tasks.Task completion)
 {
+    public System.Runtime.CompilerServices.TaskAwaiter GetAwaiter() => Completion.GetAwaiter();
     public System.Threading.Tasks.Task Completion { get; } = completion;
 
     public static EventRoutine Run(Action handler)
